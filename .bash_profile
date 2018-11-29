@@ -2,23 +2,23 @@
 ## NVM (node version manager. Install with brew)
 
 # NVM default setup
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # lazy setup nvm
-lazynvm() {
-  unset -f nvm node npm npx ionic #ADD_NEW_GLOBAL_PACKAGES HERE#
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-}
+# lazynvm() {
+#   unset -f nvm node npm npx ionic #ADD_NEW_GLOBAL_PACKAGES HERE#
+#   export NVM_DIR=~/.nvm
+#   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# }
 
-nvm() { lazynvm nvm $@ }
-node() { lazynvm node $@ }
-npm() { lazynvm npm $@ }
-npx() { lazynvm npx $@ }
-ionic() { lazynvm ionic $@ }
+# nvm() { lazynvm nvm $@ }
+# node() { lazynvm node $@ }
+# npm() { lazynvm npm $@ }
+# npx() { lazynvm npx $@ }
+# ionic() { lazynvm ionic $@ }
 #ADD_NEW_GLOBAL_PACKAGES HERE#
 
 ## /NVM

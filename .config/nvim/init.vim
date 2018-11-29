@@ -1,0 +1,24 @@
+call plug#begin('~/.local/share/nvim/plugged')
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+call plug#end()
+
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+set tabstop=4
+set softtabstop=4 noexpandtab
+set shiftwidth=4
+
+" https://github.com/Shougo/deoplete.nvim/issues/432<Paste>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

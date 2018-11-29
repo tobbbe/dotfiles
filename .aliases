@@ -1,0 +1,4 @@
+alias dev="cd ~/Dev && clear"
+alias zshconfig="code ~/.zshrc"
+alias bashconfig="code ~/.bash_profile"
+alias please="npm"

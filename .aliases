@@ -13,3 +13,4 @@ alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line
 alias gs="git status"
 alias v="nvim"
 alias cpwd="pwd | tr -d '\n' | pbcopy && echo '$PWD copied to clipboard'"
+alias fb="fb-messenger-cli"

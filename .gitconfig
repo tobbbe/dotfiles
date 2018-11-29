@@ -1,0 +1,6 @@
+# Detta är Gits användarspecifika konfigurationsfil
+[user]
+	name = Tobias Ekman
+	email = tobias@toxic.se
+[core]
+	excludesfile = /Users/tobbe/.gitignore

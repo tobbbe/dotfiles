@@ -1,4 +1,12 @@
 alias dev="cd ~/Dev && clear"
-alias zshconfig="code ~/.zshrc"
-alias bashconfig="code ~/.bash_profile"
 alias please="npm"
+alias dotfiles="code -n ~/dotfiles/"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias week='date +%V'
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias c="tr -d '\n' | pbcopy" #ex: ip | c (your ip will be added to clipboard)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock the screen
+alias reload="exec ${SHELL} -l"
+alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line

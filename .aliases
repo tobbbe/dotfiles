@@ -1,5 +1,6 @@
 alias dev="cd ~/Dev && clear"
 alias please="npm"
+alias cc="clear"
 alias dotfiles="code -n ~/dotfiles/"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"

@@ -1,5 +1,7 @@
 alias dev="cd ~/Dev && clear"
 alias please="npm"
+alias andemu="emulator -avd Nexus_5X_API_28_x86" #https://developer.android.com/studio/run/emulator-commandline
+alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 alias cc="clear"
 alias dotfiles="code -n ~/dotfiles/"
 alias dl="cd ~/Downloads"

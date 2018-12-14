@@ -1,6 +1,7 @@
 # run with `sh setup.s` OR use `reload` in terminal
 
 # This may overwrite existing files in your home directory
+# But will NOT remove files that doesnt exist in dotfiles-repo
 rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".osx" \

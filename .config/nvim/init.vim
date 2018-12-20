@@ -22,3 +22,5 @@ set shiftwidth=4
 " https://github.com/Shougo/deoplete.nvim/issues/432<Paste>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+:imap jj <Esc>

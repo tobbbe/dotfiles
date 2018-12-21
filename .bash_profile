@@ -36,4 +36,5 @@ export PATH=$PATH:$ANDROID_HOME/emulator # make sure this is BEFORE /tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/build-tools/28.0.3
 export LANG=en_US.UTF-8

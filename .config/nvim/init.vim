@@ -24,3 +24,5 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 :imap jj <Esc>
+let mapleader = "\<space>"
+nnoremap <Leader>w :w<CR>

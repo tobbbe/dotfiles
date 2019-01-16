@@ -24,5 +24,8 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 :imap jj <Esc>
+:autocmd InsertLeave * silent! update
 let mapleader = "\<space>"
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>e :E<CR>
+nnoremap <esc> :noh<return><esc>

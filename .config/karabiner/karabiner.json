@@ -218,7 +218,7 @@
 									}
 								],
 								"from": {
-									"key_code": "left_alt",
+									"key_code": "right_alt",
 									"modifiers": {
 										"optional": [
 											"any"
@@ -227,7 +227,7 @@
 								},
 								"to": [
 									{
-										"key_code": "left_command"
+										"key_code": "right_command"
 									}
 								],
 								"to_if_alone": [
@@ -259,7 +259,7 @@
 									}
 								],
 								"from": {
-									"key_code": "left_command",
+									"key_code": "right_command",
 									"modifiers": {
 										"optional": [
 											"any"
@@ -268,7 +268,7 @@
 								},
 								"to": [
 									{
-										"key_code": "left_command"
+										"key_code": "right_command"
 									}
 								],
 								"to_if_alone": [

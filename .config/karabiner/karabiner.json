@@ -197,85 +197,31 @@
 						]
 					},
 					{
-						"description": "(ON MAC) if you click left_command (left_alt) alone show ALFRED",
+						"description": "show ALFRED app",
 						"manipulators": [
 							{
-								"conditions": [
-									{
-										"identifiers": [
-											{
-												"product_id": 17733,
-												"vendor_id": 1241
-											}
-										],
-										"type": "device_if"
-									},
-									{
-										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
 								"from": {
-									"key_code": "left_alt",
-									"modifiers": {
-										"optional": [
-											"any"
-										]
-									}
+									"key_code": "grave_accent_and_tilde"
 								},
-								"to": [
+								"to_if_held_down": [
 									{
-										"key_code": "left_command"
-									}
-								],
-								"to_if_alone": [
-									{
-										"key_code": "spacebar",
+										"halt": true,
+										"key_code": "t",
 										"modifiers": [
+											"left_shift",
+											"left_control",
+											"left_command",
 											"left_option"
 										]
 									}
 								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
-									{
-										"identifiers": [
-											{
-												"product_id": 17733,
-												"vendor_id": 1241
-											}
-										],
-										"type": "device_unless"
-									},
-									{
-										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
-								"from": {
-									"key_code": "left_command",
-									"modifiers": {
-										"optional": [
-											"any"
-										]
-									}
-								},
-								"to": [
-									{
-										"key_code": "left_command"
-									}
-								],
 								"to_if_alone": [
 									{
+										"halt": true,
 										"key_code": "spacebar",
 										"modifiers": [
-											"left_option"
+											"left_shift",
+											"left_command"
 										]
 									}
 								],

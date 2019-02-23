@@ -197,7 +197,7 @@
 						]
 					},
 					{
-						"description": "show ALFRED app",
+						"description": "show ALFRED and terminal",
 						"manipulators": [
 							{
 								"from": {

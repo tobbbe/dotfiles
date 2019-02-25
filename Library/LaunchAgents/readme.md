@@ -3,6 +3,14 @@
 http://www.launchd.info/
 https://blog.jan-ahrens.eu/2017/01/13/cron-is-dead-long-live-launchd.html
 https://superuser.com/a/126928/359722
+https://www.christianengvall.se/schedule-script-in-osx/
+
+## IMPORTANT
+I dont think you need to put the plist-files in /LaunchAgens-folder. you can just do:
+start with `launchctl load Library/LaunchAgents/tobbe.check-web.plist`
+stop with `launchctl unload Libr`ry/LaunchAgents/tobbe.check-web.plist`
+list daemons running `launchctl list`
+find if your script is running `launchctl list | grep com.your.label`
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>

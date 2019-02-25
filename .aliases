@@ -23,3 +23,5 @@ alias v="nvim"
 alias cpwd="pwd | tr -d '\n' | pbcopy && echo '$PWD copied to clipboard'"
 alias fb="fb-messenger-cli"
 alias finderpath="osascript -e 'tell application \"Finder\" to get the POSIX path of (target of front window as alias)'"
+# which code => returns where code command in terminal is installed!
+# someputput grep cool => returns likes where "cool" exist in someoutput

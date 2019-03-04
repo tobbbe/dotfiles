@@ -141,4 +141,6 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source ~/.bash_profile

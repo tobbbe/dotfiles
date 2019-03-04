@@ -10,4 +10,6 @@ Lots of things is from here: https://github.com/mathiasbynens/dotfiles
 	http://www.launchd.info/
 	https://superuser.com/questions/126907/how-can-i-get-a-script-to-run-every-day-on-mac-os-x
 	https://medium.com/@chetcorcos/a-simple-launchd-tutorial-9fecfcf2dbb3
-	
+
+# install node with nvm
+if you update node with nvm, migrate global packages: https://github.com/creationix/nvm#migrating-global-packages-while-installing

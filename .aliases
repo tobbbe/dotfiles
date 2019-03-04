@@ -23,5 +23,8 @@ alias v="nvim"
 alias cpwd="pwd | tr -d '\n' | pbcopy && echo '$PWD copied to clipboard'"
 alias fb="fb-messenger-cli"
 alias finderpath="osascript -e 'tell application \"Finder\" to get the POSIX path of (target of front window as alias)'"
+alias listglobalnodepkgs="npm ls -g --depth=0"
+alias f="z"
+
 # which code => returns where code command in terminal is installed!
-# someputput grep cool => returns likes where "cool" exist in someoutput
+# someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |

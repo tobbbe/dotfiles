@@ -670,7 +670,7 @@
 					},
 					{
 						"description": "(ON MAC) Change right_alt to cmd",
-						"manipulators": [
+						"asssssssssssssmanipulators": [
 							{
 								"conditions": [
 									{

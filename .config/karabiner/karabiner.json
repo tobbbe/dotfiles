@@ -414,7 +414,7 @@
 					},
 					{
 						"description": "Toggle parallels",
-						"manipulators": [
+						"alternative_manipulators": [
 							{
 								"conditions": [
 									{
@@ -472,7 +472,7 @@
 								"type": "basic"
 							}
 						],
-						"old_manipulators": [
+						"manipulators": [
 							{
 								"conditions": [
 									{
@@ -492,6 +492,7 @@
 								},
 								"to": [
 									{
+										"halt": true,
 										"key_code": "right_arrow",
 										"modifiers": [
 											"left_control"
@@ -519,6 +520,7 @@
 								},
 								"to": [
 									{
+										"halt": true,
 										"key_code": "left_arrow",
 										"modifiers": [
 											"left_control"

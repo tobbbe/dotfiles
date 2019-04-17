@@ -705,6 +705,55 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "Home and End on Mac",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "home"
+								},
+								"to": [
+									{
+										"key_code": "left_arrow",
+										"modifiers": [
+											"left_command"
+										]
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "end"
+								},
+								"to": [
+									{
+										"key_code": "right_arrow",
+										"modifiers": [
+											"left_command"
+										]
+									}
+								],
+								"type": "basic"
+							}
+						]
 					}
 				]
 			},

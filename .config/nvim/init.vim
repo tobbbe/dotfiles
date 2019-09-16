@@ -29,3 +29,4 @@ let mapleader = "\<space>"
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>e :E<CR>
 nnoremap <esc> :noh<return><esc>
+nnoremap <F6> :w<CR>

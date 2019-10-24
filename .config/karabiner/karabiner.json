@@ -830,6 +830,26 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "Show desktop 1",
+						"manipulators": [
+							{
+								"from": {
+									"key_code": "escape"
+								},
+								"to_if_held_down": [
+									{
+										"halt": true,
+										"key_code": "1",
+										"modifiers": [
+											"left_control"
+										]
+									}
+								],
+								"type": "basic"
+							}
+						]
 					}
 				]
 			},

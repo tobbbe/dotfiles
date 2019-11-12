@@ -1,8 +1,6 @@
 # dotfiles
 Update with `sh update.sh`
 
-Lots of things is from here: https://github.com/mathiasbynens/dotfiles
-
 # todo
 - scheduled tasks. Ex: move todo to repo and auto-push https://bitbucket.org/tobbbbe/todo/src
 	- launchd
@@ -13,3 +11,6 @@ Lots of things is from here: https://github.com/mathiasbynens/dotfiles
 
 # install node with nvm
 if you update node with nvm, migrate global packages: https://github.com/creationix/nvm#migrating-global-packages-while-installing
+
+# good stuff
+https://github.com/mathiasbynens/dotfiles

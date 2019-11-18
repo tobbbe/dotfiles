@@ -39,12 +39,12 @@ function dataurl() {
 }
 
 function gg() {
-	local message="${@:-ass}";
+	local message="${@:-no message}";
 	git add -A && git commit -m "${message}" && git push
 }
 
 function ggg() {
-	local message="${@:-ass}";
+	local message="${@:-no message}";
 	git add -A && git commit -m "${message}"
 }
 

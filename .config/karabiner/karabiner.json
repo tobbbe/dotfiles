@@ -27,7 +27,6 @@
 									}
 								],
 								"from": {
-									"NOT_USED_KEYCODE": "grave_accent_and_tilde",
 									"key_code": "caps_lock",
 									"modifiers": {
 										"mandatory": [
@@ -56,7 +55,6 @@
 									}
 								],
 								"from": {
-									"NOT_USED_KEYCODE": "grave_accent_and_tilde",
 									"key_code": "caps_lock",
 									"modifiers": {
 										"mandatory": [
@@ -490,8 +488,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "open -a 'Firefox.app'",
-										"ssssshell_command": "open -a 'Google Chrome.app'"
+										"shell_command": "open -a 'Firefox.app'"
 									}
 								]
 							},

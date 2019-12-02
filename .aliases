@@ -29,3 +29,4 @@ alias hosts="sudo nvim /etc/hosts"
 
 # which code => returns where code command in terminal is installed!
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |
+# list of devices on network => arp -a

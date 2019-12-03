@@ -26,6 +26,7 @@ alias finderpath="osascript -e 'tell application \"Finder\" to get the POSIX pat
 alias listglobalnodepkgs="npm ls -g --depth=0"
 alias f="z"
 alias hosts="sudo nvim /etc/hosts"
+alias networkname="echo '$(scutil --get LocalHostName).local'"
 
 # which code => returns where code command in terminal is installed!
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |

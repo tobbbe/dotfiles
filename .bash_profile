@@ -1,27 +1,25 @@
 
 ## NVM (node version manager. Install with brew)
 
-# NVM default setup
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+load_nvm () {
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
 
-# lazy setup nvm
-# lazynvm() {
-#   unset -f nvm node npm npx ionic #ADD_NEW_GLOBAL_PACKAGES HERE#
-#   export NVM_DIR=~/.nvm
-#   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# }
+# default setup
+# load_nvm
 
-# nvm() { lazynvm nvm $@ }
-# node() { lazynvm node $@ }
-# npm() { lazynvm npm $@ }
-# npx() { lazynvm npx $@ }
-# ionic() { lazynvm ionic $@ }
-#ADD_NEW_GLOBAL_PACKAGES HERE#
+# lazy setup (http://broken-by.me/lazy-load-nvm/)
+declare -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+NODE_GLOBALS+=("node")
+NODE_GLOBALS+=("nvm")
+for cmd in "${NODE_GLOBALS[@]}"; do
+    eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+done
+# end lazy setup nvm
 
-## /NVM
+## end NVM
 
 
 # Load the shell dotfiles:

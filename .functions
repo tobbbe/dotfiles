@@ -52,3 +52,9 @@ function ggg() {
 function getProcessByPort() {
 	lsof -n -i4TCP:$@
 }
+
+nf() {
+	cd "/Users/tobbe/Google Drive/Work/todo"
+	v -c 'startinsert'
+	cd -
+}

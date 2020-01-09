@@ -27,6 +27,7 @@ alias listglobalnodepkgs="npm ls -g --depth=0"
 alias f="z"
 alias hosts="sudo nvim /etc/hosts"
 alias networkname="echo '$(scutil --get LocalHostName).local'"
+alias gsd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo && echo {} && cd {} && git status -s)' \;"
 
 # which code => returns where code command in terminal is installed!
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |

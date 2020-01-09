@@ -9,6 +9,9 @@ https://www.christianengvall.se/schedule-script-in-osx/
 I dont think you need to put the plist-files in /LaunchAgens-folder. you can just do:
 start with `launchctl load dev/dir/com.example.plist`
 stop with `launchctl unload dev/dir/com.example.plist`
+
+BUT! files that are placed in /LaunchAgens-folder are autostarted when computer starts
+
 list daemons running `launchctl list`
 find if your script is running `launchctl list | grep com.example`
 

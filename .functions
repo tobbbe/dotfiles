@@ -58,3 +58,8 @@ nf() {
 	v -c 'startinsert'
 	cd -
 }
+
+function g() {
+	local message="${@:-}";
+	open https://www.google.com/search?q="${message}"
+}

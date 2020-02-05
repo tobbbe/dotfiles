@@ -267,22 +267,22 @@
 								"to_if_held_down": [
 									{
 										"halt": true,
-										"key_code": "t",
+										"key_code": "spacebar",
 										"modifiers": [
 											"left_shift",
-											"left_control",
-											"left_command",
-											"left_option"
+											"left_command"
 										]
 									}
 								],
 								"to_if_alone": [
 									{
 										"halt": true,
-										"key_code": "spacebar",
+										"key_code": "t",
 										"modifiers": [
 											"left_shift",
-											"left_command"
+											"left_control",
+											"left_command",
+											"left_option"
 										]
 									}
 								],

@@ -864,6 +864,39 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "send ctrl+space (accept and execute suggestion) in iterm",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.googlecode\\.iterm2$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "return_or_enter",
+									"modifiers": {
+										"mandatory": [
+											"left_command"
+										]
+									}
+								},
+								"to": [
+									{
+										"halt": true,
+										"key_code": "spacebar",
+										"modifiers": [
+											"left_control"
+										]
+									}
+								],
+								"type": "basic"
+							}
+						]
 					}
 				]
 			},

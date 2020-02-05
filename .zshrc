@@ -141,6 +141,8 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
+bindkey '^ ' autosuggest-execute # requires rule "send ctrl+space" in karabiner.json
+
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/.bash_profile

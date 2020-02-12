@@ -14,3 +14,13 @@ if you update node with nvm, migrate global packages: https://github.com/creatio
 
 # good stuff
 https://github.com/mathiasbynens/dotfiles
+
+
+# set shells (logout+login after change)
+zsh (default on mac): `chsh -s $(which zsh)` or if thats not working: `chsh -s /bin/zsh`
+fish: `chsh -s /usr/local/bin/fish`
+
+# temporary swich shell
+in terminal, type:
+`zsh`
+`fish`

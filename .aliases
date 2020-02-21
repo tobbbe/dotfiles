@@ -30,7 +30,7 @@ alias networkname="echo '$(scutil --get LocalHostName).local'"
 alias gsd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo && echo {} && cd {} && git status -s)' \;"
 
 alias rni="npx react-native run-ios --simulator=\"iPhone 11\""
-alias rrni="npx react-native run-ios --simulator=\"iPhone 11\" --configuration Release"
+alias prodrni="npx react-native run-ios --simulator=\"iPhone 11\" --configuration Release"
 alias rna="npx react-native run-android"
 
 # which code => returns where code command in terminal is installed!

@@ -897,6 +897,39 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "send cmd+space when in parallels",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "spacebar",
+									"modifiers": {
+										"mandatory": [
+											"left_control"
+										]
+									}
+								},
+								"to": [
+									{
+										"halt": true,
+										"key_code": "spacebar",
+										"modifiers": [
+											"left_command"
+										]
+									}
+								],
+								"type": "basic"
+							}
+						]
 					}
 				]
 			},

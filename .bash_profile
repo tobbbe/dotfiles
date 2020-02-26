@@ -29,6 +29,11 @@ done;
 unset file;
 
 
+# there is 3 ways to add programs to be executable:
+# (not recommended) add lines to /etc/paths
+# `export PATH=$PATH:path/to/program` in .bash_profile will add paths at the end of your $PATH
+# `ln -s /path/to/some/program /usr/local/bin/program` will create a symlink to /usr/local/bin/ which is already in /etc/paths
+
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator # make sure this is BEFORE /tools
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -37,3 +42,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/build-tools/28.0.3
 export LANG=en_US.UTF-8
 export PATH=$PATH:"/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
+export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"

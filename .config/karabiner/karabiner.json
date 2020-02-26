@@ -930,6 +930,26 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "right command to alfred",
+						"manipulators": [
+							{
+								"from": {
+									"key_code": "right_gui"
+								},
+								"to": [
+									{
+										"halt": true,
+										"key_code": "spacebar",
+										"modifiers": [
+											"left_command"
+										]
+									}
+								],
+								"type": "basic"
+							}
+						]
 					}
 				]
 			},

@@ -34,6 +34,6 @@ alias rni="npx react-native run-ios --simulator=\"iPhone 11\""
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 11\" --configuration Release"
 alias rna="npx react-native run-android"
 
-# which code => returns where code command in terminal is installed!
+# which code => returns where code command in terminal is installed! if node or global node module, make sure to run command first. ex: `node -v` then `which node`
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |
 # list of devices on network => arp -a

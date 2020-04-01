@@ -1,3 +1,5 @@
+#zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -113,7 +115,7 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   # hg            # Mercurial section (hg_branch  + hg_status)
   # package       # Package version
-  node          # Node.js section
+  # node          # Node.js section 		# THIS WILL GET SLOW BECAUSE OF NVM LAZYLOAD :(
   #ruby          # Ruby section
   #elixir        # Elixir section
   #xcode         # Xcode section
@@ -146,3 +148,5 @@ bindkey '^ ' autosuggest-execute # requires rule "send ctrl+space" in karabiner.
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/.bash_profile
+
+#zprof

@@ -960,11 +960,19 @@
 						"manipulators": [
 							{
 								"from": {
-									"key_code": "right_gui"
+									"key_code": "left_shift",
+									"modifiers": {
+										"optional": ["any"]
+									}
 								},
 								"to": [
 									{
-										"halt": true,
+											"key_code": "left_shift",
+											"lazy": true
+									}
+								],
+								"to_if_alone": [
+									{
 										"key_code": "spacebar",
 										"modifiers": [
 											"left_command"

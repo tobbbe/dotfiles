@@ -1,6 +1,6 @@
 alias d="cd ~/Dev && clear"
 alias please="npm"
-alias andemu="emulator -avd Pixel_2_API_28" #https://developer.android.com/studio/run/emulator-commandline
+alias andemu="emulator -avd pixel2android10" #https://developer.android.com/studio/run/emulator-commandline
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 alias cc="clear"
 # alias dotfiles="code -n ~/dotfiles/"

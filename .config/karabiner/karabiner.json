@@ -24,6 +24,12 @@
 											"^com\\.parallels\\.desktop\\.console$"
 										],
 										"type": "frontmost_application_unless"
+									},
+									{
+										"type": "device_if",
+										"identifiers": [
+												{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
 									}
 								],
 								"from": {
@@ -36,7 +42,6 @@
 								},
 								"to": [
 									{
-										"halt": true,
 										"key_code": "right_arrow",
 										"modifiers": [
 											"left_control"
@@ -52,19 +57,24 @@
 											"^com\\.parallels\\.desktop\\.console$"
 										],
 										"type": "frontmost_application_if"
+									},
+									{
+										"type": "device_if",
+										"identifiers": [
+												{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
 									}
 								],
 								"from": {
 									"key_code": "caps_lock",
 									"modifiers": {
 										"mandatory": [
-											"left_command"
+											"left_alt"
 										]
 									}
 								},
 								"to": [
 									{
-										"halt": true,
 										"key_code": "left_arrow",
 										"modifiers": [
 											"left_control"
@@ -291,28 +301,24 @@
 						]
 					},
 					{
-						"description": "Switch cmd and alt on external windows keyboard",
+						"description": "Switch cmd and alt on keyboard",
 						"manipulators": [
 							{
 								"conditions": [
 									{
-										"identifiers": [
-											{
-												"product_id": 17733,
-												"vendor_id": 1241
-											}
-										],
-										"type": "device_if"
-									},
-									{
 										"bundle_identifiers": [
 											"^com\\.parallels\\.desktop\\.console$"
 										],
-										"type": "frontmost_application_unless"
+										"type": "frontmost_application_if"
 									}
 								],
 								"from": {
-									"key_code": "left_alt"
+									"key_code": "left_alt",
+									"modifiers": {
+										"optional": [
+											"any"
+										]
+									}
 								},
 								"to": [
 									{
@@ -324,23 +330,19 @@
 							{
 								"conditions": [
 									{
-										"identifiers": [
-											{
-												"product_id": 17733,
-												"vendor_id": 1241
-											}
-										],
-										"type": "device_if"
-									},
-									{
 										"bundle_identifiers": [
 											"^com\\.parallels\\.desktop\\.console$"
 										],
-										"type": "frontmost_application_unless"
+										"type": "frontmost_application_if"
 									}
 								],
 								"from": {
-									"key_code": "left_gui"
+									"key_code": "left_gui",
+									"modifiers": {
+										"optional": [
+											"any"
+										]
+									}
 								},
 								"to": [
 									{
@@ -649,40 +651,6 @@
 										"shell_command": "open -a 'Finder.app'"
 									}
 								]
-							}
-						]
-					},
-					{
-						"description": "(ON MAC) Change right_alt to cmd",
-						"asssssssssssssmanipulators": [
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
-								"from": {
-									"key_code": "right_alt",
-									"modifiers": {
-										"optional": [
-											"any"
-										]
-									}
-								},
-								"to": [
-									{
-										"key_code": "left_command"
-									}
-								],
-								"to_if_alone": [
-									{
-										"key_code": "escape"
-									}
-								],
-								"type": "basic"
 							}
 						]
 					},

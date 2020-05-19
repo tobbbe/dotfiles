@@ -71,7 +71,8 @@ plugins=(
   git,
   osx,
   zsh-autosuggestions,
-  z
+  z,
+  docker docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -125,14 +126,14 @@ SPACESHIP_PROMPT_ORDER=(
   #rust          # Rust section
   #haskell       # Haskell Stack section
   #julia         # Julia section
-  #docker        # Docker section
+  docker        # Docker section
   #aws           # Amazon Web Services section
-  #venv          # virtualenv section
+  venv          # virtualenv section
   #conda         # conda virtualenv section
-  #pyenv         # Pyenv section
+  pyenv         # Pyenv section
   dotnet        # .NET section
   #ember         # Ember.js section
-  #kubecontext   # Kubectl context section
+  kubecontext   # Kubectl context section
   #terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
@@ -148,5 +149,11 @@ bindkey '^ ' autosuggest-execute # requires rule "send ctrl+space" in karabiner.
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/.bash_profile
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tobbe/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tobbe/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tobbe/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tobbe/google-cloud-sdk/completion.zsh.inc'; fi
 
 #zprof

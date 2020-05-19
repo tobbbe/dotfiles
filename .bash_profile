@@ -28,6 +28,11 @@ done
 ## end NVM
 
 
+# python env version manager
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 
 # there is 3 ways to add programs to be executable:
 # (not recommended) add lines to /etc/paths

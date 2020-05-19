@@ -75,7 +75,7 @@
 								},
 								"to": [
 									{
-										"key_code": "left_arrow",
+										"key_code": "1",
 										"modifiers": [
 											"left_control"
 										]
@@ -301,15 +301,17 @@
 						]
 					},
 					{
-						"description": "Switch cmd and alt on keyboard",
+						"description": "Switch cmd and alt",
 						"manipulators": [
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
-										],
-										"type": "frontmost_application_if"
+										"bundle_identifiers": ["^com\\.parallels\\.desktop\\.console$"],
+										"type": "frontmost_application_unless"
+									},
+									{
+										"type": "device_unless",
+										"identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }]
 									}
 								],
 								"from": {
@@ -330,10 +332,64 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
-										],
+										"bundle_identifiers": ["^com\\.parallels\\.desktop\\.console$"],
+										"type": "frontmost_application_unless"
+									},
+									{
+										"type": "device_unless",
+										"identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }]
+									}
+								],
+								"from": {
+									"key_code": "left_gui",
+									"modifiers": {
+										"optional": [
+											"any"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "left_alt"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": ["^com\\.parallels\\.desktop\\.console$"],
 										"type": "frontmost_application_if"
+									},
+									{
+										"type": "device_if",
+										"identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }]
+									}
+								],
+								"from": {
+									"key_code": "left_alt",
+									"modifiers": {
+										"optional": [
+											"any"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "left_gui"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": ["^com\\.parallels\\.desktop\\.console$"],
+										"type": "frontmost_application_if"
+									},
+									{
+										"type": "device_if",
+										"identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }]
 									}
 								],
 								"from": {

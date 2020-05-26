@@ -48,3 +48,4 @@ export PATH=$PATH:$ANDROID_HOME/build-tools/28.0.3
 export LANG=en_US.UTF-8
 export PATH=$PATH:"/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
 export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+export PYTHONDONTWRITEBYTECODE=1

@@ -7,6 +7,7 @@ alias cc="clear"
 alias dotfiles="v ~/dotfiles/"
 # alias todo="code ~/Google\ Drive/Work/todo/"
 alias todo="v ~/Google\ Drive/Work/todo/todo.md"
+alias notes="v ~/Google\ Drive/Work/todo/notes.md"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias week='date +%V'

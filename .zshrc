@@ -38,7 +38,7 @@ ZSH_THEME="spaceship"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -126,14 +126,14 @@ SPACESHIP_PROMPT_ORDER=(
   #rust          # Rust section
   #haskell       # Haskell Stack section
   #julia         # Julia section
-  docker        # Docker section
+  #docker        # Docker section
   #aws           # Amazon Web Services section
   venv          # virtualenv section
   #conda         # conda virtualenv section
-  pyenv         # Pyenv section
-  dotnet        # .NET section
+  #pyenv         # Pyenv section
+  #dotnet        # .NET section
   #ember         # Ember.js section
-  kubecontext   # Kubectl context section
+  #kubecontext   # Kubectl context section
   #terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break

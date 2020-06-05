@@ -981,7 +981,7 @@
 					},
 					{
 						"description": "left_shift to alfred",
-						"manipulators": [
+						"mmmmmmanipulators": [
 							{
 								"from": {
 									"key_code": "left_shift",
@@ -1008,18 +1008,18 @@
 						]
 					},
 					{
-						"description": "left_control to slack cmd+k",
+						"description": "right_option to slack cmd+k",
 						"manipulators": [
 							{
 								"from": {
-									"key_code": "left_control",
+									"key_code": "right_option",
 									"modifiers": {
 										"optional": ["any"]
 									}
 								},
 								"to": [
 									{
-											"key_code": "left_control",
+											"key_code": "right_option",
 											"lazy": true
 									}
 								],

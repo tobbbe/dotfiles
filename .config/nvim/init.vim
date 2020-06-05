@@ -9,6 +9,8 @@ else
 endif
 let g:deoplete#enable_at_startup = 0
 
+Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
+
 call plug#end()
 
 

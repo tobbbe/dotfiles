@@ -152,6 +152,10 @@ source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/.bash_profile
 
+HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|..)"
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/tobbe/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tobbe/google-cloud-sdk/path.zsh.inc'; fi
 

@@ -144,6 +144,8 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
+unalias gg # https://github.com/qw3rtman/gg/issues/48
+
 bindkey '^ ' autosuggest-execute # requires rule "send ctrl+space" in karabiner.json
 
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

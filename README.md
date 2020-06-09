@@ -24,3 +24,19 @@ fish: `chsh -s /usr/local/bin/fish`
 in terminal, type:
 `zsh`
 `fish`
+
+# iterm keybindings
+set Presets.. to "Natural text editing" under Profile=>Keys
+
+OR:
+## Move curser forward/backward one word
+⌥+← — — Send Escape Sequence: b
+⌥+→ — — Send Escape Sequence: f
+## Move cursor to the start/end of the line
+⌘+← — — Send Hex Codes: 0x01
+⌘+→ — — Send Hex Codes: 0x05
+## Delete last/next word
+⌥+Backspace — — Send Hex Codes: 0x17
+⌥+Del — — Send Escape Sequence: d
+## Delete to start of line
+⌘+Backspace — — Send Hex Codes: 0x15

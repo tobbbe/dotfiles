@@ -27,8 +27,8 @@ in terminal, type:
 
 # iterm keybindings
 set Presets.. to "Natural text editing" under Profile=>Keys
+AND set SOME of these in pref=>keys (selection ex):
 
-OR:
 ## Move curser forward/backward one word
 ⌥+← — — Send Escape Sequence: b
 ⌥+→ — — Send Escape Sequence: f
@@ -40,3 +40,6 @@ OR:
 ⌥+Del — — Send Escape Sequence: d
 ## Delete to start of line
 ⌘+Backspace — — Send Hex Codes: 0x15
+## selection
+⇧+⌥+← | move start of sel back by word | select to the left by word
+⇧+⌥+→ | move end of sel forward by word | select to the right by word

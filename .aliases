@@ -37,3 +37,9 @@ alias rna="npx react-native run-android"
 # which code => returns where code command in terminal is installed! if node or global node module, make sure to run command first. ex: `node -v` then `which node`
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |
 # list of devices on network => arp -a
+
+# hestra
+alias hestra-run-web="docker-compose -f ~/Dev/hestra-fluidpim-api/docker-compose.yml up -d && docker-compose -f ~/Dev/hestra-layercms-datastore/docker-compose.yml up -d && npm start --prefix ~/Dev/hestra-layercms-frontend" 
+
+# sql logins
+alias sql-garo="mssql-cli -S 'umbwesrv07.database.windows.net,1433' -d 'hj1c1ygrw5o' -U 'b0fmrd4qxbk@umbwesrv07' -P 'N_x&_wsR{4(1vZZ!P.eS'"

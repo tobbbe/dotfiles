@@ -63,3 +63,7 @@ function g() {
 	local message="${@:-}";
 	open https://www.google.com/search?q="${message}"
 }
+
+function curlPost() {
+	curl -H "Content-Type: application/json" -X POST $@
+}

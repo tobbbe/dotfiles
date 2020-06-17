@@ -59,9 +59,9 @@ nf() {
 	cd -
 }
 
-function g() {
+function goo() {
 	local message="${@:-}";
-	open https://www.google.com/search?q="${message}"
+	open 'https://www.google.com/search?q='${message}
 }
 
 function curlPost() {

@@ -39,7 +39,7 @@ alias rna="npx react-native run-android"
 # list of devices on network => arp -a
 
 # hestra
-alias hestra-run-web="docker-compose -f ~/Dev/hestra-fluidpim-api/docker-compose.yml up -d && docker-compose -f ~/Dev/hestra-layercms-datastore/docker-compose.yml up -d && npm start --prefix ~/Dev/hestra-layercms-frontend" 
+alias hestra-run-web="docker-compose -f ~/Dev/hestra-fluidpim-api/docker-compose.yml up -d && docker-compose -f ~/Dev/hestra-layercms-datastore/docker-compose.yml up -d && pm2 start --name hestra-cms npm -- start --prefix ~/Dev/hestra-layercms-frontend" 
 
 # sql logins
 alias sql-garo="mssql-cli -S 'umbwesrv07.database.windows.net,1433' -d 'hj1c1ygrw5o' -U 'b0fmrd4qxbk@umbwesrv07' -P 'N_x&_wsR{4(1vZZ!P.eS'"

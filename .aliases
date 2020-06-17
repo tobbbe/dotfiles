@@ -1,4 +1,4 @@
-alias d="cd ~/Dev && clear"
+alias dev="cd ~/Dev"
 alias please="npm"
 alias andemu="emulator -avd pixel2android10" #https://developer.android.com/studio/run/emulator-commandline
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
@@ -37,3 +37,6 @@ alias rna="npx react-native run-android"
 # which code => returns where code command in terminal is installed! if node or global node module, make sure to run command first. ex: `node -v` then `which node`
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |
 # list of devices on network => arp -a
+
+# hestra
+alias hestra-run-web="docker-compose -f ~/Dev/hestra-fluidpim-api/docker-compose.yml up -d && docker-compose -f ~/Dev/hestra-layercms-datastore/docker-compose.yml up -d && pm2 start --name hestra-cms npm -- start --prefix ~/Dev/hestra-layercms-frontend" 

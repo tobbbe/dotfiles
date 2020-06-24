@@ -67,3 +67,7 @@ function goo() {
 function curlPost() {
 	curl -H "Content-Type: application/json" -X POST $@
 }
+
+function sumlines() {
+	awk '{s+=$1} END {print s}' $@
+}

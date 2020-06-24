@@ -4,3 +4,6 @@
 
 [core]
 	excludesfile = /Users/tobbe/.gitignore
+
+[pull]
+	rebase = true

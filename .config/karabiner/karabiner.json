@@ -15,7 +15,7 @@
 				},
 				"rules": [
 					{
-						"description": "Toggle parallels",
+						"description": "Toggle parallels mac keyboard",
 						"manipulators": [
 							{
 								"conditions": [
@@ -60,6 +60,77 @@
 									},
 									{
 										"type": "device_if",
+										"identifiers": [
+												{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
+									}
+								],
+								"from": {
+									"key_code": "caps_lock",
+									"modifiers": {
+										"mandatory": [
+											"left_alt"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "1",
+										"modifiers": [
+											"left_control"
+										]
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "Toggle parallels windows keyboard",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_unless"
+									},
+									{
+										"type": "device_unless",
+										"identifiers": [
+												{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
+									}
+								],
+								"from": {
+									"key_code": "caps_lock",
+									"modifiers": {
+										"mandatory": [
+											"left_gui"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "right_arrow",
+										"modifiers": [
+											"left_control"
+										]
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_if"
+									},
+									{
+										"type": "device_unless",
 										"identifiers": [
 												{ "vendor_id": 1452, "description": "Apple keyboard" }
 										]

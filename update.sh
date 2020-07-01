@@ -10,4 +10,5 @@ rsync --exclude ".git/" \
 		--exclude "Library/LaunchAgents/readme.md" \
 		--exclude "tobapps/" \
 		--exclude "iterm-settings/" \
+		--exclude "dump.md" \
 		-avh --no-perms ~/dotfiles/ ~; # MAKE SURE dotfiles is at ~/dotfiles, else use . and execute this in this folder

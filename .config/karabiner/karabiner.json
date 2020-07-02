@@ -911,6 +911,41 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "cmd+shift+g in paralells to open chrome alfred shortcut",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "g",
+									"modifiers": {
+										"mandatory": [
+											"left_shift",
+											"left_control"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "g",
+										"modifiers": [
+											"left_command",
+											"left_shift"
+										],
+										"lazy": true
+									}
+								],
+								"type": "basic"
+							}
+						]
 					}
 				]
 			},

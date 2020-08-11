@@ -888,24 +888,81 @@
 						]
 					},
 					{
-						"description": "right_option to slack cmd+k",
+						"description": "open slack and cmd+k",
 						"manipulators": [
 							{
 								"from": {
-									"key_code": "right_option",
+									"key_code": "s",
 									"modifiers": {
-										"optional": ["any"]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
 									{
-											"key_code": "right_option",
-											"lazy": true
+										"shell_command": "open -a 'Slack.app' && osascript -e 'tell application \"System Events\" to keystroke \"k\" using command down'"
 									}
 								],
-								"to_if_alone": [
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "open trello",
+						"manipulators": [
+							{
+								"from": {
+									"key_code": "t",
+									"modifiers": {
+										"mandatory": [
+											"right_option"
+										]
+									}
+								},
+								"to": [
 									{
-										"shell_command": "open -a 'Slack.app' && osascript -e 'tell application \"System Events\" to keystroke \"k\" using command down'"
+										"shell_command": "open -a 'Trello.app'"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "open mail",
+						"manipulators": [
+							{
+								"from": {
+									"key_code": "e",
+									"modifiers": {
+										"mandatory": [
+											"right_option"
+										]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a 'Microsoft Outlook.app'"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "open messenger",
+						"manipulators": [
+							{
+								"from": {
+									"key_code": "m",
+									"modifiers": {
+										"mandatory": [
+											"right_option"
+										]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a 'Messenger.app'"
 									}
 								],
 								"type": "basic"

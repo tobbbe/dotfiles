@@ -21,6 +21,8 @@ set tabstop=4
 set softtabstop=4 noexpandtab
 set shiftwidth=4
 
+set clipboard=unnamedplus
+
 " https://github.com/Shougo/deoplete.nvim/issues/432<Paste>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

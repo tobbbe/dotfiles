@@ -14,6 +14,8 @@
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
+	<key>AutoCommandHistory</key>
+	<false/>
 	<key>CloseBookmarksWindowAfterOpening</key>
 	<true/>
 	<key>ColoredSelectedTabOutlineStrength</key>
@@ -497,7 +499,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>786 373 958 470 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1875 328 857 670 -1920 0 1920 1177 </string>
+	<string>99 381 1604 796 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 146 1520 802 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1311,7 +1313,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>RobotoMonoForPowerline-Regular 18</string>
+			<string>RobotoMonoForPowerline-Regular 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -1410,6 +1412,7 @@
 		<string>3.3.6</string>
 		<string>3.3.8</string>
 		<string>3.3.11</string>
+		<string>3.3.12</string>
 		<string>3.3.1</string>
 		<string>3.3.7</string>
 		<string>3.3.9</string>
@@ -1430,7 +1433,7 @@
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1920, 1080}}</string>
+		<string>{{0, 0}, {1920, 1200}}</string>
 		<key>topLeft</key>
 		<string>{269, 595}</string>
 	</dict>
@@ -1441,12 +1444,14 @@
 		<key>topLeft</key>
 		<string>{-1017, 948}</string>
 	</dict>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>D1BF5588-D0CF-4C9E-B2A4-48EB892AAC9D</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>94</integer>
+	<integer>103</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2225,11 +2230,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-06-10T07:45:48Z</date>
+	<date>2020-07-08T01:40:51Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>2762005181</integer>
+	<integer>1149184707</integer>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SeparateStatusBarsPerPane</key>
@@ -2281,7 +2286,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.11</string>
+	<string>3.3.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

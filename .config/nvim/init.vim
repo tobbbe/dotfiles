@@ -17,9 +17,11 @@ call plug#end()
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-set tabstop=4
-set softtabstop=4 noexpandtab
-set shiftwidth=4
+" set tabstop=4
+" set softtabstop=4 noexpandtab
+" set shiftwidth=4
+set smartindent
+set autoindent
 
 set clipboard=unnamedplus
 

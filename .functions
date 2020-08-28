@@ -8,17 +8,6 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 
-# Normalize `open` across Linux, macOS, and Windows.
-# This is needed to make the `o` function (see below) cross-platform.
-if [ ! $(uname -s) = 'Darwin' ]; then
-	if grep -q Microsoft /proc/version; then
-		# Ubuntu on Windows using the Linux subsystem
-		alias open='explorer.exe';
-	else
-		alias open='xdg-open';
-	fi
-fi
-
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
 function o() {
@@ -43,11 +32,6 @@ function gg() {
 	git add -A && git commit -m "${message}" && git push
 }
 
-function ggg() {
-	local message="${@:-no message}";
-	git add -A && git commit -m "${message}"
-}
-
 # ex `getProcessByPort 8081`, then `kill (PID == processId)` ---> https://stackoverflow.com/questions/24387451/how-can-i-kill-whatever-process-is-using-port-8080-so-that-i-can-vagrant-up
 function getProcessByPort() {
 	lsof -n -i4TCP:$@
@@ -64,8 +48,16 @@ function goo() {
 	open 'https://www.google.com/search?q='${message}
 }
 
-function curlPost() {
-	curl -H "Content-Type: application/json" -X POST $@
+# ex: jp :80/post
+# edit with editJsonPostData
+# must use quotes around property-names in json!
+function jp() {
+	curl -H "Content-Type: application/json" -X POST --data-binary @/Users/tobbe/Downloads/body.json $@ | jq
+}
+
+# ex: jep :80/post
+function jep() {
+	editJsonPostData && jp $@ | jq
 }
 
 function sumlines() {

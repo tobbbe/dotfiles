@@ -23,6 +23,8 @@ set omnifunc=syntaxcomplete#Complete
 set smartindent
 set autoindent
 
+" set laststatus=2
+
 set clipboard=unnamedplus
 
 " https://github.com/Shougo/deoplete.nvim/issues/432<Paste>

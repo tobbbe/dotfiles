@@ -79,7 +79,7 @@ function dgs() {
 	fi
 
 	# find all .git directories
-	local git_dirs=$(find . -type d -name .git -maxdepth 2)
+	local git_dirs=$(find . -type d -name .git -maxdepth 3)
 
 	# remove ".git" from lines
 	local dir_names=$(echo $git_dirs | sed -e "s/\.git//")

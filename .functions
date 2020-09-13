@@ -71,6 +71,12 @@ function sumlines() {
 
 function dgs() {
 	local underline=$(tput smul)
+	local qty_has_changes=0
+
+	local show_no_changes=false
+	if [[ $1 == *"-v"* ]]; then
+		show_no_changes=true
+	fi
 
 	# find all .git directories
 	local git_dirs=$(find . -type d -name .git -maxdepth 2)
@@ -87,13 +93,17 @@ function dgs() {
 		local git_output_length=${#git_output}
 
 		if [[ ${#git_output_length} -gt 1 ]]; then
-				echo "\n"
-				echo -e "\e[31m${underline}$line\e[0m\n"
-				(cd $line && git status -s)
-				echo "\n"
-		else
+			((qty_has_changes++))
+			echo "\n"
+			echo -e "\e[31m${underline}$line\e[0m\n"
+			(cd $line && git status -s)
+			echo "\n"
+		elif [ "$show_no_changes" = true ]; then
 				echo -e "\e[32m${underline}$line\e[0m\n"
 		fi
-
 	done
+
+	if [ "$qty_has_changes" = "0" ]; then
+		echo -e "\e[32mEverything up to date!\e[0m\n"
+	fi
 }

@@ -28,7 +28,6 @@ alias listglobalnodepkgs="npm ls -g --depth=0"
 alias f="z"
 alias hosts="sudo nvim /etc/hosts"
 alias networkname="echo '$(scutil --get LocalHostName).local'"
-alias gsd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo && echo {} && cd {} && git status -s)' \;"
 alias flushdns="sudo killall -HUP mDNSResponder; sleep 2; echo done!"
 alias editJsonPostData="v ~/Downloads/body.json"
 

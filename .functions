@@ -69,7 +69,31 @@ function sumlines() {
 	awk '{s+=$1} END {print s}' $@
 }
 
-function gsdd() {
-	# | awk '{ print length($0) " " $0; }' $file | sort -r -n | cut -d ' ' -f 2- |
-	find . -type d -name .git -maxdepth 2 | sed -e "s/\.git//" | while read line ; do (echo -e "\n---\n\n\e[31m$line\e[0m\n" && cd $line && git status -s) ; done && echo "\n---"
+function dgs() {
+	local underline=$(tput smul)
+
+	# find all .git directories
+	local git_dirs=$(find . -type d -name .git -maxdepth 2)
+
+	# remove ".git" from lines
+	local dir_names=$(echo $git_dirs | sed -e "s/\.git//")
+
+	local dir_names_sorted=$(echo $dir_names | awk '{ print length($0) " " $0; }' $file | sort -n | cut -d ' ' -f 2-)
+
+	echo "\n"
+
+	echo $dir_names_sorted | while read line ; do
+		local git_output=$(cd $line && git status -s)
+		local git_output_length=${#git_output}
+
+		if [[ ${#git_output_length} -gt 1 ]]; then
+				echo "\n"
+				echo -e "\e[31m${underline}$line\e[0m\n"
+				(cd $line && git status -s)
+				echo "\n"
+		else
+				echo -e "\e[32m${underline}$line\e[0m\n"
+		fi
+
+	done
 }

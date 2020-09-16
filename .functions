@@ -78,6 +78,11 @@ function dgs() {
 		show_no_changes=true
 	fi
 
+	local do_git_fetch=false
+	if [[ $1 == *"-f"* ]]; then
+		do_git_fetch=true
+	fi
+
 	# find all .git directories
 	local git_dirs=$(find . -type d -name .git -maxdepth 3)
 
@@ -91,6 +96,11 @@ function dgs() {
 	echo $dir_names_sorted | while read line ; do
 		local git_output=$(cd $line && git status -s)
 		local git_output_length=${#git_output}
+
+		if [ "$do_git_fetch" = true ]; then
+			echo "git fetching ${line}"
+			local do_git_fetch_output=$(cd $line && git fetch --quiet)
+		fi
 
 		if [[ ${#git_output_length} -gt 1 ]]; then
 			((qty_has_changes++))

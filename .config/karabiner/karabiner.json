@@ -28,24 +28,20 @@
 									{
 										"type": "device_if",
 										"identifiers": [
-												{ "vendor_id": 1452, "description": "Apple keyboard" }
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
 										]
 									}
 								],
 								"from": {
 									"key_code": "caps_lock",
 									"modifiers": {
-										"mandatory": [
-											"left_command"
-										]
+										"mandatory": ["left_command"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "right_arrow",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -61,24 +57,20 @@
 									{
 										"type": "device_if",
 										"identifiers": [
-												{ "vendor_id": 1452, "description": "Apple keyboard" }
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
 										]
 									}
 								],
 								"from": {
 									"key_code": "caps_lock",
 									"modifiers": {
-										"mandatory": [
-											"left_alt"
-										]
+										"mandatory": ["left_alt"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "1",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -99,24 +91,20 @@
 									{
 										"type": "device_unless",
 										"identifiers": [
-												{ "vendor_id": 1452, "description": "Apple keyboard" }
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
 										]
 									}
 								],
 								"from": {
 									"key_code": "caps_lock",
 									"modifiers": {
-										"mandatory": [
-											"left_gui"
-										]
+										"mandatory": ["left_gui"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "right_arrow",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -132,24 +120,20 @@
 									{
 										"type": "device_unless",
 										"identifiers": [
-												{ "vendor_id": 1452, "description": "Apple keyboard" }
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
 										]
 									}
 								],
 								"from": {
 									"key_code": "caps_lock",
 									"modifiers": {
-										"mandatory": [
-											"left_alt"
-										]
+										"mandatory": ["left_alt"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "1",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -174,10 +158,7 @@
 								"to_if_alone": [
 									{
 										"key_code": "8",
-										"modifiers": [
-											"left_shift",
-											"left_option"
-										]
+										"modifiers": ["left_shift", "left_option"]
 									}
 								],
 								"type": "basic"
@@ -194,18 +175,13 @@
 								"from": {
 									"key_code": "close_bracket",
 									"modifiers": {
-										"mandatory": [
-											"left_shift"
-										]
+										"mandatory": ["left_shift"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "9",
-										"modifiers": [
-											"left_shift",
-											"left_option"
-										]
+										"modifiers": ["left_shift", "left_option"]
 									}
 								],
 								"type": "basic"
@@ -230,11 +206,7 @@
 								"to_if_alone": [
 									{
 										"key_code": "8",
-										"modifiers": [
-											"left_shift",
-											"left_option",
-											"left_control"
-										]
+										"modifiers": ["left_shift", "left_option", "left_control"]
 									}
 								],
 								"type": "basic"
@@ -251,19 +223,13 @@
 								"from": {
 									"key_code": "close_bracket",
 									"modifiers": {
-										"mandatory": [
-											"left_shift"
-										]
+										"mandatory": ["left_shift"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "9",
-										"modifiers": [
-											"left_shift",
-											"left_option",
-											"left_control"
-										]
+										"modifiers": ["left_shift", "left_option", "left_control"]
 									}
 								],
 								"type": "basic"
@@ -285,9 +251,7 @@
 								"from": {
 									"key_code": "caps_lock",
 									"modifiers": {
-										"optional": [
-											"any"
-										]
+										"optional": ["any"]
 									}
 								},
 								"to": [
@@ -319,9 +283,7 @@
 								"from": {
 									"key_code": "caps_lock",
 									"modifiers": {
-										"optional": [
-											"any"
-										]
+										"optional": ["any"]
 									}
 								},
 								"to": [
@@ -349,10 +311,7 @@
 									{
 										"halt": true,
 										"key_code": "spacebar",
-										"modifiers": [
-											"left_shift",
-											"left_command"
-										]
+										"modifiers": ["left_shift", "left_command"]
 									}
 								],
 								"to_if_alone": [
@@ -377,20 +336,22 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": ["^com\\.parallels\\.desktop\\.console$"],
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
 										"type": "frontmost_application_unless"
 									},
 									{
 										"type": "device_unless",
-										"identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }]
+										"identifiers": [
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
 									}
 								],
 								"from": {
 									"key_code": "left_alt",
 									"modifiers": {
-										"optional": [
-											"any"
-										]
+										"optional": ["any"]
 									}
 								},
 								"to": [
@@ -403,20 +364,22 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": ["^com\\.parallels\\.desktop\\.console$"],
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
 										"type": "frontmost_application_unless"
 									},
 									{
 										"type": "device_unless",
-										"identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }]
+										"identifiers": [
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
 									}
 								],
 								"from": {
 									"key_code": "left_gui",
 									"modifiers": {
-										"optional": [
-											"any"
-										]
+										"optional": ["any"]
 									}
 								},
 								"to": [
@@ -429,20 +392,22 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": ["^com\\.parallels\\.desktop\\.console$"],
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
 										"type": "frontmost_application_if"
 									},
 									{
 										"type": "device_if",
-										"identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }]
+										"identifiers": [
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
 									}
 								],
 								"from": {
 									"key_code": "left_alt",
 									"modifiers": {
-										"optional": [
-											"any"
-										]
+										"optional": ["any"]
 									}
 								},
 								"to": [
@@ -455,20 +420,22 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": ["^com\\.parallels\\.desktop\\.console$"],
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
 										"type": "frontmost_application_if"
 									},
 									{
 										"type": "device_if",
-										"identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }]
+										"identifiers": [
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
 									}
 								],
 								"from": {
 									"key_code": "left_gui",
 									"modifiers": {
-										"optional": [
-											"any"
-										]
+										"optional": ["any"]
 									}
 								},
 								"to": [
@@ -495,18 +462,13 @@
 								"from": {
 									"key_code": "hyphen",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "7",
-										"modifiers": [
-											"left_shift",
-											"left_option"
-										]
+										"modifiers": ["left_shift", "left_option"]
 									}
 								],
 								"type": "basic"
@@ -523,19 +485,13 @@
 								"from": {
 									"key_code": "hyphen",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "7",
-										"modifiers": [
-											"left_shift",
-											"left_control",
-											"right_option"
-										]
+										"modifiers": ["left_shift", "left_control", "right_option"]
 									}
 								],
 								"type": "basic"
@@ -557,17 +513,13 @@
 								"from": {
 									"key_code": "non_us_backslash",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "7",
-										"modifiers": [
-											"left_option"
-										]
+										"modifiers": ["left_option"]
 									}
 								],
 								"type": "basic"
@@ -584,18 +536,13 @@
 								"from": {
 									"key_code": "non_us_backslash",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "7",
-										"modifiers": [
-											"left_control",
-											"right_option"
-										]
+										"modifiers": ["left_control", "right_option"]
 									}
 								],
 								"type": "basic"
@@ -620,9 +567,7 @@
 								"to": [
 									{
 										"key_code": "left_arrow",
-										"modifiers": [
-											"left_command"
-										]
+										"modifiers": ["left_command"]
 									}
 								],
 								"type": "basic"
@@ -642,9 +587,7 @@
 								"to": [
 									{
 										"key_code": "right_arrow",
-										"modifiers": [
-											"left_command"
-										]
+										"modifiers": ["left_command"]
 									}
 								],
 								"type": "basic"
@@ -659,18 +602,14 @@
 								"from": {
 									"key_code": "f2",
 									"modifiers": {
-										"mandatory": [
-											"left_command"
-										]
+										"mandatory": ["left_command"]
 									}
 								},
 								"to": [
 									{
 										"halt": true,
 										"key_code": "right_arrow",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -680,18 +619,14 @@
 								"from": {
 									"key_code": "f1",
 									"modifiers": {
-										"mandatory": [
-											"left_command"
-										]
+										"mandatory": ["left_command"]
 									}
 								},
 								"to": [
 									{
 										"halt": true,
 										"key_code": "left_arrow",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -709,18 +644,14 @@
 								"from": {
 									"key_code": "f1",
 									"modifiers": {
-										"mandatory": [
-											"left_control"
-										]
+										"mandatory": ["left_control"]
 									}
 								},
 								"to": [
 									{
 										"halt": true,
 										"key_code": "left_arrow",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -738,18 +669,14 @@
 								"from": {
 									"key_code": "f2",
 									"modifiers": {
-										"mandatory": [
-											"left_control"
-										]
+										"mandatory": ["left_control"]
 									}
 								},
 								"to": [
 									{
 										"halt": true,
 										"key_code": "right_arrow",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -767,18 +694,14 @@
 								"from": {
 									"key_code": "f3",
 									"modifiers": {
-										"mandatory": [
-											"left_control"
-										]
+										"mandatory": ["left_control"]
 									}
 								},
 								"to": [
 									{
 										"halt": true,
 										"key_code": "f3",
-										"modifiers": [
-											"left_command"
-										]
+										"modifiers": ["left_command"]
 									}
 								],
 								"type": "basic"
@@ -796,9 +719,7 @@
 									{
 										"halt": true,
 										"key_code": "1",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -811,27 +732,21 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [
-											"^com\\.googlecode\\.iterm2$"
-										],
+										"bundle_identifiers": ["^com\\.googlecode\\.iterm2$"],
 										"type": "frontmost_application_if"
 									}
 								],
 								"from": {
 									"key_code": "return_or_enter",
 									"modifiers": {
-										"mandatory": [
-											"left_command"
-										]
+										"mandatory": ["left_command"]
 									}
 								},
 								"to": [
 									{
 										"halt": true,
 										"key_code": "spacebar",
-										"modifiers": [
-											"left_control"
-										]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"
@@ -853,18 +768,14 @@
 								"from": {
 									"key_code": "spacebar",
 									"modifiers": {
-										"mandatory": [
-											"left_control"
-										]
+										"mandatory": ["left_control"]
 									}
 								},
 								"to": [
 									{
 										"halt": true,
 										"key_code": "spacebar",
-										"modifiers": [
-											"left_command"
-										]
+										"modifiers": ["left_command"]
 									}
 								],
 								"type": "basic"
@@ -875,10 +786,18 @@
 						"description": "open slack and cmd+k",
 						"manipulators": [
 							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
 								"from": {
-									"key_code": "s",
+									"key_code": "grave_accent_and_tilde",
 									"modifiers": {
-										"mandatory": ["right_option", "left_shift"]
+										"mandatory": ["left_command"]
 									}
 								},
 								"to": [
@@ -891,15 +810,96 @@
 						]
 					},
 					{
+						"description": "open slack and cmd+k (parallels)",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "grave_accent_and_tilde",
+									"modifiers": {
+										"mandatory": ["left_option"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a 'Slack.app' && osascript -e 'tell application \"System Events\" to keystroke \"k\" using command down'"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+
+					{
+						"description": "open fb messenger",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "grave_accent_and_tilde",
+									"modifiers": {
+										"mandatory": ["left_command", "left_option"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a 'Messenger.app'"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "open fb messenger (parallels)",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.parallels\\.desktop\\.console$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "grave_accent_and_tilde",
+									"modifiers": {
+										"mandatory": ["left_option", "left_command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a 'Messenger.app'"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+
+					{
 						"description": "open trello",
 						"manipulators": [
 							{
 								"from": {
 									"key_code": "t",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
@@ -918,9 +918,7 @@
 								"from": {
 									"key_code": "e",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
@@ -939,9 +937,7 @@
 								"from": {
 									"key_code": "m",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
@@ -960,9 +956,7 @@
 								"from": {
 									"key_code": "c",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
@@ -981,9 +975,7 @@
 								"from": {
 									"key_code": "v",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
@@ -1002,9 +994,7 @@
 								"from": {
 									"key_code": "s",
 									"modifiers": {
-										"mandatory": [
-											"right_option"
-										]
+										"mandatory": ["right_option"]
 									}
 								},
 								"to": [
@@ -1031,19 +1021,13 @@
 								"from": {
 									"key_code": "g",
 									"modifiers": {
-										"mandatory": [
-											"left_shift",
-											"left_control"
-										]
+										"mandatory": ["left_shift", "left_control"]
 									}
 								},
 								"to": [
 									{
 										"key_code": "g",
-										"modifiers": [
-											"left_command",
-											"left_shift"
-										],
+										"modifiers": ["left_command", "left_shift"],
 										"lazy": true
 									}
 								],

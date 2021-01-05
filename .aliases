@@ -29,7 +29,7 @@ alias f="z"
 alias hosts="sudo nvim /etc/hosts"
 alias networkname="echo '$(scutil --get LocalHostName).local'"
 alias flushdns="sudo killall -HUP mDNSResponder; sleep 2; echo done!"
-alias editJsonPostData="v ~/Downloads/body.json"
+alias curlEditPostData="/bin/bash -c 'read -p '$'\'\e[31mMust use quotes around property-names in json!\e[0m ENTER to continue'\''' && v ~/Downloads/body.json"
 alias listsizes="du -sh * | sort -h"
 alias cat=bat
 

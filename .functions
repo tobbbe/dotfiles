@@ -48,20 +48,20 @@ function goo() {
 	open 'https://www.google.com/search?q='${message}
 }
 
-# ex: jsonPost :80/post
-# edit with editJsonPostData
+# ex: curlPostRe :80/post
+# edit with curlEditPostData
 # must use quotes around property-names in json!
-function jsonPost() {
+function curlPostRe() {
 	curl -H "Content-Type: application/json" -X POST --data-binary @/Users/tobbe/Downloads/body.json $@ | jq
 }
 
-# ex: jsonEditPost :80/post
-function jsonEditPost() {
-	editJsonPostData && jsonPost $@ | jq
+# ex: curlPost :80/post
+function curlPost() {
+	curlEditPostData && curlPostRe $@ | jq
 }
 
-# ex: formPost "param1=value1&param2=value2" :80/post
-function formPost() {
+# ex: curlPostForm "param1=value1&param2=value2" :80/post
+function curlPostForm() {
 	curl -X POST --data-urlencode $@
 }
 

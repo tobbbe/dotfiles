@@ -11,7 +11,7 @@ unset file;
 
 export NVM_DIR=~/.nvm
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-	# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # lazy setup (http://broken-by.me/lazy-load-nvm/)
 # declare -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
@@ -36,12 +36,16 @@ fi
 # `export PATH=$PATH:path/to/program` in .bash_profile will add paths at the end of your $PATH
 # `ln -s /path/to/some/program /usr/local/bin/program` will create a symlink to /usr/local/bin/ which is already in /etc/paths
 
+# get path with `/usr/libexec/java_home -V | grep jdk`
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
+export PATH=$PATH:$JAVA_HOME
+
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator # make sure this is BEFORE /tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/build-tools/28.0.3
+export PATH=$PATH:$ANDROID_HOME/build-tools/30.0.3
 export LANG=en_US.UTF-8
 export PATH=$PATH:"/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
 export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"

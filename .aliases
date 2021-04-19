@@ -32,6 +32,7 @@ alias flushdns="sudo killall -HUP mDNSResponder; sleep 2; echo done!"
 alias curlEditPostData="/bin/bash -c 'read -p '$'\'\e[31mMust use quotes around property-names in json!\e[0m ENTER to continue'\''' && v ~/Downloads/body.json"
 alias listsizes="du -sh * | sort -h"
 alias cat=bat
+alias sm="smerge ."
 
 alias rni="npx react-native run-ios --simulator=\"iPhone 11\""
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 11\" --configuration Release"
@@ -39,6 +40,7 @@ alias rna="npx react-native run-android"
 
 # which code => returns where code command in terminal is installed! if node or global node module, make sure to run command first. ex: `node -v` then `which node`
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |
+# rg --no-ignore --files | rg contentOfFileName (ex: keystore)
 # list of devices on network => arp -a
 
 # hestra

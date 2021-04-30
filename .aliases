@@ -42,6 +42,4 @@ alias rna="npx react-native run-android"
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |
 # rg --no-ignore --files | rg contentOfFileName (ex: keystore)
 # list of devices on network => arp -a
-
-# hestra
-alias hestra-run-web="docker-compose -f ~/Dev/hestra-fluidpim-api/docker-compose.yml up -d && docker-compose -f ~/Dev/hestra-layercms-datastore/docker-compose.yml up -d && pm2 start --name hestra-cms npm -- start --prefix ~/Dev/hestra-layercms-frontend" 
+# DNS lookup => dig +noall +answer example.com

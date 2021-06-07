@@ -34,6 +34,7 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 
+alias rnPodsReInstall="rm -rf ios/build ios/Pods ios/Podfile.lock; cd ios; pod install; cd -" # remove build+pods and reinstall them
 alias rni="npx react-native run-ios --simulator=\"iPhone 11\""
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 11\" --configuration Release"
 alias rna="npx react-native run-android"

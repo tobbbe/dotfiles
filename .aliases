@@ -34,6 +34,11 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 
+# nmap requires sudo to find all devices
+# -i=case INsensitive -v=invert
+alias scannetwork="sudo nmap -sn 192.168.1.0/24 | sed -e 's|Nmap scan report|\nNmap scan report|'"
+alias scannetworkMore="sudo nmap 192.168.1.0/24"
+
 alias rnPodsReInstall="rm -rf ios/build ios/Pods ios/Podfile.lock; cd ios; pod install; cd -" # remove build+pods and reinstall them
 alias rni="npx react-native run-ios --simulator=\"iPhone 11\""
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 11\" --configuration Release"

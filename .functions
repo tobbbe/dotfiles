@@ -117,3 +117,15 @@ function dgs() {
 		echo -e "\e[32mEverything up to date!\e[0m\n"
 	fi
 }
+
+function rnyolo() {
+	rm -rf node_modules;
+	rm package-lock.json;
+	rm -rf ios/build;
+	rm -rf ios/Pods;
+	rm ios/Podfile.lock;
+	npm i $@;
+	cd ios;
+	pod install;
+	cd -;
+}

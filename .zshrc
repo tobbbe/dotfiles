@@ -10,3 +10,5 @@ setopt HIST_SAVE_NO_DUPS
 
 export LANG=en_US.UTF-8
 export PATH=$PATH:"/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

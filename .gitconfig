@@ -1,9 +1,18 @@
 [user]
 	name = Tobias Ekman
-	email = tobias@toxic.se
 
 [core]
-	excludesfile = /Users/tobbe/.gitignore
+	excludesfile = ~/.gitignore
+
+[init]
+	defaultBranch = main
 
 [pull]
 	rebase = true
+
+[includeIf "gitdir:~/devp/"]
+	path = ~/.gitconfig-personal
+[includeIf "gitdir:~/.dotfiles/"]
+	path = ~/.gitconfig-personal
+[includeIf "gitdir:~/dev/"]
+	path = ~/.gitconfig-work

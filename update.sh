@@ -6,9 +6,9 @@ rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".osx" \
 		--exclude "update.sh" \
+		--exclude ".functions" \
+		--exclude ".aliases" \
 		--exclude "README.md" \
 		--exclude "Library/LaunchAgents/readme.md" \
-		--exclude "tobapps/" \
 		--exclude "iterm-settings/" \
-		--exclude "dump.md" \
-		-avh --no-perms ~/dotfiles/ ~; # MAKE SURE dotfiles is at ~/dotfiles, else use . and execute this in this folder
+		-avh --no-perms ~/.dotfiles/ ~; # MAKE SURE dotfiles is at ~/.dotfiles, else use . and execute this in this folder

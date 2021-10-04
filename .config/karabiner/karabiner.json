@@ -697,7 +697,17 @@
 					"to": {
 						"consumer_key_code": "scan_next_track"
 					}
-				}
+				},
+                {
+                    "from": {
+                        "apple_vendor_top_case_key_code": "keyboard_fn"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_control"
+                        }
+                    ]
+                }
 			]
 		}
 	]

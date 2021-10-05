@@ -4,9 +4,7 @@ alias andemu="emulator -avd pixel4android11" #https://developer.android.com/stud
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 # alias dotfiles="code -n ~/.dotfiles/"
 alias dotfiles="v ~/.dotfiles/"
-# alias todo="code ~/Google\ Drive/Work/todo/"
-alias todo="v ~/Google\ Drive/Work/todo/todo.md"
-alias notes="v ~/Google\ Drive/Work/todo/notes.md"
+# alias notes="code -r ~/Dropbox\ \(Daybright\)/Tobbe/notes/"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias week='date +%V'
@@ -43,6 +41,10 @@ alias rnPodsReInstall="rm -rf ios/build ios/Pods ios/Podfile.lock; cd ios; pod i
 alias rni="npx react-native run-ios --simulator=\"iPhone 11\""
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 11\" --configuration Release"
 alias rna="npx react-native run-android"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # which code => returns where code command in terminal is installed! if node or global node module, make sure to run command first. ex: `node -v` then `which node`
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |

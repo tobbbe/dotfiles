@@ -1,4 +1,9 @@
 
+export LANG=en_US.UTF-8
+export PATH=$PATH:"/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 for file in ~/.dotfiles/.{aliases,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
@@ -16,7 +21,8 @@ setopt PROMPT_SUBST
 # add \n for newline
 PROMPT=$'%F{238}${vcs_info_msg_0_}%f%F{222}%~%f %F{reset_color}'
 
-export LANG=en_US.UTF-8
-export PATH=$PATH:"/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export _Z_CMD=f
+export _Z_DATA="$HOME/.zsh/.z"
+source ~/.zsh/z/z.sh

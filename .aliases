@@ -30,7 +30,7 @@ alias cat=bat
 alias sm="smerge ."
 
 # git
-## gg is in functions
+## gg and gam is in functions
 alias gs="git status"
 alias ga="git add -A"
 alias gm="git commit -m"

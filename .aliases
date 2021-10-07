@@ -16,8 +16,6 @@ alias c="tr -d '\n' | pbcopy" #ex: ip | c (your ip will be added to clipboard)
 alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'" #"/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock the screen
 alias reload="sh ~/.dotfiles/update.sh && exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line
-alias gs="git status"
-alias sneak="git add . && git commit --amend --no-edit"
 alias v="nvim"
 alias cpwd="pwd | tr -d '\n' | pbcopy && echo '$PWD copied to clipboard'"
 alias fb="fb-messenger-cli"
@@ -30,6 +28,17 @@ alias curlEditPostData="/bin/bash -c 'read -p '$'\'\e[31mMust use quotes around 
 alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
+
+# git
+## gg is in functions
+alias gs="git status"
+alias ga="git add -A"
+alias gm="git commit -m"
+alias sneak="git add . && git commit --amend --no-edit"
+alias gitlog="git log --oneline --decorate --graph"
+alias gitlogall="git log --oneline --decorate --graph --all"
+alias gitlogs="git log --oneline --decorate --graph --stat"
+alias gitlogt="git log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
 
 # nmap requires sudo to find all devices
 # -i=case INsensitive -v=invert

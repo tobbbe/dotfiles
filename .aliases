@@ -60,7 +60,7 @@ alias ....="cd ../../.."
 # list of devices on network => arp -a
 # DNS lookup => dig +noall +answer example.com
 
-# minify img.
+# minify/resize img.
 # -Z = keep aspect ratio
 # 640 = max h/w
 # sips -Z 640 someImage.jpg --out someImageCopy.jpg

@@ -133,3 +133,9 @@ function rnyolo() {
 	pod install;
 	cd -;
 }
+
+
+# go to finderpath: `cd $(finderpath)`
+function finderpath() {
+	osascript -e 'tell application "Finder" to get the POSIX path of (target of front window as alias)'
+}

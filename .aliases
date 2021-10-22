@@ -63,3 +63,12 @@ alias ....="cd ../../.."
 # -Z = keep aspect ratio
 # 640 = max h/w
 # sips -Z 640 someImage.jpg --out someImageCopy.jpg
+
+# check if page contains word and include text before after
+# -i = ignore case
+# -m 1 = only first match
+# -o = print only matching
+# -E = extend print with x chars before and after
+# curl --silent https://site.com | grep -o -E ".{0,3}someword.{0,4}"
+# if file contains it
+# grep -o -E ".{0,3}someword.{0,4}" file.txt

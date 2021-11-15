@@ -1,6 +1,7 @@
 
 export LANG=en_US.UTF-8
 export PATH=$PATH:"/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
@@ -19,7 +20,10 @@ precmd() {vcs_info}
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 # add \n for newline
-PROMPT=$'%F{238}${vcs_info_msg_0_}%f%F{222}%~%f %F{reset_color}'
+PROMPT=$'%F{242}${vcs_info_msg_0_}%f\n%F{222}%~%f %F{reset_color}'
+
+# tab completion
+autoload -Uz compinit && compinit
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 

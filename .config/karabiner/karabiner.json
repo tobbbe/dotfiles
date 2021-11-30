@@ -23,7 +23,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									},
@@ -51,7 +51,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									},
@@ -84,7 +84,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									},
@@ -112,7 +112,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									},
@@ -145,7 +145,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									}
@@ -165,7 +165,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									}
@@ -193,7 +193,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -201,10 +201,10 @@
 								"from": {
 									"key_code": "close_bracket"
 								},
-								"to_if_alone": [
+								"to": [
 									{
 										"key_code": "8",
-										"modifiers": ["left_shift", "left_option", "left_control"]
+										"modifiers": ["left_shift", "right_option"]
 									}
 								],
 								"type": "basic"
@@ -213,7 +213,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -227,7 +227,7 @@
 								"to": [
 									{
 										"key_code": "9",
-										"modifiers": ["left_shift", "left_option", "left_control"]
+										"modifiers": ["left_shift", "right_option"]
 									}
 								],
 								"type": "basic"
@@ -241,7 +241,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									}
@@ -273,7 +273,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -328,7 +328,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									},
@@ -356,7 +356,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									},
@@ -384,7 +384,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									},
@@ -412,7 +412,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									},
@@ -445,7 +445,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									}
@@ -465,7 +465,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									}
@@ -490,7 +490,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									}
@@ -503,7 +503,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "open -a 'Slack.app' && osascript -e 'tell application \"System Events\" to keystroke \"a\" using {command down, shift down}'"
+										"shell_command": "open -a 'Slack.app'"
 									}
 								],
 								"type": "basic"
@@ -512,20 +512,20 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
 								],
 								"from": {
-									"key_code": "grave_accent_and_tilde",
+									"key_code": "non_us_backslash",
 									"modifiers": {
 										"mandatory": ["left_option", "left_shift"]
 									}
 								},
 								"to": [
 									{
-										"shell_command": "open -a 'Slack.app' && osascript -e 'tell application \"System Events\" to keystroke \"k\" using {command down, shift down}'"
+										"shell_command": "open -a 'Slack.app'"
 									}
 								],
 								"type": "basic"
@@ -539,7 +539,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -595,7 +595,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -624,7 +624,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
 									}
@@ -651,7 +651,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -674,7 +674,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -697,7 +697,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -705,7 +705,7 @@
 								"from": {
 									"key_code": "non_us_backslash",
 									"modifiers": {
-										"mandatory": ["left_option"]
+										"mandatory": ["left_command", "left_shift"]
 									}
 								},
 								"to": [
@@ -719,7 +719,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -734,6 +734,67 @@
 									{
 										"key_code": "4",
 										"modifiers": ["left_command", "left_shift"]
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.parallels[[:graph:]]*$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "5",
+									"modifiers": {
+										"mandatory": ["left_control", "left_shift"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "5",
+										"modifiers": ["left_command", "left_shift"]
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.parallels[[:graph:]]*$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "left_option"
+								},
+								"to": [
+									{
+										"key_code": "left_command"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.parallels[[:graph:]]*$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "left_command"
+								},
+								"to": [
+									{
+										"key_code": "left_option"
 									}
 								],
 								"type": "basic"

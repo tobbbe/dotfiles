@@ -770,7 +770,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}
@@ -792,7 +792,7 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com\\.parallels\\.desktop\\.console$"
+											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_if"
 									}

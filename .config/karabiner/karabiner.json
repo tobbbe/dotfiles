@@ -645,6 +645,55 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "Switch command and option FOR NON MAC KEYBOARDS",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"type": "device_unless",
+										"identifiers": [
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
+									}
+								],
+								"from": {
+									"key_code": "left_option",
+									"modifiers": {
+										"optional": ["any"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "left_command"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"type": "device_unless",
+										"identifiers": [
+											{ "vendor_id": 1452, "description": "Apple keyboard" }
+										]
+									}
+								],
+								"from": {
+									"key_code": "left_command",
+									"modifiers": {
+										"optional": ["any"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "left_option"
+									}
+								],
+								"type": "basic"
+							}
+						]
 					}	
 				]
 			},

@@ -60,9 +60,12 @@ alias ....="cd ../../.."
 # DNS lookup => dig +noall +answer example.com
 
 # minify/resize img.
-# -Z = keep aspect ratio
-# 640 = max h/w
-# sips -Z 640 someImage.jpg --out someImageCopy.jpg
+# -Z 640 = Resample image so height and width aren't greater than specified size(640).
+# formatOptions = 1-100 / low|normal|high
+# sips -Z 640 someImage.jpg --out someImage-640.jpg
+# sips -s format jpeg input.png --out output.jpg
+# format to max 650px, png to jpg and 30% quality
+# sips -Z 640 -s format jpeg -s formatOptions 30 closed.png --out closed.jpg
 
 # check if page contains word and include text before after
 # -i = ignore case

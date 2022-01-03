@@ -95,8 +95,6 @@ function recursiveGitStatus() {
 
 	local dir_names_sorted=$(echo $dir_names | awk '{ print length($0) " " $0; }' $file | sort -n | cut -d ' ' -f 2-)
 
-	echo "\n"
-
 	echo $dir_names_sorted | while read line ; do
 		local git_output=$(cd $line && git status -s)
 		local git_output_length=${#git_output}
@@ -111,7 +109,6 @@ function recursiveGitStatus() {
 			echo "\n"
 			echo -e "\e[31m${underline}$line\e[0m\n"
 			(cd $line && git status -s)
-			echo "\n"
 		elif [ "$show_no_changes" = true ]; then
 				echo -e "\e[32m${underline}$line\e[0m\n"
 		fi

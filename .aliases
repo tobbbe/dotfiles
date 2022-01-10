@@ -71,7 +71,11 @@ alias ....="cd ../../.."
 # -i = ignore case
 # -m 1 = only first match
 # -o = print only matching
-# -E = extend print with x chars before and after
+# -E =  extend
+#       grep -E '(this|or_this)'
+# -A 1 = print 1 line after
+# -B 1 = print 1 line before
+# -C 1 = print 1 line before and after
 # curl --silent https://site.com | grep -o -E ".{0,3}someword.{0,4}"
 # if file contains it
 # grep -o -E ".{0,3}someword.{0,4}" file.txt

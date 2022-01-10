@@ -1,0 +1,6 @@
+{
+    "default_options": [
+        "--style=monokai",
+        "--format-options=json.indent:2"
+    ]
+}

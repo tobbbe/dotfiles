@@ -152,3 +152,8 @@ function gfgo() {
 		echo 'Dont forget to push!'
 	fi;
 }
+
+function countLetters() {
+	local str="${@:-}";
+	echo ${#str}
+}

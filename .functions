@@ -73,7 +73,7 @@ function sumlines() {
 	awk '{s+=$1} END {print s}' $@
 }
 
-function recursiveGitStatus() {
+function gitStatusRecursive() {
 	local underline=$(tput smul)
 	local qty_has_changes=0
 

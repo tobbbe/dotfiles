@@ -8,4 +8,4 @@
 # Optional parameters:
 # @raycast.icon 📺
 
-osascript set-windows-size.applescript vscode
+osascript window-size.applescript vscode

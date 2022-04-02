@@ -8,4 +8,4 @@
 # Optional parameters:
 # @raycast.icon 📺
 
-osascript set-windows-size.applescript chrome
+osascript window-size.applescript chrome

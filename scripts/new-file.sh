@@ -2,10 +2,10 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title vscode-size
+# @raycast.title New file (nf)
 # @raycast.mode silent
 
 # Optional parameters:
 # @raycast.icon 📺
 
-osascript set-windows-size.applescript vscode
+/usr/local/bin/code ~/Downloads/new.md

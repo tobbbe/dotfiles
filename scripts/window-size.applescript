@@ -36,11 +36,26 @@ on run argv
 	#set desktopBounds to bounds of window of desktop
 	#end tell
 
+	# set desktopBounds to words of (do shell script "system_profiler SPDisplaysDataType ")
+	# tell application "Finder"
+	# 	set a to get bounds of window of desktop
+	# end tell
+
 	# https://stackoverflow.com/a/23452100/1320551
 	set desktopBounds to words of (do shell script "system_profiler SPDisplaysDataType | awk '/Main Display: Yes/{found=1} /Resolution/{width=$2; height=$4} /Retina/{scale=($2 == \"Yes\" ? 2 : 1)} /^ {8}[^ ]+/{if(found) {exit}; scale=1} END{printf \"%d %d %d\\n\", width, height, scale}'")
-
-	set screenWidth to item 1 of desktopBounds
-	set screenHeight to item 2 of desktopBounds
+	
+	# if main screen is retina
+	# display alert "asd " & (item 3 of desktopBounds)
+	if (item 3 of desktopBounds) is 1
+		tell application "Finder"
+			set desktopBounds2 to bounds of window of desktop
+			set screenWidth to item 3 of desktopBounds2
+			set screenHeight to item 4 of desktopBounds2
+		end tell
+	else
+		set screenWidth to item 1 of desktopBounds
+		set screenHeight to item 2 of desktopBounds
+	end if
 
 	tell application "System Events"
 		set activeApp to name of first application process whose frontmost is true

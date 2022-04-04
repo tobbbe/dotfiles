@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title zendesk
+# @raycast.title Tidsregistrering
 # @raycast.mode silent
 
 # Optional parameters:

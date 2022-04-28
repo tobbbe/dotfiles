@@ -1,10 +1,7 @@
 // Settings in here override those in "LSP/LSP.sublime-settings"
 {
 	"lsp_format_on_save": true,
-	"diagnostics_highlight_style": {
-	    "error": "squiggly",
-	    "warning": "squiggly",
-	    "info": "stippled",
-	    "hint": "stippled"
-	  },
+	  "lsp_code_actions_on_save": {
+	    "source.fixAll": true,
+	  }
 }

@@ -7,5 +7,6 @@
 	"font_size": 13,
 	"theme": "Default.sublime-theme",
 	"color_scheme": "GitHub Light.sublime-color-scheme",
-  	/*"theme": "GitHub Adaptive.sublime-theme"*/
+	"git_diff_target": "head",
+	"line_numbers": false,
 }

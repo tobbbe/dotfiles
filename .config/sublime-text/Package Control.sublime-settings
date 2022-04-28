@@ -9,7 +9,9 @@
 		"LSP",
 		"LSP-eslint",
 		"LSP-typescript",
+		"LSP-vue",
 		"Package Control",
 		"Tailwind CSS Autocomplete",
+		"Vue Syntax Highlight",
 	],
 }

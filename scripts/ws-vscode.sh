@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title size vscode
+# @raycast.title ws-vscode-dev
 # @raycast.mode silent
 
 # Optional parameters:

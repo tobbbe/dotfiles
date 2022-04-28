@@ -1,0 +1,11 @@
+{
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"font_face": "Menlo, Monaco, 'Courier New', monospace",
+	"font_size": 13,
+	"theme": "Default.sublime-theme",
+	"color_scheme": "GitHub Light.sublime-color-scheme",
+  	/*"theme": "GitHub Adaptive.sublime-theme"*/
+}

@@ -33,7 +33,7 @@ alias susp="prlctl suspend windows"
 ## gg and gam is in functions
 alias gs="git status"
 alias ga="git add -A"
-alias gm="git commit -m"
+alias gc="git commit -m"
 alias sneak="git add . && git commit --amend --no-edit"
 alias gitlog="git log --oneline --decorate --graph"
 alias gitlogall="git log --oneline --decorate --graph --all"

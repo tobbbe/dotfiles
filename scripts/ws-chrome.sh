@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title chrome-size
+# @raycast.title ws-chrome
 # @raycast.mode silent
 
 # Optional parameters:

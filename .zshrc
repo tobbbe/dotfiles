@@ -30,3 +30,5 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export _Z_CMD=f
 export _Z_DATA="$HOME/.zsh/.z"
 source ~/.zsh/z/z.sh
+
+export EDITOR='vim'

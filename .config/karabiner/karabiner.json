@@ -406,7 +406,7 @@
 						]
 					},
 					{
-						"description": "open chrome",
+						"description": "open browser",
 						"manipulators": [
 							{
 								"conditions": [
@@ -414,6 +414,7 @@
 										"bundle_identifiers": [
 											"^com.parallels[[:graph:]]*$",
 											"com.google.Chrome",
+											"org.mozilla.firefox",
 											"com.apple.DigitalColorMeter"
 										],
 										"type": "frontmost_application_unless"
@@ -427,7 +428,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "open -a 'Google Chrome.app'"
+										"shell_command": "open -a 'Firefox.app'"
 									}
 								],
 								"type": "basic"

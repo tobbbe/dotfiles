@@ -1,5 +1,5 @@
 [
-	{ "keys": "super+b", "command": "toggle_side_bar" },
+	{ "keys": ["super+b"], "command": "toggle_side_bar" },
 	{
         "command": "lsp_code_actions",
         "keys": [

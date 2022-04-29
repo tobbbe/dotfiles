@@ -18,6 +18,10 @@ function o() {
 	fi;
 }
 
+function re() {
+	code $(f $@ -e)
+}
+
 # Create a data URL from a file
 function dataurl() {
 	local mimeType=$(file -b --mime-type "$1");

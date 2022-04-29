@@ -6,7 +6,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon 📺
+# @raycast.icon 🧐
 
 set device_name to "Simulator - iPhone X - iOS 11.4 (15F79)"
 tell application "Safari"

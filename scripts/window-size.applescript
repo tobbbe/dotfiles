@@ -9,6 +9,8 @@
 # @raycast.argument1 { "type": "text", "placeholder": "Preset" }
 # @raycast.icon 📺
 
+# call with: osascript window-size.applescript chrome-dev
+
 on run argv
 	set preset to (item 1 of argv)
 

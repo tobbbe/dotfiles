@@ -2,9 +2,6 @@ alias dev="cd ~/Dev"
 alias please="npm"
 alias andemu="emulator -avd pixel4android11" #https://developer.android.com/studio/run/emulator-commandline
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
-# alias dotfiles="code -n ~/.dotfiles/"
-alias dotfiles="vim ~/.dotfiles/"
-# alias notes="code -r ~/Dropbox\ \(Daybright\)/Tobbe/notes/"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias week='date +%V'
@@ -12,12 +9,12 @@ alias ip="publicip && localip"
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias openports="lsof -PiTCP -sTCP:LISTEN"
-alias c="tr -d '\n' | pbcopy" #ex: ip | c (your ip will be added to clipboard)
+alias copyclip="tr -d '\n' | pbcopy" #ex: ip | copyclip (your ip will be added to clipboard)
 alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'" #"/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock the screen
 alias reload="sh ~/.dotfiles/update.sh && exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line
 alias v="nvim"
-alias cpwd="pwd | tr -d '\n' | pbcopy && echo '$PWD copied to clipboard'"
+alias cpwd="pwd | copyclip && echo '$PWD copied to clipboard'"
 alias fb="fb-messenger-cli"
 alias listglobalnodepkgs="npm ls -g --depth=0"
 alias hosts="sudo vim /etc/hosts"
@@ -28,6 +25,8 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend windows"
+alias code="$EDITOR"
+alias tob="$EDITOR ~/devp/tobb.be/www/"
 
 # git
 ## gg and gam is in functions

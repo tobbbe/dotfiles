@@ -1,6 +1,7 @@
 
 export LANG=en_US.UTF-8
 export PATH=$PATH:"/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
+export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

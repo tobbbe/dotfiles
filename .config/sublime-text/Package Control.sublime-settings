@@ -8,10 +8,11 @@
 		"GitHub Theme",
 		"LSP",
 		"LSP-eslint",
+		"LSP-json",
+		"LSP-tailwindcss",
 		"LSP-typescript",
 		"LSP-vue",
 		"Package Control",
-		"Tailwind CSS Autocomplete",
 		"Vue Syntax Highlight",
 	],
 }

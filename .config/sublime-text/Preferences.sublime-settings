@@ -13,4 +13,5 @@
 	"line_padding_top": 2,
 	"dark_theme": "Default Dark.sublime-theme",
 	"light_theme": "Default.sublime-theme",
+	"folder_exclude_patterns": ["node_modules", ".next"],
 }

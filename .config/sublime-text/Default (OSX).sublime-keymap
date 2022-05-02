@@ -13,5 +13,7 @@
 	        }
         ]
     },
-    {"keys": ["super+k", "super+i"], "command": "lsp_hover" , "context": [{"key": "setting.lsp_active"}]},
+    { "keys": ["super+k", "super+i"], "command": "lsp_hover" , "context": [{"key": "setting.lsp_active"}]},
+    { "keys": ["alt+up"], "command": "swap_line_up" },
+    { "keys": ["alt+down"], "command": "swap_line_down" },
 ]

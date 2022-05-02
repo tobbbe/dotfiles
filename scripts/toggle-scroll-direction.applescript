@@ -6,7 +6,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon 📺
+# @raycast.icon ↕️
 
 tell application "System Preferences"
 	reveal anchor "trackpadTab" of pane id "com.apple.preference.trackpad"

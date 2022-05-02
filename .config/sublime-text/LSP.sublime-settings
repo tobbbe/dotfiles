@@ -4,6 +4,6 @@
 	"lsp_code_actions_on_save": {
 		"source.fixAll": true,
 		"source.addMissingImports.ts": true,
-		"source.fixAll.ts": true
+		"source.fixAll.ts": false
 	}
 }

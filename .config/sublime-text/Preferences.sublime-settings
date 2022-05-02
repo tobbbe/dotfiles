@@ -1,17 +1,21 @@
 {
-	"ignored_packages":
-	[
+	"ignored_packages": [
 		"Vintage",
 	],
 	"font_face": "Menlo, Monaco, 'Courier New', monospace",
 	"font_size": 12,
 	"theme": "auto",
-	"color_scheme": "GitHub Light.sublime-color-scheme",
+	"color_scheme": "GitHub Light Legacy.sublime-color-scheme",
 	"git_diff_target": "head",
 	"line_numbers": false,
 	"line_padding_bottom": 2,
 	"line_padding_top": 2,
 	"dark_theme": "Default Dark.sublime-theme",
 	"light_theme": "Default.sublime-theme",
-	"folder_exclude_patterns": ["node_modules", ".next"],
+	"folder_exclude_patterns": [
+		"node_modules",
+		".next",
+	],
+	"file_exclude_patterns": ["*.min.", "package-lock.json"],
+	"highlight_line": true,
 }

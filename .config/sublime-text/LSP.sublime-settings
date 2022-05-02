@@ -1,9 +1,11 @@
 // Settings in here override those in "LSP/LSP.sublime-settings"
+// Leave "lsp_format_on_save": false. Because lsp-typescript ex has its own formatting rules that will be applied otherwise
 {
-	"lsp_format_on_save": true,
+	"lsp_format_on_save": false,
 	"lsp_code_actions_on_save": {
-		"source.fixAll": true,
-		"source.addMissingImports.ts": true,
-		"source.fixAll.ts": false
+		"source.fixAll": false,
+		"source.fixAll.ts": false,
+		"source.fixAll.eslint": true,
+		"source.addMissingImports.ts": true
 	}
 }

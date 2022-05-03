@@ -18,10 +18,12 @@ setopt HIST_SAVE_NO_DUPS
 # PROMPT with git branch name
 autoload -Uz vcs_info
 precmd() {vcs_info}
-zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 # add \n for newline
-PROMPT=$'%F{242}${vcs_info_msg_0_}%f%F{222}%~%f %F{reset_color}'
+#zstyle ':vcs_info:git:*' formats '%b '
+#PROMPT=$'%F{242}${vcs_info_msg_0_}%f%F{222}%~%f %F{reset_color}'
+zstyle ':vcs_info:git:*' formats ' %b'
+PROMPT=$'%F{82}%~%f%F{238}${vcs_info_msg_0_}%f %F{reset_color}'
 
 # tab completion
 autoload -Uz compinit && compinit

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-## link to this in alfred "script filter" like this: `~/.dotfiles/scripts/devpaths.sh $@`
+## link to this in alfred "script filter" like this: `~/dotfiles/scripts/devpaths.sh $@`
 ## everytime 'inputs' is called it pops from the list https://stackoverflow.com/questions/72110455/why-is-the-first-line-is-skipped/72110653#72110653<
 ## https://juripakaste.fi/jq-alfred-script-filter/
 ## https://www.alfredapp.com/help/workflows/inputs/script-filter/json/
 
-extraPaths="/Users/tobbbe/.dotfiles" # just add new line inside string here to add more items
+extraPaths="/Users/tobbbe/dotfiles" # just add new line inside string here to add more items
 
 (find ~/dev ~/devp -mindepth 1 -maxdepth 1 -type d && echo $extraPaths) | /usr/local/bin/jq -nR \
 '{

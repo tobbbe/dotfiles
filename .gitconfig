@@ -12,7 +12,7 @@
 
 [includeIf "gitdir:~/devp/"]
 	path = ~/.gitconfig-personal
-[includeIf "gitdir:~/.dotfiles/"]
+[includeIf "gitdir:~/dotfiles/"]
 	path = ~/.gitconfig-personal
 [includeIf "gitdir:~/dev/"]
 	path = ~/.gitconfig-work

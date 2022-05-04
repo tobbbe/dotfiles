@@ -6,7 +6,7 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-for file in ~/.dotfiles/.{aliases,functions}; do
+for file in ~/dotfiles/.{aliases,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

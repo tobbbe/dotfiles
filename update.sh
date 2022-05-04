@@ -13,4 +13,4 @@ rsync --exclude ".git/" \
 		--exclude "iterm-settings/" \
 		--exclude "scripts/" \
 		--exclude ".config/sublime-text" \
-		-avh --no-perms ~/.dotfiles/ ~; # MAKE SURE dotfiles is at ~/.dotfiles, else use . and execute this in this folder
+		-avh --no-perms ~/dotfiles/ ~; # MAKE SURE dotfiles is at ~/dotfiles, else use . and execute this in this folder

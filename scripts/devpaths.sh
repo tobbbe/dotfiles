@@ -1,14 +1,12 @@
 #!/bin/bash
 
-## https://juripakaste.fi/jq-alfred-script-filter/
-
 ## link to this in alfred "script filter" like this: `~/.dotfiles/scripts/devpaths.sh $@`
-
-## Files ending with "app" (even "-app") wont show for some reason... use "appp"
+## For some reason the first line is excluded by jq, thats why I prepend "argh"
+## https://juripakaste.fi/jq-alfred-script-filter/
 
 extraPaths="/Users/tobbbe/.dotfiles" # just add new line inside string here to add more items
 
-(find ~/dev ~/devp -mindepth 1 -maxdepth 1 -type d && echo $extraPaths) | /usr/local/bin/jq -nR \
+(echo "argh" && find ~/dev ~/devp -mindepth 1 -maxdepth 1 -type d && echo $extraPaths) | /usr/local/bin/jq -nR \
 '{
     # things here is jq-things! split() etc NOT bash.
     # Wrap in '' to use args. ex see contains below

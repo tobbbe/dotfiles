@@ -2,16 +2,22 @@
 
 ## https://juripakaste.fi/jq-alfred-script-filter/
 
+## link to this in alfred "script filter" like this: `~/.dotfiles/scripts/devpaths.sh $@`
+
+## Files ending with "app" (even "-app") wont show for some reason... use "appp"
+
 extraPaths="/Users/tobbbe/.dotfiles" # just add new line inside string here to add more items
 
 (find ~/dev ~/devp -mindepth 1 -maxdepth 1 -type d && echo $extraPaths) | /usr/local/bin/jq -nR \
 '{
+    # things here is jq-things! split() etc NOT bash.
+    # Wrap in '' to use args. ex see contains below
     "items": [
-        # things here is jq-things! split() etc
         inputs |
         select(length>0) |                                          # remove empty lines
         inputs as $path |
-        ($path | split("/")[-1] | sub("^\\."; "")) as $title |      # take dir name and remove leading dot
+        $path | split("/")[-1] as $title |                          # take dir name. `($path | split("/")[-1] | sub("^\\."; "")) as $title |` to remove leading dot
+        select($title | contains("'$1'") and contains("'$2'") and contains("'$3'")) |
         {
             "uid": $path,
             "type": "public.folder",
@@ -22,3 +28,5 @@ extraPaths="/Users/tobbbe/.dotfiles" # just add new line inside string here to a
         }
     ]
 }'
+
+# >&2 echo "Arg: $@" # log to terminal. doesnt work to alfred debug though :/

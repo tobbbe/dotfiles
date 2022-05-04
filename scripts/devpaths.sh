@@ -1,8 +1,9 @@
 #!/bin/bash
 
 ## link to this in alfred "script filter" like this: `~/.dotfiles/scripts/devpaths.sh $@`
-## everytime 'inputs' is called it pops from the list https://stackoverflow.com/questions/72110455/why-is-the-first-line-is-skipped/72110653#72110653
+## everytime 'inputs' is called it pops from the list https://stackoverflow.com/questions/72110455/why-is-the-first-line-is-skipped/72110653#72110653<
 ## https://juripakaste.fi/jq-alfred-script-filter/
+## https://www.alfredapp.com/help/workflows/inputs/script-filter/json/
 
 extraPaths="/Users/tobbbe/.dotfiles" # just add new line inside string here to add more items
 
@@ -12,15 +13,16 @@ extraPaths="/Users/tobbbe/.dotfiles" # just add new line inside string here to a
     # Wrap in '' to use args. ex see contains below
     "items": [
         inputs as $path |
-        $path | split("/")[-1] as $title |
+        $path |
+        split("/")[-1] as $title |
         select($title | contains("'$1'") and contains("'$2'") and contains("'$3'")) |
         {
             "uid": $path,
-            "type": "public.folder",
             "title": $title,
             "subtitle": $path,
             "arg": $path,
-            icon: { type: "filetype", path: "public.folder" }
+            "type": "file:skipcheck",
+            # icon: { type: "filetype", path: "public.folder" }
         }
     ]
 }'

@@ -17,4 +17,9 @@
     { "keys": ["alt+up"], "command": "swap_line_up" },
     { "keys": ["alt+down"], "command": "swap_line_down" },
     { "keys": ["super+k", "super+c"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["shift+home"], "command": "move_to", "args": {"to": "bol", "extend": true} },
+    { "keys": ["shift+end"], "command": "move_to", "args": {"to": "hardeol", "extend": true} },
+    { "keys": ["home"], "command": "move_to", "args": {"to": "bol"} },
+    { "keys": ["end"], "command": "move_to", "args": {"to": "hardeol"} },
+    { "keys": ["alt+w"], "command": "insert_snippet", "args": { "name": "Packages/XML/Snippets/xml-long-tag.sublime-snippet" } },
 ]

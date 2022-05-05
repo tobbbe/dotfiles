@@ -39,6 +39,14 @@ alias gitlogall="git log --oneline --decorate --graph --all"
 alias gitlogs="git log --oneline --decorate --graph --stat"
 alias gitlogt="git log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
 
+# tmux
+alias ta='tmux attach -t'		# attach named session
+alias tl='tmux list-sessions'
+alias ts='tmux new-session -s'	# create new named session
+alias tk='tmux kill-session -t' # kill named session
+alias ti='tmux kill-session -t' # kill named session
+alias tx='tmuxinator'
+
 # nmap requires sudo to find all devices
 # -i=case INsensitive -v=invert
 alias scannetwork="sudo nmap -sn 192.168.1.0/24 | sed -e 's|Nmap scan report|\nNmap scan report|'"

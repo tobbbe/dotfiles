@@ -5,9 +5,13 @@
 ## https://juripakaste.fi/jq-alfred-script-filter/
 ## https://www.alfredapp.com/help/workflows/inputs/script-filter/json/
 
-extraPaths="/Users/tobbbe/dotfiles" # just add new line inside string here to add more items
+extraPaths=$(cat <<EOF
+/Users/tobbbe/dotfiles
+/Users/tobbbe/devp/tobb.be/www
+EOF
+)
 
-(find ~/dev ~/devp -mindepth 1 -maxdepth 1 -type d && echo $extraPaths) | /usr/local/bin/jq -nR \
+(find ~/dev ~/devp -mindepth 1 -maxdepth 1 -type d && echo -e "$extraPaths") | /usr/local/bin/jq -nR \
 '{
     # things here is jq-things! split() etc NOT bash.
     # Wrap in '' to use args. ex see contains below
@@ -15,7 +19,7 @@ extraPaths="/Users/tobbbe/dotfiles" # just add new line inside string here to ad
         inputs as $path |
         $path |
         split("/")[-1] as $title |
-        select($title | contains("'$1'") and contains("'$2'") and contains("'$3'")) |
+        select($path | split("/tobbbe/")[-1] | contains("'$1'") and contains("'$2'") and contains("'$3'")) |
         {
             "uid": $path,
             "title": $title,

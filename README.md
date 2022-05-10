@@ -1,5 +1,6 @@
 # dotfiles
 Update with `sh update.sh`
+Make sure your user is named "tobbbe"
 
 # git
 1. Create two ssh keys: work and personal (see github docs)

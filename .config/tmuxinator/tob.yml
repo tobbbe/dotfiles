@@ -1,7 +1,5 @@
-# /Users/tobbbe/.config/tmuxinator/snus.yml
-
 name: tob
-root: ~/devp/tobb.be/www/
+root: ~/devp/tobb.be/
 
 # Optional tmux socket
 # socket_name: foo
@@ -52,4 +50,6 @@ windows:
       # synchronize: after
       panes:
         - www:
-          - npm run dev
+          - npm run dev --prefix www
+        - lib:
+          - npm start --prefix @lib

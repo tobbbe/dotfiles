@@ -391,26 +391,27 @@
 						]
 					},
 					{
-						"description": "open vscode",
+						"description": "open editor",
 						"manipulators": [
 							{
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$"
+											"com.sublimetext*",
+											"com.microsoft.VSCode"
 										],
 										"type": "frontmost_application_unless"
 									}
 								],
 								"from": {
-									"key_code": "v",
+									"key_code": "d",
 									"modifiers": {
 										"mandatory": ["left_command", "left_shift"]
 									}
 								},
 								"to": [
 									{
-										"shell_command": "open -a 'Visual Studio Code.app'"
+										"shell_command": "open -a 'Sublime Text.app'"
 									}
 								],
 								"type": "basic"

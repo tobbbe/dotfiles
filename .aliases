@@ -25,7 +25,6 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend windows"
-alias code="$EDITOR"
 alias tob="$EDITOR ~/devp/tobb.be/www/"
 
 # git
@@ -44,7 +43,7 @@ alias ta='tmux attach -t'		# attach named session
 alias tl='tmux list-sessions'
 alias ts='tmux new-session -s'	# create new named session
 alias tk='tmux kill-session -t' # kill named session
-alias tx='tmuxinator'
+alias tx='tmuxinator'			# example `tx tob` (start session, or attach if already running)
 
 # nmap requires sudo to find all devices
 # -i=case INsensitive -v=invert

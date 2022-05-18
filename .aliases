@@ -1,4 +1,4 @@
-alias dev="cd ~/Dev"
+alias dev="cd ~/Dev && clear"
 alias please="npm"
 alias andemu="emulator -avd pixel4android11" #https://developer.android.com/studio/run/emulator-commandline
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy

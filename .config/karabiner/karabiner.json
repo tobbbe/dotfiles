@@ -361,7 +361,7 @@
 						]
 					},
 					{
-						"description": "open browser",
+						"description": "open browser (using LEFT command (or caps) is important!)",
 						"manipulators": [
 							{
 								"conditions": [
@@ -391,7 +391,7 @@
 						]
 					},
 					{
-						"description": "open editor",
+						"description": "open editor (using LEFT command (or caps) is important!)",
 						"manipulators": [
 							{
 								"conditions": [

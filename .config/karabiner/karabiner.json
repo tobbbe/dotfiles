@@ -181,7 +181,10 @@
 						"manipulators": [
 							{
 								"from": {
-									"key_code": "non_us_backslash"
+									"key_code": "non_us_backslash",
+									"modifiers": {
+										"mandatory": ["left_command"]
+									}
 								},
 								"to": [
 									{
@@ -212,10 +215,7 @@
 									}
 								],
 								"from": {
-									"key_code": "s",
-									"modifiers": {
-										"mandatory": ["left_command", "left_shift"]
-									}
+									"key_code": "non_us_backslash"
 								},
 								"to": [
 									{
@@ -234,10 +234,7 @@
 									}
 								],
 								"from": {
-									"key_code": "non_us_backslash",
-									"modifiers": {
-										"mandatory": ["left_option", "left_shift"]
-									}
+									"key_code": "non_us_backslash"
 								},
 								"to": [
 									{
@@ -334,34 +331,7 @@
 						]
 					},
 					{
-						"description": "open notion",
-						"manipulators": [
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
-								"from": {
-									"key_code": "non_us_backslash",
-									"modifiers": {
-										"mandatory": ["left_command"]
-									}
-								},
-								"to": [
-									{
-										"shell_command": "open -a 'Notion.app'"
-									}
-								],
-								"type": "basic"
-							}
-						]
-					},
-					{
-						"description": "open browser (using LEFT command (or caps) is important!)",
+						"description": "open browser",
 						"manipulators": [
 							{
 								"conditions": [
@@ -376,9 +346,18 @@
 									}
 								],
 								"from": {
-									"key_code": "c",
+									"simultaneous": [
+										{
+											"key_code": "q"
+										},
+										{
+											"key_code": "w"
+										}
+									],
 									"modifiers": {
-										"mandatory": ["left_command", "left_shift"]
+										"optional": [
+											"any"
+										]
 									}
 								},
 								"to": [
@@ -391,7 +370,7 @@
 						]
 					},
 					{
-						"description": "open editor (using LEFT command (or caps) is important!)",
+						"description": "open editor",
 						"manipulators": [
 							{
 								"conditions": [
@@ -404,14 +383,23 @@
 									}
 								],
 								"from": {
-									"key_code": "d",
+									"simultaneous": [
+										{
+											"key_code": "q"
+										},
+										{
+											"key_code": "d"
+										}
+									],
 									"modifiers": {
-										"mandatory": ["left_command", "left_shift"]
+										"optional": [
+											"any"
+										]
 									}
 								},
 								"to": [
 									{
-										"shell_command": "open -a 'Sublime Text.app'"
+										"shell_command": "open -a 'Visual studio code.app'"
 									}
 								],
 								"type": "basic"

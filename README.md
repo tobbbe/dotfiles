@@ -65,3 +65,4 @@ in terminal, type:
 
 # good stuff
 https://github.com/mathiasbynens/dotfiles
+https://evanhahn.com/a-decade-of-dotfiles/

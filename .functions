@@ -161,3 +161,7 @@ function countLetters() {
 	local str="${@:-}";
 	echo ${#str}
 }
+
+function minifyVideo() {
+	ffmpeg -i $1 -c:v libx265 -preset fast -crf 28 -tag:v hvc1 -c:a eac3 -b:a 224k $2.mp4
+}

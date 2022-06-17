@@ -41,7 +41,7 @@ alias gitlogt="git log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C
 # tmux
 alias ta='tmux attach -t'		# attach named session
 alias tl='tmux list-sessions'
-alias ts='tmux new-session -s'	# create new named session
+alias tn='tmux new-session -s'	# create new named session
 alias tk='tmux kill-session -t' # kill named session
 alias tx='tmuxinator'			# example `tx tob` (start session, or attach if already running)
 

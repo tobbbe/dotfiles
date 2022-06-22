@@ -68,10 +68,13 @@ alias ....="cd ../../.."
 # minify/resize img.
 # -Z 640 = Resample image so height and width aren't greater than specified size(640).
 # formatOptions = 1-100 / low|normal|high
+## examples:
 # sips -Z 640 someImage.jpg --out someImage-640.jpg
 # sips -s format jpeg input.png --out output.jpg
-# format to max 640px, png to jpg and 30% quality
+## format to max 640px, png to jpg and 90% quality
 # sips -Z 640 -s format jpeg -s formatOptions 90 original.png --out converted.jpg
+## set maxWidth, keep aspect ratio
+# sips --resampleWidth 1400 original.jpg --out converted.jpg
 
 # check if page contains word and include text before after
 # -i = ignore case

@@ -29,7 +29,7 @@ alias tob="$EDITOR ~/devp/tobb.be/www/"
 
 # git
 ## gg and gam is in functions
-alias gs="git status"
+alias gs="git status -s"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias sneak="git add . && git commit --amend --no-edit"

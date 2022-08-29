@@ -4,7 +4,7 @@
 function server() {
 	local port="${@:-8022}";
 	echo 'https://www.npmjs.com/package/http-server'
-	sleep 2 && open "http://localhost:${port}/" &
+	# sleep 2 && open "http://localhost:${port}/" &
 	npx http-server -c-1 -p $port
 }
 

@@ -1,9 +1,11 @@
 
 # Start an HTTP server from a directory, optionally specifying the port
+# why use -c and -p flags: https://stackoverflow.com/a/38295516/1320551
 function server() {
+	local port="${@:-8022}";
 	echo 'https://www.npmjs.com/package/http-server'
-	# sleep 1 && open "http://localhost:${port}/" &
-	npx http-server
+	sleep 2 && open "http://localhost:${port}/" &
+	npx http-server -c-1 -p $port
 }
 
 # `o` with no arguments opens the current directory, otherwise opens the given

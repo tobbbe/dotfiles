@@ -167,3 +167,25 @@ function minifyVideo() {
 }
 
 function resizeJpgsMaxWidth() {mkdir $1x; for f in *.jpg; do sips --resampleWidth "$1" "$f" --out "$1x//${f/.jpg/_$1.jpg}"; done }
+
+timer() {
+    start="$(( $(date '+%s') + $1))"
+	spin='-\|/'
+	echo "Timer: $1s"
+    while [ $start -ge $(date +%s) ]; do
+        # time="$(( $start - $(date +%s) ))"
+        # echo -ne "."
+		i=$(( (i+1) %4 ))
+		printf "\r${spin:$i:1}"
+        sleep 0.1
+    done
+	osascript -e 'display notification "🚨" with title "Timer"'
+	say 'Timer finished!'
+	osascript -e 'display notification "⏰" with title "Timer"'
+	sleep 0.6
+	osascript -e 'display notification "🚨" with title "Timer"'
+	sleep 0.6
+	osascript -e 'display notification "⏰" with title "Timer"'
+	sleep 0.6
+	osascript -e 'display notification "🚨" with title "Timer"'
+}

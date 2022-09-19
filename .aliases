@@ -74,7 +74,7 @@ alias ....="cd ../../.."
 ## format to max 640px, png to jpg and 90% quality
 # sips -Z 640 -s format jpeg -s formatOptions 90 original.png --out converted.jpg
 ## set maxWidth, keep aspect ratio
-# sips --resampleWidth 1400 original.jpg --out converted.jpg
+# sips --resampleWidth 1400 original.jpg --out converted.jpg <----- BEST ONE
 
 # check if page contains word and include text before after
 # -i = ignore case

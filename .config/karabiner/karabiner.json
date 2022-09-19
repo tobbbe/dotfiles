@@ -203,7 +203,7 @@
 						]
 					},
 					{
-						"description": "open slack and cmd+k",
+						"description": "open browser/editor",
 						"manipulators": [
 							{
 								"conditions": [
@@ -217,6 +217,11 @@
 								"from": {
 									"key_code": "non_us_backslash"
 								},
+								"to_if_held_down": [
+									{
+										"shell_command": "open -a 'Visual studio code.app'"
+									}
+								],															
 								"to": [
 									{
 										"shell_command": "open -a 'Firefox.app'"
@@ -331,36 +336,28 @@
 						]
 					},
 					{
-						"description": "open browser",
+						"description": "open slack",
 						"manipulators": [
 							{
 								"conditions": [
 									{
 										"bundle_identifiers": [
 											"^com.parallels[[:graph:]]*$",
-											"com.apple.DigitalColorMeter"
+											"com.apple.Digi1lColorMeter"
 										],
 										"type": "frontmost_application_unless"
 									}
 								],
 								"from": {
-									"simultaneous": [
-										{
-											"key_code": "q"
-										},
-										{
-											"key_code": "w"
-										}
-									],
-									"modifiers": {
-										"optional": [
-											"any"
-										]
-									}
+									"key_code": "tab"
 								},
-								"to": [
+								"to_after_key_up": {
+									"key_code": "tab"
+								},
+								"to_if_held_down": [
 									{
-										"shell_command": "open -a 'Slack.app'"
+										"shell_command": "open -a 'Slack.app'",
+										"halt": true
 									}
 								],
 								"type": "basic"
@@ -368,7 +365,7 @@
 						]
 					},
 					{
-						"description": "open editor",
+						"description": "open editor 2",
 						"manipulators": [
 							{
 								"conditions": [
@@ -384,7 +381,7 @@
 									"simultaneous": [
 										{
 											"key_code": "q"
-										},
+								},
 										{
 											"key_code": "d"
 										}

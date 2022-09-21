@@ -209,6 +209,27 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
+											"^org.mozilla.firefox$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "non_us_backslash"
+								},															
+								"to_if_alone": [
+									{
+										"key_code": "t",
+										"modifiers": ["left_command"],
+										"halt": true
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
 											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
@@ -216,12 +237,7 @@
 								],
 								"from": {
 									"key_code": "non_us_backslash"
-								},
-								"to_if_held_down": [
-									{
-										"shell_command": "open -a 'Visual studio code.app'"
-									}
-								],															
+								},															
 								"to": [
 									{
 										"shell_command": "open -a 'Firefox.app'"
@@ -229,6 +245,7 @@
 								],
 								"type": "basic"
 							},
+							
 							{
 								"conditions": [
 									{

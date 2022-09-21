@@ -59,12 +59,12 @@ function goo() {
 # ex: curlPostRe :80/post
 # edit with curlEditPostData
 # must use quotes around property-names in json!
-function curlPostRe() {
+function curlPostBodyFromFileRe() {
 	curl -H "Content-Type: application/json" -X POST --data-binary @/Users/tobbe/Downloads/body.json $@ | jq
 }
 
 # ex: curlPost :80/post
-function curlPost() {
+function curlPostBodyFromFile() {
 	curlEditPostData && curlPostRe $@ | jq
 }
 

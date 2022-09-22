@@ -26,6 +26,7 @@ alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend windows"
 alias tob="$EDITOR ~/devp/tobb.be/www/"
+alias shareport="ngrok http -region eu " # ex: `shareport 3000`
 
 # git
 ## gg and gam is in functions

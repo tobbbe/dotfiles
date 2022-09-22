@@ -45,10 +45,6 @@ root: ~/dev/
 # attach: false
 
 windows:
-  - docker:
-      panes:
-        - redis:
-          - docker run --rm --name whitepouches-redis -p 6379:6379 redis:6.2-alpine redis-server --loglevel warning
   - editor:
       layout: even-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
@@ -61,4 +57,8 @@ windows:
         - backend:
           - cd whitepouches-backend
           - npm run dev
+  - docker:
+      panes:
+        - redis:
+          - docker run --rm --name whitepouches-redis -p 6379:6379 redis:6.2-alpine redis-server --loglevel warning
         

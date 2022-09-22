@@ -353,6 +353,35 @@
 						]
 					},
 					{
+						"description": "rebind tmux leader in terminal",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"com.apple.Terminal"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "s",
+									"modifiers": {
+										"mandatory": ["left_command"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "b",
+										"modifiers": ["left_control"],
+										"halt": true
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
 						"description": "open slack",
 						"manipulators": [
 							{

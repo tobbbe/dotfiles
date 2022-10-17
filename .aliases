@@ -89,3 +89,6 @@ alias ....="cd ../../.."
 # curl --silent https://site.com | grep -o -E ".{0,3}someword.{0,4}"
 # if file contains it
 # grep -o -E ".{0,3}someword.{0,4}" file.txt
+
+# check info of process
+# ps aux | grep {pid}

@@ -426,7 +426,7 @@
 								"from": {
 									"simultaneous": [
 										{
-											"key_code": "a"
+											"key_code": "w"
 										},
 										{
 											"key_code": "d"
@@ -691,6 +691,26 @@
 									}
 								],
 								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "cmd+m to cmd+h",
+						"manipulators": [
+							{
+								"type": "basic",
+								"from": {
+									"key_code": "m",
+									"modifiers": {
+										"mandatory": ["left_command"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "h",
+										"modifiers": ["left_command"]
+									}
+								]
 							}
 						]
 					}

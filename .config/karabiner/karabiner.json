@@ -222,26 +222,10 @@
 										"shell_command": "open -a 'Visual studio code.app'"
 									}
 								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
+								"to_if_held_down": [
 									{
-										"bundle_identifiers": [
-											"^org.mozilla.firefox$"
-										],
-										"type": "frontmost_application_if"
-									}
-								],
-								"from": {
-									"key_code": "t",
-									"modifiers": {
-										"mandatory": ["left_command"]
-									}
-								},															
-								"to": [
-									{
-										"shell_command": "open -a 'Firefox.app' 'https://tobb.be/dashboard'"
+										"shell_command": "open -a 'Slack.app'",
+										"halt": true
 									}
 								],
 								"type": "basic"
@@ -282,9 +266,15 @@
 								"from": {
 									"key_code": "non_us_backslash"
 								},															
-								"to": [
+								"to_if_alone": [
 									{
 										"shell_command": "open -a 'Firefox.app'"
+									}
+								],
+								"to_if_held_down": [
+									{
+										"shell_command": "open -a 'Slack.app'",
+										"halt": true
 									}
 								],
 								"type": "basic"
@@ -417,35 +407,6 @@
 									{
 										"key_code": "b",
 										"modifiers": ["left_control"],
-										"halt": true
-									}
-								],
-								"type": "basic"
-							}
-						]
-					},
-					{
-						"description": "open slack",
-						"manipulators": [
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$",
-											"com.apple.Digi1lColorMeter"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
-								"from": {
-									"key_code": "tab"
-								},
-								"to_after_key_up": {
-									"key_code": "tab"
-								},
-								"to_if_held_down": [
-									{
-										"shell_command": "open -a 'Slack.app'",
 										"halt": true
 									}
 								],

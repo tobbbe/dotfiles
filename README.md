@@ -66,3 +66,6 @@ in terminal, type:
 # good stuff
 https://github.com/mathiasbynens/dotfiles
 https://evanhahn.com/a-decade-of-dotfiles/
+
+# Osascript
+`open -a 'Firefox.app' 'https://tobb.be/dashboard' && osascript -e 'delay 0.08' -e 'tell application \"System Events\"' -e 'keystroke \"l\" using {command down}' -e 'end tell'`

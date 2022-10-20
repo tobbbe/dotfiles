@@ -81,9 +81,9 @@ function gitStatusRecursive() {
 	local underline=$(tput smul)
 	local qty_has_changes=0
 
-	local show_no_changes=false
-	if [[ $1 == *"-v"* ]]; then
-		show_no_changes=true
+	local show_no_changes=true
+	if [[ $1 == *"-q"* ]]; then
+		show_no_changes=false
 	fi
 
 	local do_git_fetch=false
@@ -110,17 +110,19 @@ function gitStatusRecursive() {
 
 		if [[ ${#git_output_length} -gt 1 ]]; then
 			((qty_has_changes++))
-			echo "\n"
-			echo -e "\e[31m${underline}$line\e[0m\n"
+			echo -e "\e[31m${underline}$line\e[0m"
 			(cd $line && git status -s)
 		elif [ "$show_no_changes" = true ]; then
-				echo -e "\e[32m${underline}$line\e[0m\n"
+				echo -e "\e[32m$line\e[0m"
 		fi
 	done
 
 	if [ "$qty_has_changes" = "0" ]; then
-		echo -e "\e[32mEverything up to date!\e[0m\n"
+		printf "\n"
+		echo -e "\e[32m🎉 Everything is up to date!\e[0m"
 	fi
+
+	printf "\n"
 }
 
 function rnyolo() {

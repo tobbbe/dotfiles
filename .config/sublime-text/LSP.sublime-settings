@@ -7,5 +7,6 @@
 		"source.fixAll.ts": false,
 		"source.fixAll.eslint": true,
 		"source.addMissingImports.ts": true
-	}
+	},
+	"show_diagnostics_panel_on_save": 1
 }

@@ -1,0 +1,19 @@
+# /Users/tobbbe/.config/tmuxinator/snus.yml
+
+name: bannercloud
+root: ~/dev/
+
+windows:
+  - editor:
+      layout: even-vertical
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - app:
+          - cd bannercloud-web
+          - npm run dev
+        - web:
+          - cd bannercloud-app
+          - npm run dev
+        

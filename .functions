@@ -191,3 +191,15 @@ timer() {
 	sleep 0.6
 	osascript -e 'display notification "🚨" with title "Timer"'
 }
+
+function startDocker () {
+	printf "Starting Docker";
+	open -a Docker;
+
+	while [[ -z "$(! docker stats --no-stream 2> /dev/null)" ]];
+	do printf ".";
+	sleep 1
+	done
+
+	echo "";
+}

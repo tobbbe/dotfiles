@@ -6,11 +6,6 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-for file in ~/dotfiles/.{aliases,functions}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
-
 HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
@@ -34,4 +29,13 @@ export _Z_CMD=f
 export _Z_DATA="$HOME/.zsh/.z"
 source ~/.zsh/z/z.sh
 
-export EDITOR='subl'
+export EDITOR='code'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+for file in ~/dotfiles/{aliases.sh,functions.sh}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;

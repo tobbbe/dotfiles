@@ -6,8 +6,8 @@ rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".osx" \
 		--exclude "update.sh" \
-		--exclude ".functions" \
-		--exclude ".aliases" \
+		--exclude "functions" \
+		--exclude "aliases" \
 		--exclude "README.md" \
 		--exclude "Library/LaunchAgents/readme.md" \
 		--exclude "iterm-settings/" \

@@ -203,3 +203,63 @@ function startDocker () {
 
 	echo "";
 }
+
+function ff () {
+	local dirr=$*
+	local hasnav=false
+	if [[ -n $dirr ]]; then
+		if [[ -d $dirr ]]; then
+			# if subdir exist, go there
+			hasnav=true
+			cd $dirr
+		elif [[ ! -z $(f -e $dirr) ]]; then
+			# if z find something, go there
+			f "$dirr"
+			hasnav=true
+		fi;
+	fi;
+	
+	local fpath=$(fzf --bind 'f2:execute-silent(code {})' --preview 'bat --style=numbers --color=always --line-range :500 {}')
+	[ -z $fpath ] || nvim $fpath
+	[[ $hasnav ]] && cd - > /dev/null
+}
+
+# find in files
+fff() {
+	local dirr=$*
+	local hasnav=false
+	if [[ -n $dirr ]]; then
+		if [[ -d $dirr ]]; then
+			# if subdir exist, go there
+			hasnav=true
+			cd $dirr
+		elif [[ ! -z $(f -e $dirr) ]]; then
+			# if z find something, go there
+			f "$dirr"
+			hasnav=true
+		fi;
+	fi;
+	
+	selected=$(
+	fzf \
+	-m \
+	-e \
+	--ansi \
+	--disabled \
+	--reverse \
+	--bind "ctrl-a:select-all" \
+	--bind "f2:execute-silent(code {})" \
+	--bind "change:reload:rg -i -l --hidden {q} || true" \
+	--preview "rg -i --pretty --context 2 {q} {}" | cut -d":" -f1,2
+	)
+
+	[[ -n $selected ]] && nvim $selected # open multiple files in editor
+	[[ $hasnav ]] && cd - > /dev/null
+}
+
+function da() {
+  local cid
+  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker attach "$cid"
+}

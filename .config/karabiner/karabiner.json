@@ -177,32 +177,6 @@
 						]
 					},
 					{
-						"description": "show terminal",
-						"manipulators": [
-							{
-								"from": {
-									"key_code": "non_us_backslash",
-									"modifiers": {
-										"mandatory": ["left_command"]
-									}
-								},
-								"to": [
-									{
-										"halt": true,
-										"key_code": "t",
-										"modifiers": [
-											"left_shift",
-											"left_control",
-											"left_command",
-											"left_option"
-										]
-									}
-								],
-								"type": "basic"
-							}
-						]
-					},
-					{
 						"description": "open browser/editor",
 						"manipulators": [
 							{
@@ -392,7 +366,8 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"com.apple.Terminal"
+											"com.apple.Terminal",
+											"^com\\.googlecode\\.iterm2$"
 										],
 										"type": "frontmost_application_if"
 									}

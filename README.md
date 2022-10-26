@@ -69,3 +69,32 @@ https://evanhahn.com/a-decade-of-dotfiles/
 
 # Osascript
 `open -a 'Firefox.app' 'https://tobb.be/dashboard' && osascript -e 'delay 0.08' -e 'tell application \"System Events\"' -e 'keystroke \"l\" using {command down}' -e 'end tell'`
+
+```
+{
+	"description": "show terminal",
+	"manipulators": [
+		{
+			"from": {
+				"key_code": "non_us_backslash",
+				"modifiers": {
+					"mandatory": ["left_command"]
+				}
+			},
+			"to": [
+				{
+					"halt": true,
+					"key_code": "t",
+					"modifiers": [
+						"left_shift",
+						"left_control",
+						"left_command",
+						"left_option"
+					]
+				}
+			],
+			"type": "basic"
+		}
+	]
+},
+```

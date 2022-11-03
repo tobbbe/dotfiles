@@ -37,6 +37,76 @@ and ~/.gitconfig-work with:
 3. upload ssh .pub files to github etc
 4. update .gitconfig with folders to use with each ssh-key/account
 
+# Mac
+- Require password after screen saver begins or display turned off (includes afk=lock screen) to **immediatly**
+
+# VSCode
+
+## Extensions:
+- Eslint [https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    - Prettier is NOT needed if Eslint and settings in vscode is setup correctly
+- Github Copilot
+- Tailwind CSS IntelliSence
+- Quick and Simple Text Selection
+
+## VSCode settings
+- Default formatter: `ESLint`
+- Search settings for “format:enable”. Disable ALL except ESLint. ESLint should handle it.
+- Typescript Tsdk: `./node_modules/typescript/lib`
+- Do not use vscode-prettier-plugin! ESLint should handle it.
+
+# Firefox
+- Strict privacy
+- Delete cookies and data when firefox is closed
+
+## Addons
+- vimium
+    - ändra chars used for hints
+    - lägg till tema-css (googla ⇒ github)
+    - exclude url [photopea.com](http://photopea.com/)
+    
+    ```bash
+    # Insert your preferred key mappings here.
+    unmap <m-A>
+    map <m-A> Vomnibar.activateTabSelection
+    map <m-p> Vomnibar.activate
+    ``` 
+- bitwarden
+- Firefox Multi-Account Containers
+- ublock origin
+    - Remove google consent: [https://daniel-lange.com/archives/164-Getting-rid-of-the-Google-cookie-consent-popup.html](https://daniel-lange.com/archives/164-Getting-rid-of-the-Google-cookie-consent-popup.html)
+    - trusted sites: localhost
+
+## Custom css
+- browser.uidensity = 1 in about:config
+1. about:config ⇒ enable toolkit.legacyUserProfileCustomizations.stylesheets
+2. Create `~/Library/Application Support/Firefox/Profiles/PROFILE_USED/chrome/userContent.css` 
+3. Restart firefox OR open new tab to see changes
+
+```jsx
+@-moz-document domain(reddit.com) {
+}
+
+#nav-bar {
+  /* 40 or 36(ff compact mode) */
+  --navbar-margin: -36px;
+
+  margin-top: var(--navbar-margin);
+  margin-bottom: 0;
+  /* transition: all 0.2s ease !important; */
+  opacity: 0;
+}
+
+#navigator-toolbox:focus-within > #nav-bar,
+#navigator-toolbox:hover > #nav-bar
+{
+  margin-top: 0;
+  margin-bottom: var(--navbar-margin);
+  z-index: 100;
+  opacity: 1;
+}
+```
+
 # iterm keybindings
 set Presets.. to "Natural text editing" under Profile=>Keys
 AND set SOME of these in pref=>keys (selection ex):

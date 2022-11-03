@@ -2,6 +2,22 @@
 Update with `sh update.sh`
 Make sure your user is named "tobbe"
 
+# Install
+- homebrew
+	- git
+	- tmux
+	- jq
+	- z
+	- bat
+- nodejs https://volta.sh
+- firefox
+- notion
+- dotfiles
+- alfred
+	- alfred-settings
+- sf mono
+- iterm2
+
 # git
 1. Create two ssh keys: work and personal (see github docs)
 2. Create ~/.gitconfig-personal with:

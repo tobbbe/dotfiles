@@ -9,6 +9,7 @@ Make sure your user is named "tobbe"
 	- jq
 	- z
 	- bat
+	- tmuxinator
 - nodejs https://volta.sh
 - firefox
 - notion

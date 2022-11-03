@@ -23,11 +23,11 @@ PROMPT=$'%F{82}%~%f%F{222}${vcs_info_msg_0_}%f %F{reset_color}'
 # tab completion
 autoload -Uz compinit && compinit
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-export _Z_CMD=f
-export _Z_DATA="$HOME/.zsh/.z"
-source ~/.zsh/z/z.sh
+export ZSHZ_CMD=f
+export ZSHZ_DATA="$HOME/.zsh/.z"
+source ~/.zsh/z.sh
 
 export EDITOR='code'
 

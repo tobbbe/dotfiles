@@ -5,6 +5,7 @@ export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST

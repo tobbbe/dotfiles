@@ -40,8 +40,12 @@ and ~/.gitconfig-work with:
 
 # Mac
 - Require password after screen saver begins or display turned off (includes afk=lock screen) to **immediatly**
+- keyboard shortcuts "Move focus to next window" set to `cmd+<`
 
 # VSCode
+
+## VSCode settings
+- Typescript Tsdk: `./node_modules/typescript/lib`
 
 ## Extensions:
 - Eslint [https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
@@ -50,11 +54,24 @@ and ~/.gitconfig-work with:
 - Tailwind CSS IntelliSence
 - Quick and Simple Text Selection
 
-## VSCode settings
+## eslint+prettier
+### alt 1 (eslint handles all)
+- disable prettier plugin
 - Default formatter: `ESLint`
 - Search settings for “format:enable”. Disable ALL except ESLint. ESLint should handle it.
-- Typescript Tsdk: `./node_modules/typescript/lib`
-- Do not use vscode-prettier-plugin! ESLint should handle it.
+- requires:
+	- npm pack: eslint-plugin-prettier
+	- npm pack: prettier
+	- eslintConfig extend: plugin:prettier/recommended
+### alt 2 (prettier vscode plugin handles prettier)
+- enable prettier plugin
+- Default formatter: `prettier`
+- setting: prettier require config
+- Search settings for “format:enable”. Disable ALL. Prettier plugin will handle it.
+- DOES NOT require:
+	- npm pack: eslint-plugin-prettier
+	- npm pack: prettier
+	- eslintConfig extend: plugin:prettier/recommended => REPLACE with 'prettier' from eslint-config-prettier
 
 # Firefox
 - Strict privacy

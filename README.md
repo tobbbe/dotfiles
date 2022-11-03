@@ -21,9 +21,6 @@ and ~/.gitconfig-work with:
 3. upload ssh .pub files to github etc
 4. update .gitconfig with folders to use with each ssh-key/account
 
-# node
-install with Volta
-
 # iterm keybindings
 set Presets.. to "Natural text editing" under Profile=>Keys
 AND set SOME of these in pref=>keys (selection ex):

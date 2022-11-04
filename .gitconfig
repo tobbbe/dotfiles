@@ -10,11 +10,13 @@
 [pull]
 	rebase = true
 
-[includeIf "gitdir:~/devp/"]
+[includeIf "gitdir:~/dev-personal/"]
 	path = ~/.gitconfig-personal
 [includeIf "gitdir:~/dotfiles/"]
 	path = ~/.gitconfig-personal
 [includeIf "gitdir:~/.alfred-tob-settings/"]
 	path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev/"]
-	path = ~/.gitconfig-work
+[includeIf "gitdir:~/dev-gymfitness/"]
+	path = ~/.gitconfig-gymfitness
+[includeIf "gitdir:~/dev-daybright/"]
+	path = ~/.gitconfig-daybright

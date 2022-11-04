@@ -1,5 +1,3 @@
-alias dev="cd ~/Dev && clear"
-alias please="npm"
 alias andemu="emulator -avd pixel4android11" #https://developer.android.com/studio/run/emulator-commandline
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 alias dl="cd ~/Downloads"
@@ -25,7 +23,7 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend windows"
-alias tob="$EDITOR ~/devp/tobb.be/www/"
+alias tob="$EDITOR ~/dev-personal/tobb.be/www/"
 alias shareport="ngrok http -region eu " # ex: `shareport 3000`
 
 # git

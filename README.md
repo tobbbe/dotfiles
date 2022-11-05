@@ -40,7 +40,8 @@ and ~/.gitconfig-work with:
 
 # Mac
 - Require password after screen saver begins or display turned off (includes afk=lock screen) to **immediatly**
-- keyboard shortcuts "Move focus to next window" set to `cmd+<`
+- keyboard > keyboard shortcuts > "Move focus to next window" set to `cmd+<`
+- keyboard > Delay until repeat = short(est)
 
 # VSCode
 

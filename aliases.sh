@@ -23,7 +23,7 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend windows"
-alias tob="$EDITOR ~/dev-personal/tobb.be/www/"
+alias tob="$EDITOR ~/dev/tobb.be/www/"
 alias shareport="ngrok http -region eu " # ex: `shareport 3000`
 
 # git
@@ -32,10 +32,8 @@ alias gs="git status -s"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias sneak="git add . && git commit --amend --no-edit"
-alias gitlog="git log --oneline --decorate --graph"
-alias gitlogall="git log --oneline --decorate --graph --all"
-alias gitlogs="git log --oneline --decorate --graph --stat"
-alias gitlogt="git log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
+alias gl="git log --graph --date=relative --decorate --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
+alias gl+="git log --oneline --decorate --graph --stat --date=relative --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
 
 # tmux
 alias ta='tmux attach -t'		# attach named session

@@ -1,9 +1,9 @@
-name: daybright
-root: ~/dev/daybright/
+name: sshproxy
+root: ~/
 
 windows:
   - editor:
       layout: even-vertical
       panes:
         - www:
-          - npm run dev
+          - sshproxy

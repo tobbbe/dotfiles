@@ -1,7 +1,9 @@
 [user]
 	name = Tobias Ekman
+	useConfigOnly = true # force you to set email per repo with `git config user.email "you@example.com"`
 
 [core]
+	sshCommand = "ssh -i  ~/.ssh/tobbbe"
 	excludesfile = ~/.gitignore
 
 [init]
@@ -10,13 +12,13 @@
 [pull]
 	rebase = true
 
-[includeIf "gitdir:~/dev-personal/"]
-	path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dotfiles/"]
-	path = ~/.gitconfig-personal
-[includeIf "gitdir:~/.alfred-tob-settings/"]
-	path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev-gymfitness/"]
-	path = ~/.gitconfig-gymfitness
-[includeIf "gitdir:~/dev-daybright/"]
-	path = ~/.gitconfig-daybright
+# [includeIf "gitdir:~/dev-personal/"]
+# 	path = ~/.gitconfig-personal
+# [includeIf "gitdir:~/dotfiles/"]
+# 	path = ~/.gitconfig-personal
+# [includeIf "gitdir:~/.alfred-tob-settings/"]
+# 	path = ~/.gitconfig-personal
+# [includeIf "gitdir:~/dev-gymfitness/"]
+# 	path = ~/.gitconfig-gymfitness
+# [includeIf "gitdir:~/dev-daybright/"]
+# 	path = ~/.gitconfig-daybright

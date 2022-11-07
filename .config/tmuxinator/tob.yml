@@ -1,5 +1,5 @@
 name: tob
-root: ~/dev-personal/tobb.be/
+root: ~/dev/tobb.be/
 
 # Optional tmux socket
 # socket_name: foo

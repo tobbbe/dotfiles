@@ -8,11 +8,11 @@
 
 extraPaths=$(cat <<EOF
 /Users/tobbe/dotfiles
-/Users/tobbe/dev-personal/tobb.be/www
+/Users/tobbe/dev/tobb.be/www
 EOF
 )
 
-(find ~/dev-daybright ~/dev-gymfitness ~/dev-personal -mindepth 1 -maxdepth 1 -type d && echo -e "$extraPaths") | /opt/homebrew/bin/jq -nR \
+(find ~/dev -mindepth 1 -maxdepth 1 -type d && echo -e "$extraPaths") | /opt/homebrew/bin/jq -nR \
 '{
     # things here is jq-things! split() etc NOT bash.
     # Wrap in '' to use args. ex see contains below

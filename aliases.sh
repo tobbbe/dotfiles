@@ -25,6 +25,8 @@ alias sm="smerge ."
 alias susp="prlctl suspend windows"
 alias tob="$EDITOR ~/dev/tobb.be/www/"
 alias shareport="ngrok http -region eu " # ex: `shareport 3000`
+alias caliases="cat ~/dotfiles/aliases.sh --paging=never"
+alias cfns="cat ~/dotfiles/functions.sh --paging=never"
 
 # git
 ## gg and gam is in functions
@@ -48,8 +50,8 @@ alias scannetwork="sudo nmap -sn 192.168.1.0/24 | sed -e 's|Nmap scan report|\nN
 alias scannetworkMore="sudo nmap 192.168.1.0/24"
 
 alias rnPodsReInstall="rm -rf ios/build ios/Pods ios/Podfile.lock; cd ios; pod install; cd -" # remove build+pods and reinstall them
-alias rni="npx react-native run-ios --simulator=\"iPhone 11\""
-alias prodrni="npx react-native run-ios --simulator=\"iPhone 11\" --configuration Release"
+alias rni="npx react-native run-ios --simulator=\"iPhone 14\""
+alias prodrni="npx react-native run-ios --simulator=\"iPhone 14\" --configuration Release"
 alias rna="npx react-native run-android"
 
 alias ..="cd .."

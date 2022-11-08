@@ -267,3 +267,15 @@ function da() {
 function sshproxy() {
 	local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem
 }
+
+function jsontocsv() {
+	if [ -z "$1" ]; then
+		echo "\033[0;31mNo file selected"
+		return -1
+	fi;
+
+	filename="$(basename -- $1)"
+	outputName="${filename/json/csv}"   
+
+	jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv' $1 > $outputName
+}

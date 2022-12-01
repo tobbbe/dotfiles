@@ -8,7 +8,6 @@ alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias openports="lsof -PiTCP -sTCP:LISTEN"
 alias copyclip="tr -d '\n' | pbcopy" #ex: ip | copyclip (your ip will be added to clipboard)
-alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'" #"/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock the screen
 alias reload="sh ~/dotfiles/update.sh && exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line
 alias v="nvim"
@@ -22,7 +21,7 @@ alias curlEditPostData="/bin/bash -c 'read -p '$'\'\e[31mMust use quotes around 
 alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
-alias susp="prlctl suspend windows"
+alias susp="prlctl suspend 'Windows 11'"
 alias tob="$EDITOR ~/dev/tobb.be/www/"
 alias shareport="ngrok http -region eu " # ex: `shareport 3000`
 alias caliases="cat ~/dotfiles/aliases.sh --paging=never"

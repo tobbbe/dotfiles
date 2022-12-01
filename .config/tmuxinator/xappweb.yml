@@ -1,0 +1,9 @@
+name: xshapesapp-web
+root: ~/dev/xshapesapp-web/
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - www:
+          - npm run dev

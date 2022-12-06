@@ -265,7 +265,7 @@ function da() {
 }
 
 function sshproxy() {
-	local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem
+	local-ssl-proxy --source ${2:-3010} --target ${1:-3000} --cert localhost.pem --key localhost-key.pem
 }
 
 function jsontocsv() {

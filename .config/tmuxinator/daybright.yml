@@ -1,9 +1,0 @@
-name: daybright
-root: ~/dev/daybright/
-
-windows:
-  - editor:
-      layout: even-vertical
-      panes:
-        - www:
-          - npm run dev

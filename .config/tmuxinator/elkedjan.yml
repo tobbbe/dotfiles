@@ -6,4 +6,6 @@ windows:
       layout: even-vertical
       panes:
         - www:
-          - npm run dev
+          - npm run dev -- -p 3008
+        - sshproxy:
+          - sshproxy 3008 3018

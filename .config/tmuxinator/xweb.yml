@@ -6,4 +6,4 @@ windows:
       layout: even-vertical
       panes:
         - www:
-          - npm run dev
+          - npm run dev -- -p 3030

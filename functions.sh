@@ -265,7 +265,9 @@ function da() {
 }
 
 function sshproxy() {
-	local-ssl-proxy --source ${2:-3010} --target ${1:-3000} --cert ~/localhost.pem --key ~/localhost-key.pem
+	# create with `mkcert "*.dev.localhost"`
+	# CANNOT be "*.localhost". Must have subdomain before wildcard
+	local-ssl-proxy --source ${2:-3010} --target ${1:-3000} --cert ~/_wildcard.dev.localhost.pem --key ~/_wildcard.dev.localhost-key.pem
 }
 
 function jsontocsv() {

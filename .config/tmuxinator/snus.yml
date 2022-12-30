@@ -52,10 +52,10 @@ windows:
       # synchronize: after
       panes:
         - frontend:
-          - cd whitepouches-frontend
+          - cd wp-frontend
           - npm run dev
         - backend:
-          - cd whitepouches-backend
+          - cd wp-backend
           - npm run dev
   - docker:
       panes:

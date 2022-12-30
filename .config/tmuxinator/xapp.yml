@@ -1,0 +1,9 @@
+name: xapp
+root: ~/dev/xshapes-app/
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - app:
+          - npm start

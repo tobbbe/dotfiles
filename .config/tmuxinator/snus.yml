@@ -53,10 +53,10 @@ windows:
       panes:
         - frontend:
           - cd wp-frontend
-          - npm run dev
+          - NUXT_PORT=3077 npm run dev
         - backend:
           - cd wp-backend
-          - npm run dev
+          - PORT=3078 npm run dev
   - docker:
       panes:
         - redis:

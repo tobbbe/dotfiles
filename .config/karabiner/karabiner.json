@@ -581,8 +581,8 @@
 								},
 								"to_if_alone": [
 									{
-										"key_code": "spacebar",
-										"modifiers": ["left_command", "left_control"]
+										"key_code": "e",
+										"modifiers": ["left_command", "left_control", "left_option", "left_shift"]
 									}
 								]
 							},

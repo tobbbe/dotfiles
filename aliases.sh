@@ -26,6 +26,7 @@ alias tob="$EDITOR ~/dev/tobb.be/www/"
 alias shareport="ngrok http -region eu " # ex: `shareport 3000`
 alias caliases="cat ~/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dotfiles/functions.sh --paging=never"
+alias ncu="npx npm-check-updates"
 
 # git
 ## gg and gam is in functions

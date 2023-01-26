@@ -11,6 +11,13 @@
 
 [pull]
 	rebase = true
+	autoStash = true
+
+[merge]
+    ff = no
+
+[alias]
+	log-merge = "!f() { git log --pretty=oneline \"$1^..$1\"; }; f"
 
 # [includeIf "gitdir:~/dev-personal/"]
 # 	path = ~/.gitconfig-personal

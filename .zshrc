@@ -6,6 +6,7 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
 
 # android dev
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk

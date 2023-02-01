@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Tidsregistrering
+# @raycast.title Open links/bookmarks
 # @raycast.mode silent
 
 # Optional parameters:

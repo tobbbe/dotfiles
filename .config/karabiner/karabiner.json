@@ -450,7 +450,7 @@
 						]
 					},
 					{
-						"description": "vscode toggle windows (fix! also set stuff in vscode)",
+						"description": "vscode toggle windows (OBS! also requires you to set workbench.action.show(Next+Previous)WindowTab) in vscode",
 						"manipulators": [
 							{
 								"conditions": [
@@ -472,8 +472,8 @@
 								},
 								"to": [
 									{
-										"key_code": "grave_accent_and_tilde",
-										"modifiers": ["option"]
+										"key_code": "f1",
+										"modifiers": ["left_command"]
 									}
 								],
 								"type": "basic"

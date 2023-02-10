@@ -10,6 +10,8 @@ Make sure your user is named "tobbe"
 	- z
 	- bat
 	- tmuxinator
+	- ripgrep
+	- fzf
 - nodejs https://volta.sh
 - firefox
 - notion

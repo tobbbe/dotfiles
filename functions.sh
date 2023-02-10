@@ -220,12 +220,12 @@ function ff () {
 	fi;
 	
 	local fpath=$(fzf --bind 'f2:execute-silent(code {})' --preview 'bat --style=numbers --color=always --line-range :500 {}')
-	[ -z $fpath ] || nvim $fpath
-	[[ $hasnav ]] && cd - > /dev/null
+	[ -z $fpath ] || code $fpath
+	# [[ $hasnav ]] && cd - > /dev/null
 }
 
 # find in files
-fff() {
+fif() {
 	local dirr=$*
 	local hasnav=false
 	if [[ -n $dirr ]]; then
@@ -253,8 +253,8 @@ fff() {
 	--preview "rg -i --pretty --context 2 {q} {}" | cut -d":" -f1,2
 	)
 
-	[[ -n $selected ]] && nvim $selected # open multiple files in editor
-	[[ $hasnav ]] && cd - > /dev/null
+	[[ -n $selected ]] && code $selected # open multiple files in editor
+	# [[ $hasnav ]] && cd - > /dev/null
 }
 
 function da() {

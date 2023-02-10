@@ -3,12 +3,12 @@ set relativenumber
 
 " clone git repos into the path
 call plug#begin('~/.vim/plugged')
-Plug 'projekt0n/github-nvim-theme'
-Plug 'neovim/nvim-lspconfig'
-Plug '/usr/local/opt/fzf'
+" Plug 'projekt0n/github-nvim-theme'
+" Plug 'neovim/nvim-lspconfig'
+Plug '/opt/homebrew/opt/fzf'
 call plug#end()
 
-colorscheme github_dark_default
+" colorscheme github_dark_default
 
 let g:fzf_action = {
       \ 'ctrl-s': 'split',

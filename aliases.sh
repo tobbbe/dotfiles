@@ -2,6 +2,7 @@ alias andemu="emulator -avd pixel4android11" #https://developer.android.com/stud
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
+alias dev="cd ~/dev"
 alias week='date +%V'
 alias ip="publicip && localip"
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -10,7 +11,8 @@ alias openports="lsof -PiTCP -sTCP:LISTEN"
 alias copyclip="tr -d '\n' | pbcopy" #ex: ip | copyclip (your ip will be added to clipboard)
 alias reload="sh ~/dotfiles/update.sh && exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line
-alias v="nvim"
+alias vim="nvim"
+alias v="vim"
 alias cpwd="pwd | copyclip && echo '$PWD copied to clipboard'"
 alias fb="fb-messenger-cli"
 alias listglobalnodepkgs="npm ls -g --depth=0"
@@ -60,7 +62,8 @@ alias ....="cd ../../.."
 
 # which code => returns where code command in terminal is installed! if node or global node module, make sure to run command first. ex: `node -v` then `which node`
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |
-# rg --no-ignore --files | rg contentOfFileName (ex: keystore)
+# rg --no-ignore --hidden --files | rg contentOfFileName (ex: keystore)
+# rg --files --no-ignore -. | rg -F 'bdo.md' # -F = treat string as fixed (not regex), ie auto escape stuff
 # list of devices on network => arp -a
 # DNS lookup => dig +noall +answer example.com
 

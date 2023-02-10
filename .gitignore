@@ -13,5 +13,8 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# todo local
-.tobdo.md
+node_modules
+
+# Local tobbe notes
+# Is included in .rgignore!
+.tobnotes.md

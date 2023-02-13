@@ -5,5 +5,7 @@ windows:
   - editor:
       layout: even-vertical
       panes:
-        - app:
+        - cli:
+          - rni
+        - npm:
           - npm start

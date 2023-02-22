@@ -14,6 +14,7 @@ Make sure your user is named "tobbe"
 	- fzf
 - nodejs https://volta.sh
 - firefox
+	- see settings below
 - notion
 - dotfiles
 - alfred
@@ -80,6 +81,7 @@ and ~/.gitconfig-work with:
 # Firefox
 - Strict privacy
 - Delete cookies and data when firefox is closed
+- closeWindowWithLastTab:false (in about:config)
 
 ## Addons
 - vimium

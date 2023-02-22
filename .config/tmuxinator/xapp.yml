@@ -8,5 +8,5 @@ windows:
         - cli:
           - rni
         - npm:
-          - replaceInConfig API2_ORIGIN "http:\/\/"$(localip) .env.development.local
+          - replaceInConfig API2_ORIGIN "http:\/\/"$(localip)":3030" .env.development.local
           - npm start

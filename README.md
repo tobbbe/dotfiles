@@ -20,6 +20,7 @@ Make sure your user is named "tobbe"
 	- alfred-settings
 - sf mono
 - iterm2
+- https://shottr.cc/
 
 # git
 1. Create two ssh keys: work and personal (see github docs)

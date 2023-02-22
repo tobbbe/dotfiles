@@ -285,3 +285,21 @@ function jsontocsv() {
 function testIfYouHaveAccessToFns() {
 	osascript -e 'display dialog ("HI!")'
 }
+
+# example: replaceInConfig API2_ORIGIN "http:\/\/"$(localip) .env.development.local
+replaceInConfig() {
+    local file=$3
+    sed -E -i '' "/^$1=/{s/=.+/=$2/;}" "$file"
+	printRed "\nDont forget to restart build job!\n\n"
+}
+
+printRed() {
+	local RED='\033[1;31m'
+	local NC='\033[0m' # No Color
+	printf "${RED}$1${NC}" # printf doesnt send end-of-line. So add \n after your input to skip "%"
+}
+printYellow() {
+	local YELLOW='\033[0;33m'
+	local NC='\033[0m' # No Color
+	printf "${YELLOW}$1${NC}" # printf doesnt send end-of-line. So add \n after your input to skip "%"
+}

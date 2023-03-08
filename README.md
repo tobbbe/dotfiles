@@ -87,7 +87,9 @@ and ~/.gitconfig-work with:
 - vimium
     - ändra chars used for hints
     - lägg till tema-css (googla ⇒ github)
-    - exclude url [photopea.com](http://photopea.com/)
+    - exclude urls:
+		- https?://photopea.com/*
+		- https?://excalidraw.com/*
     
     ```bash
     # Insert your preferred key mappings here.

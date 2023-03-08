@@ -1,0 +1,9 @@
+name: hydro
+root: ~/dev/hydrogen-test/
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - site:
+          - nr dev

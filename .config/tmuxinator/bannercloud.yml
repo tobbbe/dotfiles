@@ -12,8 +12,8 @@ windows:
       panes:
         - app:
           - cd bannercloud-web
-          - npm run dev
+          - PORT=3091 npm run dev
         - web:
           - cd bannercloud-app
-          - npm run dev
+          - PORT=3090 npm run dev
         

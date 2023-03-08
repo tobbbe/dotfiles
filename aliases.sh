@@ -40,11 +40,13 @@ alias gl="git log --graph --date=relative --decorate --pretty=format:'%C(yellow)
 alias gl+="git log --oneline --decorate --graph --stat --date=relative --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
 
 # tmux
-alias ta='tmux attach -t'		# attach named session
+alias ta='tmux attach -t'		            # attach named session
+alias tp='tmux a'           		        # attach previous session
+alias tt='tmux a && tmux choose-window'		# show tmux choose-window
 alias tl='tmux list-sessions'
-alias tn='tmux new-session -s'	# create new named session
-alias tk='tmux kill-session -t' # kill named session
-alias tx='tmuxinator'			# example `tx tob` (start session, or attach if already running)
+alias tn='tmux new-session -s'	            # create new named session
+alias tk='tmux kill-session -t'             # kill named session
+alias tx='tmuxinator'			            # example `tx tob` (start session, or attach if already running)
 
 # nmap requires sudo to find all devices
 # -i=case INsensitive -v=invert

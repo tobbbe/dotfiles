@@ -8,7 +8,6 @@
 
 extraPaths=$(cat <<EOF
 /Users/tobbe/dotfiles
-/Users/tobbe/dev/tobb.be/www
 EOF
 )
 

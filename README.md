@@ -81,6 +81,7 @@ and ~/.gitconfig-work with:
 # Firefox
 - Strict privacy
 - Delete cookies and data when firefox is closed
+	- exceptions: excalidraw.com, stackoverflow.com, github.com
 - closeWindowWithLastTab:false (in about:config)
 
 ## Addons

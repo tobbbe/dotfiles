@@ -1,6 +1,8 @@
 set number
 set relativenumber
 
+nmap ö :
+
 " clone git repos into the path
 call plug#begin('~/.vim/plugged')
 " Plug 'projekt0n/github-nvim-theme'

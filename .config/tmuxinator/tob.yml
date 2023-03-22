@@ -5,7 +5,5 @@ windows:
   - editor:
       layout: even-vertical
       panes:
-        - www:
-          - npm run dev --prefix www
-        - lib:
-          - npm start --prefix @lib
+        - mono:
+          - nr dev

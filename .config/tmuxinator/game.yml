@@ -1,0 +1,9 @@
+name: game
+root: ~/dev/turnbased-multiplayer-game/
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - mono:
+          - nr dev

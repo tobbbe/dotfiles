@@ -40,9 +40,10 @@ function gam() {
 	git add -A && git commit -m "${message}"
 }
 
-# ex `getProcessByPort 8081`, then `kill (PID == processId)` ---> https://stackoverflow.com/questions/24387451/how-can-i-kill-whatever-process-is-using-port-8080-so-that-i-can-vagrant-up
-function getProcessByPort() {
+# ex `getProcessByPort 8081`
+function portGetProcessId() {
 	lsof -n -i4TCP:$@
+	printYellow "Kill with: kill (PID == processId)\n" # https://stackoverflow.com/questions/24387451/how-can-i-kill-whatever-process-is-using-port-8080-so-that-i-can-vagrant-up
 }
 
 nf() {

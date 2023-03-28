@@ -894,6 +894,34 @@
 						]
 					},
 					{
+						"description": "firefox tabs list",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^org.mozilla.firefox$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "p",
+									"modifiers": {
+										"mandatory": ["left_command"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "tab",
+										"modifiers": ["left_control", "left_shift"]
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
 						"description": "fn_function_keys",
 						"manipulators": [
 							{

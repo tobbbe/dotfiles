@@ -13,8 +13,10 @@ windows:
         - backend:
           - cd wp-backend
           - PORT=3078 npm run dev
-  - docker:
-      panes:
         - redis:
           - docker run --rm --name whitepouches-redis -p 6379:6379 redis:6.2-alpine redis-server --loglevel warning
+  # - docker:
+  #     panes:
+  #       - redis:
+  #         - docker run --rm --name whitepouches-redis -p 6379:6379 redis:6.2-alpine redis-server --loglevel warning
         

@@ -1,0 +1,9 @@
+name: buywin
+root: ~/dev/buywin-web/
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - web:
+          - nr dev -- -p 3037

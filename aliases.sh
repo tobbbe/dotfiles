@@ -52,14 +52,17 @@ alias tx='tmuxinator'			            # example `tx tob` (start session, or attach
 alias scannetwork="sudo nmap -sn 192.168.1.0/24 | sed -e 's|Nmap scan report|\nNmap scan report|'"
 alias scannetworkMore="sudo nmap 192.168.1.0/24"
 
+# react-native
 alias rnPodsReInstall="rm -rf ios/build ios/Pods ios/Podfile.lock; cd ios; pod install; cd -" # remove build+pods and reinstall them
 alias rni="npx react-native run-ios --simulator=\"iPhone 14\""
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 14\" --configuration Release"
 alias rna="npx react-native run-android"
+alias pi="cd ios && pod install && .."
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias å="exit"
 
 # which code => returns where code command in terminal is installed! if node or global node module, make sure to run command first. ex: `node -v` then `which node`
 # someoutput grep cool => returns lines where "cool" exist in someoutput. works with pipes |

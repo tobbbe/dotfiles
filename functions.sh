@@ -304,3 +304,9 @@ printYellow() {
 	local NC='\033[0m' # No Color
 	printf "${YELLOW}$1${NC}" # printf doesnt send end-of-line. So add \n after your input to skip "%"
 }
+
+generate_random_string() {
+  local length=$1
+  local random_string=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w "$length" | head -n 1)
+  echo "$random_string"
+}

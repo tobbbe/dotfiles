@@ -1,5 +1,5 @@
 name: xweb
-root: ~/dev/xshapesapp-web/
+root: ~/dev/xshapes-web/
 
 windows:
   - editor:

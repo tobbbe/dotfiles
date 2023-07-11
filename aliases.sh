@@ -58,6 +58,8 @@ alias rni="npx react-native run-ios --simulator=\"iPhone 14\""
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 14\" --configuration Release"
 alias rna="npx react-native run-android"
 alias pi="cd ios && pod install && .."
+alias xcodederiveddata="open /Users/tobbe/Library/Developer/Xcode/DerivedData/"
+alias openinxcode='open $(find ios -name "*.xcworkspace" -print -quit)'
 
 alias ..="cd .."
 alias ...="cd ../.."

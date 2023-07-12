@@ -355,31 +355,6 @@
 									}
 								],
 								"from": {
-									"key_code": "non_us_backslash"
-								},															
-								"to_if_alone": [
-									{
-										"shell_command": "open -a 'Visual studio code.app'"
-									}
-								],
-								"to_if_held_down": [
-									{
-										"shell_command": "open -a 'Slack.app'",
-										"halt": true
-									}
-								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^org.mozilla.firefox$"
-										],
-										"type": "frontmost_application_if"
-									}
-								],
-								"from": {
 									"key_code": "d",
 									"modifiers": {
 										"mandatory": ["left_command", "left_shift"]
@@ -395,20 +370,13 @@
 								"type": "basic"
 							},
 							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
 								"from": {
 									"key_code": "non_us_backslash"
-								},															
-								"to_if_alone": [
+								},
+								"to": [
 									{
-										"shell_command": "open -a 'Firefox.app'"
+										"key_code": "i",
+										"modifiers": ["left_command", "left_shift", "left_control", "left_option"]
 									}
 								],
 								"to_if_held_down": [
@@ -433,7 +401,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "open -a 'Firefox.app'"
+										"shell_command": "open -a 'iterm.app'"
 									}
 								],
 								"type": "basic"
@@ -579,32 +547,57 @@
 						]
 					},
 					{
-						"description": "open editor 2",
+						"description": "App shortcuts",
 						"manipulators": [
 							{
-								"conditions": [
+								"from": {
+									"simultaneous": [
+										{
+											"key_code": "f"
+										},
+										{
+											"key_code": "d"
+										}
+									]
+								},
+								"to": [
 									{
-										"bundle_identifiers": [
-											"com.sublimetext*",
-											"com.microsoft.VSCode"
-										],
-										"type": "frontmost_application_unless"
+										"shell_command": "open -a 'Firefox.app'"
 									}
 								],
+								"type": "basic"
+							},
+							{
 								"from": {
 									"simultaneous": [
 										{
 											"key_code": "w"
 										},
 										{
+											"key_code": "q"
+										}
+									]
+								},
+								"to": [
+									{
+										"shell_command": "open -a 'Slack.app'"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"from": {
+									"simultaneous": [
+										{
+											"key_code": "a"
+										},
+										{
+											"key_code": "s"
+										},
+										{
 											"key_code": "d"
 										}
-									],
-									"modifiers": {
-										"optional": [
-											"any"
-										]
-									}
+									]
 								},
 								"to": [
 									{
@@ -691,28 +684,6 @@
 									{
 										"key_code": "r",
 										"modifiers": ["left_command", "left_shift"]
-									}
-								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$"
-										],
-										"type": "frontmost_application_if"
-									}
-								],
-								"from": {
-									"key_code": "non_us_backslash",
-									"modifiers": {
-										"mandatory": ["left_command", "left_shift"]
-									}
-								},
-								"to": [
-									{
-										"shell_command": "open -a 'Notion.app'"
 									}
 								],
 								"type": "basic"

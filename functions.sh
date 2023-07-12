@@ -310,3 +310,17 @@ generate_random_string() {
   local random_string=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w "$length" | head -n 1)
   echo "$random_string"
 }
+
+function setgit {
+  if [ "$#" -eq 0 ]; then
+    printRed "Error: You have to pass an email address!\n"
+    return 1
+  else
+	git config user.email "$@"
+  	git config user.name "Tobias Ekman"
+
+	echo "✅ Git config set to:"
+	echo "Name: $(git config user.name)"
+	echo "Email: $(git config user.email)"
+  fi
+}

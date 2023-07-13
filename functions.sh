@@ -311,7 +311,7 @@ generate_random_string() {
   echo "$random_string"
 }
 
-function setgit {
+function setgituser {
   if [ "$#" -eq 0 ]; then
     printRed "Error: You have to pass an email address!\n"
     return 1

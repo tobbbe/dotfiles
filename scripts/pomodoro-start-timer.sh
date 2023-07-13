@@ -20,7 +20,7 @@ FILENAME="pomodoro_timer_end.txt"
 if [ -n "$1" ]; then
   DURATION_IN_MINUTES="$1"
 else
-  DURATION_IN_MINUTES="20"
+  DURATION_IN_MINUTES="25"
 fi
 
 NOW=$(date +"%s")

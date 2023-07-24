@@ -521,14 +521,15 @@
 						"manipulators": [
 							{
 								"from": {
-									"key_code": "left_command",
-									"modifiers": {
-										"optional": ["any"]
-									}
+									"key_code": "left_command"
 								},
 								"to": {
 									"key_code": "left_command",
 									"lazy": true
+								},
+								"to_if_held_down": {
+									"key_code": "m",
+									"modifiers": ["right_command", "left_shift", "left_control", "left_option"]
 								},
 								"to_if_alone": [
 									{

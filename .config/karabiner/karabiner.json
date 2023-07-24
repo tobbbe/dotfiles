@@ -595,6 +595,26 @@
 							},
 							{
 								"from": {
+									"key_code": "1"
+								},
+								"to_if_held_down": [
+									{
+										"shell_command": "open -a 'Firefox.app'",
+										"halt": true
+									}
+								],
+								"parameters": {
+									"basic.to_if_held_down_threshold_milliseconds": 80
+								},
+								"to_after_key_up": [
+									{
+										"key_code": "1"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"from": {
 									"simultaneous": [
 										{
 											"key_code": "w"
@@ -607,6 +627,26 @@
 								"to": [
 									{
 										"shell_command": "open -a 'Slack.app'"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"from": {
+									"key_code": "2"
+								},
+								"to_if_held_down": [
+									{
+										"shell_command": "open -a 'Slack.app'",
+										"halt": true
+									}
+								],
+								"parameters": {
+									"basic.to_if_held_down_threshold_milliseconds": 80
+								},
+								"to_after_key_up": [
+									{
+										"key_code": "2"
 									}
 								],
 								"type": "basic"
@@ -628,6 +668,26 @@
 								"to": [
 									{
 										"shell_command": "open -a 'Visual studio code.app'"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"from": {
+									"key_code": "3"
+								},
+								"to_if_held_down": [
+									{
+										"shell_command": "open -a 'Visual studio code.app'",
+										"halt": true
+									}
+								],
+								"parameters": {
+									"basic.to_if_held_down_threshold_milliseconds": 80
+								},
+								"to_after_key_up": [
+									{
+										"key_code": "3"
 									}
 								],
 								"type": "basic"

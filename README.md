@@ -84,7 +84,7 @@ and ~/.gitconfig-work with:
 	- exceptions: excalidraw.com, stackoverflow.com, github.com
 - in about:config
 	- closeWindowWithLastTab false
-	- browser.urlbar.filter.javascript false (to be able to search booklets, "form fill" for example)
+	- browser.urlbar.filter.javascript false (to be able to search booklets, "form fill" for example. Then use "ff" in address bar (configured shortcut on the bookmark))
 
 ## Addons
 - vimium

@@ -373,18 +373,18 @@
 								"from": {
 									"key_code": "non_us_backslash"
 								},
-								"to": [
+								"to_if_alone": [
 									{
 										"key_code": "i",
-										"modifiers": ["right_command", "left_shift", "left_control", "left_option"]
+										"modifiers": ["right_command", "left_shift", "left_control", "left_option"],
+										"lazy": true
 									}
 								],
-								"to_if_held_down": [
-									{
-										"shell_command": "open -a 'Slack.app'",
-										"halt": true
-									}
-								],
+								"to_if_held_down": {
+									"halt": true,
+									"key_code": "m",
+									"modifiers": ["right_command", "left_shift", "left_control", "left_option"]
+								},
 								"type": "basic"
 							},
 							{
@@ -526,10 +526,6 @@
 								"to": {
 									"key_code": "left_command",
 									"lazy": true
-								},
-								"to_if_held_down": {
-									"key_code": "m",
-									"modifiers": ["right_command", "left_shift", "left_control", "left_option"]
 								},
 								"to_if_alone": [
 									{

@@ -3,6 +3,7 @@ alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dev="cd ~/dev"
+alias wdev="cd /Volumes/\[C\]\ Windows\ 11/dev"
 alias week='date +%V'
 alias ip="publicip && localip"
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"

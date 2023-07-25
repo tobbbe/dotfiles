@@ -109,7 +109,10 @@ and ~/.gitconfig-work with:
 ## Custom css
 - browser.uidensity = 1 in about:config
 1. about:config ⇒ enable toolkit.legacyUserProfileCustomizations.stylesheets
-2. Create `~/Library/Application Support/Firefox/Profiles/PROFILE_USED/chrome/userContent.css` 
+2. Get path to css file
+2.1. about:support
+2.2. Profile Folder => show in finder
+2. Create `((Profile Folder))/chrome/userContent.css` 
 3. Restart firefox OR open new tab to see changes
 
 ```jsx

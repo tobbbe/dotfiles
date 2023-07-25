@@ -604,7 +604,7 @@
 									}
 								],
 								"parameters": {
-									"basic.to_if_held_down_threshold_milliseconds": 80
+									"basic.to_if_held_down_threshold_milliseconds": 120
 								},
 								"to_after_key_up": [
 									{
@@ -642,7 +642,7 @@
 									}
 								],
 								"parameters": {
-									"basic.to_if_held_down_threshold_milliseconds": 80
+									"basic.to_if_held_down_threshold_milliseconds": 120
 								},
 								"to_after_key_up": [
 									{
@@ -683,7 +683,7 @@
 									}
 								],
 								"parameters": {
-									"basic.to_if_held_down_threshold_milliseconds": 80
+									"basic.to_if_held_down_threshold_milliseconds": 120
 								},
 								"to_after_key_up": [
 									{

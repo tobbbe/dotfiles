@@ -106,39 +106,6 @@ and ~/.gitconfig-work with:
     - Remove google consent: [https://daniel-lange.com/archives/164-Getting-rid-of-the-Google-cookie-consent-popup.html](https://daniel-lange.com/archives/164-Getting-rid-of-the-Google-cookie-consent-popup.html)
     - trusted sites: localhost
 
-## Custom css
-- browser.uidensity = 1 in about:config
-1. about:config ⇒ enable toolkit.legacyUserProfileCustomizations.stylesheets
-2. Get path to css file
-2.1. about:support
-2.2. Profile Folder => show in finder
-2. Create `((Profile Folder))/chrome/userContent.css` 
-3. Restart firefox OR open new tab to see changes
-
-```jsx
-@-moz-document domain(reddit.com) {
-}
-
-#nav-bar {
-  /* 40 or 36(ff compact mode) */
-  --navbar-margin: -36px;
-
-  margin-top: var(--navbar-margin);
-  margin-bottom: 0;
-  /* transition: all 0.2s ease !important; */
-  opacity: 0;
-}
-
-#navigator-toolbox:focus-within > #nav-bar,
-#navigator-toolbox:hover > #nav-bar
-{
-  margin-top: 0;
-  margin-bottom: var(--navbar-margin);
-  z-index: 100;
-  opacity: 1;
-}
-```
-
 # iterm keybindings
 set Presets.. to "Natural text editing" under Profile=>Keys
 AND set SOME of these in pref=>keys (selection ex):

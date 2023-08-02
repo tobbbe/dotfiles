@@ -1,0 +1,66 @@
+/*
+  # Get path to css file
+  1. Firefox => about:support
+  2. Profile Folder => show in finder
+  3. Create (if needed) `((Profile Folder))/chrome/userContent.css`
+*/
+
+/* # SETUP */
+/* Make sure: about:config -> toolkit.legacyUserProfileCustomizations.stylesheets -> true */
+/* 1. cp ~/dotfiles/firefoxUserContent.css ~/Library/Application\ Support/Firefox/Profiles/6khnxru5.default-release/chrome/userContent.css */
+/* 2. Restart firefox OR open new tab to see changes */
+
+/* # STYLING THE BROWSER */
+/* browser.uidensity = 1 in about:config */
+/* --navbar-margin: -40 or -36(ff compact mode) */
+/* #nav-bar {
+  --navbar-margin: -36px;
+
+  margin-top: var(--navbar-margin);
+  margin-bottom: 0;
+  transition: all 0.2s ease !important;
+  opacity: 0;
+}
+
+#navigator-toolbox:focus-within > #nav-bar,
+#navigator-toolbox:hover > #nav-bar
+{
+  margin-top: 0;
+  margin-bottom: var(--navbar-margin);
+  z-index: 100;
+  opacity: 1;
+} */
+
+
+@-moz-document domain("feber.se") {
+  [href="https://premium.feber.se/join/"],
+  [src="https://static.feber.se/article_images/55/10/95/551095_450.jpg"],
+  [src="https://static.feber.se/article_images/55/10/95/551095_450.jpg"] ~ *
+  {
+    display: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+  }
+}
+
+@-moz-document domain("svt.se") {
+  [class*="PlayFeed__root"] {
+    display: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+  }
+}
+
+@-moz-document domain(github.com) {
+  .js-issue-row [data-hovercard-type="repository"] {
+      display: none !important;
+  }
+}
+
+@-moz-document domain(youtube.com) {
+  #player {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 99999999999;
+  }
+}

@@ -13,6 +13,7 @@ rsync --exclude ".git/" \
 		--exclude "iterm-settings/" \
 		--exclude "scripts/" \
 		--exclude ".config/sublime-text" \
+		--exclude "firefoxUserContent.css" \
 		-avh --no-perms ~/dotfiles/ ~; # MAKE SURE dotfiles is at ~/dotfiles
 
 # merge npmrc secrets

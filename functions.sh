@@ -169,7 +169,7 @@ function minifyVideo() {
 	ffmpeg -i $1 -c:v libx265 -preset fast -crf 28 -tag:v hvc1 -c:a eac3 -b:a 224k $2.mp4
 }
 
-function resizeJpgsMaxWidth() {mkdir $1x; for f in *.jpg; do sips --resampleWidth "$1" "$f" --out "$1x//${f/.jpg/_$1.jpg}"; done }
+function resizeJpgsMaxWidth() {mkdir $1x; for f in *.jpg; do sips --resampleWidth "$1" "$f" --out "$1x//${f/.jpg/.jpg}"; done }
 
 timer() {
     start="$(( $(date '+%s') + $1))"

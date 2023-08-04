@@ -3,7 +3,7 @@ alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dev="cd ~/dev"
-alias wdev="cd /Volumes/\[C\]\ Windows\ 11/dev"
+alias wdev="cd /Volumes/\[C\]\ Windows\ 11.hidden/dev"
 alias week='date +%V'
 alias ip="publicip && localip"
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -94,7 +94,7 @@ alias å="exit"
 # -A 1 = print 1 line after
 # -B 1 = print 1 line before
 # -C 1 = print 1 line before and after
-# curl --silent https://site.com | grep -o -E ".{0,3}someword.{0,4}"
+# curl -L --silent https://site.com | grep -o -E ".{0,3}someword.{0,4}"
 # if file contains it
 # grep -o -E ".{0,3}someword.{0,4}" file.txt
 

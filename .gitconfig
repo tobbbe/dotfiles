@@ -13,6 +13,9 @@
 	rebase = true
 	autoStash = true
 
+[push]
+	autoSetupRemote = true
+
 [alias]
 	log-merge = "!f() { git log --pretty=oneline \"$1^..$1\"; }; f"
 

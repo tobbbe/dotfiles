@@ -127,15 +127,36 @@ function gitStatusRecursive() {
 }
 
 function rnyolo() {
-	rm -rf node_modules;
-	rm package-lock.json;
-	rm -rf ios/build;
-	rm -rf ios/Pods;
-	rm ios/Podfile.lock;
-	npm i $@;
-	cd ios;
-	pod install;
-	cd -;
+    echo "🧹🧹🧹 Removing node_modules directory...";
+    rm -rf node_modules;
+
+    echo "🧹🧹🧹 Removing package-lock.json...";
+    rm package-lock.json;
+
+    echo "🧹🧹🧹 Removing ios/build directory...";
+    rm -rf ios/build;
+
+    echo "🧹🧹🧹 Removing ios/Pods directory...";
+    rm -rf ios/Pods;
+
+    echo "🧹🧹🧹 Removing ios/Podfile.lock...";
+    rm ios/Podfile.lock;
+
+	echo "🧹🧹🧹 Removing watchman watches...";
+	watchman watch-del-all;
+
+    echo "🤠🤠🤠 Running npm install...";
+    npm i;
+
+	# Using node_modules so must run after npm i
+	echo "🧹🧹🧹 Cleaning android gradlew...";
+	cd android && ./gradlew --no-daemon clean && cd -;
+
+    echo "🤠🤠🤠 Running pod install...";
+    cd ios && pod install && cd -;
+
+	printYellow "\nDone! 🎉\n";
+	printRed "🚨 Also try restart bundler with \`react-native start --reset-cache\`\n"
 }
 
 

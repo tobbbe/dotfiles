@@ -61,6 +61,7 @@ alias rna="npx react-native run-android"
 alias pi="cd ios && pod install && .."
 alias xcodederiveddata="open /Users/tobbe/Library/Developer/Xcode/DerivedData/"
 alias openinxcode='open $(find ios -name "*.xcworkspace" -print -quit)'
+alias sendRNDevMenuKey="adb shell input keyevent 82"
 
 alias ..="cd .."
 alias ...="cd ../.."

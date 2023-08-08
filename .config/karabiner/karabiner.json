@@ -17,6 +17,70 @@
 				},
 				"rules": [
 					{
+						"description": "(ON WINDOWS) Change caps_lock to ctrl when used as modifier, escape when used alone",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.parallels[[:graph:]]*$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "caps_lock",
+									"modifiers": {
+										"optional": ["any"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "left_control"
+									}
+								],
+								"to_if_alone": [
+									{
+										"key_code": "escape"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "(ON MAC) Change caps_lock to cmd when used as modifier, escape when used alone",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.parallels[[:graph:]]*$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "caps_lock",
+									"modifiers": {
+										"optional": ["any"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "right_command"
+									}
+								],
+								"to_if_alone": [
+									{
+										"key_code": "escape"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
 						"description": "ask ai",
 						"manipulators": [
 							{
@@ -126,70 +190,6 @@
 									{
 										"key_code": "9",
 										"modifiers": ["left_shift", "right_option"]
-									}
-								],
-								"type": "basic"
-							}
-						]
-					},
-					{
-						"description": "(ON MAC) Change caps_lock to cmd when used as modifier, escape when used alone",
-						"manipulators": [
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
-								"from": {
-									"key_code": "caps_lock",
-									"modifiers": {
-										"optional": ["any"]
-									}
-								},
-								"to": [
-									{
-										"key_code": "right_command"
-									}
-								],
-								"to_if_alone": [
-									{
-										"key_code": "escape"
-									}
-								],
-								"type": "basic"
-							}
-						]
-					},
-					{
-						"description": "(ON WINDOWS) Change caps_lock to ctrl when used as modifier, escape when used alone",
-						"manipulators": [
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$"
-										],
-										"type": "frontmost_application_if"
-									}
-								],
-								"from": {
-									"key_code": "caps_lock",
-									"modifiers": {
-										"optional": ["any"]
-									}
-								},
-								"to": [
-									{
-										"key_code": "left_control"
-									}
-								],
-								"to_if_alone": [
-									{
-										"key_code": "escape"
 									}
 								],
 								"type": "basic"
@@ -481,35 +481,6 @@
 										"halt": true,
 										"key_code": "spacebar",
 										"modifiers": ["left_control"]
-									}
-								],
-								"type": "basic"
-							}
-						]
-					},
-					{
-						"description": "send cmd+space when in parallels",
-						"manipulators": [
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$"
-										],
-										"type": "frontmost_application_if"
-									}
-								],
-								"from": {
-									"key_code": "spacebar",
-									"modifiers": {
-										"mandatory": ["left_control"]
-									}
-								},
-								"to": [
-									{
-										"halt": true,
-										"key_code": "spacebar",
-										"modifiers": ["right_command"]
 									}
 								],
 								"type": "basic"
@@ -1018,6 +989,14 @@
 						"manipulators": [
 							{
 								"type": "basic",
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^org.mozilla.firefox$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
 								"from": {
 									"key_code": "m",
 									"modifiers": {

@@ -42,7 +42,7 @@ source ~/.zsh/z.sh
 export EDITOR='code'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND="rg --files --hidden -uuu --glob '!**/node_modules/*' --glob '!**/Pods/*'" # 'rg --files --hidden'
+export FZF_DEFAULT_COMMAND="rg --files --hidden -uuu --glob '!**/node_modules/*' --glob '!**/Pods/*' --glob '!**/.git/*' --glob '!**/.next/*'" # 'rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 for file in ~/dotfiles/{aliases.sh,functions.sh}; do

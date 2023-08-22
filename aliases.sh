@@ -25,7 +25,7 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend 'Windows 11'"
-alias shareport="ngrok http -region eu " # ex: `shareport 3000`
+alias shareport="ngrok http --region eu " # ex: `shareport 3000`
 alias caliases="cat ~/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
@@ -42,7 +42,7 @@ alias gl+="git log --oneline --decorate --graph --stat --date=relative --pretty=
 # tmux
 alias ta='tmux attach -t'		            # attach named session
 alias tp='tmux a'           		        # attach previous session
-alias tt='tmux a && tmux choose-window'		# show tmux choose-window
+alias tt='tmux a && tmux choose-session'	# show tmux choose-session
 alias tl='tmux list-sessions'
 alias tn='tmux new-session -s'	            # create new named session
 alias tk='tmux kill-session -t'             # kill named session
@@ -55,7 +55,7 @@ alias scannetworkMore="sudo nmap 192.168.1.0/24"
 
 # react-native
 alias rnPodsReInstall="rm -rf ios/build ios/Pods ios/Podfile.lock; cd ios; pod install; cd -" # remove build+pods and reinstall them
-alias rni="npx react-native run-ios --simulator=\"iPhone 14\""
+# rni in functions
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 14\" --configuration Release"
 alias rna="npx react-native run-android"
 alias pi="cd ios && pod install && .."

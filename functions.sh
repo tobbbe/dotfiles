@@ -345,3 +345,12 @@ function setgituser {
 	echo "Email: $(git config user.email)"
   fi
 }
+
+function rni() {
+	if [ -z "$1" ]; then
+		simulator_name="iPhone 14";
+	else
+		simulator_name="$1";
+	fi
+	npx react-native run-ios --simulator="$simulator_name";
+}

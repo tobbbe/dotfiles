@@ -99,6 +99,16 @@ and ~/.gitconfig-work with:
     unmap <m-A>
     map <m-A> Vomnibar.activateTabSelection
     map <m-p> Vomnibar.activate
+
+	unmap h
+	map h goBack
+
+	unmap l
+	map l goForward
+
+	unmap /
+	unmap p
+	unmap t
     ``` 
 - bitwarden
 - Firefox Multi-Account Containers

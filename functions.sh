@@ -354,3 +354,12 @@ function rni() {
 	fi
 	npx react-native run-ios --simulator="$simulator_name";
 }
+
+function pi() {
+  if [[ "$PWD" != */ios ]]; then
+    cd ios
+  fi
+
+  pod install
+  cd ..
+}

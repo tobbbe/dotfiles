@@ -101,6 +101,23 @@
 						]
 					},
 					{
+						"description": "escape to slack (also set in raycast)",
+						"manipulators": [
+							{
+								"from": {
+									"key_code": "escape"
+								},
+								"to": [
+									{
+										"modifiers": ["right_command", "left_shift"],
+										"key_code": "f12"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
 						"description": "vscode",
 						"manipulators": [
 							{

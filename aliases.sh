@@ -25,7 +25,7 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend 'Windows 11'"
-alias shareport="ngrok http --region eu " # ex: `shareport 3000`
+alias shareport="ngrok http --domain=careful-driven-spaniel.ngrok-free.app --region eu "  # ex: `shareport 3000`
 alias caliases="cat ~/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"

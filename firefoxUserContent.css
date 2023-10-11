@@ -64,3 +64,14 @@
     z-index: 1000;
   }
 }
+
+@-moz-document domain(google.com) {
+  #rcnt {
+    display: flex !important;
+    justify-content: center !important;
+    max-width: none !important;
+  }
+  #searchform > div {
+    justify-content: center !important;
+  }
+}

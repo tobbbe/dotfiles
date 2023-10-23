@@ -60,12 +60,21 @@
 @-moz-document domain(youtube.com) {
   #player {
     position: sticky !important;
-    top: 0 !important;
-    z-index: 1000;
+    top: 10px !important;
+    z-index: 999999;
   }
+  /* tp-yt-iron-overlay-backdrop, ytd-consent-bump-v2-lightbox {
+    display: none !important;
+  } */
 }
 
 @-moz-document domain(google.com) {
+  body {
+    overflow: auto !important;
+  }
+  body > [role="dialog"] {
+    display: none !important;
+  }
   #rcnt {
     display: flex !important;
     justify-content: center !important;

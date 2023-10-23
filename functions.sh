@@ -363,3 +363,12 @@ function pi() {
   pod install
   cd ..
 }
+
+doforlines() {
+  # usage: doforlines <file> <command>
+  local file="$1"
+  shift
+  while IFS= read -r line || [ -n "$line" ]; do
+    "$@" "$line"
+  done < "$file"
+}

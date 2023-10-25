@@ -364,7 +364,7 @@ function pi() {
   cd ..
 }
 
-doforlines() {
+foreachline() {
   # usage: doforlines <file> <command>
   local file="$1"
   shift

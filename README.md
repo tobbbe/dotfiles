@@ -12,7 +12,17 @@ Make sure your user is named "tobbe"
 	- tmuxinator
 	- ripgrep
 	- fzf
-- nodejs https://volta.sh
+	- pnpm
+	- bat
+	- fastlane
+	- gh
+- volta (node)
+	- install node with volta https://volta.sh
+	- install global npm packages with `volta install <package>`
+	- list global packages with `volta list`
+	- packages to install:
+		- @antfu/ni
+		- vercel
 - firefox
 	- see settings below
 - notion

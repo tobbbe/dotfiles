@@ -127,23 +127,12 @@ and ~/.gitconfig-work with:
     - trusted sites: localhost
 
 # iterm keybindings
-set Presets.. to "Natural text editing" under Profile=>Keys
-AND set SOME of these in pref=>keys (selection ex):
-
-## Move curser forward/backward one word
-⌥+← — — Send Escape Sequence: b
-⌥+→ — — Send Escape Sequence: f
-## Move cursor to the start/end of the line
-⌘+← — — Send Hex Codes: 0x01
-⌘+→ — — Send Hex Codes: 0x05
-## Delete last/next word
-⌥+Backspace — — Send Hex Codes: 0x17
-⌥+Del — — Send Escape Sequence: d
-## Delete to start of line
-⌘+Backspace — — Send Hex Codes: 0x15
-## selection
-⇧+⌥+← | move start of sel back by word | select to the left by word
-⇧+⌥+→ | move end of sel forward by word | select to the right by word
+- Backup iterm Settings to com.googlecode.iterm2.plist (in dotfiles dir). Setup in General-tab => Preferences.
+- Backup iterm Profile to iterm-default-profile.json (in dotfiles dir). Must save manually after changes.
+Set Presets.. to "Natural text editing" under Profile=>Keys
+AND set these of these in pref=>keys (selection ex):
+`⇧+⌥+← | move start of sel back by word | select to the left by word`  
+`⇧+⌥+→ | move end of sel forward by word | select to the right by word``
 
 # todo
 - scheduled tasks. Ex: move todo to repo and auto-push https://bitbucket.org/tobbbbe/todo/src

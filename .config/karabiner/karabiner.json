@@ -518,9 +518,31 @@
 									"key_code": "left_command",
 									"lazy": true
 								},
+								"to_if_alone": [
+									{
+										"halt": true,
+										"key_code": "spacebar",
+										"modifiers": ["right_command"]
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "conversations",
+						"manipulators": [
+							{
+								"from": {
+									"key_code": "right_command"
+								},
+								"to": {
+									"key_code": "right_command",
+									"lazy": true
+								},
 								"to_if_held_down": [
 									{
-										"modifiers": ["right_command", "left_shift"],
+										"modifiers": ["right_command"],
 										"key_code": "f12",
 										"halt": true
 									}
@@ -528,8 +550,8 @@
 								"to_if_alone": [
 									{
 										"halt": true,
-										"key_code": "spacebar",
-										"modifiers": ["right_command"]
+										"key_code": "f12",
+										"modifiers": ["right_command", "left_shift"]
 									}
 								],
 								"type": "basic"

@@ -33,6 +33,7 @@ alias ncu="npx npm-check-updates"
 # git
 ## gg and gam is in functions
 alias gs="git status -s"
+alias gp="git pull"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias sneak="git add . && git commit --amend --no-edit"

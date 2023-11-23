@@ -372,3 +372,29 @@ foreachline() {
     "$@" "$line"
   done < "$file"
 }
+
+# usage: getwithenvvar CRON_SECRET https://url --extra-httpie-params(optional)
+# example: getwithenvvar CRON_SECRET https://url -v (verbose) --follow (follow redirects)
+function getwithenvvar() {
+    local variable_name=$1
+    local url=$2
+    local current_dir=$(pwd)
+    local env_file="${current_dir}/.env.local"
+    local secret_value
+    # Read in the target variable from the environment file
+    if [ -f "$env_file" ]; then
+        secret_value=$(grep -m 1 "^${variable_name}=" "$env_file" | cut -d '=' -f2-)
+        # Remove surrounding double quotes only if both are present
+        if [[ $secret_value == \"*\" && $secret_value == *\" ]]; then
+            secret_value="${secret_value%\"}"
+            secret_value="${secret_value#\"}"
+        fi
+    fi
+    # Ensure the variable was actually found and is not empty
+    if [ -z "$secret_value" ]; then
+        echo "The variable '${variable_name}' was not set or is empty."
+        return 1
+    fi
+
+    http $3 $4 $5 $6 -A bearer -a "$secret_value" "$url"
+}

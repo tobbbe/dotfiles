@@ -8,4 +8,4 @@
 # Optional parameters:
 # @raycast.icon 📒
 
-open location "notion://https://www.notion.so/tobbbe/TempNotes-ac29b8ececa04da296257acbd3a3635e?pvs=4"
+open location "notion://https://www.notion.so/tobbbe/T-3e34635a25a148d29bf757e632a842d1?pvs=4"

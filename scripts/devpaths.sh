@@ -1,13 +1,13 @@
 #!/bin/bash
 
-## link to this in alfred "script filter" like this: `~/dotfiles/scripts/devpaths.sh $@`
+## link to this in alfred "script filter" like this: `~/dev/dotfiles/scripts/devpaths.sh $@`
 ## everytime 'inputs' is called it pops from the list:
 ### https://stackoverflow.com/questions/72110455/why-is-the-first-line-is-skipped/72110653#72110653
 ## https://juripakaste.fi/jq-alfred-script-filter/
 ## https://www.alfredapp.com/help/workflows/inputs/script-filter/json/
 
 extraPaths=$(cat <<EOF
-/Users/tobbe/dotfiles
+/Users/tobbe/dev/dotfiles
 EOF
 )
 

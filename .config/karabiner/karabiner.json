@@ -236,7 +236,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "sh ~/dotfiles/scripts/clearSearchEditor.sh"
+										"shell_command": "sh ~/dev/dotfiles/scripts/clearSearchEditor.sh"
 									}
 								],
 								"type": "basic"
@@ -1129,7 +1129,7 @@
 								},
 								"to": [
 								  {
-									"shell_command": "sh ~/dotfiles/scripts/afk.sh"
+									"shell_command": "sh ~/dev/dotfiles/scripts/afk.sh"
 								  }
 								]
 							  },

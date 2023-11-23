@@ -10,7 +10,7 @@ alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias openports="lsof -PiTCP -sTCP:LISTEN"
 alias copyclip="tr -d '\n' | pbcopy" #ex: ip | copyclip (your ip will be added to clipboard)
-alias reload="sh ~/dotfiles/update.sh && exec ${SHELL} -l"
+alias reload="sh ~/dev/dotfiles/update.sh && exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line
 alias vim="nvim"
 alias v="vim"
@@ -26,8 +26,8 @@ alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend 'Windows 11'"
 alias shareport="ngrok http --domain=careful-driven-spaniel.ngrok-free.app --region eu "  # ex: `shareport 3000`
-alias caliases="cat ~/dotfiles/aliases.sh --paging=never"
-alias cfns="cat ~/dotfiles/functions.sh --paging=never"
+alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
+alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
 
 # git

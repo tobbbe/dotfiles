@@ -7,7 +7,7 @@
 
 /* # SETUP */
 /* Make sure: about:config -> toolkit.legacyUserProfileCustomizations.stylesheets -> true */
-/* 1. cp ~/dotfiles/firefoxUserContent.css ~/Library/Application\ Support/Firefox/Profiles/6khnxru5.default-release/chrome/userContent.css */
+/* 1. cp ~/dev/dotfiles/firefoxUserContent.css ~/Library/Application\ Support/Firefox/Profiles/6khnxru5.default-release/chrome/userContent.css */
 /* 2. Restart firefox OR open new tab to see changes */
 
 /* # STYLING THE BROWSER */

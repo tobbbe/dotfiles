@@ -21,7 +21,7 @@
 
 # [includeIf "gitdir:~/dev-personal/"]
 # 	path = ~/.gitconfig-personal
-# [includeIf "gitdir:~/dotfiles/"]
+# [includeIf "gitdir:~/dev/dotfiles/"]
 # 	path = ~/.gitconfig-personal
 # [includeIf "gitdir:~/.alfred-tob-settings/"]
 # 	path = ~/.gitconfig-personal

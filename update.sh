@@ -14,7 +14,7 @@ rsync --exclude ".git/" \
 		--exclude "scripts/" \
 		--exclude ".config/sublime-text" \
 		--exclude "firefoxUserContent.css" \
-		-avh --no-perms ~/dotfiles/ ~; # MAKE SURE dotfiles is at ~/dotfiles
+		-avh --no-perms ~/dev/dotfiles/ ~; # MAKE SURE dotfiles is at ~/dev/dotfiles
 
 # merge npmrc secrets
 # '-' tells cat to read from stdin (which in this case is a newline)

@@ -45,7 +45,7 @@ export EDITOR='code'
 export FZF_DEFAULT_COMMAND="rg --files --hidden -uuu --glob '!**/node_modules/*' --glob '!**/Pods/*' --glob '!**/.git/*' --glob '!**/.next/*'" # 'rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-for file in ~/dotfiles/{aliases.sh,functions.sh}; do
+for file in ~/dev/dotfiles/{aliases.sh,functions.sh}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

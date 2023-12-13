@@ -590,16 +590,16 @@
 					},
 					{
 						"description": "App shortcuts",
-						"conditions": [
-							{
-								"bundle_identifiers": [
-									"^com\\.apple\\.mail"
-								],
-								"type": "frontmost_application_if"
-							}
-						],
 						"manipulators": [
 							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.mail"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
 								"from": {
 									"key_code": "s",
 									"modifiers": {
@@ -616,6 +616,14 @@
 								"type": "basic"
 							},
 							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.mail"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
 								"from": {
 									"key_code": "d",
 									"modifiers": {

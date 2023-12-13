@@ -1,0 +1,11 @@
+name: elapp
+root: ~/dev/elkedjan-app/
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - cli:
+          - rni
+        - npm:
+          - npm start

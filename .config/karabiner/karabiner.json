@@ -1121,13 +1121,13 @@
 						]
 					},
 					{
-						"description": "firefox tabs list",
+						"description": "firefox tabs list (use vimium keybinding instead: `map <m-e> Vomnibar.activateTabSelection`)",
 						"manipulators": [
 							{
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"^org.mozilla.firefox$"
+											"DISABLE------^org.mozilla.firefox$"
 										],
 										"type": "frontmost_application_if"
 									}

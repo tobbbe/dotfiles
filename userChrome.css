@@ -1,0 +1,48 @@
+/*
+  # Get path to css file
+  1. Firefox => about:support
+  2. Profile Folder => show in finder
+  3. Create (if needed) `((Profile Folder))/chrome/userChrome.css`
+*/
+
+/* # SETUP */
+/* Make sure: about:config -> toolkit.legacyUserProfileCustomizations.stylesheets -> true */
+/* 1. cp ~/dev/dotfiles/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/6khnxru5.default-release/chrome/userChrome.css */
+/* 2. Restart firefox OR open new tab to see changes */
+
+/* # STYLING THE BROWSER */
+/* browser.uidensity = 1 in about:config */
+/* --navbar-margin: -40 or -36(ff compact mode) */
+/* #nav-bar {
+  --navbar-margin: -36px;
+
+  margin-top: var(--navbar-margin);
+  margin-bottom: 0;
+  transition: all 0.2s ease !important;
+  opacity: 0;
+}
+
+#navigator-toolbox:focus-within > #nav-bar,
+#navigator-toolbox:hover > #nav-bar
+{
+  margin-top: 0;
+  margin-bottom: var(--navbar-margin);
+  z-index: 100;
+  opacity: 1;
+} */
+
+/* https://gist.github.com/ruanbekker/f800e098936b27c7cf956c56005fe362 */
+/* 🚨 also set browser.uidensity = 1 in about:config */
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+  opacity: 0;
+  /* pointer-events: none; */
+}
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+#TabsToolbar { visibility: collapse !important; }
+
+#unified-extensions-button,
+#unified-extensions-button > .toolbarbutton-icon{
+  opacity: 0;
+}

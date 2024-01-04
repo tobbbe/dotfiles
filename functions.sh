@@ -142,6 +142,9 @@ function rnyolo() {
     echo "🧹🧹🧹 Removing ios/Podfile.lock...";
     rm ios/Podfile.lock;
 
+	echo "🧹🧹🧹 Deintegrate CocoaPods from your project...";
+    pod deintegrate;
+
 	echo "🧹🧹🧹 Removing watchman watches...";
 	watchman watch-del-all;
 

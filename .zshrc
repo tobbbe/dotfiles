@@ -49,3 +49,5 @@ for file in ~/dev/dotfiles/{aliases.sh,functions.sh}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+unset _VOLTA_TOOL_RECURSION # https://github.com/volta-cli/volta/issues/1007#issuecomment-881771029

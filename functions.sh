@@ -401,3 +401,16 @@ function getwithenvvar() {
 
     http $3 $4 $5 $6 -A bearer -a "$secret_value" "$url"
 }
+
+function mitm_on() {
+    networksetup -setsecurewebproxystate wi-fi on
+    networksetup -setwebproxystate wi-fi on
+    
+    networksetup -setwebproxy wi-fi localhost 8080
+    networksetup -setsecurewebproxy wi-fi localhost 8080
+}
+
+function mitm_off() {
+    networksetup -setsecurewebproxystate wi-fi off
+    networksetup -setwebproxystate wi-fi off
+}

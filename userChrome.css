@@ -43,6 +43,6 @@
 #TabsToolbar { visibility: collapse !important; }
 
 #unified-extensions-button,
-#unified-extensions-button > .toolbarbutton-icon{
+/* #unified-extensions-button > .toolbarbutton-icon{
   opacity: 0;
-}
+} */

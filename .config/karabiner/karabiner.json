@@ -285,6 +285,28 @@
 								},
 								"to": [
 									{
+										"shell_command": "open \"notion://https://www.notion.so/gustaflevin/82bb6309603d4ed398a54298b63f36f1?v=7c57d53ce9ed480ab43444a17b996af3\""
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"notion.id"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "2",
+									"modifiers": {
+										"mandatory": ["right_command"]
+									}
+								},
+								"to": [
+									{
 										"key_code": "2",
 										"modifiers": ["left_control", "left_shift"]
 									}

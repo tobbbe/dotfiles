@@ -355,7 +355,7 @@ function rni() {
 	else
 		simulator_name="$1";
 	fi
-	npx react-native run-ios --simulator="$simulator_name";
+	npx --yes react-native@latest run-ios --simulator="$simulator_name";
 }
 
 function pi() {

@@ -760,7 +760,7 @@
 								"from": {
 									"key_code": "grave_accent_and_tilde",
 									"modifiers": {
-										"mandatory": ["right_command"],
+										"mandatory": ["left_command"],
 										"optional": [
 											"shift"
 										]

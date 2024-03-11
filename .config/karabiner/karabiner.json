@@ -567,7 +567,7 @@
 									{
 										"halt": true,
 										"key_code": "spacebar",
-										"modifiers": ["right_command"]
+										"modifiers": ["left_control"]
 									}
 								],
 								"type": "basic"

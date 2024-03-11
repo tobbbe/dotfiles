@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Rrun script
+# @raycast.title Run script
 # @raycast.mode silent
 
 # Optional parameters:

@@ -7,5 +7,6 @@ windows:
       panes:
         - cli:
           - rni
-        - npm:
-          - replaceInConfig API2_ORIGIN "http:\/\/"$(localip)":3030" .env.development.local && npm start
+        # - npm:
+          # - replaceInConfig API2_ORIGIN "http:\/\/"$(localip)":3030" .env.development.local && xcrun simctl boot "iPhone 14 pro" && npm start
+          # - npm start --reset-cache

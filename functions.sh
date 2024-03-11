@@ -126,34 +126,50 @@ function gitStatusRecursive() {
 	printf "\n"
 }
 
+function rnclearcache() {
+	printRed "⚠️ Clear all the caches...\n";
+
+	echo "🧹🧹🧹 Removing ios/build...";
+    rm -rf ios/build;
+
+	echo "🧹🧹🧹 Deleting all DerivedData folders...";
+	rm -rf ~/Library/Developer/Xcode/DerivedData/*
+
+	echo "🧹🧹🧹 Running xcode clean...";
+	cd ios
+	xcodebuild clean
+	cd -
+
+	echo "🧹🧹🧹 Removing watchman watches...";
+	watchman watch-del-all;
+	watchman shutdown-server
+
+	# Using node_modules so must run after npm i
+	echo "🧹🧹🧹 Cleaning android gradlew...";
+	cd android && ./gradlew --no-daemon clean && cd -;
+}
+
+
 function rnyolo() {
-    echo "🧹🧹🧹 Removing node_modules directory...";
+    echo "🧹🧹🧹 Removing node_modules...";
     rm -rf node_modules;
 
     echo "🧹🧹🧹 Removing package-lock.json...";
     rm package-lock.json;
 
-    echo "🧹🧹🧹 Removing ios/build directory...";
-    rm -rf ios/build;
+	## echo "🧹🧹🧹 Deintegrate CocoaPods from your project...";
+	## DANGER, removes build phases in xcode etc:  cd ios && pod deintegrate && cd -
 
-    echo "🧹🧹🧹 Removing ios/Pods directory...";
+    echo "🧹🧹🧹 Removing ios/Pods...";
     rm -rf ios/Pods;
 
     echo "🧹🧹🧹 Removing ios/Podfile.lock...";
     rm ios/Podfile.lock;
 
-	echo "🧹🧹🧹 Deintegrate CocoaPods from your project...";
-    pod deintegrate;
-
-	echo "🧹🧹🧹 Removing watchman watches...";
-	watchman watch-del-all;
-
     echo "🤠🤠🤠 Running npm install...";
     npm i;
 
-	# Using node_modules so must run after npm i
-	echo "🧹🧹🧹 Cleaning android gradlew...";
-	cd android && ./gradlew --no-daemon clean && cd -;
+	rnclearcache;
 
     echo "🤠🤠🤠 Running pod install...";
     cd ios && pod install && cd -;
@@ -351,11 +367,23 @@ function setgituser {
 
 function rni() {
 	if [ -z "$1" ]; then
-		simulator_name="iPhone 14";
+		simulator_name="iPhone 14 Pro";
 	else
 		simulator_name="$1";
 	fi
-	npx --yes react-native@latest run-ios --simulator="$simulator_name";
+
+	if ! xcrun simctl list | grep -Fq "Booted"; then
+		xcrun simctl boot "$simulator_name"
+	else
+		echo "🆗 "$simulator_name" simulator already booted"
+	fi
+
+	open -a Simulator
+
+	npm start;
+
+	sleep 2
+	osascript -e 'tell application "System Events" to key code 34'
 }
 
 function pi() {

@@ -453,6 +453,19 @@
 								"type": "basic"
 							},
 							{
+								"from": {
+									"key_code": "escape"
+								},
+								"to": [
+									{
+										"halt": true,
+										"key_code": "m",
+										"modifiers": ["right_command", "left_shift", "left_control", "left_option"]
+									}
+								],
+								"type": "basic"
+							},
+							{
 								"conditions": [
 									{
 										"bundle_identifiers": [
@@ -567,7 +580,7 @@
 									{
 										"halt": true,
 										"key_code": "spacebar",
-										"modifiers": ["left_control"]
+										"modifiers": ["left_option"]
 									}
 								],
 								"type": "basic"
@@ -595,8 +608,8 @@
 								"to_if_alone": [
 									{
 										"halt": true,
-										"key_code": "f12",
-										"modifiers": ["right_command", "left_shift"]
+										"key_code": "spacebar",
+										"modifiers": ["right_command"]
 									}
 								],
 								"type": "basic"

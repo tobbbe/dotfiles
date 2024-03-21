@@ -101,6 +101,7 @@ and ~/.gitconfig-work with:
 - vimium
     - ändra chars used for hints
     - lägg till tema-css: https://github.com/philc/vimium/wiki/Theme
+		- my own https://gist.github.com/tobbbe/b95cc29a85ce3fa239cf68ce76aeb42e
     - exclude urls:
 		- https?://photopea.com/*
 		- https?://excalidraw.com/*

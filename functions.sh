@@ -367,7 +367,7 @@ function setgituser {
 
 function rni() {
 	if [ -z "$1" ]; then
-		simulator_name="iPhone 14 Pro";
+		simulator_name="iPhone 15 Pro";
 	else
 		simulator_name="$1";
 	fi
@@ -441,4 +441,13 @@ function mitm_on() {
 function mitm_off() {
     networksetup -setsecurewebproxystate wi-fi off
     networksetup -setwebproxystate wi-fi off
+}
+
+function code() {
+	# open current directory in vscode
+	if [ $# -eq 0 ]; then
+		open -a "Visual Studio Code" .
+	else
+		open -a "Visual Studio Code" $@
+	fi
 }

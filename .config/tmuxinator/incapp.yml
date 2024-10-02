@@ -1,0 +1,12 @@
+name: incline app
+root: ~/dev/incline-app/
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - cli:
+          - nr start
+        # - npm:
+          # - replaceInConfig API2_ORIGIN "http:\/\/"$(localip)":3030" .env.development.local && xcrun simctl boot "iPhone 14 pro" && npm start
+          # - npm start --reset-cache

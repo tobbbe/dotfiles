@@ -31,6 +31,8 @@
   opacity: 1;
 } */
 
+/* 🚨 THIS FILE IS FOR PAGE CONTENT NOT FIREFOX STYLING, use userChrome.css for that */
+
 @-moz-document domain("feber.se") {
   [href="https://premium.feber.se/join/"],
   [src="https://static.feber.se/article_images/55/10/95/551095_450.jpg"],

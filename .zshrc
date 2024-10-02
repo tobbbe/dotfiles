@@ -51,3 +51,8 @@ done;
 unset file;
 
 unset _VOLTA_TOOL_RECURSION # https://github.com/volta-cli/volta/issues/1007#issuecomment-881771029
+
+# emoves all previous occurrences of a command before adding the latest one, ensuring each unique command is stored only once.
+setopt HIST_IGNORE_ALL_DUPS
+# prevents consecutive duplicate commands from being saved in the history.
+setopt HIST_IGNORE_DUPS

@@ -31,6 +31,25 @@
   opacity: 1;
 } */
 
+/* 🚨 Use firefoxUserContent.css for page content styling */
+/* 🚨 Inspect firefox elements on chrome://browser/content/browser.xhtml */
+
+#navigator-toolbox:not(:focus-within) {
+  height: 1px !important;
+}
+
+body {
+  border: 8px solid #2e105694 !important;
+  border-radius: 8px !important;
+  box-sizing: border-box;
+}
+
+#browser, #appcontent {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background-clip: padding-box;
+}
+
 /* https://gist.github.com/ruanbekker/f800e098936b27c7cf956c56005fe362 */
 /* 🚨 also set browser.uidensity = 1 in about:config */
 #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {

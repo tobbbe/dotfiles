@@ -96,6 +96,8 @@ and ~/.gitconfig-work with:
 - in about:config
 	- closeWindowWithLastTab false
 	- browser.urlbar.filter.javascript false (to be able to search booklets, "form fill" for example. Then use "ff" in address bar (configured shortcut on the bookmark))
+	- cookiebanners.service.mode (and for private browsing) = 1 (reject all)
+	- cookiebanners.bannerClicking.enabled TRUE
 
 ## Addons
 - vimium

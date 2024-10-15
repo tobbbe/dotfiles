@@ -7,7 +7,7 @@
 
 /* # SETUP */
 /* Make sure: about:config -> toolkit.legacyUserProfileCustomizations.stylesheets -> true */
-/* 1. cp ~/dev/dotfiles/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/6khnxru5.default-release/chrome/userChrome.css */
+/* 1. cp ~/dev/dotfiles/firefox/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/6khnxru5.default-release/chrome/userChrome.css */
 /* 2. Restart firefox OR open new tab to see changes */
 
 /* # STYLING THE BROWSER */
@@ -39,7 +39,7 @@
 }
 
 body {
-  border: 8px solid #2e105694 !important;
+  border: 8px solid #2e105694 !important; /* 2e105694 */
   border-radius: 8px !important;
   box-sizing: border-box;
 }

@@ -435,14 +435,121 @@
 								"type": "basic"
 							},
 							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.googlecode.iterm2$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "non_us_backslash",
+									"modifiers": {
+										"mandatory": ["left_command"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "i",
+										"modifiers": ["right_command", "left_shift", "left_control", "left_option"],
+										"lazy": true
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.googlecode.iterm2$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "non_us_backslash",
+									"modifiers": {
+										"mandatory": ["left_command"]
+									}
+								},
+								"to_if_alone": [
+									{
+										"key_code": "tab",
+										"modifiers": ["right_command"]
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^org.mozilla.firefox$",
+											"^com.microsoft.VSCode$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
 								"from": {
 									"key_code": "non_us_backslash"
 								},
 								"to_if_alone": [
 									{
-										"key_code": "i",
-										"modifiers": ["right_command", "left_shift", "left_control", "left_option"],
-										"lazy": true
+										"key_code": "tab",
+										"modifiers": ["right_command"]
+									}
+								],
+								"to_if_held_down": {
+									"halt": true,
+									"key_code": "m",
+									"modifiers": ["right_command", "left_shift", "left_control", "left_option"]
+								},
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.microsoft.VSCode$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "non_us_backslash"
+								},
+								"to_if_alone": [
+									{
+										"software_function": {
+											"open_application": { "bundle_identifier": "org.mozilla.firefox" }
+										}
+									}
+								],
+								"to_if_held_down": {
+									"halt": true,
+									"key_code": "m",
+									"modifiers": ["right_command", "left_shift", "left_control", "left_option"]
+								},
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^org.mozilla.firefox$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "non_us_backslash"
+								},
+								"to_if_alone": [
+									{
+										"software_function": {
+											"open_application": { "bundle_identifier": "com.microsoft.VSCode" }
+										}
 									}
 								],
 								"to_if_held_down": {
@@ -461,25 +568,6 @@
 										"halt": true,
 										"key_code": "m",
 										"modifiers": ["right_command", "left_shift", "left_control", "left_option"]
-									}
-								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com.parallels[[:graph:]]*$"
-										],
-										"type": "frontmost_application_if"
-									}
-								],
-								"from": {
-									"key_code": "non_us_backslash"
-								},
-								"to": [
-									{
-										"shell_command": "open -a 'iterm.app'"
 									}
 								],
 								"type": "basic"
@@ -709,7 +797,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "open -a 'Slack.app'"
+										"shell_command": "open -a 'iterm.app'"
 									}
 								],
 								"type": "basic"

@@ -444,7 +444,7 @@
 									}
 								],
 								"from": {
-									"key_code": "non_us_backslash",
+									"key_code": "grave_accent_and_tilde",
 									"modifiers": {
 										"mandatory": ["left_command"]
 									}
@@ -468,12 +468,12 @@
 									}
 								],
 								"from": {
-									"key_code": "non_us_backslash",
+									"key_code": "grave_accent_and_tilde",
 									"modifiers": {
 										"mandatory": ["left_command"]
 									}
 								},
-								"to_if_alone": [
+								"to": [
 									{
 										"key_code": "tab",
 										"modifiers": ["right_command"]
@@ -492,9 +492,9 @@
 									}
 								],
 								"from": {
-									"key_code": "non_us_backslash"
+									"key_code": "grave_accent_and_tilde"
 								},
-								"to_if_alone": [
+								"to": [
 									{
 										"key_code": "tab",
 										"modifiers": ["right_command"]
@@ -517,9 +517,9 @@
 									}
 								],
 								"from": {
-									"key_code": "non_us_backslash"
+									"key_code": "grave_accent_and_tilde"
 								},
-								"to_if_alone": [
+								"to": [
 									{
 										"software_function": {
 											"open_application": { "bundle_identifier": "org.mozilla.firefox" }
@@ -543,7 +543,7 @@
 									}
 								],
 								"from": {
-									"key_code": "non_us_backslash"
+									"key_code": "grave_accent_and_tilde"
 								},
 								"to_if_alone": [
 									{
@@ -1527,7 +1527,7 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
-                        "product_id": 592,
+                        "product_id": 834,
                         "vendor_id": 1452
                     },
                     "ignore": false,

@@ -859,7 +859,7 @@
 									}
 								],
 								"from": {
-									"key_code": "grave_accent_and_tilde",
+									"key_code": "non_us_backslash",
 									"modifiers": {
 										"mandatory": ["left_command"],
 										"optional": [
@@ -876,6 +876,29 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "capslock + q = switch windows of app",
+						"manipulators": [
+							{
+								"from": {
+									"key_code": "tab",
+									"modifiers": {
+										"mandatory": ["right_command"],
+										"optional": [
+											"left_shift"
+										]
+									}
+								},
+								"to": [	
+									{
+										"key_code": "tab",
+										"modifiers": ["left_control"]
+									}
+								],
+								"type": "basic"
+							}
+						]	
 					},
 					{
 						"description": "navigate imessages",

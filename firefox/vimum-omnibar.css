@@ -8,7 +8,7 @@
   --font-weight-medium: medium;
   --font-weight-bold: bold;
 
-  --font: "Helvetica Neue", "Helvetica", "Arial", sans-serif; /* Font used in the UI */
+  --font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif; /* Font used in the UI */
 
   --padding: 2px;
   --padding-vomnibar: 10px;
@@ -114,12 +114,12 @@
 #vomnibar li {
   border-bottom: none;
   padding: 10px;
-  /* display: flex;
-  flex-direction: column-reverse; */
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 #vomnibar li .vomnibarTopHalf {
-  padding: var(--padding);
+  /* padding: var(--padding); */
 }
 
 #vomnibar li .vomnibarBottomHalf {
@@ -132,26 +132,24 @@
 
 #vomnibar li .vomnibarSource {
   display: none;
-  color: var(--fg-dark);
-  font-family: var(--font);
-  font-size: 12;
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase; /* `.vomnibarSource` will be in all uppercase letters. Delete to revert to original */
+  color: var(--fg);
+  font-weight: var(--font-weight-medium);
+  /* text-transform: uppercase; `.vomnibarSource` will be in all uppercase letters. Delete to revert to original */
 }
 
 #vomnibar li em,
 #vomnibar li .vomnibarTitle {
   margin-left: 0 !important;
-  color: var(--fg);
   font-family: var(--font);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight-medium);
+  font-size: 11px;
+  color: #aabbaaa6;
+  font-family: var(--font);
 }
 
 #vomnibar li .vomnibarUrl {
-  color: var(--fg-url);
+  font-size: 14px;
+  color: var(--fg-dark);
   font-family: var(--font);
-  font-size: 11px !important;
   font-weight: var(--font-weight-medium);
 }
 
@@ -173,7 +171,7 @@
 
 #vomnibar li.vomnibarSelected .vomnibarUrl {
   /* Changes '.vomnibarURL' to '--fg-match' when selected */
-  color: var(--fg-url);
+  /* color: var(--fg-url); */
 }
 
 #vomnibar li.vomnibarSelected .vomnibarMatch {

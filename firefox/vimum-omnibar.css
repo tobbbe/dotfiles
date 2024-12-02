@@ -1,41 +1,41 @@
 /* Edit and insert in moz-extension://9d670478-d026-4ab0-86a0-1261f329acfa/pages/options.html */
 
 :root {
-  --font-size: 14;
-  --font-size-hints: 12;
+  --tob-font-size: 14;
+  --tob-font-size-hints: 12;
 
-  --font-weight: normal;
-  --font-weight-medium: medium;
-  --font-weight-bold: bold;
+  --tob-font-weight: normal;
+  --tob-font-weight-medium: medium;
+  --tob-font-weight-bold: bold;
 
-  --font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif; /* Font used in the UI */
+  --tob-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif; /* Font used in the UI */
 
-  --padding: 2px;
-  --padding-vomnibar: 10px;
-  --shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.25);
-  --blur: 40px;
+  --tob-padding: 2px;
+  --tob-padding-vomnibar: 10px;
+  --tob-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.25);
+  --tob-blur: 40px;
 
   /* -------- VOMNIBAR & HUD -------- */
-  /* --bg: rgba(244, 244, 244, 1);
-  --bg-selected: rgba(154, 176, 196, 0.3);
-  --fg: #111;
-  --fg-dark: #111;
-  --fg-url: #666;
-  --fg-match: #2165d9;
-  --font-size-url: 12; */
+  /* --tob-bg: rgba(244, 244, 244, 1);
+  --tob-bg-selected: rgba(154, 176, 196, 0.3);
+  --tob-fg: #111;
+  --tob-fg-dark: #111;
+  --tob-fg-url: #666;
+  --tob-fg-match: #2165d9;
+  --tob-font-size-url: 12; */
 
-  --bg: #0c0044;
-  --bg-selected: rgba(154, 176, 196, 0.3);
-  --fg: #fff;
-  --fg-dark: #fff;
-  --fg-url: #bbb;
-  --fg-match: #2165d9;
-  --font-size-url: 12;
+  --tob-bg: #0c0044;
+  --tob-bg-selected: rgba(154, 176, 196, 0.3);
+  --tob-fg: #fff;
+  --tob-fg-dark: #fff;
+  --tob-fg-url: #bbb;
+  --tob-fg-match: #2165d9;
+  --tob-font-size-url: 12;
 
-  --border: #464646;
+  --tob-border: #464646;
 
   /* -------- HINTS -------- */
-  --fg-hints: #ffd752; /* Text color of link hints, (don't forget to change `#vimiumHintMarkerContainer div > .matchingCharacter ~ span`) */
+  --tob-fg-hints: #ffd752; /* Text color of link hints, (don't forget to change `#vimiumHintMarkerContainer div > .matchingCharacter ~ span`) */
 }
 
 /* --------------------------------- CSS --------------------------------- */
@@ -43,18 +43,18 @@
 /* -------- HINTS -------- */
 #vimiumHintMarkerContainer div.internalVimiumHintMarker,
 #vimiumHintMarkerContainer div.vimiumHintMarker {
-  background: var(--bg);
-  border: 1px solid var(--border);
+  background: var(--tob-bg);
+  border: 1px solid var(--tob-border);
   backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--tob-shadow);
   padding: 3px 4px;
 }
 
 #vimiumHintMarkerContainer div span {
-  color: var(--fg-hints);
-  font-family: var(--font);
-  font-size: var(--font-size-hints);
-  font-weight: var(--font-weight-bold);
+  color: var(--tob-fg-hints);
+  font-family: var(--tob-font);
+  font-size: var(--tob-font-size-hints);
+  font-weight: var(--tob-font-weight-bold);
   text-shadow: none;
 }
 
@@ -63,15 +63,15 @@
 }
 
 #vimiumHintMarkerContainer div > .matchingCharacter ~ span {
-  color: var(--fg-hints);
+  color: var(--tob-fg-hints);
 }
 
 /* -------- VOMNIBAR -------- */
 #vomnibar {
-  background: var(--bg);
-  backdrop-filter: blur(var(--blur));
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  background: var(--tob-bg);
+  backdrop-filter: blur(var(--tob-blur));
+  border: 1px solid var(--tob-border);
+  box-shadow: var(--tob-shadow);
   border-radius: 15px;
   overflow: hidden;
   left: 50%;
@@ -84,10 +84,10 @@
   background: transparent;
   border: none;
   box-shadow: none;
-  color: var(--fg);
-  font-family: var(--font);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
+  color: var(--tob-fg);
+  font-family: var(--tob-font);
+  font-size: var(--tob-font-size);
+  font-weight: var(--tob-font-weight);
 }
 
 #vomnibar .vomnibarSearchArea {
@@ -97,7 +97,7 @@
 
 #vomnibar input {
   border: none;
-  padding: var(--padding);
+  padding: var(--tob-padding);
 }
 
 .vomnibarNoInsertText {
@@ -106,9 +106,9 @@
 
 #vomnibar ul {
   background: transparent;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--tob-border);
   margin: 0;
-  padding: var(--padding-vomnibar);
+  padding: var(--tob-padding-vomnibar);
 }
 
 #vomnibar li {
@@ -119,7 +119,7 @@
 }
 
 #vomnibar li .vomnibarTopHalf {
-  /* padding: var(--padding); */
+  /* padding: var(--tob-padding); */
 }
 
 #vomnibar li .vomnibarBottomHalf {
@@ -132,68 +132,68 @@
 
 #vomnibar li .vomnibarSource {
   display: none;
-  color: var(--fg);
-  font-weight: var(--font-weight-medium);
+  color: var(--tob-fg);
+  font-weight: var(--tob-font-weight-medium);
   /* text-transform: uppercase; `.vomnibarSource` will be in all uppercase letters. Delete to revert to original */
 }
 
 #vomnibar li em,
 #vomnibar li .vomnibarTitle {
   margin-left: 0 !important;
-  font-family: var(--font);
+  font-family: var(--tob-font);
   font-size: 11px;
   color: #aabbaaa6;
-  font-family: var(--font);
+  font-family: var(--tob-font);
 }
 
 #vomnibar li .vomnibarUrl {
   font-size: 14px;
-  color: var(--fg-dark);
-  font-family: var(--font);
-  font-weight: var(--font-weight-medium);
+  color: var(--tob-fg-dark);
+  font-family: var(--tob-font);
+  font-weight: var(--tob-font-weight-medium);
 }
 
 #vomnibar li .vomnibarMatch {
-  color: var(--fg-match);
+  color: var(--tob-fg-match);
   font-weight: normal;
 }
 
 #vomnibar li .vomnibarTitle .vomnibarMatch {
-  color: var(--fg);
+  color: var(--tob-fg);
   font-weight: bold;
 }
 
 #vomnibar li.vomnibarSelected {
-  background-color: var(--bg-selected);
+  background-color: var(--tob-bg-selected);
   backdrop-filter: blur(20px);
   border-radius: 8px;
 }
 
 #vomnibar li.vomnibarSelected .vomnibarUrl {
-  /* Changes '.vomnibarURL' to '--fg-match' when selected */
-  /* color: var(--fg-url); */
+  /* Changes '.vomnibarURL' to '--tob-fg-match' when selected */
+  /* color: var(--tob-fg-url); */
 }
 
 #vomnibar li.vomnibarSelected .vomnibarMatch {
-  /* Changes '.vomnibarMatch' to '--fg' when selected */
-  color: var(--fg);
+  /* Changes '.vomnibarMatch' to '--tob-fg' when selected */
+  color: var(--tob-fg);
 }
 
 /* -------- HUD -------- */
 div.vimiumHUD {
-  background: var(--bg);
+  background: var(--tob-bg);
   backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--tob-border);
+  box-shadow: var(--tob-shadow);
   border-radius: 6px;
 }
 
 div.vimiumHUD span#hud-find-input,
 div.vimiumHUD .vimiumHUDSearchAreaInner {
-  color: var(--fg);
-  font-family: var(--font);
+  color: var(--tob-fg);
+  font-family: var(--tob-font);
   font-size: 13;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--tob-font-weight-medium);
 }
 
 div.vimiumHUD .hud-find {
@@ -213,17 +213,17 @@ div#vimiumHelpDialogContainer {
 }
 
 div#vimiumHelpDialog {
-  background: var(--bg);
-  backdrop-filter: blur(var(--blur));
-  border: 1px solid var(--border);
+  background: var(--tob-bg);
+  backdrop-filter: blur(var(--tob-blur));
+  border: 1px solid var(--tob-border);
   border-radius: 15px;
-  font-family: var(--font);
-  font-size: var(--font-size);
+  font-family: var(--tob-font);
+  font-size: var(--tob-font-size);
   padding: 15px 10px !important;
 }
 
 span#vimiumTitle {
-  color: var(--fg);
+  color: var(--tob-fg);
 }
 
 a:link.vimiumHelDialogLink,
@@ -231,30 +231,30 @@ a:visited.vimiumHelDialogLink,
 a:hover.vimiumHelDialogLink,
 a:active.vimiumHelDialogLink,
 a#toggleAdvancedCommands {
-  color: var(--fg-url);
-  font-family: var(--font);
-  font-size: var(--font-size);
+  color: var(--tob-fg-url);
+  font-family: var(--tob-font);
+  font-size: var(--tob-font-size);
 }
 
 span.vimiumHelpDialogKey {
-  background-color: var(--bg-hints);
-  border: 1px solid var(--border-hints);
-  box-shadow: var(--shadow);
+  background-color: var(--tob-bg-hints);
+  border: 1px solid var(--tob-border-hints);
+  box-shadow: var(--tob-shadow);
   padding: 2px 3px;
-  color: var(--fg-hints);
-  font-family: var(--font);
-  font-size: var(--font-size-hints);
-  font-weight: var(--font-weight-bold);
+  color: var(--tob-fg-hints);
+  font-family: var(--tob-font);
+  font-size: var(--tob-font-size-hints);
+  font-weight: var(--tob-font-weight-bold);
   text-shadow: none;
 }
 
 td.vimiumHelpSectionTitle,
 td.vimiumHelpDescription {
-  color: var(--fg);
-  font-family: var(--font);
+  color: var(--tob-fg);
+  font-family: var(--tob-font);
 }
 
 div.vimiumColumn {
-  color: var(--fg);
-  font-family: var(--font);
+  color: var(--tob-fg);
+  font-family: var(--tob-font);
 }

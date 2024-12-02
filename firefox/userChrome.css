@@ -1,35 +1,14 @@
+/* # SETUP */
+/* Make sure: about:config -> toolkit.legacyUserProfileCustomizations.stylesheets -> true */
+/* browser.uidensity = 1 in about:config */
+/* 1. cp ~/dev/dotfiles/firefox/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/6khnxru5.default-release/chrome/userChrome.css */
 /*
   # Get path to css file
   1. Firefox => about:support
   2. Profile Folder => show in finder
   3. Create (if needed) `((Profile Folder))/chrome/userChrome.css`
 */
-
-/* # SETUP */
-/* Make sure: about:config -> toolkit.legacyUserProfileCustomizations.stylesheets -> true */
-/* 1. cp ~/dev/dotfiles/firefox/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/6khnxru5.default-release/chrome/userChrome.css */
 /* 2. Restart firefox OR open new tab to see changes */
-
-/* # STYLING THE BROWSER */
-/* browser.uidensity = 1 in about:config */
-/* --navbar-margin: -40 or -36(ff compact mode) */
-/* #nav-bar {
-  --navbar-margin: -36px;
-
-  margin-top: var(--navbar-margin);
-  margin-bottom: 0;
-  transition: all 0.2s ease !important;
-  opacity: 0;
-}
-
-#navigator-toolbox:focus-within > #nav-bar,
-#navigator-toolbox:hover > #nav-bar
-{
-  margin-top: 0;
-  margin-bottom: var(--navbar-margin);
-  z-index: 100;
-  opacity: 1;
-} */
 
 /* 🚨 Use firefoxUserContent.css for page content styling */
 /* 🚨 Inspect firefox elements on chrome://browser/content/browser.xhtml */
@@ -37,6 +16,17 @@
 #navigator-toolbox:not(:focus-within) {
   height: 1px !important;
 }
+
+#navigator-toolbox:not(:focus-within) #urlbar-container {
+  position: fixed !important;
+  top: -2000px !important;
+}
+
+/* when urlbar is focused */
+/* #navigator-toolbox:focus-within #urlbar-container {
+  position: fixed !important;
+} */
+ 
 
 body {
   border: 8px solid #2e105694 !important; /* 2e105694 */
@@ -60,8 +50,3 @@ body {
     visibility: collapse !important;
 }
 #TabsToolbar { visibility: collapse !important; }
-
-#unified-extensions-button,
-/* #unified-extensions-button > .toolbarbutton-icon{
-  opacity: 0;
-} */

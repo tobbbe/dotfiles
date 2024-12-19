@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Time convert
+# @raycast.title Date Time convert
 # @raycast.mode fullOutput
 
 # Optional parameters:

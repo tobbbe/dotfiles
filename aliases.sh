@@ -45,8 +45,8 @@ alias ta='tmux attach -t'		            # attach named session
 alias tp='tmux a'           		        # attach previous session
 alias tt='tmux a && tmux choose-session'	# show tmux choose-session
 alias tl='tmux list-sessions'
-alias tn='tmux new-session -s'	            # create new named session
-alias tk='tmux kill-session -t'             # kill named session
+# alias tn='tmux new-session -s'	      is in functions.sh       # create new named session
+# alias tk='tmux kill-session -t'         is in functions.sh          # kill named session
 alias tx='tmuxinator'			            # example `tx tob` (start session, or attach if already running)
 
 # nmap requires sudo to find all devices

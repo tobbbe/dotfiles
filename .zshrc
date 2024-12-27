@@ -14,7 +14,9 @@ export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 # ruby version mananger (needed for RN)
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
+
+
 
 HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -56,3 +58,9 @@ unset _VOLTA_TOOL_RECURSION # https://github.com/volta-cli/volta/issues/1007#iss
 setopt HIST_IGNORE_ALL_DUPS
 # prevents consecutive duplicate commands from being saved in the history.
 setopt HIST_IGNORE_DUPS
+
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  if [ -z "$TMUX" ]; then 
+    tmux attach -t main || tmux new -s main
+  fi
+fi

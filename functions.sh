@@ -451,3 +451,24 @@ function code() {
 		open -a "Visual Studio Code" $@
 	fi
 }
+
+tn() {
+  if [ -z "$1" ]; then
+    echo "Error: Session name required"
+    return 1
+  fi
+  tmux new-session -d -s "$1" 2>/dev/null # handle if session already exists
+  if [ -n "$TMUX" ]; then
+     tmux switch-client -t "$1"
+  else
+    tmux attach -t "$1"
+  fi
+}
+
+function tk() {
+    if [ -z "$1" ]; then
+       tmux kill-session
+    else
+        tmux kill-session -t "$1"
+    fi
+}

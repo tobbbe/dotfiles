@@ -62,12 +62,38 @@ The script should do this: \(ai.prompt)</string>
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0xf700-0x320000-0x7e</key>
+		<dict>
+			<key>Action</key>
+			<integer>20</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>2</integer>
+		</dict>
 		<key>0xf701-0x300000</key>
 		<dict>
 			<key>Action</key>
 			<integer>6</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0xf701-0x320000-0x7d</key>
+		<dict>
+			<key>Action</key>
+			<integer>21</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>2</integer>
 		</dict>
 		<key>0xf702-0x300000</key>
 		<dict>
@@ -76,12 +102,18 @@ The script should do this: \(ai.prompt)</string>
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf702-0x320000</key>
+		<key>0xf702-0x320000-0x7b</key>
 		<dict>
 			<key>Action</key>
-			<integer>33</integer>
+			<integer>18</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>2</integer>
 		</dict>
 		<key>0xf703-0x300000</key>
 		<dict>
@@ -90,12 +122,18 @@ The script should do this: \(ai.prompt)</string>
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf703-0x320000</key>
+		<key>0xf703-0x320000-0x7c</key>
 		<dict>
 			<key>Action</key>
-			<integer>34</integer>
+			<integer>19</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>2</integer>
 		</dict>
 		<key>0xf729-0x100000</key>
 		<dict>
@@ -165,6 +203,8 @@ The script should do this: \(ai.prompt)</string>
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>Allow Title Reporting</key>
+			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -352,7 +392,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string></string>
+			<string>/opt/homebrew/bin/tmux new-session -A -s main</string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Color</key>
@@ -360,13 +400,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.022512840572744608</real>
+				<real>0.43192332983016968</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.022512840572744608</real>
+				<real>0.83724933862686157</real>
 				<key>Red Component</key>
-				<real>0.926177978515625</real>
+				<real>0.40437892079353333</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -383,12 +423,16 @@ The script should do this: \(ai.prompt)</string>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.96783453226089478</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>1</real>
+				<real>0.96783453226089478</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.96783453226089478</real>
 			</dict>
 			<key>Cursor Type</key>
 			<integer>2</integer>
@@ -978,6 +1022,10 @@ The script should do this: \(ai.prompt)</string>
 			<key>Use Bright Bold</key>
 			<true/>
 			<key>Use Cursor Guide</key>
+			<true/>
+			<key>Use Custom Tab Title</key>
+			<false/>
+			<key>Use Custom Window Title</key>
 			<false/>
 			<key>Use Italic Font</key>
 			<true/>
@@ -1047,7 +1095,7 @@ The script should do this: \(ai.prompt)</string>
 	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>ShowPaneTitles</key>
-	<false/>
+	<true/>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SoundForEsc</key>
@@ -1056,6 +1104,8 @@ The script should do this: \(ai.prompt)</string>
 	<real>0.22131523058252431</real>
 	<key>StatusBarPosition</key>
 	<integer>0</integer>
+	<key>SwitchPaneModifier</key>
+	<integer>9</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TabViewType</key>
@@ -1069,6 +1119,8 @@ The script should do this: \(ai.prompt)</string>
 	<key>TmuxUsesDedicatedProfile</key>
 	<false/>
 	<key>UIElementRequiresHotkeys</key>
+	<true/>
+	<key>UseBorder</key>
 	<true/>
 	<key>UseTmuxStatusBar</key>
 	<true/>

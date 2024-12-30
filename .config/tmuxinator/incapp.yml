@@ -6,6 +6,7 @@ windows:
       layout: even-vertical
       panes:
         - cli:
+          - rni
           - nr start
         # - npm:
           # - replaceInConfig API2_ORIGIN "http:\/\/"$(localip)":3030" .env.development.local && xcrun simctl boot "iPhone 14 pro" && npm start

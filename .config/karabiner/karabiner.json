@@ -244,6 +244,60 @@
 						]
 					},
 					{
+						"description": "Search browser tabs",
+							"manipulators": [
+							{
+								"type": "basic",
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^org.mozilla.firefox$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "spacebar",
+									"modifiers": {
+									"mandatory": [
+										"right_command"
+									]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a Firefox && osascript -e 'tell application \"System Events\" to keystroke \"t\" using {shift down}'"
+									}
+								]
+							},
+							{
+								"type": "basic",
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^org.mozilla.firefox$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "spacebar",
+									"modifiers": {
+									"mandatory": [
+										"right_command"
+									]
+									}
+								},
+								"to": [
+									{
+										"key_code": "t",
+										"modifiers": ["left_shift"]
+									}
+								]
+							}
+						]
+						},
+					{
 						"description": "Open workspaces in notion",
 						"manipulators": [
 							{
@@ -695,11 +749,13 @@
 								],
 								"to_if_alone": [
 									{
-										"halt": true,
-										"key_code": "spacebar",
-										"modifiers": ["right_command"]
+										"shell_command": "open -a Slack"
 									}
 								],
+								"parameters": {
+									"basic.to_if_alone_timeout_milliseconds": 160,
+									"basic.to_if_held_down_threshold_milliseconds": 160
+								},
 								"type": "basic"
 							}
 						]

@@ -1,4 +1,5 @@
-alias andemu="emulator -avd pixel4android11" #https://developer.android.com/studio/run/emulator-commandline
+alias andemu="emulator -avd" #https://developer.android.com/studio/run/emulator-commandline
+alias andemulist="emulator -list-avds"
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"

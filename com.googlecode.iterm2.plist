@@ -980,10 +980,12 @@ The script should do this: \(ai.prompt)</string>
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
+			<key>Send Idle Alert</key>
+			<true/>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Smart Cursor Color</key>
 			<false/>
 			<key>Sync Title</key>
@@ -1036,7 +1038,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Use Underline Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1</real>
+			<real>1.6000000000000001</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>

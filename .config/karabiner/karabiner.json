@@ -317,7 +317,8 @@
 								},
 								"to": [
 									{
-										"shell_command": "open \"notion://https://www.notion.so/tobbbe/start-3e34635a25a148d29bf757e632a842d1\""
+										
+										"shell_command": "open \"notion://https://www.notion.so/tobbbe/Work-todo-197e584b3d268040ad54fba3a1e3a4e5\""
 									}
 								],
 								"type": "basic"
@@ -339,7 +340,30 @@
 								},
 								"to": [
 									{
-										"shell_command": "open \"notion://https://www.notion.so/gustaflevin/82bb6309603d4ed398a54298b63f36f1?v=7c57d53ce9ed480ab43444a17b996af3\""
+										
+										"shell_command": "open \"notion://https://www.notion.so/gymochfitness/1b2f73d8a19980de846eca1dc292d5db?v=1b2f73d8a19981b79352000cb0c6d2fc\""
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"notion.id"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "3",
+									"modifiers": {
+										"mandatory": ["right_command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open \"notion://https://www.notion.so/gymochfitness/1b2f73d8a19980b08849e5988f9fcece?v=1b2f73d8a19981c3bb51000c2e453b25\""
 									}
 								],
 								"type": "basic"

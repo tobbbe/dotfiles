@@ -371,7 +371,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<true/>
+			<false/>
 			<key>Blur</key>
 			<false/>
 			<key>Bold Color</key>
@@ -645,6 +645,19 @@ The script should do this: \(ai.prompt)</string>
 					<integer>12</integer>
 					<key>Text</key>
 					<string>9</string>
+				</dict>
+				<key>0x65-0x100000-0xe</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string>0x02 0x73</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
 				<key>0x7f-0x100000</key>
 				<dict>

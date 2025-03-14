@@ -81,6 +81,32 @@
 						]
 					},
 					{
+					"title": "Notion Sidebar Toggle",
+					"manipulators": [
+						{
+						"type": "basic",
+						"from": {
+							"key_code": "b",
+							"modifiers": {
+								"mandatory": ["command"]
+							}
+						},
+						"to": [
+							{
+							"key_code": "backslash",
+							"modifiers": ["command"]
+							}
+						],
+						"conditions": [
+							{
+							"type": "frontmost_application_if",
+							"bundle_identifiers": ["^notion\\.id$"]
+							}
+						]
+						}
+					]
+					},
+					{
 						"description": "ask ai",
 						"manipulators": [
 							{
@@ -363,7 +389,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "open \"notion://https://www.notion.so/gymochfitness/1b2f73d8a19980b08849e5988f9fcece?v=1b2f73d8a19981c3bb51000c2e453b25\""
+										"shell_command": "open \"notion://https://www.notion.so/gymochfitness/1b2f73d8a19980b08849e5988f9fcece?v=1b2f73d8a1998113b914000c62b346b2\""
 									}
 								],
 								"type": "basic"

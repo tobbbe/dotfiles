@@ -37,9 +37,10 @@ autoload -Uz compinit && compinit
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-export ZSHZ_CMD=f
-export ZSHZ_DATA="$HOME/.zsh/.z"
-source ~/.zsh/z.sh
+# export ZSHZ_CMD=f
+# export ZSHZ_DATA="$HOME/.zsh/.z"
+# source ~/.zsh/z.sh
+
 
 export EDITOR='code'
 
@@ -64,3 +65,8 @@ if [[ "$TERM_PROGRAM" != "vscode" ]]; then
     tmux attach -t main || tmux new -s main
   fi
 fi
+
+eval "$(zoxide init zsh --cmd f)"
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"

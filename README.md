@@ -17,6 +17,7 @@ Make sure your user is named "tobbe"
 	- fastlane
 	- gh
 	- httpie
+- atuin (shell history)
 - volta (node)
 	- install node with volta https://volta.sh
 	- install global npm packages with `volta install <package>`

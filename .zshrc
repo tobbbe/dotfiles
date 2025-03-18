@@ -60,13 +60,14 @@ setopt HIST_IGNORE_ALL_DUPS
 # prevents consecutive duplicate commands from being saved in the history.
 setopt HIST_IGNORE_DUPS
 
+# attach to main session if not in vscode when starting a new terminal
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   if [ -z "$TMUX" ]; then 
     tmux attach -t main || tmux new -s main
   fi
 fi
 
-eval "$(zoxide init zsh --cmd f)"
+eval "$(zoxide init zsh --cmd cd)"
 
 . "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"

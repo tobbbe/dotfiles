@@ -6,8 +6,9 @@
 	},
 	"profiles": [
 		{
-			"name": "Default profile",
+			"name": "Tobbes profile",
 			"selected": true,
+			"virtual_hid_keyboard": { "keyboard_type_v2": "iso" },
 			"complex_modifications": {
 				"parameters": {
 					"basic.simultaneous_threshold_milliseconds": 50,

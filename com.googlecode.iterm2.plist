@@ -360,13 +360,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.10682588070631027</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.025767887011170387</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.066825233399868011</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -402,13 +402,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.43192332983016968</real>
+				<real>0.95747154951095581</real>
 				<key>Color Space</key>
 				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.83724933862686157</real>
+				<real>0.51208090782165527</real>
 				<key>Red Component</key>
-				<real>0.40437892079353333</real>
+				<real>0.58976203203201294</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -976,6 +976,8 @@ The script should do this: \(ai.prompt)</string>
 			<true/>
 			<key>Normal Font</key>
 			<string>SFMono-Regular 14</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>

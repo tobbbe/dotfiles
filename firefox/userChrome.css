@@ -20,6 +20,7 @@
 #navigator-toolbox:not(:focus-within) #urlbar-container {
   position: fixed !important;
   top: -2000px !important;
+  /* top: 10px; */
 }
 
 /* when urlbar is focused */
@@ -29,9 +30,13 @@
  
 
 body {
-  border: 8px solid #2e105694 !important; /* 2e105694 */
+  border: 8px solid #1d0a3681 !important; /* 2e105694 */
   border-radius: 8px !important;
   box-sizing: border-box;
+}
+
+#nav-bar {
+  border-radius: 8px !important;
 }
 
 #browser, #appcontent {

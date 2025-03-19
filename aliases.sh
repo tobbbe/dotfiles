@@ -13,8 +13,6 @@ alias openports="lsof -PiTCP -sTCP:LISTEN"
 alias copyclip="tr -d '\n' | pbcopy" #ex: ip | copyclip (your ip will be added to clipboard)
 alias reload="sh ~/dev/dotfiles/update.sh && exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line
-alias vim="nvim"
-alias v="vim"
 alias cpwd="pwd | copyclip && echo '$PWD copied to clipboard'"
 alias fb="fb-messenger-cli"
 alias listglobalnodepkgs="npm ls -g --depth=0"
@@ -30,6 +28,7 @@ alias shareport="ngrok http --domain=careful-driven-spaniel.ngrok-free.app --reg
 alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
+alias f="cd"
 
 # git
 ## gg and gam is in functions

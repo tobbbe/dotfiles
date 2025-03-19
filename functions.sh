@@ -452,7 +452,7 @@ function code() {
 	fi
 }
 
-tn() {
+function tn() {
   if [ -z "$1" ]; then
     echo "Error: Session name required"
     return 1
@@ -471,4 +471,12 @@ function tk() {
     else
         tmux kill-session -t "$1"
     fi
+}
+
+function vim() {
+  nvim "${1:-.}"
+}
+
+function v() {
+  nvim "${1:-.}"
 }

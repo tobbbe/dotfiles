@@ -4,7 +4,7 @@ set relativenumber
 nmap ö :
 
 " clone git repos into the path
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 " Plug 'projekt0n/github-nvim-theme'
 " Plug 'neovim/nvim-lspconfig'
 Plug '/opt/homebrew/opt/fzf'
@@ -17,8 +17,8 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit'
       \ }
 let g:fzf_preview_window = 'right:60%'
-nnoremap <c-p> :FZF<cr>
 " remap cmd+p https://www.dfurnes.com/notes/binding-command-in-iterm
+nnoremap <c-p> :FZF<cr>
 
 lua << END
 local status, nvim_lsp = pcall(require, "lspconfig")

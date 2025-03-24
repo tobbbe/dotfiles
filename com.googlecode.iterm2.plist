@@ -301,12 +301,16 @@ The script should do this: \(ai.prompt)</string>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.96988850831985474</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.54702430963516235</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.49164098501205444</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
@@ -1086,7 +1090,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Use Underline Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.2</real>
+			<real>1.6000000000000001</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>

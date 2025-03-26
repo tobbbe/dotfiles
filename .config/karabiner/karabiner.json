@@ -59,6 +59,43 @@
 											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"
+									},
+									{
+										"bundle_identifiers": [
+											"com.microsoft.VSCode"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "caps_lock",
+									"modifiers": {
+										"optional": ["any"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "right_command"
+									}
+								],
+								"to_if_alone": [
+									{
+										"key_code": "escape"
+									},
+									{
+										"key_code": "b",
+										"modifiers": ["right_command", "left_control", "left_option"]
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com.parallels[[:graph:]]*$"
+										],
+										"type": "frontmost_application_unless"
 									}
 								],
 								"from": {
@@ -830,17 +867,60 @@
 									}
 								],
 								"from": {
-									"key_code": "non_us_backslash",
+									"key_code": "q",
 									"modifiers": {
-										"mandatory": ["left_command"],
-										"optional": [
-											"shift"
-										]
+										"mandatory": ["right_command"]
 									}
 								},
 								"to": [
 									{
-										"key_code": "f1",
+										"key_code": "w",
+										"modifiers": ["control"]
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"com.microsoft.VSCode"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "1",
+									"modifiers": {
+										"mandatory": ["right_command"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "non_us_backslash",
+										"modifiers": ["right_command", "shift"]
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"com.microsoft.VSCode"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "2",
+									"modifiers": {
+										"mandatory": ["right_command"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "non_us_backslash",
 										"modifiers": ["right_command"]
 									}
 								],

@@ -79,52 +79,73 @@ function sumlines() {
 }
 
 function gitStatusRecursive() {
-	local underline=$(tput smul)
-	local qty_has_changes=0
+    local underline=$(tput smul)
+    local qty_has_changes=0
 
-	local show_no_changes=true
-	if [[ $1 == *"-q"* ]]; then
-		show_no_changes=false
-	fi
+    local show_no_changes=true
+    if [[ $1 == *"-q"* ]]; then
+        show_no_changes=false
+    fi
 
-	local do_git_fetch=false
-	if [[ $1 == *"-f"* ]]; then
-		do_git_fetch=true
-	fi
+    local do_git_fetch=false
+    if [[ $1 == *"-f"* ]]; then
+        do_git_fetch=true
+    fi
 
-	# find all .git directories
-	local git_dirs=$(find . -type d -name .git -maxdepth 3)
+    # find all .git directories
+    local git_dirs=$(find . -type d -name .git -maxdepth 3)
 
-	# remove ".git" from lines
-	local dir_names=$(echo $git_dirs | sed -e "s/\.git//")
+    # remove ".git" from lines
+    local dir_names=$(echo $git_dirs | sed -e "s/\.git//")
 
-	local dir_names_sorted=$(echo $dir_names | awk '{ print length($0) " " $0; }' $file | sort -n | cut -d ' ' -f 2-)
+    # Create arrays to store repos with and without changes
+    local no_changes_repos=()
+    local has_changes_repos=()
 
-	echo $dir_names_sorted | while read line ; do
-		local git_output=$(cd $line && git status -s)
-		local git_output_length=${#git_output}
+    echo $dir_names | tr ' ' '\n' | while read line ; do
+        if [ -z "$line" ]; then
+            continue
+        fi
 
-		if [ "$do_git_fetch" = true ]; then
-			echo "git fetching ${line}"
-			local do_git_fetch_output=$(cd $line && git fetch --quiet)
-		fi
+        if [ "$do_git_fetch" = true ]; then
+            echo "git fetching ${line}"
+            (cd $line && git fetch --quiet)
+        fi
 
-		if [[ ${#git_output_length} -gt 1 ]]; then
-			((qty_has_changes++))
-			echo -e "\e[31m${underline}$line\e[0m"
-			(cd $line && git status -s)
-		elif [ "$show_no_changes" = true ]; then
-				echo -e "\e[32m$line\e[0m"
-		fi
-	done
+        local git_output=$(cd $line && git status -s)
+        local git_output_length=${#git_output}
 
-	if [ "$qty_has_changes" = "0" ]; then
-		printf "\n"
-		echo -e "\e[32m🎉 Everything is up to date!\e[0m"
-	fi
+        if [[ ${#git_output_length} -gt 1 ]]; then
+            has_changes_repos+=("$line")
+            ((qty_has_changes++))
+        elif [ "$show_no_changes" = true ]; then
+            no_changes_repos+=("$line")
+        fi
+    done
 
-	printf "\n"
+    # Sort the arrays alphabetically, ignoring case
+	IFS=$'\n' no_changes_repos=($(sort -f <<<"${no_changes_repos[*]}"))
+	IFS=$'\n' has_changes_repos=($(sort -f <<<"${has_changes_repos[*]}"))
+
+    # Display repos without changes first
+    for repo in "${no_changes_repos[@]}"; do
+        echo -e "\e[32m$repo\e[0m"
+    done
+
+    # Display repos with changes last
+    for repo in "${has_changes_repos[@]}"; do
+        echo -e "\e[31m${underline}$repo\e[0m$(printRed " - has changes")"
+        # (cd $repo && git status -s)
+    done
+
+    if [ "$qty_has_changes" = "0" ]; then
+        printf "\n"
+        echo -e "\e[32m🎉 Everything is up to date!\e[0m"
+    fi
+
+    printf "\n"
 }
+
 
 function rnclearcache() {
 	printRed "⚠️ Clear all the caches...\n";

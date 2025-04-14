@@ -30,8 +30,10 @@
  
 
 body {
-  border: 8px solid #1d0a3681 !important; /* 2e105694 */
-  border-radius: 8px !important;
+  /* 2e105694 */
+  /* border: 8px solid #1d0a3681 !important; */
+  /* border-radius: 8px !important; */
+  border: none !important;
   box-sizing: border-box;
 }
 

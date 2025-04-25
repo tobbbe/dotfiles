@@ -364,13 +364,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.10682588070631027</real>
+				<real>0.10588235294117647</real>
 				<key>Color Space</key>
 				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.025767887011170387</real>
+				<real>0.066666666666666666</real>
 				<key>Red Component</key>
-				<real>0.066825233399868011</real>
+				<real>0.066666666666666666</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -675,6 +675,19 @@ The script should do this: \(ai.prompt)</string>
 					<integer>2</integer>
 					<key>Text</key>
 					<string>0x10</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>0x73-0x100000-0x1</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string>0x13</string>
 					<key>Version</key>
 					<integer>2</integer>
 				</dict>

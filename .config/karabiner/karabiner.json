@@ -741,8 +741,8 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
-											"com.apple.Terminal",
-											"^com\\.googlecode\\.iterm2$"
+											"NOOOOO_com.apple.Terminal",
+											"^NOOOO_com\\.googlecode\\.iterm2$"
 										],
 										"type": "frontmost_application_if"
 									}

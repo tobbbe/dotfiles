@@ -495,9 +495,9 @@ function tk() {
 }
 
 function vim() {
-  nvim "${1:-.}"
+  nvim
 }
 
 function v() {
-  nvim "${1:-.}"
+  nvim
 }

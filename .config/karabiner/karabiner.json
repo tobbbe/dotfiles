@@ -56,6 +56,33 @@
 								"conditions": [
 									{
 										"bundle_identifiers": [
+											"^com.googlecode.iterm2$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "caps_lock",
+									"modifiers": {
+										"optional": ["any"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "left_control"
+									}
+								],
+								"to_if_alone": [
+									{
+										"key_code": "escape"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
 											"^com.parallels[[:graph:]]*$"
 										],
 										"type": "frontmost_application_unless"

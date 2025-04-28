@@ -28,3 +28,5 @@ else
 	diff -r --color --exclude="*.DS_Store" ~/dev/dotfiles/.config/nvim ~/.config/nvim
 	echo "🚨🚨🚨\n"
 fi
+
+tmux source-file ~/.tmux.conf

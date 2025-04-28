@@ -494,10 +494,10 @@ function tk() {
     fi
 }
 
-function vim() {
-  nvim
-}
-
 function v() {
-  nvim
+  if [ $# -eq 0 ]; then
+    nvim
+  else
+    nvim $@
+  fi
 }

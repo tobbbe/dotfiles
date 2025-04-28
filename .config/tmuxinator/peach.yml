@@ -1,9 +1,11 @@
-name: game
-root: ~/dev/turnbased-multiplayer-game/
+name: peach
+root: ~/dev/peach/
 
 windows:
   - editor:
       layout: even-vertical
       panes:
-        - mono:
+        - vim:
+          - v
+        - cli:
           - nr dev

@@ -1,9 +1,0 @@
-name: tob
-root: ~/dev/tobb.be/
-
-windows:
-  - editor:
-      layout: even-vertical
-      panes:
-        - mono:
-          - nr dev

@@ -1,9 +1,9 @@
-name: xweb
-root: ~/dev/xshapes-web/
+name: sshproxy
+root: ~/
 
 windows:
   - editor:
       layout: even-vertical
       panes:
         - www:
-          - nr dev
+          - sshproxy

@@ -1,9 +1,0 @@
-name: xsql
-root: ~/
-
-windows:
-  - editor:
-      layout: even-vertical
-      panes:
-        - supabase database:
-          - psql -h db.jubxcgifxdnhjczinfgo.supabase.co -p 5432 -d postgres -U postgres

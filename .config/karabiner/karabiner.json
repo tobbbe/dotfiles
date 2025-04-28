@@ -779,7 +779,7 @@
 						]
 					},
 					{
-					"description": "Map Cmd+R to Ctrl+b followed by o in tmux",
+					"description": "Map Cmd+R to Ctrl+b followed by o in  (switch panes)",
 					"manipulators": [
 						{
 						"type": "basic",

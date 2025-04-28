@@ -3,3 +3,4 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "ö", ":", { noremap = true })
+-- vim.keymap.set("n", "<c-p>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })

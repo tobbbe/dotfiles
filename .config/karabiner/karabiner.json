@@ -50,6 +50,71 @@
 						]
 					},
 					{
+						"description": "A and right shift to Control",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"disabled"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+							"type": "basic",
+							"from": {
+								"key_code": "a",
+								"modifiers": {
+								"optional": ["any"]
+								}
+							},
+							"to_if_alone": [
+								{
+								"key_code": "a"
+								}
+							],
+							"to_if_held_down": [
+								{
+								"key_code": "left_control"
+								}
+							],
+							"parameters": {
+									"basic.to_if_held_down_threshold_milliseconds": 60
+								}
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"disabled"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+							"type": "basic",
+							"from": {
+								"key_code": "right_shift",
+								"modifiers": {
+								"optional": ["any"]
+								}
+							},
+							"to_if_alone": [
+								{
+								"key_code": "right_shift"
+								}
+							],
+							"to_if_held_down": [
+								{
+								"key_code": "left_control"
+								}
+							],
+							"parameters": {
+									"basic.to_if_held_down_threshold_milliseconds": 60
+								}
+							}
+						]
+					},
+					{
 						"description": "(ON MAC) Change caps_lock to cmd when used as modifier, escape when used alone",
 						"manipulators": [
 							{

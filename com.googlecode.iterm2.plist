@@ -652,7 +652,7 @@ The script should do this: \(ai.prompt)</string>
 					<key>Text</key>
 					<string>9</string>
 				</dict>
-				<key>0x65-0x40000-0xe</key>
+				<key>0x65-0x100000-0xe</key>
 				<dict>
 					<key>Action</key>
 					<integer>11</integer>
@@ -1160,7 +1160,7 @@ The script should do this: \(ai.prompt)</string>
 	<key>SeparateWindowTitlePerTab</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>

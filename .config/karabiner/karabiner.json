@@ -114,7 +114,9 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": ["^com.googlecode.iterm2$"],
+                    "bundle_identifiers": [
+                      "DISABLED---^com.googlecode.iterm2$"
+                    ],
                     "type": "frontmost_application_if"
                   }
                 ],
@@ -197,6 +199,57 @@
                   }
                 ],
                 "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Project managers",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^com.googlecode.iterm2$"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": ["right_command", "left_shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "b",
+                    "modifiers": ["control"]
+                  },
+                  {
+                    "key_code": "t",
+                    "modifiers": ["left_shift"]
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["com.microsoft.VSCode"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": ["right_command", "left_shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "p",
+                    "modifiers": ["option", "command"]
+                  }
+                ]
               }
             ]
           },

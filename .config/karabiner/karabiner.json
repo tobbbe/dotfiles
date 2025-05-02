@@ -280,56 +280,6 @@
             ]
           },
           {
-            "description": "ask ai",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "a",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "vscode",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": ["right_command", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "v",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "(MAC) Change (knapp höger om å) till curly brackets",
             "manipulators": [
               {
@@ -638,6 +588,31 @@
             ]
           },
           {
+            "description": "cmd+d",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": ["left_command"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": [
+                      "right_command",
+                      "left_shift",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Focus terminal",
             "manipulators": [
               {
@@ -783,7 +758,7 @@
             ]
           },
           {
-            "description": "conversations2",
+            "description": "cmd+s",
             "manipulators": [
               {
                 "type": "basic",
@@ -794,21 +769,7 @@
                   }
                 },
                 "to": {
-                  "key_code": "s",
-                  "modifiers": ["right_command", "shift", "option", "control"]
-                }
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": ["left_command", "left_shift"]
-                  }
-                },
-                "to": {
-                  "modifiers": ["right_command"],
-                  "key_code": "f12"
+                  "shell_command": "open -a 'Visual studio code.app'"
                 }
               }
             ]
@@ -1141,7 +1102,7 @@
             ]
           },
           {
-            "description": "open browser/editor",
+            "description": "cmd+a + browser",
             "manipulators": [
               {
                 "type": "basic",
@@ -1152,7 +1113,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "d",
+                  "key_code": "a",
                   "modifiers": {
                     "mandatory": ["left_command"]
                   }
@@ -1172,7 +1133,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "d",
+                  "key_code": "a",
                   "modifiers": {
                     "mandatory": ["left_command"]
                   }
@@ -1244,6 +1205,26 @@
                   {
                     "key_code": "k",
                     "modifiers": ["left_option", "right_command"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": ["left_command", "left_shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift",
+                      "right_command",
+                      "left_option"
+                    ]
                   }
                 ]
               }

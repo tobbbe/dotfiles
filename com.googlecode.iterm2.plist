@@ -1015,7 +1015,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Send Idle Alert</key>
-			<true/>
+			<false/>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Show Status Bar</key>

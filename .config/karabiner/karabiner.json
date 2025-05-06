@@ -618,7 +618,9 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": ["^com.googlecode.iterm2$"],
+                    "bundle_identifiers": [
+                      "DISABLED---^com.googlecode.iterm2$"
+                    ],
                     "type": "frontmost_application_unless"
                   }
                 ],
@@ -651,7 +653,9 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": ["^com.googlecode.iterm2$"],
+                    "bundle_identifiers": [
+                      "DISABLED---^com.googlecode.iterm2$"
+                    ],
                     "type": "frontmost_application_if"
                   }
                 ],

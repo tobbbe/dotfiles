@@ -1,0 +1,9 @@
+name: notes
+root: ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Tobbbe
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - main:
+            - v

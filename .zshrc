@@ -37,12 +37,12 @@ autoload -Uz compinit && compinit
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
+
 # export ZSHZ_CMD=f
 # export ZSHZ_DATA="$HOME/.zsh/.z"
 # source ~/.zsh/z.sh
-
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 
 export EDITOR='code'
 

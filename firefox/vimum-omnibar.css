@@ -8,7 +8,8 @@
   --tob-font-weight-medium: medium;
   --tob-font-weight-bold: bold;
 
-  --tob-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif; /* Font used in the UI */
+  --tob-font: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif; /* Font used in the UI */
 
   --tob-padding: 2px;
   --tob-padding-vomnibar: 10px;
@@ -113,13 +114,15 @@
 
 #vomnibar li {
   border-bottom: none;
-  padding: 10px;
+  /* padding: 10px; */
+  padding: 24px 32px;
   display: flex;
   flex-direction: column-reverse;
 }
 
 #vomnibar li .vomnibarTopHalf {
-  /* padding: var(--tob-padding); */
+  padding: var(--tob-padding);
+  margin-top: 4px;
 }
 
 #vomnibar li .vomnibarBottomHalf {
@@ -141,13 +144,13 @@
 #vomnibar li .vomnibarTitle {
   margin-left: 0 !important;
   font-family: var(--tob-font);
-  font-size: 11px;
-  color: #aabbaaa6;
+  font-size: 16px;
+  color: #e7e454;
   font-family: var(--tob-font);
 }
 
 #vomnibar li .vomnibarUrl {
-  font-size: 14px;
+  font-size: 22px;
   color: var(--tob-fg-dark);
   font-family: var(--tob-font);
   font-weight: var(--tob-font-weight-medium);
@@ -257,4 +260,8 @@ td.vimiumHelpDescription {
 div.vimiumColumn {
   color: var(--tob-fg);
   font-family: var(--tob-font);
+}
+
+.vomnibarMatch {
+  color: inherit !important;
 }

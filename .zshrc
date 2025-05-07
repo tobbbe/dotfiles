@@ -63,7 +63,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 
 # attach to main session if not in vscode when starting a new terminal
-if [[ "$TERM_PROGRAM" != "vscode" && -z "$TOB_NO_TMUX" ]]; then
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   if [ -z "$TMUX" ]; then 
     tmux attach -t main || tmux new -s main
   fi

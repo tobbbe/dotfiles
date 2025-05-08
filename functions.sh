@@ -230,8 +230,6 @@ function minifyVideo() {
 	ffmpeg -i $1 -c:v libx265 -preset fast -crf 28 -tag:v hvc1 -c:a eac3 -b:a 224k $2.mp4
 }
 
-function resizeJpgsMaxWidth() {mkdir $1x; for f in *.jpg; do sips --resampleWidth "$1" "$f" --out "$1x//${f/.jpg/.jpg}"; done }
-
 timer() {
     start="$(( $(date '+%s') + $1))"
 	spin='-\|/'
@@ -500,4 +498,34 @@ function v() {
   else
     nvim $@
   fi
+}
+
+function resizeAndConvertImagesInFolder() {
+    # Default values
+    width=2000
+    quality=90
+    
+    # Parse command line arguments
+    while getopts "w:q:" opt; do
+        case $opt in
+            w) width=$OPTARG ;;
+            q) quality=$OPTARG ;;
+            *) ;;
+        esac
+    done
+    
+    rm -rf resized_images
+    mkdir -p resized_images
+
+    # Find all image files and process them
+    find . -maxdepth 1 -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) | while read img; do
+        # Get filename without extension
+        filename=$(basename -- "$img")
+        name="${filename%.*}"
+        
+        # Resize and convert to jpg with specified quality
+        sips --resampleWidth $width --setProperty format jpeg --setProperty formatOptions $quality "$img" --out "resized_images/${name}.jpg"
+    done
+
+    echo "All images have been resized to width $width with quality $quality and saved to the resized_images directory"
 }

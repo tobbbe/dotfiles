@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Open notion start
+# @raycast.title Notion Tobbe
 # @raycast.mode silent
 
 # Optional parameters:

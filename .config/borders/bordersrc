@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# # INSTALLATION
+# 🚨 install from main (bugfixes not in release yet?)
+# brew uninstall borders (to update)
+# brew install borders --head
+
+# # USAGE
+# https://github.com/FelixKratz/JankyBorders
+# brew services start borders
+# brew services stop borders
+# brew services restart borders
+
+# 🚨 reload dotfiles when options change
+options=(
+  style=round
+  width=10.0
+  hidpi=off
+  # white=0xffe2e2e3
+  # purple=0xFFD2A5FC
+  # blue=0xFF1FCDFF
+  # red=0xFFF78166
+  # green=0xFF238636
+  active_color=0xFFD2A5FC
+)
+
+borders "${options[@]}"

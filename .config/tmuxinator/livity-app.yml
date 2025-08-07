@@ -1,12 +1,11 @@
-name: xapp
-root: ~/dev/xshapes-app/
+name: livity-app
+root: ~/dev/livity-app/
 
 windows:
   - editor:
       layout: even-vertical
       panes:
-        - cli:
-          - rni
-        # - npm:
-          # - replaceInConfig API2_ORIGIN "http:\/\/"$(localip)":3030" .env.development.local && xcrun simctl boot "iPhone 14 pro" && npm start
-          # - npm start --reset-cache
+        - editor:
+          - echo 'npx react-native run-ios --simulator="iPhone 15"'
+        - server:
+          - npm start

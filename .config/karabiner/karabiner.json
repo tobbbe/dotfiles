@@ -216,9 +216,9 @@
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "spacebar",
+                  "key_code": "r",
                   "modifiers": {
-                    "mandatory": ["right_command"]
+                    "mandatory": ["right_command", "left_shift"]
                   }
                 },
                 "to": [
@@ -241,6 +241,26 @@
                 ],
                 "type": "basic",
                 "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": ["right_command", "left_shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "p",
+                    "modifiers": ["option", "command"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "vscode leader",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "spacebar",
                   "modifiers": {
                     "mandatory": ["right_command"]
@@ -248,8 +268,14 @@
                 },
                 "to": [
                   {
-                    "key_code": "p",
-                    "modifiers": ["option", "command"]
+                    "key_code": "k",
+                    "modifiers": ["right_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["com.microsoft.VSCode"]
                   }
                 ]
               }
@@ -733,6 +759,18 @@
                     "modifiers": ["left_option"]
                   }
                 ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "e",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift",
+                      "right_command",
+                      "left_option"
+                    ],
+                    "halt": true
+                  }
+                ],
                 "type": "basic"
               }
             ]
@@ -805,9 +843,9 @@
                   }
                 ],
                 "from": {
-                  "key_code": "s",
+                  "key_code": "spacebar",
                   "modifiers": {
-                    "mandatory": ["right_command", "left_shift"]
+                    "mandatory": ["right_command"]
                   }
                 },
                 "to": [
@@ -822,7 +860,7 @@
             ]
           },
           {
-            "description": "Map Cmd+R to Ctrl+b followed by o in  (switch panes)",
+            "description": "Map Cmd+R to Ctrl+b followed by o in  (tmux switch panes)",
             "manipulators": [
               {
                 "type": "basic",
@@ -969,7 +1007,7 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": ["com.microsoft.VSCode"],
+                    "bundle_identifiers": ["disabled_com.microsoft.VSCode"],
                     "type": "frontmost_application_if"
                   }
                 ],
@@ -990,7 +1028,7 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": ["com.microsoft.VSCode"],
+                    "bundle_identifiers": ["disabled_com.microsoft.VSCode"],
                     "type": "frontmost_application_if"
                   }
                 ],

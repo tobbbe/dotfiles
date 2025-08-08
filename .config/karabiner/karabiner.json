@@ -1164,9 +1164,7 @@
                 },
                 "to": [
                   {
-                    "halt": true,
-                    "key_code": "t",
-                    "modifiers": ["right_command"]
+                    "shell_command": ""
                   }
                 ]
               },
@@ -1179,9 +1177,9 @@
                   }
                 ],
                 "from": {
-                  "key_code": "spacebar",
+                  "key_code": "r",
                   "modifiers": {
-                    "mandatory": ["right_command"]
+                    "mandatory": ["right_command", "left_shift"]
                   }
                 },
                 "to": [

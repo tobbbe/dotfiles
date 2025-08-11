@@ -529,3 +529,9 @@ function resizeAndConvertImagesInFolder() {
 
     echo "All images have been resized to width $width with quality $quality and saved to the resized_images directory"
 }
+
+function videoToGif() {
+  ffmpeg -ss 00:00:26 -t 12 -i input.mp4 \
+    -vf "fps=30,split[s0][s1];[s0]palettegen=max_colors=256[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" output.gif
+}
+

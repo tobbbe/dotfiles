@@ -570,46 +570,33 @@
             ]
           },
           {
-            "description": "cmd+d",
+            "description": "open slack",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.tinyspeck.slackmacgap"],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
                 "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
+                  "key_code": "3"
                 },
-                "to": {
-                  "shell_command": "open -a 'slack.app'"
+                "to_if_alone": {
+                  "key_code": "3",
+                  "halt": true
                 },
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.tinyspeck.slackmacgap"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
+                "to_delayed_action": {
+                  "to_if_canceled": [{"key_code": "3"}]
                 },
-                "to": [
-                  {
-                    "key_code": "h",
-                    "modifiers": ["right_command"],
-                    "lazy": true
-                  }
-                ],
+                "to_if_held_down": {
+                  "modifiers": [
+                    "right_command",
+                    "left_shift",
+                    "left_option",
+                    "left_control"
+                  ],
+                  "key_code": "s",
+                  "halt": true
+                },
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
                 "type": "basic"
               }
             ]
@@ -642,37 +629,7 @@
                 ],
                 "to_if_held_down": {
                   "halt": true,
-                  "key_code": "m",
-                  "modifiers": [
-                    "right_command",
-                    "left_shift",
-                    "left_control",
-                    "left_option"
-                  ]
-                },
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "DISABLED---^com.googlecode.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "grave_accent_and_tilde"
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": ["right_command"]
-                  }
-                ],
-                "to_if_held_down": {
-                  "halt": true,
-                  "key_code": "m",
+                  "key_code": "e",
                   "modifiers": [
                     "right_command",
                     "left_shift",
@@ -759,71 +716,30 @@
                     "modifiers": ["left_option"]
                   }
                 ],
-                "to_if_held_down": [
-                  {
-                    "key_code": "e",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "left_option"
-                    ],
-                    "halt": true
-                  }
-                ],
                 "type": "basic"
               }
             ]
           },
           {
-            "description": "cmd+s",
+            "description": "open code editor",
             "manipulators": [
               {
-                "type": "basic",
                 "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
+                  "key_code": "2"
                 },
-                "to": {
+                "to_if_alone": {
+                  "key_code": "2",
+                  "halt": true
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [{"key_code": "2"}]
+                },
+                "to_if_held_down": {
                   "shell_command": "open -a 'Visual studio code.app'"
-                }
-              }
-            ]
-          },
-          {
-            "description": "conversations",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["disabled"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "right_command"
                 },
-                "to": {
-                  "key_code": "right_command",
-                  "lazy": true
-                },
-                "to_if_held_down": [
-                  {
-                    "modifiers": ["right_command"],
-                    "key_code": "f12",
-                    "halt": true
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "shell_command": "open -a Slack"
-                  }
-                ],
                 "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 160,
-                  "basic.to_if_held_down_threshold_milliseconds": 160
+                  "basic.to_delayed_action_delay_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
                 },
                 "type": "basic"
               }
@@ -892,7 +808,7 @@
             ]
           },
           {
-            "description": "App shortcuts",
+            "description": "Mail reply",
             "manipulators": [
               {
                 "conditions": [
@@ -912,89 +828,6 @@
                     "halt": true,
                     "key_code": "d",
                     "modifiers": ["right_command", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "App shortcuts",
-            "manipulators": [
-              {
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "f"
-                    },
-                    {
-                      "key_code": "d"
-                    }
-                  ]
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Firefox.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "w"
-                    },
-                    {
-                      "key_code": "q"
-                    }
-                  ]
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'iterm.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "p"
-                    },
-                    {
-                      "key_code": "s"
-                    },
-                    {
-                      "key_code": "d"
-                    }
-                  ]
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Visual studio code.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "q"
-                    },
-                    {
-                      "key_code": "w"
-                    },
-                    {
-                      "key_code": "e"
-                    }
-                  ]
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Notion.app'"
                   }
                 ],
                 "type": "basic"
@@ -1126,10 +959,9 @@
             ]
           },
           {
-            "description": "cmd+a + browser",
+            "description": "open slack",
             "manipulators": [
               {
-                "type": "basic",
                 "conditions": [
                   {
                     "bundle_identifiers": ["^org.mozilla.firefox$"],
@@ -1137,37 +969,29 @@
                   }
                 ],
                 "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
+                  "key_code": "1"
                 },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Firefox.app'"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^org.mozilla.firefox$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
+                "to_if_alone": {
+                  "key_code": "1",
+                  "halt": true
                 },
-                "to": [
-                  {
-                    "shell_command": ""
-                  }
-                ]
-              },
+                "to_delayed_action": {
+                  "to_if_canceled": [{"key_code": "1"}]
+                },
+                "to_if_held_down": {
+                  "shell_command": "open -a 'Firefox.app'"
+                },
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "stuff",
+            "manipulators": [
               {
                 "type": "basic",
                 "conditions": [
@@ -1186,67 +1010,6 @@
                   {
                     "key_code": "t",
                     "modifiers": ["left_shift"]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^org.mozilla.firefox$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "f12"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^org.mozilla.firefox$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "k",
-                    "modifiers": ["left_option", "right_command"]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": ["left_command", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "a",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "left_option"
-                    ]
                   }
                 ]
               },
@@ -1277,22 +1040,33 @@
                     "shell_command": "open -a 'obsidian.app'"
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "description": "open imessage",
+            "manipulators": [
               {
-                "type": "basic",
                 "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": ["left_command", "left_shift"]
-                  }
+                  "key_code": "4"
                 },
-                "to": [
-                  {
-                    "modifiers": ["right_command"],
-                    "key_code": "f12",
-                    "halt": true
-                  }
-                ]
+                "to_if_alone": {
+                  "key_code": "4",
+                  "halt": true
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [{"key_code": "4"}]
+                },
+                "to_if_held_down": {
+                  "modifiers": ["right_command"],
+                  "key_code": "f12",
+                  "halt": true
+                },
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
+                "type": "basic"
               }
             ]
           },

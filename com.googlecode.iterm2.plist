@@ -372,8 +372,6 @@ The script should do this: \(ai.prompt)</string>
 				<key>Red Component</key>
 				<real>0.066666666666666666</real>
 			</dict>
-			<key>Background Image Location</key>
-			<string></string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -1147,7 +1145,7 @@ The script should do this: \(ai.prompt)</string>
 	<key>SeparateWindowTitlePerTab</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>

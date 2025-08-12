@@ -234,6 +234,27 @@
               {
                 "conditions": [
                   {
+                    "bundle_identifiers": ["com.sublimemerge"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": ["right_command"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "p",
+                    "modifiers": ["right_command", "left_control"]
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
                     "bundle_identifiers": ["com.microsoft.VSCode"],
                     "type": "frontmost_application_if"
                   }

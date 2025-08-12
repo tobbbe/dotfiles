@@ -227,8 +227,7 @@
                     "modifiers": ["control"]
                   },
                   {
-                    "key_code": "t",
-                    "modifiers": ["left_shift"]
+                    "key_code": "s"
                   }
                 ]
               },

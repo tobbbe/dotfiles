@@ -216,7 +216,7 @@
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "open_bracket",
+                  "key_code": "3",
                   "modifiers": {
                     "mandatory": ["right_command"]
                   }
@@ -261,7 +261,7 @@
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "open_bracket",
+                  "key_code": "3",
                   "modifiers": {
                     "mandatory": ["right_command"]
                   }
@@ -282,7 +282,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "open_bracket",
+                  "key_code": "3",
                   "modifiers": {
                     "mandatory": ["right_command"]
                   }
@@ -635,8 +635,8 @@
                   "halt": true
                 },
                 "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 100,
-                  "basic.to_if_held_down_threshold_milliseconds": 100
+                  "basic.to_delayed_action_delay_milliseconds": 160,
+                  "basic.to_if_held_down_threshold_milliseconds": 160
                 },
                 "type": "basic"
               }
@@ -779,8 +779,8 @@
                   "shell_command": "open -a 'Visual studio code.app'"
                 },
                 "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 100,
-                  "basic.to_if_held_down_threshold_milliseconds": 100
+                  "basic.to_delayed_action_delay_milliseconds": 160,
+                  "basic.to_if_held_down_threshold_milliseconds": 160
                 },
                 "type": "basic"
               }
@@ -1017,8 +1017,8 @@
                   "shell_command": "open -a 'Firefox.app'"
                 },
                 "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 100,
-                  "basic.to_if_held_down_threshold_milliseconds": 100
+                  "basic.to_delayed_action_delay_milliseconds": 160,
+                  "basic.to_if_held_down_threshold_milliseconds": 160
                 },
                 "type": "basic"
               }
@@ -1102,8 +1102,8 @@
                   "halt": true
                 },
                 "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 100,
-                  "basic.to_if_held_down_threshold_milliseconds": 100
+                  "basic.to_delayed_action_delay_milliseconds": 160,
+                  "basic.to_if_held_down_threshold_milliseconds": 160
                 },
                 "type": "basic"
               }

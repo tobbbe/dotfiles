@@ -25,11 +25,11 @@
   --tob-fg-match: #2165d9;
   --tob-font-size-url: 12; */
 
-  --tob-bg: #0c0044;
+  --tob-bg: #eee;
   --tob-bg-selected: rgba(154, 176, 196, 0.3);
-  --tob-fg: #fff;
-  --tob-fg-dark: #fff;
-  --tob-fg-url: #bbb;
+  --tob-fg: #111;
+  --tob-fg-dark: #111;
+  --tob-fg-url: #666;
   --tob-fg-match: #2165d9;
   --tob-font-size-url: 12;
 
@@ -72,12 +72,13 @@
   background: var(--tob-bg);
   backdrop-filter: blur(var(--tob-blur));
   border: 1px solid var(--tob-border);
-  box-shadow: var(--tob-shadow);
+  box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   overflow: hidden;
   left: 50%;
   margin-left: -400px;
   max-width: 800px;
+  top: 10% !important;
 }
 
 #vomnibar .vomnibarSearchArea,
@@ -115,9 +116,9 @@
 #vomnibar li {
   border-bottom: none;
   /* padding: 10px; */
-  padding: 24px 32px;
-  display: flex;
-  flex-direction: column-reverse;
+  padding: 9px 10px;
+  /* display: flex; */
+  /* flex-direction: column-reverse; */
 }
 
 #vomnibar li .vomnibarTopHalf {
@@ -264,4 +265,45 @@ div.vimiumColumn {
 
 .vomnibarMatch {
   color: inherit !important;
+}
+
+#vomnibar .bottom-half .source,
+#vomnibar .top-half .source {
+  display: none !important;
+}
+
+#vomnibar .bottom-half {
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+#vomnibar .title {
+  color: #000 !important;
+  font-weight: 400;
+  font-size: 16px !important;
+  margin-left: 0 !important;
+}
+
+#vomnibar .url {
+  color: #888 !important;
+  font-size: 11px;
+}
+
+#vomnibar li.selected {
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+#vomnibar ul {
+  padding: 8px !important;
+}
+
+#vomnibar .match {
+  color: inherit !important;
+  text-decoration: underline !important;
+  font-weight: inherit !important;
+}
+
+#vomnibar-search-area {
+  border: none !important;
 }

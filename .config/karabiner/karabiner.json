@@ -923,6 +923,106 @@
             ]
           },
           {
+            "description": "slack",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": ["left_command"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "s",
+                    "modifiers": [
+                      "right_command",
+                      "left_shift",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "web browser",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": ["left_command"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": [
+                      "right_command",
+                      "left_shift",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "imessage",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": ["left_command"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "m",
+                    "modifiers": [
+                      "right_command",
+                      "left_shift",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "code (dev)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": ["left_command"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "v",
+                    "modifiers": [
+                      "right_command",
+                      "left_shift",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "capslock + 1 = switch windows of apps",
             "manipulators": [
               {

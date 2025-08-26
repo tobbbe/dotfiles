@@ -21,7 +21,8 @@ options=(
   # blue=0xFF1FCDFF
   # red=0xFFF78166
   # green=0xFF238636
-  active_color=0xFFD2A5FC
+  # golden=0xFF238636
+  active_color=0xFFFFD700
 )
 
 borders "${options[@]}"

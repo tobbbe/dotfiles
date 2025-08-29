@@ -1,4 +1,4 @@
-alias andemu="emulator -avd" #https://developer.android.com/studio/run/emulator-commandline
+alias andemu="emulator -avd" #https://developer.android.com/studio/run/emulator-commandline as
 alias andemulist="emulator -list-avds"
 alias andrem="scrcpy" #https://github.com/Genymobile/scrcpy
 alias dl="cd ~/Downloads"
@@ -11,7 +11,7 @@ alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias openports="lsof -PiTCP -sTCP:LISTEN"
 alias copyclip="tr -d '\n' | pbcopy" #ex: ip | copyclip (your ip will be added to clipboard)
-alias rr="sh ~/dev/dotfiles/update.sh && echo 'Reloading tmux config 🔄' && tmux source-file ~/.tmux.conf && exec ${SHELL} -l"
+alias rr="sh ~/dev/dotfiles/reload.sh"
 alias path='echo -e ${PATH//:/\\n}' # Print each PATH entry on a separate line
 alias cpwd="pwd | copyclip && echo '$PWD copied to clipboard'"
 alias fb="fb-messenger-cli"

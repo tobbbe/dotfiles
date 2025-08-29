@@ -1,5 +1,5 @@
 # dotfiles
-Update with `sh update.sh`
+Update with `sh reload.sh`
 Make sure your user is named "tobbe"
 
 # Install

@@ -196,6 +196,8 @@ The script should do this: \(ai.prompt)</string>
 	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>1966379</integer>
+	<key>IRMemory</key>
+	<integer>4</integer>
 	<key>NeverWarnAboutShortLivedSessions_A8DDAA8F-F187-4379-8FEB-1630231455A0</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_A8DDAA8F-F187-4379-8FEB-1630231455A0_selection</key>
@@ -977,7 +979,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>FiraMonoNF-Regular 17</string>
+			<string>FiraMonoNF-Regular 10</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>

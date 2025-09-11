@@ -244,16 +244,13 @@ automatically-unhide-macos-hidden-apps = false
 
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
 [[on-window-detected]]
-    if.during-aerospace-startup = true
     if.app-name-regex-substring = 'slack|mail|chapmacos|karabiner eventview|karabiner|moom'
     run = ['layout floating', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-    if.during-aerospace-startup = true
     if.app-name-regex-substring = 'iterm2|notion|obsidian'
     run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]
-    if.during-aerospace-startup = true
     if.app-name-regex-substring = 'finder|sublime merge'
     run = ['move-node-to-workspace 3']

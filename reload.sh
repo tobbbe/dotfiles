@@ -42,4 +42,7 @@ else
     echo '↠ Aerospace is not running'
 fi
 
+sketchybar --reload
+echo '↠ SketchyBar reloaded'
+
 exec ${SHELL} -l

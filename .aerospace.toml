@@ -205,6 +205,7 @@ automatically-unhide-macos-hidden-apps = false
     esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
     r = ['flatten-workspace-tree'] # reset layout
     f = ['layout floating', "exec-and-forget osascript -e 'tell application \"Moom\" to run \"small window left\"'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
+    c = ['layout floating', "exec-and-forget osascript -e 'tell application \"Moom\" to run \"center center\"'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
     a = ['layout accordion'] # more than one window must be in group
     t = ['layout tiling'] # more than one window must be in group
     v = ['layout v_tiles h_tiles']

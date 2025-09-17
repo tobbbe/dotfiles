@@ -59,6 +59,10 @@ and ~/.gitconfig-work with:
 - keyboard > keyboard shortcuts > "Move focus to next window" set to `cmd+<`
 - keyboard > Delay until repeat = short(est)
 
+# Key repeat
+defaults write -g InitialKeyRepeat -int 12 # UI minimum is 15 🚨 DONT SET TO LOW!!
+defaults write -g KeyRepeat -int 1 # UI minimum is 2 🚨 DONT SET TO LOW!!
+
 # VSCode
 
 ## VSCode settings

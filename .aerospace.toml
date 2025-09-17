@@ -197,7 +197,7 @@ automatically-unhide-macos-hidden-apps = false
     # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    alt-shift-comma = ['mode service', 'exec-and-forget sketchybar --bar color=0x80ff2453']
+    cmd-space= ['mode service', 'exec-and-forget sketchybar --bar color=0x80ff2453']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

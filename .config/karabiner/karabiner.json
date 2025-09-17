@@ -814,7 +814,8 @@
             "manipulators": [
               {
                 "from": {
-                  "key_code": "left_command"
+                  "key_code": "left_command",
+                  "modifiers": {"optional": ["any"]}
                 },
                 "to": {
                   "key_code": "left_command",
@@ -822,7 +823,6 @@
                 },
                 "to_if_alone": [
                   {
-                    "halt": true,
                     "key_code": "spacebar",
                     "modifiers": ["left_option"]
                   }
@@ -921,26 +921,6 @@
                     "key_code": "o"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "cmd+space",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "mandatory": ["command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "comma",
-                    "modifiers": ["left_option", "left_shift"]
-                  }
-                ],
-                "type": "basic"
               }
             ]
           },
@@ -1657,15 +1637,28 @@
             ]
           },
           {
-            "description": "cmd+m to cmd+h",
+            "description": "disable cmd+m",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["DISABLE"],
-                    "type": "frontmost_application_if"
+                "type": "basic",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": ["left_command"]
                   }
-                ],
+                },
+                "to": [
+                  {
+                    "key_code": "vk_none"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "disable cmd+m",
+            "manipulators": [
+              {
                 "type": "basic",
                 "from": {
                   "key_code": "m",
@@ -1675,8 +1668,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "h",
-                    "modifiers": ["right_command"]
+                    "key_code": "vk_none"
                   }
                 ]
               }
@@ -2000,6 +1992,16 @@
             "product_id": 591,
             "vendor_id": 1452
           },
+          "simple_modifications": [
+            {
+              "from": {"key_code": "page_up"},
+              "to": [{"key_code": "vk_none"}]
+            },
+            {
+              "from": {"key_code": "page_down"},
+              "to": [{"key_code": "vk_none"}]
+            }
+          ],
           "ignore": false
         }
       ],

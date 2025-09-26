@@ -376,12 +376,16 @@ The script should do this: \(ai.prompt)</string>
 				<key>Red Component</key>
 				<real>0.066666666666666666</real>
 			</dict>
+			<key>Background Image Mode</key>
+			<integer>0</integer>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<false/>
+			<true/>
+			<key>Blur Radius</key>
+			<real>9.502544642857135</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -478,7 +482,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Initial Text</key>
 			<string></string>
 			<key>Initial Use Transparency</key>
-			<false/>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -983,7 +987,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SFMono-Regular 16</string>
+			<string>SFMonoNerdFontComplete-Regular 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -1053,7 +1057,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Title Components</key>
 			<integer>3</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.063364955357142858</real>
 			<key>Triggers</key>
 			<array>
 				<dict>
@@ -1088,7 +1092,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
-			<true/>
+			<false/>
 			<key>Use Tab Color</key>
 			<false/>
 			<key>Use Underline Color</key>
@@ -1098,7 +1102,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>12</integer>
 			<key>Working Directory</key>
 			<string>/Users/tobbe</string>
 		</dict>
@@ -1169,7 +1173,7 @@ The script should do this: \(ai.prompt)</string>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>TerminalMargin</key>
-	<integer>12</integer>
+	<integer>6</integer>
 	<key>TerminalVMargin</key>
 	<integer>2</integer>
 	<key>TmuxPauseModeAgeLimit</key>
@@ -1181,7 +1185,7 @@ The script should do this: \(ai.prompt)</string>
 	<key>UIElementRequiresHotkeys</key>
 	<true/>
 	<key>UseBorder</key>
-	<true/>
+	<false/>
 	<key>UseTmuxStatusBar</key>
 	<true/>
 	<key>VisualIndicatorForEsc</key>

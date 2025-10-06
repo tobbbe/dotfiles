@@ -30,6 +30,9 @@ alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
 alias f="cd"
 alias ls="ls --color -1"
+alias oc=opencode
+alias lg=lazygit
+
 # git
 ## gg and gam is in functions
 alias gs="git status -s"

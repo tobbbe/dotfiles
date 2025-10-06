@@ -62,12 +62,16 @@ setopt HIST_IGNORE_ALL_DUPS
 # prevents consecutive duplicate commands from being saved in the history.
 setopt HIST_IGNORE_DUPS
 
+# 🚨 also check detach-on-destroy in tmux.conf !!!
 # attach to main session if not in vscode when starting a new terminal
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  if [ -z "$TMUX" ]; then 
-    tmux attach -t main || tmux new -s main
-  fi
-fi
+# if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+#   if [ -z "$TMUX" ]; then 
+#     # Don't auto-attach if we just exited a tmux session (like from a popup)
+#     if [ -z "$TMUX_POPUP" ]; then
+#       tmux attach -t main || tmux new -s main
+#     fi
+#   fi
+# fi
 
 eval "$(zoxide init zsh --cmd cd)"
 

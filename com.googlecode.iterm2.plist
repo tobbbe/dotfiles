@@ -28,6 +28,8 @@ The script should do this: \(ai.prompt)</string>
 	<true/>
 	<key>DimOnlyText</key>
 	<true/>
+	<key>FastTrackpad</key>
+	<true/>
 	<key>FocusFollowsMouse</key>
 	<true/>
 	<key>GlobalKeyMap</key>
@@ -38,6 +40,19 @@ The script should do this: \(ai.prompt)</string>
 			<integer>39</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0x65-0x100000-0xe</key>
+		<dict>
+			<key>Action</key>
+			<integer>12</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
+			<key>Text</key>
+			<string> e</string>
+			<key>Version</key>
+			<integer>2</integer>
 		</dict>
 		<key>0x72-0x100000-0xf</key>
 		<dict>
@@ -212,7 +227,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Animate Movement</key>
-			<true/>
+			<false/>
 			<key>Ansi 0 Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -381,7 +396,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
@@ -519,6 +534,19 @@ The script should do this: \(ai.prompt)</string>
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x1f</string>
+				</dict>
+				<key>0x2e-0x100000-0x2f</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string> ca</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
 				<key>0x2e-0x200000</key>
 				<dict>
@@ -660,6 +688,32 @@ The script should do this: \(ai.prompt)</string>
 					<key>Text</key>
 					<string>9</string>
 				</dict>
+				<key>0x46-0x120000-0x3</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string> sg</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>0x66-0x100000-0x3</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string> sb</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
 				<key>0x70-0x100000-0x23</key>
 				<dict>
 					<key>Action</key>
@@ -699,6 +753,19 @@ The script should do this: \(ai.prompt)</string>
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x1b 0x7f</string>
+				</dict>
+				<key>0x9-0x40000-0x30</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string> ,</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
@@ -1057,7 +1124,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Title Components</key>
 			<integer>3</integer>
 			<key>Transparency</key>
-			<real>0.063364955357142858</real>
+			<real>0.075027901785714279</real>
 			<key>Triggers</key>
 			<array>
 				<dict>
@@ -1150,6 +1217,8 @@ The script should do this: \(ai.prompt)</string>
 	</dict>
 	<key>Print In Black And White</key>
 	<true/>
+	<key>ScrollWheelAcceleration</key>
+	<real>1</real>
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
 	<key>SeparateWindowTitlePerTab</key>

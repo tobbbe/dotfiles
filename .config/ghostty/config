@@ -1,0 +1,11 @@
+font-family = "SFMono Nerd Font"
+font-size = 18
+macos-titlebar-style = hidden
+background-opacity = 0.90
+background=#1a1c1c
+background-blur=20
+window-padding-x = 6
+window-padding-y = 6
+adjust-cell-height = 40%
+cursor-style = block
+

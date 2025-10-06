@@ -116,10 +116,10 @@ automatically-unhide-macos-hidden-apps = false
     # alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    alt-h = 'focus left'
-    alt-j = 'focus down'
-    alt-k = 'focus up'
-    alt-l = 'focus right'
+    # alt-h = 'focus left'
+    # alt-j = 'focus down'
+    # alt-k = 'focus up'
+    # alt-l = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
     # alt-minus = 'resize smart -50'
@@ -191,13 +191,14 @@ automatically-unhide-macos-hidden-apps = false
    # alt-shift-y = 'move-node-to-workspace Y --focus-follows-window'
    # alt-shift-z = 'move-node-to-workspace Z --focus-follows-window'
 
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    cmd-space= ['mode service', 'exec-and-forget sketchybar --bar color=0x80ff2453']
+    cmd-space= ['mode service', 'exec-and-forget sketchybar --bar color=0xff24ff53']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -215,16 +216,17 @@ automatically-unhide-macos-hidden-apps = false
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling']
 
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     h = ['move left']
     j = ['move down']
     k = ['move up']
     l = ['move right']
 
-    shift-h = ['join-with left']
-    shift-j = ['join-with down']
-    shift-k = ['join-with up']
-    shift-l = ['join-with right']
+    shift-h = ['join-with left', 'layout accordion']
+    shift-j = ['join-with down', 'layout accordion']
+    shift-k = ['join-with up', 'layout accordion']
+    shift-l = ['join-with right', 'layout accordion']
 
     1 = ['workspace 1', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
     2 = ['workspace 2', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
@@ -267,7 +269,7 @@ automatically-unhide-macos-hidden-apps = false
     run = ['layout floating', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'iterm2|notion|obsidian'
+    if.app-name-regex-substring = 'notion|obsidian'
     run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]

@@ -30,7 +30,7 @@ setopt PROMPT_SUBST
 #zstyle ':vcs_info:git:*' formats '%b '
 #PROMPT=$'%F{242}${vcs_info_msg_0_}%f%F{222}%~%f %F{reset_color}'
 zstyle ':vcs_info:git:*' formats ' %b'
-PROMPT=$'%F{141}%~%f%F{222}${vcs_info_msg_0_}%f %F{reset_color}' # change 141 to 82 for green
+PROMPT=$'%F{141}%~%f%F{222}${vcs_info_msg_0_}%f %F{reset_color}' # purple:141 green:82
 
 # tab completion
 autoload -Uz compinit && compinit

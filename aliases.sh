@@ -51,6 +51,7 @@ alias tl='tmux list-sessions'
 # alias tn='tmux new-session -s'	      is in functions.sh       # create new named session
 # alias tk='tmux kill-session -t'         is in functions.sh          # kill named session
 alias tx='tmuxinator'			            # example `tx tob` (start session, or attach if already running)
+alias td='tmux detach'		            # detach from current session
 
 # nmap requires sudo to find all devices
 # -i=case INsensitive -v=invert

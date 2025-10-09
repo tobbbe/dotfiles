@@ -13,11 +13,15 @@ rsync --exclude ".git/" \
 		--exclude "Library/LaunchAgents/readme.md" \
 		--exclude "iterm-settings/" \
 		--exclude "scripts/" \
+		--exclude "prompts/" \
 		--exclude ".config/sublime-text" \
 		--exclude "firefoxUserContent.css" \
 		-ah --itemize-changes --no-perms ~/dev/dotfiles/ ~/ 2>&1 | \
 		awk '/^[<>cdf]/ {if ($2 != "./") print "\033[32m" $2 "\033[0m"} /[Ee]rror|[Ww]arning/ {print "\033[31m" $0 "\033[0m"}'
 		# -ahv for verbose
+
+rsync -ah prompts/ ~/Library/Application\ Support/Code/User/prompts/
+echo '↠ VSCode Prompts reloaded'
 
 # merge npmrc secrets
 # '-' tells cat to read from stdin (which in this case is a newline)

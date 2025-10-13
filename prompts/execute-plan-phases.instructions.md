@@ -2,42 +2,27 @@
 applyTo: null
 ---
 
-# Execute Plan Steps Instructions
+# Execute Plan Instructions
 
-When executing a phase of an implementation plan:
+## Overview
 
-- Make sure the user has provided a plan file for you to follow. If not, ask the user to provide it. This file is hereafter called the "planning document".
-- Ask the user what phase they would like to work on if it's not specified.
-- Never start a new phase without the user has explicitly told you to start that phase.
-- Always make sure you use existing codebase patterns and architecture
+Load plan, review critically, execute tasks in batches, report for review between batches.
 
-## Phase Preparation Steps
+Core principle: Batch execution with checkpoints for architect review. Execute task at a time, report progress, ask for confirmation before next task.
 
-Before starting to implement the phase:
+Announce at start: "I'm using the Executing Plans skill to implement this plan."
 
-- Read the entire planning document and make sure you fully understand the plan and the phase before proceeding to implement it.
-- If you have any questions or need clarifications, ask the user before proceeding.
-- Always Check package.json so that you know the versions of the packages the project is using
+## Task implementation
 
-## Phase Implementation Instructions
+When executing a task of an implementation plan:
 
-When implementing a phase of the plan:
+- Ask the user what task they would like to work on if it's not specified. Always assume all previous tasks are completed.
+- Never start a new task without the user has given permission.
+- Always make sure you use existing codebase patterns and architecture.
+- Make sure the implementation always are meeting the Requirements and Acceptance Criteria.
+- If you have any questions, need clarifications or hit road blocks, ask the user for guidance before proceeding.
+- Always Check package.json when using a package so that you know what versions of the package is used.
 
-- Only work on the phase specified by the user.
-- Only work at one phase at the time.
-- Always follow the structure and instructions in the "Implementation" section of the phase in the planning document
-- Always follow the technical specifications exactly as outlined
-- If any requirements cannot be met, document why in Open Questions
-- If you encounter any issues or roadblocks, inform the user immediately and ask for guidance
-- Make sure you always are meeting the requirements in the "Acceptance Criteria" in the planning document
+## Task Completion
 
-## Phase Completion Steps
-
-After completing a phase of the plan, execute the following steps in order:
-
-1. Verify that all points under the Implementation section of the phase in the planning document are completed and match the delivered solution.
-2. Verify Acceptance Criteria in the planning document.
-3. Ensure code passes type checking and linting.
-4. Add items to the list in the "Open Questions" section of the planning document if any challenges, edge cases, or technical decisions requiring investigation or discussion have arisen. The user will address them later, do not attempt to resolve them yourself.
-5. Update the 'Current Phase' section in the planning document: 'Phase X - completed'.
-6. Ask the user to test the implementation and verify it looks correct
+After completing a task; ask the user to test and verify the implementation.

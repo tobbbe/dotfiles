@@ -44,7 +44,7 @@ zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 # export ZSHZ_DATA="$HOME/.zsh/.z"
 # source ~/.zsh/z.sh
 
-export EDITOR='code'
+export EDITOR='nvim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="rg --files --hidden -uuu --glob '!**/node_modules/*' --glob '!**/Pods/*' --glob '!**/.git/*' --glob '!**/.next/*'" # 'rg --files --hidden'

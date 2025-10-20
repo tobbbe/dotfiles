@@ -1036,7 +1036,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "s",
+                  "key_code": "d",
                   "modifiers": {
                     "mandatory": ["left_command"]
                   }
@@ -1056,7 +1056,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "s",
+                  "key_code": "d",
                   "modifiers": {
                     "mandatory": ["left_command"]
                   }
@@ -1076,7 +1076,7 @@
             "manipulators": [
               {
                 "from": {
-                  "key_code": "a",
+                  "key_code": "s",
                   "modifiers": {
                     "mandatory": ["left_command"]
                   }
@@ -1141,7 +1141,7 @@
             "manipulators": [
               {
                 "from": {
-                  "key_code": "d",
+                  "key_code": "a",
                   "modifiers": {
                     "mandatory": ["left_command"]
                   }
@@ -1161,11 +1161,8 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": [
-                      "com.microsoft.VSCode",
-                      "com.tinyspeck.slackmacgap"
-                    ],
-                    "type": "frontmost_application_unless"
+                    "bundle_identifiers": ["---disabled"],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {

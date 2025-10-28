@@ -103,6 +103,7 @@ defaults write -g KeyRepeat -int 1 # UI minimum is 2 🚨 DONT SET TO LOW!!
 	- browser.urlbar.filter.javascript false (to be able to search booklets, "form fill" for example. Then use "ff" in address bar (configured shortcut on the bookmark))
 	- cookiebanners.service.mode (and for private browsing) = 1 (reject all)
 	- cookiebanners.bannerClicking.enabled TRUE
+- /Applications/Firefox.app/Contents/MacOS/firefox --new-tab about:blank
 
 ## Addons
 - vimium

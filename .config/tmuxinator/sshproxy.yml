@@ -1,9 +1,0 @@
-name: sshproxy
-root: ~/
-
-windows:
-  - editor:
-      layout: even-vertical
-      panes:
-        - www:
-          - sshproxy

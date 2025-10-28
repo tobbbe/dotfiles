@@ -1,8 +1,0 @@
-name: main
-root: ~/dev
-
-windows:
-  - editor:
-      layout: even-vertical
-      panes:
-        - main:

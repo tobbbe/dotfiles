@@ -1,16 +1,9 @@
 {
-  "global": {
-    "check_for_updates_on_startup": true,
-    "show_in_menu_bar": false,
-    "show_profile_name_in_menu_bar": false
-  },
+  "global": { "check_for_updates_on_startup": true, "show_in_menu_bar": false, "show_profile_name_in_menu_bar": false},
   "profiles": [
     {
       "name": "Tobbes profile",
       "selected": true,
-      "virtual_hid_keyboard": {
-        "keyboard_type_v2": "iso"
-      },
       "complex_modifications": {
         "parameters": {
           "basic.simultaneous_threshold_milliseconds": 50,
@@ -20,315 +13,121 @@
         },
         "rules": [
           {
-            "description": "Change keyboard layout to se",
+            "title": "Change keyboard layout to se",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "type": "input_source_if",
-                    "input_sources": [{"language": "en"}]
-                  }
-                ],
-                "from": {
-                  "key_code": "f3"
-                },
-                "to": [{"select_input_source": {"language": "sv"}}],
-                "type": "basic"
+                "type": "basic",
+                "from": { "key_code": "f3" },
+                "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "en" }] }],
+                "to": [{ "select_input_source": { "language": "sv" }}]
               }
             ]
           },
           {
-            "description": "Change keyboard layout to en",
+            "title": "Change keyboard layout to en",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "type": "input_source_if",
-                    "input_sources": [{"language": "sv"}]
-                  }
-                ],
-                "from": {
-                  "key_code": "f3"
-                },
-                "to": [{"select_input_source": {"language": "en"}}],
-                "type": "basic"
+                "type": "basic",
+                "from": { "key_code": "f3" },
+                "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
+                "to": [{ "select_input_source": { "language": "en" }}]
               }
             ]
           },
           {
-            "description": "(ON WINDOWS) Change caps_lock to ctrl when used as modifier, escape when used alone",
+            "title": "(ON WINDOWS) Change caps_lock to ctrl when used as modifier, escape when used alone",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_control"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
+                "type": "basic",
+                "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "to": [{ "key_code": "left_control" }],
+                "to_if_alone": [{ "key_code": "escape" }]
               }
             ]
           },
           {
-            "description": "A and right shift to Control",
+            "title": "A and right shift to Control",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["disabled"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
                 "type": "basic",
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "a"
-                  }
-                ],
-                "to_if_held_down": [
-                  {
-                    "key_code": "left_control"
-                  }
-                ],
-                "parameters": {
-                  "basic.to_if_held_down_threshold_milliseconds": 60
-                }
+                "from": { "key_code": "a", "modifiers": { "optional": ["any"] }},
+                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 60},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
+                "to_if_alone": [{ "key_code": "a" }],
+                "to_if_held_down": [{ "key_code": "left_control" }]
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["disabled"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
                 "type": "basic",
-                "from": {
-                  "key_code": "right_shift",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "right_shift"
-                  }
-                ],
-                "to_if_held_down": [
-                  {
-                    "key_code": "left_control"
-                  }
-                ],
-                "parameters": {
-                  "basic.to_if_held_down_threshold_milliseconds": 60
-                }
+                "from": { "key_code": "right_shift", "modifiers": { "optional": ["any"] }},
+                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 60},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
+                "to_if_alone": [{ "key_code": "right_shift" }],
+                "to_if_held_down": [{ "key_code": "left_control" }]
               }
             ]
           },
           {
-            "description": "(ON MAC) Change caps_lock to cmd when used as modifier, escape when used alone",
+            "title": "(ON MAC) Change caps_lock to cmd when used as modifier, escape when used alone",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "DISABLED---^com.googlecode.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_control"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_unless"
-                  },
-                  {
-                    "bundle_identifiers": ["com.microsoft.VSCode"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_command"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  },
-                  {
-                    "key_code": "b",
-                    "modifiers": [
-                      "right_command",
-                      "left_control",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_command"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Project managers",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.googlecode.iterm2$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
                 "type": "basic",
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "b",
-                    "modifiers": ["control"]
-                  },
-                  {
-                    "key_code": "s"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["DISABLED---^com.googlecode.iterm2$"] }],
+                "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] }},
+                "to": [{ "key_code": "left_control" }],
+                "to_if_alone": [{ "key_code": "escape" }]
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.sublimemerge"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
                 "type": "basic",
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "p",
-                    "modifiers": ["right_command", "left_control"]
-                  }
-                ]
-              },
-              {
                 "conditions": [
-                  {
-                    "bundle_identifiers": ["com.microsoft.VSCode"],
-                    "type": "frontmost_application_if"
-                  }
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
-                "type": "basic",
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "p",
-                    "modifiers": ["option", "command"]
-                  }
+                "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] }},
+                "to": [{ "key_code": "right_command" }],
+                "to_if_alone": [
+                  { "key_code": "escape" },
+                  { "key_code": "b", "modifiers": ["right_command", "left_control", "left_option"] }
                 ]
               },
               {
                 "type": "basic",
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^org.mozilla.firefox$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] }},
+                "to": [{ "key_code": "right_command" }],
+                "to_if_alone": [{ "key_code": "escape" }]
+              }
+            ]
+          },
+          {
+            "title": "Project managers",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.googlecode.iterm2$"] }],
+                "from": { "key_code": "3", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [
-                  {
-                    "key_code": "t",
-                    "modifiers": ["left_shift"]
-                  }
+                  { "key_code": "b", "modifiers": ["control"] },
+                  { "key_code": "s" }
                 ]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.sublimemerge"] }],
+                "from": { "key_code": "p", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "p", "modifiers": ["right_command", "left_control"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }],
+                "from": { "key_code": "3", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "p", "modifiers": ["option", "command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^org.mozilla.firefox$"] }],
+                "from": { "key_code": "3", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "t", "modifiers": ["left_shift"] }]
               }
             ]
           },
@@ -337,24 +136,9 @@
             "manipulators": [
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "k",
-                    "modifiers": ["right_command"]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["---disabled"]
-                  }
-                ]
+                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["---disabled"] }],
+                "to": [{ "key_code": "k", "modifiers": ["right_command"] }]
               }
             ]
           },
@@ -363,1726 +147,682 @@
             "manipulators": [
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": ["command", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "backslash",
-                    "modifiers": ["command"]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["^notion\\.id$"]
-                  }
-                ]
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["command", "left_shift"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^notion\\.id$"] }],
+                "to": [{ "key_code": "backslash", "modifiers": ["command"] }]
               }
             ]
           },
           {
-            "description": "(MAC) Change (knapp höger om å) till curly brackets",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "close_bracket"
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "8",
-                    "modifiers": ["left_shift", "left_option"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "close_bracket",
-                  "modifiers": {
-                    "mandatory": ["left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "9",
-                    "modifiers": ["left_shift", "left_option"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "(WINDOWS) Change (knapp höger om å) till curly brackets",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "close_bracket"
-                },
-                "to": [
-                  {
-                    "key_code": "8",
-                    "modifiers": ["left_shift", "right_option"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "close_bracket",
-                  "modifiers": {
-                    "mandatory": ["left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "9",
-                    "modifiers": ["left_shift", "right_option"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Clear all in editor",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.microsoft.VSCode"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "mandatory": ["right_command", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "sh ~/dev/dotfiles/scripts/clearSearchEditor.sh"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Open workspaces in notion",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["notion.id"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "1",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open \"notion://https://www.notion.so/tobbbe/Work-todo-26ae584b3d2680fb9243daac7d325800\""
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["notion.id"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open \"notion://https://www.notion.so/gymochfitness/1b2f73d8a19980de846eca1dc292d5db?v=1b2f73d8a19981b79352000cb0c6d2fc\""
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["notion.id"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open \"notion://https://www.notion.so/gymochfitness/1b2f73d8a19980b08849e5988f9fcece?v=1b2f73d8a1998113b914000c62b346b2\""
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["notion.id"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "2",
-                    "modifiers": ["left_control", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["notion.id"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "3",
-                    "modifiers": ["left_control", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["notion.id"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "4",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "4",
-                    "modifiers": ["left_control", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["notion.id"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "5",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "5",
-                    "modifiers": ["left_control", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "open slack",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["DISABLED"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "3"
-                },
-                "to_if_alone": {
-                  "key_code": "3",
-                  "halt": true
-                },
-                "to_delayed_action": {
-                  "to_if_canceled": [{"key_code": "3"}]
-                },
-                "to_if_held_down": {
-                  "modifiers": [
-                    "right_command",
-                    "left_shift",
-                    "left_option",
-                    "left_control"
-                  ],
-                  "key_code": "s",
-                  "halt": true
-                },
-                "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 160,
-                  "basic.to_if_held_down_threshold_milliseconds": 160
-                },
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Focus terminal",
+            "title": "(MAC) Change (knapp höger om å) till curly brackets",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.googlecode.iterm2$"],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "grave_accent_and_tilde"
-                },
+                "from": { "key_code": "close_bracket" },
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "to_if_alone": [{ "key_code": "8", "modifiers": ["left_shift", "left_option"] }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["left_shift"] }},
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "to": [{ "key_code": "9", "modifiers": ["left_shift", "left_option"] }]
+              }
+            ]
+          },
+          {
+            "title": "(WINDOWS) Change (knapp höger om å) till curly brackets",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "close_bracket" },
+                "to": [{ "key_code": "8", "modifiers": ["left_shift", "right_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["left_shift"] }},
+                "to": [{ "key_code": "9", "modifiers": ["left_shift", "right_option"] }]
+              }
+            ]
+          },
+          {
+            "title": "Clear all in editor",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "c", "modifiers": { "mandatory": ["right_command", "left_shift"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }],
+                "to": [{ "shell_command": "sh ~/dev/dotfiles/scripts/clearSearchEditor.sh" }]
+              }
+            ]
+          },
+          {
+            "title": "Open workspaces in notion",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["notion.id"] }],
+                "from": { "key_code": "1", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "shell_command": "open \"notion://https://www.notion.so/tobbbe/Work-todo-26ae584b3d2680fb9243daac7d325800\"" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["notion.id"] }],
+                "from": { "key_code": "2", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [
-                  {
-                    "key_code": "i",
-                    "modifiers": [
-                      "right_command",
-                      "left_shift",
-                      "left_control",
-                      "left_option"
-                    ]
-                  }
+                  { "shell_command": "open \"notion://https://www.notion.so/gymochfitness/1b2f73d8a19980de846eca1dc292d5db?v=1b2f73d8a19981b79352000cb0c6d2fc\"" }
                 ]
               },
               {
                 "type": "basic",
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.googlecode.iterm2$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "grave_accent_and_tilde"
-                },
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["notion.id"] }],
+                "from": { "key_code": "3", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": ["left_command"]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "moom",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "f1"
-                },
-                "to": [
-                  {
-                    "key_code": "e",
-                    "modifiers": [
-                      "right_command",
-                      "left_shift",
-                      "left_control",
-                      "left_option"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "cmd+shift+g in paralells to open chrome alfred shortcut",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "g",
-                  "modifiers": {
-                    "mandatory": ["left_shift", "left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "g",
-                    "modifiers": ["right_command", "left_shift"],
-                    "lazy": true
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "send ctrl+space (accept and execute suggestion) in iterm",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com\\.googlecode\\.iterm2$",
-                      "com\\.apple\\.Terminal"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "return_or_enter",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "halt": true,
-                    "key_code": "spacebar",
-                    "modifiers": ["left_control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "raycast",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "left_command",
-                  "modifiers": {"optional": ["any"]}
-                },
-                "to": {
-                  "key_code": "left_command",
-                  "lazy": true
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "spacebar",
-                    "modifiers": ["left_option"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "open code editor",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["DISABLED"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "2"
-                },
-                "to_if_alone": {
-                  "key_code": "2",
-                  "halt": true
-                },
-                "to_delayed_action": {
-                  "to_if_canceled": [{"key_code": "2"}]
-                },
-                "to_if_held_down": {
-                  "shell_command": "open -a 'Visual studio code.app'"
-                },
-                "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 160,
-                  "basic.to_if_held_down_threshold_milliseconds": 160
-                },
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "rebind tmux leader in terminal",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.apple.Terminal",
-                      "com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "b",
-                    "modifiers": ["left_control"],
-                    "halt": true
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map Cmd+R to Ctrl+b followed by o in  (tmux switch panes)",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.apple.Terminal",
-                      "^com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "mandatory": ["command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "b",
-                    "modifiers": ["control"]
-                  },
-                  {
-                    "key_code": "o"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Mail reply",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com\\.apple\\.mail"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "halt": true,
-                    "key_code": "d",
-                    "modifiers": ["right_command", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Mail sidebar",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com\\.apple\\.mail"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "halt": true,
-                    "key_code": "s",
-                    "modifiers": ["right_command", "left_control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "vscode toggle windows (OBS! also requires you to set workbench.action.show(Next+Previous)WindowTab) in vscode",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["disabled_com.microsoft.VSCode"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "1",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_backslash",
-                    "modifiers": ["right_command", "shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["disabled_com.microsoft.VSCode"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_backslash",
-                    "modifiers": ["right_command"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "slack",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.tinyspeck.slackmacgap"],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Slack.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.tinyspeck.slackmacgap"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": ["right_command"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "web browser",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["org.mozilla.firefox"],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Firefox.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["org.mozilla.firefox"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "t",
-                    "modifiers": ["left_command"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "imessage",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.apple.MobileSMS"],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Messages.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.apple.MobileSMS"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": ["right_command"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "code (dev)",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Visual Studio Code.app'"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "capslock + 1 = switch windows of apps",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["---disabled"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "1",
-                  "modifiers": {
-                    "mandatory": ["right_command"],
-                    "optional": ["left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_backslash",
-                    "modifiers": ["right_command"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "navigate imessages",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.apple.MobileSMS"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "up_arrow",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": ["left_control", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["com.apple.MobileSMS"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "down_arrow",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": ["left_control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "open slack",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["DISABLED"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "1"
-                },
-                "to_if_alone": {
-                  "key_code": "1",
-                  "halt": true
-                },
-                "to_delayed_action": {
-                  "to_if_canceled": [{"key_code": "1"}]
-                },
-                "to_if_held_down": {
-                  "shell_command": "open -a 'Firefox.app'"
-                },
-                "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 160,
-                  "basic.to_if_held_down_threshold_milliseconds": 160
-                },
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "ai",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "a",
-                    "modifiers": [
-                      "right_command",
-                      "left_control",
-                      "left_option",
-                      "left_shift"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "stuff",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Notion.app'"
-                  }
+                  { "shell_command": "open \"notion://https://www.notion.so/gymochfitness/1b2f73d8a19980b08849e5988f9fcece?v=1b2f73d8a1998113b914000c62b346b2\"" }
                 ]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "o",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["notion.id"] }],
+                "from": { "key_code": "2", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "2", "modifiers": ["left_control", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["notion.id"] }],
+                "from": { "key_code": "3", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "3", "modifiers": ["left_control", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["notion.id"] }],
+                "from": { "key_code": "4", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "4", "modifiers": ["left_control", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["notion.id"] }],
+                "from": { "key_code": "5", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "5", "modifiers": ["left_control", "left_shift"] }]
+              }
+            ]
+          },
+          {
+            "title": "open slack",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "3" },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 160, "basic.to_if_held_down_threshold_milliseconds": 160},
+                "to_delayed_action": { "to_if_canceled": [{ "key_code": "3" }] },
+                "to_if_alone": { "key_code": "3", "halt": true},
+                "to_if_held_down": { "halt": true, "key_code": "s", "modifiers": ["right_command", "left_shift", "left_option", "left_control"] },
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["DISABLED"] }]
+              }
+            ]
+          },
+          {
+            "title": "Focus terminal",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.googlecode.iterm2$"] }],
+                "from": { "key_code": "grave_accent_and_tilde" },
+                "to": [{ "key_code": "i", "modifiers": ["right_command", "left_shift", "left_control", "left_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2$"] }],
+                "from": { "key_code": "grave_accent_and_tilde" },
+                "to": [{ "key_code": "tab", "modifiers": ["left_command"] }]
+              }
+            ]
+          },
+          {
+            "title": "moom",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "f1" },
+                "to": [{ "key_code": "e", "modifiers": ["right_command", "left_shift", "left_control", "left_option"] }]
+              }
+            ]
+          },
+          {
+            "title": "cmd+shift+g in paralells to open chrome alfred shortcut",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "g", "modifiers": { "mandatory": ["left_shift", "left_control"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "to": [{ "key_code": "g", "lazy": true, "modifiers": ["right_command", "left_shift"] }]
+              }
+            ]
+          },
+          {
+            "title": "send ctrl+space (accept and execute suggestion) in iterm",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "return_or_enter", "modifiers": { "mandatory": ["right_command"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.googlecode\\.iterm2$", "com\\.apple\\.Terminal"] }],
+                "to": [{ "key_code": "spacebar", "halt": true, "modifiers": ["left_control"] }]
+              }
+            ]
+          },
+          {
+            "title": "raycast",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] }},
+                "to": { "key_code": "left_command", "lazy": true},
+                "to_if_alone": [{ "key_code": "spacebar", "modifiers": ["left_option"] }]
+              }
+            ]
+          },
+          {
+            "title": "open code editor",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "2" },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 160, "basic.to_if_held_down_threshold_milliseconds": 160},
+                "to_delayed_action": { "to_if_canceled": [{ "key_code": "2" }] },
+                "to_if_alone": { "key_code": "2", "halt": true},
+                "to_if_held_down": { "shell_command": "open -a 'Visual studio code.app'" },
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["DISABLED"] }]
+              }
+            ]
+          },
+          {
+            "title": "rebind tmux leader in terminal",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "a", "modifiers": { "mandatory": ["right_command"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.Terminal", "com\\.googlecode\\.iterm2$"] }],
+                "to": [{ "key_code": "b", "modifiers": ["left_control"], "halt": true}]
+              }
+            ]
+          },
+          {
+            "title": "Map Cmd+R to Ctrl+b followed by o in  (tmux switch panes)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["command"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.Terminal", "^com\\.googlecode\\.iterm2$"] }],
                 "to": [
-                  {
-                    "shell_command": "open -a 'obsidian.app'"
-                  }
+                  { "key_code": "b", "modifiers": ["control"] },
+                  { "key_code": "o" }
                 ]
               }
             ]
           },
           {
-            "description": "open imessage",
+            "title": "Mail reply",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["DISABLED"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "4"
-                },
-                "to_if_alone": {
-                  "key_code": "4",
-                  "halt": true
-                },
-                "to_delayed_action": {
-                  "to_if_canceled": [{"key_code": "4"}]
-                },
-                "to_if_held_down": {
-                  "modifiers": ["right_command"],
-                  "key_code": "f12",
-                  "halt": true
-                },
-                "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 160,
-                  "basic.to_if_held_down_threshold_milliseconds": 160
-                },
-                "type": "basic"
+                "type": "basic",
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["right_command"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.mail"] }],
+                "to": [{ "halt": true, "key_code": "d", "modifiers": ["right_command", "left_shift"] }]
               }
             ]
           },
           {
-            "description": "misc parallels shortcut translations",
+            "title": "Mail sidebar",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "x",
-                  "modifiers": {
-                    "mandatory": ["left_control", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "x",
-                    "modifiers": ["right_command", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "mandatory": ["left_control", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "r",
-                    "modifiers": ["right_command", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": ["left_control", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "a",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "left_option"
-                    ],
-                    "halt": true
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": ["left_control", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "v",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "left_option"
-                    ],
-                    "halt": true
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": ["left_control", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "d",
-                    "modifiers": ["right_command", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "4",
-                  "modifiers": {
-                    "mandatory": ["left_control", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "4",
-                    "modifiers": ["right_command", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": ["^com.parallels[[:graph:]]*$"],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "5",
-                  "modifiers": {
-                    "mandatory": ["left_control", "left_shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "5",
-                    "modifiers": ["right_command", "left_shift"]
-                  }
-                ],
-                "type": "basic"
+                "type": "basic",
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["right_command"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.mail"] }],
+                "to": [{ "halt": true, "key_code": "s", "modifiers": ["right_command", "left_control"] }]
               }
             ]
           },
           {
-            "description": "Shortcuts (emoji, window management)",
+            "title": "vscode toggle windows (OBS! also requires you to set workbench.action.show(Next+Previous)WindowTab) in vscode",
             "manipulators": [
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": ["right_command", "left_command"]
-                  }
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "e",
-                    "modifiers": [
-                      "right_command",
-                      "left_control",
-                      "left_option",
-                      "left_shift"
-                    ]
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled_com.microsoft.VSCode"] }],
+                "from": { "key_code": "1", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "non_us_backslash", "modifiers": ["right_command", "shift"] }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "mandatory": ["right_command", "left_command"]
-                  }
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "w",
-                    "modifiers": ["shift", "option"]
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled_com.microsoft.VSCode"] }],
+                "from": { "key_code": "2", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "non_us_backslash", "modifiers": ["right_command"] }]
               }
             ]
           },
           {
-            "description": "Switch command and option FOR NON MAC KEYBOARDS",
+            "title": "slack",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "description": "Apple keyboard"
-                      }
-                    ]
-                  }
-                ],
-                "from": {
-                  "key_code": "left_option",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_command"
-                  }
-                ],
-                "type": "basic"
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Slack.app'" }]
               },
               {
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "description": "Apple keyboard"
-                      }
-                    ]
-                  }
-                ],
-                "from": {
-                  "key_code": "right_command",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_option"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "description": "Apple keyboard"
-                      }
-                    ]
-                  }
-                ],
-                "from": {
-                  "key_code": "right_option",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_command"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "description": "Apple keyboard"
-                      }
-                    ]
-                  }
-                ],
-                "from": {
-                  "key_code": "right_command",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_option"
-                  }
-                ],
-                "type": "basic"
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "tab", "modifiers": ["right_command"] }]
               }
             ]
           },
           {
-            "description": "disable cmd+m",
+            "title": "web browser",
             "manipulators": [
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": ["left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "vk_none"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["org.mozilla.firefox"] }],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Firefox.app'" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["org.mozilla.firefox"] }],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "t", "modifiers": ["left_command"] }]
               }
             ]
           },
           {
-            "description": "disable cmd+m",
+            "title": "imessage",
             "manipulators": [
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "vk_none"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.apple.MobileSMS"] }],
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Messages.app'" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.MobileSMS"] }],
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "tab", "modifiers": ["right_command"] }]
               }
             ]
           },
           {
-            "description": "arrow thing",
+            "title": "code (dev)",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [
-                  {
-                    "type": "input_source_if",
-                    "input_sources": [{"language": "sv"}]
-                  }
-                ],
-                "from": {
-                  "key_code": "comma",
-                  "modifiers": {
-                    "mandatory": ["left_option"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_backslash"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "type": "input_source_if",
-                    "input_sources": [{"language": "sv"}]
-                  }
-                ],
-                "from": {
-                  "key_code": "period",
-                  "modifiers": {
-                    "mandatory": ["left_option"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_backslash",
-                    "modifiers": ["left_shift"]
-                  }
-                ]
+                "from": { "key_code": "a", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Visual Studio Code.app'" }]
               }
             ]
           },
           {
-            "description": "firefox tabs list (use vimium keybinding instead: `map <m-e> Vomnibar.activateTabSelection`)",
+            "title": "capslock + 1 = switch windows of apps",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "DISABLE------^org.mozilla.firefox$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": ["right_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "halt": true,
-                    "key_code": "t",
-                    "modifiers": ["left_shift"]
-                  }
-                ],
-                "type": "basic"
+                "type": "basic",
+                "from": { "key_code": "1", "modifiers": { "mandatory": ["right_command"], "optional": ["left_shift"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["---disabled"] }],
+                "to": [{ "key_code": "non_us_backslash", "modifiers": ["right_command"] }]
               }
             ]
           },
           {
-            "description": "fn_function_keys",
+            "title": "navigate imessages",
             "manipulators": [
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f1",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "display_brightness_decrement"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.MobileSMS"] }],
+                "from": { "key_code": "up_arrow", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "tab", "modifiers": ["left_control", "left_shift"] }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f2",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "display_brightness_increment"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.MobileSMS"] }],
+                "from": { "key_code": "down_arrow", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "tab", "modifiers": ["left_control"] }]
+              }
+            ]
+          },
+          {
+            "title": "open slack",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "1" },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 160, "basic.to_if_held_down_threshold_milliseconds": 160},
+                "to_delayed_action": { "to_if_canceled": [{ "key_code": "1" }] },
+                "to_if_alone": { "key_code": "1", "halt": true},
+                "to_if_held_down": { "shell_command": "open -a 'Firefox.app'" },
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["DISABLED"] }]
+              }
+            ]
+          },
+          {
+            "title": "ai",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "a", "modifiers": ["right_command", "left_control", "left_option", "left_shift"] }]
+              }
+            ]
+          },
+          {
+            "title": "stuff",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "n", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Notion.app'" }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f3",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "apple_vendor_keyboard_key_code": "mission_control"
-                  }
-                ]
+                "from": { "key_code": "o", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'obsidian.app'" }]
+              }
+            ]
+          },
+          {
+            "title": "open imessage",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "4" },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 160, "basic.to_if_held_down_threshold_milliseconds": 160},
+                "to_delayed_action": { "to_if_canceled": [{ "key_code": "4" }] },
+                "to_if_alone": { "key_code": "4", "halt": true},
+                "to_if_held_down": { "key_code": "f12", "halt": true, "modifiers": ["right_command"] },
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["DISABLED"] }]
+              }
+            ]
+          },
+          {
+            "title": "misc parallels shortcut translations",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "x", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "x", "modifiers": ["right_command", "left_shift"] }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f4",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "apple_vendor_keyboard_key_code": "spotlight"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "r", "modifiers": ["right_command", "left_shift"] }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f5",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "dictation"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "a", "modifiers": ["left_control", "left_shift", "right_command", "left_option"], "halt": true}]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f6",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "sh ~/dev/dotfiles/scripts/afk.sh"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "v", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "v", "modifiers": ["left_control", "left_shift", "right_command", "left_option"], "halt": true}]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f7",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "rewind"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "d", "modifiers": ["right_command", "left_shift"] }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f8",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "play_or_pause"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "4", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "4", "modifiers": ["right_command", "left_shift"] }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f9",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "fast_forward"
-                  }
-                ]
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
+                "from": { "key_code": "5", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "5", "modifiers": ["right_command", "left_shift"] }]
+              }
+            ]
+          },
+          {
+            "title": "Shortcuts (emoji, window management)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["right_command", "left_command"] }},
+                "to_if_alone": [{ "key_code": "e", "modifiers": ["right_command", "left_control", "left_option", "left_shift"] }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f10",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "mute"
-                  }
-                ]
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["right_command", "left_command"] }},
+                "to_if_alone": [{ "key_code": "w", "modifiers": ["shift", "option"] }]
+              }
+            ]
+          },
+          {
+            "title": "Switch command and option FOR NON MAC KEYBOARDS",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "device_unless", "identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }] }],
+                "from": { "key_code": "left_option", "modifiers": { "optional": ["any"] }},
+                "to": [{ "key_code": "right_command" }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f11",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "volume_decrement"
-                  }
-                ]
+                "conditions": [{ "type": "device_unless", "identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }] }],
+                "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] }},
+                "to": [{ "key_code": "left_option" }]
               },
               {
                 "type": "basic",
-                "from": {
-                  "key_code": "f12",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "volume_increment"
-                  }
-                ]
+                "conditions": [{ "type": "device_unless", "identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }] }],
+                "from": { "key_code": "right_option", "modifiers": { "optional": ["any"] }},
+                "to": [{ "key_code": "right_command" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "device_unless", "identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }] }],
+                "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] }},
+                "to": [{ "key_code": "right_option" }]
+              }
+            ]
+          },
+          {
+            "title": "disable cmd+m",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "m", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "vk_none" }]
+              }
+            ]
+          },
+          {
+            "title": "disable cmd+m",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "m", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "vk_none" }]
+              }
+            ]
+          },
+          {
+            "title": "arrow thing",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
+                "from": { "key_code": "comma", "modifiers": { "mandatory": ["left_option"] }},
+                "to": [{ "key_code": "non_us_backslash" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
+                "from": { "key_code": "period", "modifiers": { "mandatory": ["left_option"] }},
+                "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
+              }
+            ]
+          },
+          {
+            "title": "firefox tabs list (use vimium keybinding instead: `map <m-e> Vomnibar.activateTabSelection`)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["right_command"] }},
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["DISABLE------^org.mozilla.firefox$"] }],
+                "to": [{ "key_code": "t", "halt": true, "modifiers": ["left_shift"] }]
+              }
+            ]
+          },
+          {
+            "title": "fn_function_keys",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "f1", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "display_brightness_decrement" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f2", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "display_brightness_increment" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f3", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f4", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "apple_vendor_keyboard_key_code": "spotlight" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f5", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "dictation" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f6", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "shell_command": "sh ~/dev/dotfiles/scripts/afk.sh" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f7", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "rewind" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f8", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "play_or_pause" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f9", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "fast_forward" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f10", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "mute" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f11", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "volume_decrement" }]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "f12", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "consumer_key_code": "volume_increment" }]
               }
             ]
           }
         ]
       },
+      "virtual_hid_keyboard": { "keyboard_type_v2": "iso" },
       "devices": [
         {
           "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
+          "ignore": false,
+          "manipulate_caps_lock_led": false,
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
             "product_id": 17733,
             "vendor_id": 1241
           },
-          "ignore": false,
-          "manipulate_caps_lock_led": false,
+          "fn_function_keys": [],
           "simple_modifications": [
-            {
-              "from": {
-                "key_code": "grave_accent_and_tilde"
-              },
-              "to": [
-                {
-                  "key_code": "non_us_backslash"
-                }
-              ]
-            },
-            {
-              "from": {
-                "key_code": "non_us_backslash"
-              },
-              "to": [
-                {
-                  "key_code": "grave_accent_and_tilde"
-                }
-              ]
-            }
+            { "from": { "key_code": "grave_accent_and_tilde" }, "to": [{ "key_code": "non_us_backslash" }] },
+            { "from": { "key_code": "non_us_backslash" }, "to": [{ "key_code": "grave_accent_and_tilde" }] }
           ]
         },
         {
           "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
+          "ignore": false,
+          "manipulate_caps_lock_led": false,
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
             "product_id": 4886,
             "vendor_id": 8916
           },
-          "ignore": false,
-          "manipulate_caps_lock_led": false,
+          "fn_function_keys": [],
           "simple_modifications": []
         },
         {
           "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
+          "ignore": false,
+          "manipulate_caps_lock_led": true,
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
             "product_id": 34304,
             "vendor_id": 1452
           },
-          "ignore": false,
-          "manipulate_caps_lock_led": true,
+          "fn_function_keys": [],
           "simple_modifications": []
         },
         {
           "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
+          "ignore": false,
+          "manipulate_caps_lock_led": true,
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
             "product_id": 636,
             "vendor_id": 1452
           },
-          "ignore": false,
-          "manipulate_caps_lock_led": true
+          "fn_function_keys": []
         },
         {
           "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
+          "ignore": false,
+          "manipulate_caps_lock_led": true,
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
             "product_id": 834,
             "vendor_id": 1452
           },
-          "ignore": false,
-          "manipulate_caps_lock_led": true,
+          "fn_function_keys": [],
           "simple_modifications": [
-            {
-              "from": {
-                "key_code": "grave_accent_and_tilde"
-              },
-              "to": [
-                {
-                  "key_code": "non_us_backslash"
-                }
-              ]
-            },
-            {
-              "from": {
-                "key_code": "non_us_backslash"
-              },
-              "to": [
-                {
-                  "key_code": "grave_accent_and_tilde"
-                }
-              ]
-            }
+            { "from": { "key_code": "grave_accent_and_tilde" }, "to": [{ "key_code": "non_us_backslash" }] },
+            { "from": { "key_code": "non_us_backslash" }, "to": [{ "key_code": "grave_accent_and_tilde" }] }
           ]
         },
         {
+          "ignore": false,
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": true,
@@ -2090,45 +830,15 @@
             "vendor_id": 1452
           },
           "simple_modifications": [
-            {
-              "from": {"key_code": "page_up"},
-              "to": [{"key_code": "vk_none"}]
-            },
-            {
-              "from": {"key_code": "page_down"},
-              "to": [{"key_code": "vk_none"}]
-            }
-          ],
-          "ignore": false
+            { "from": { "key_code": "page_up" }, "to": [{ "key_code": "vk_none" }] },
+            { "from": { "key_code": "page_down" }, "to": [{ "key_code": "vk_none" }] }
+          ]
         }
       ],
       "simple_modifications": [
-        {
-          "from": {
-            "key_code": "pause"
-          },
-          "to": {
-            "consumer_key_code": "play_or_pause"
-          }
-        },
-        {
-          "from": {
-            "key_code": "scroll_lock"
-          },
-          "to": {
-            "consumer_key_code": "scan_next_track"
-          }
-        },
-        {
-          "from": {
-            "apple_vendor_top_case_key_code": "keyboard_fn"
-          },
-          "to": [
-            {
-              "key_code": "left_control"
-            }
-          ]
-        }
+        { "from": { "key_code": "pause" }, "to": { "consumer_key_code": "play_or_pause" }},
+        { "from": { "key_code": "scroll_lock" }, "to": { "consumer_key_code": "scan_next_track" }},
+        { "from": { "apple_vendor_top_case_key_code": "keyboard_fn" }, "to": [{ "key_code": "left_control" }] }
       ]
     }
   ]

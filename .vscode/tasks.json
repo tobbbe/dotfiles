@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Format JSON Custom",
+      "type": "shell",
+      "command": "node scripts/format-json.js ${file}",
+      "presentation": {
+        "reveal": "never",
+        "revealProblems": "onProblem"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

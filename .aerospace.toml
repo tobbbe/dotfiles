@@ -204,8 +204,8 @@ automatically-unhide-macos-hidden-apps = false
 [mode.service.binding]
     esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
     r = ['flatten-workspace-tree'] # reset layout
-    f = ['layout floating', "exec-and-forget osascript -e 'tell application \"Moom\" to run \"small window left\"'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    c = ['layout floating', "exec-and-forget osascript -e 'tell application \"Moom\" to run \"center center\"'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
+    f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
+    c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
     a = ['layout accordion'] # more than one window must be in group
     t = ['layout tiling'] # more than one window must be in group
     v = ['layout v_tiles h_tiles']
@@ -237,15 +237,15 @@ automatically-unhide-macos-hidden-apps = false
     8 = ['workspace 8', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
     9 = ['workspace 9', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
 
-    shift-1 = ['move-node-to-workspace 1 --focus-follows-window']
-    shift-2 = ['move-node-to-workspace 2 --focus-follows-window']
-    shift-3 = ['move-node-to-workspace 3 --focus-follows-window']
-    shift-4 = ['move-node-to-workspace 4 --focus-follows-window']
-    shift-5 = ['move-node-to-workspace 5 --focus-follows-window']
-    shift-6 = ['move-node-to-workspace 6 --focus-follows-window']
-    shift-7 = ['move-node-to-workspace 7 --focus-follows-window']
-    shift-8 = ['move-node-to-workspace 8 --focus-follows-window']
-    shift-9 = ['move-node-to-workspace 9 --focus-follows-window']
+    shift-1 = ['move-node-to-workspace 1']
+    shift-2 = ['move-node-to-workspace 2']
+    shift-3 = ['move-node-to-workspace 3']
+    shift-4 = ['move-node-to-workspace 4']
+    shift-5 = ['move-node-to-workspace 5']
+    shift-6 = ['move-node-to-workspace 6']
+    shift-7 = ['move-node-to-workspace 7']
+    shift-8 = ['move-node-to-workspace 8']
+    shift-9 = ['move-node-to-workspace 9']
 
     down = 'volume down'
     up = 'volume up'
@@ -260,16 +260,16 @@ automatically-unhide-macos-hidden-apps = false
 
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
 [[on-window-detected]]
-    if.app-name-regex-substring = 'finder|chapmacos|karabiner eventview|karabiner|moom'
+    if.app-name-regex-substring = 'finder|code|chapmacos|karabiner eventview|karabiner|moom|iTerm2|Firefox'
     run = ['layout floating', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'slack|mail|discord'
-    run = ['layout floating', 'move-node-to-workspace 2']
+    if.app-name-regex-substring = 'notion|obsidian|Simulator|figma'
+    run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'notion|obsidian'
-    run = ['move-node-to-workspace 9']
+    if.app-name-regex-substring = 'slack|mail|discord|claude|Messages'
+    run = ['layout floating', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'sublime merge'

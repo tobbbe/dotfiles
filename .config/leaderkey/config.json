@@ -1,26 +1,34 @@
 {
-	"type": "group",
-	"actions": [
-		{ "key": "t", "type": "application", "value": "/System/Applications/Utilities/Terminal.app" },
-		{ "key": "e", "type": "url", "value": "moves://custom/center?relativeWidth=0.75&relativeHeight=0.75" },
-		{
-			"key": "o",
-			"type": "group",
-			"actions": [
-				{ "key": "s", "type": "application", "value": "/Applications/Safari.app" },
-				{ "key": "e", "type": "application", "value": "/Applications/Mail.app" },
-				{ "key": "i", "type": "application", "value": "/System/Applications/Music.app" },
-				{ "key": "m", "type": "application", "value": "/Applications/Messages.app" }
-			]
-		},
-		{
-			"key": "r",
-			"type": "group",
-			"actions": [
-				{ "key": "e", "type": "url", "value": "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols" },
-				{ "key": "p", "type": "url", "value": "raycast://confetti" },
-				{ "key": "c", "type": "url", "value": "raycast://extensions/raycast/system/open-camera" }
-			]
-		}
-	]
+  "type": "group",
+  "actions": [
+    { "key": "f", "type": "application", "value": "/System/Volumes/Data/Applications/Slack.app" },
+    { "key": "s", "type": "application", "value": "/System/Volumes/Data/Applications/Firefox.app" },
+    { "key": "d", "type": "application", "value": "/System/Volumes/Data/Applications/Visual Studio Code.app" },
+    { "key": "g", "type": "application", "value": "/System/Applications/Messages.app" },
+    { "key": "e", "type": "application", "value": "/System/Volumes/Data/Applications/ChapMacOS.app" },
+    {
+      "iconPath": "/Applications/Raycast.app",
+      "key": "a",
+      "label": "Raycast",
+      "type": "url",
+      "value": "raycast://"
+    },
+    {
+      "iconPath": "rectangle.center.inset.filled",
+      "key": "c",
+      "label": "Center",
+      "type": "url",
+      "value": "moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100"
+    },
+    {
+      "key": "o",
+      "type": "group",
+      "actions": [
+        { "key": "s", "type": "application", "value": "/Applications/Safari.app" },
+        { "key": "e", "type": "application", "value": "/Applications/Mail.app" },
+        { "key": "i", "type": "application", "value": "/System/Applications/Music.app" },
+        { "key": "m", "type": "application", "value": "/Applications/Messages.app" }
+      ]
+    }
+  ]
 }

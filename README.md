@@ -199,3 +199,65 @@ https://evanhahn.com/a-decade-of-dotfiles/
 	]
 },
 ```
+
+```
+{
+            "title": "open apps",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["disabled_com.tinyspeck.slackmacgap"] }],
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Slack.app'" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled_com.tinyspeck.slackmacgap"] }],
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "tab", "modifiers": ["right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["disabled_org.mozilla.firefox"] }],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Firefox.app'" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled_org.mozilla.firefox"] }],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "t", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["disabled_com.apple.MobileSMS"] }],
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Messages.app'" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled_com.apple.MobileSMS"] }],
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "tab", "modifiers": ["right_command"] }]
+              },
+              {
+                "type": "basic",
+                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
+                "from": { "key_code": "a", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Visual Studio Code.app'" }]
+              },
+              {
+                "type": "basic",
+                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "a", "modifiers": ["right_command", "left_control", "left_option", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
+                "from": { "key_code": "n", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "open -a 'Notion.app'" }]
+              }
+            ]
+          },
+```

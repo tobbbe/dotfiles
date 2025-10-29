@@ -1,6 +1,7 @@
 {
   "[json]": {
     "editor.defaultFormatter": null,
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
   }
 }

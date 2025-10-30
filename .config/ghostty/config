@@ -1,11 +1,17 @@
-font-family = "SFMonoNerdFontComplete-Regular"
+font-family = "SFMono Nerd Font"
 font-size = 16
+font-thicken = true
 macos-titlebar-style = hidden
-background-opacity = 0.90
-background=#10101A
-background-blur=20
-# window-padding-x = 6
-# window-padding-y = 6
-# adjust-cell-height = 40%
-cursor-style = block
+background-opacity = 0.93
+window-colorspace=display-p3
+background = "#10101A"
+foreground= "#c7c7c7"
+background-blur = 32
+window-padding-x = 6
+window-padding-y = 6
+adjust-cell-height = 49%
+cursor-style = "block"
+cursor-color = "#9DF1A1"
+bold-color = bright
 
+keybind = super+t=new_tab

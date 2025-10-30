@@ -21,3 +21,6 @@ cursor-color = "#9DF1A1"
 
 copy-on-select = true
 selection-clear-on-copy = true
+
+# for alt hjkl to work for panes. remove if fucks
+macos-option-as-alt = left

@@ -312,13 +312,31 @@
             ]
           },
           {
-            "title": "leader key",
+            "title": "leader key + raycast",
             "manipulators": [
               {
                 "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "left_command" },
-                "to": [{ "key_code": "left_command", "lazy": true }],
-                "to_if_alone": [{ "key_code": "o", "modifiers": ["right_command"] }]
+                "to": [
+                  { "set_variable": { "name": "leader_active", "expression": "0" }},
+                  { "key_code": "spacebar", "modifiers": ["left_option"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "left_command" },
+                "to": [{ "key_code": "left_command"}],
+                "to_if_alone": [
+                  { "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 420" }},
+                  { "key_code": "o", "modifiers": ["right_command"] }
+                ],
+                "to_delayed_action": {
+                  "to_if_invoked": [{ "set_variable": { "name": "leader_active", "expression": "0" }}],
+                  "to_if_canceled": [{ "set_variable": { "name": "leader_active", "expression": "0" }}]
+                },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421 }
               }
             ]
           },

@@ -5,6 +5,7 @@
     { "key": "d", "type": "application", "value": "/System/Volumes/Data/Applications/Visual Studio Code.app" },
     { "key": "e", "type": "application", "value": "/System/Volumes/Data/Applications/ChapMacOS.app" },
     { "key": "n", "type": "application", "value": "/System/Volumes/Data/Applications/Notion.app" },
+    { "key": "m", "type": "application", "value": "/System/Applications/Mail.app" },
     {
       "iconPath": "/Applications/Raycast.app",
       "key": "f",

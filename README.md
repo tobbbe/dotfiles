@@ -263,3 +263,32 @@ https://evanhahn.com/a-decade-of-dotfiles/
             ]
           },
 ```
+
+```
+{
+  "title": "rebind tmux leader in terminal",
+  "manipulators": [
+    {
+      "type": "basic",
+      "from": { "key_code": "a", "modifiers": { "mandatory": ["right_command"] }},
+      "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.Terminal", "com\\.googlecode\\.iterm2$"] }],
+      "to": [{ "key_code": "b", "modifiers": ["left_control"], "halt": true}]
+    }
+  ]
+},
+
+{
+  "title": "Map Cmd+R to Ctrl+b followed by o in (tmux switch panes)",
+  "manipulators": [
+    {
+      "type": "basic",
+      "from": { "key_code": "r", "modifiers": { "mandatory": ["command"] }},
+      "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.Terminal", "^com\\.googlecode\\.iterm2$"] }],
+      "to": [
+        { "key_code": "b", "modifiers": ["control"] },
+        { "key_code": "o" }
+      ]
+    }
+  ]
+},
+```

@@ -34,6 +34,8 @@ Make sure your user is named "tobbe"
 - sf mono
 - iterm2
 - https://shottr.cc/
+- leader key.app
+- moves app
 
 # git
 1. Create two ssh keys: work and personal (see github docs)

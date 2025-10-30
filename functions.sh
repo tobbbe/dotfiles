@@ -471,16 +471,23 @@ function code() {
 	fi
 }
 
-function tn() {
-  if [ -z "$1" ]; then
-    echo "Error: Session name required"
-    return 1
-  fi
-  tmux new-session -d -s "$1" 2>/dev/null # handle if session already exists
-  if [ -n "$TMUX" ]; then
-     tmux switch-client -t "$1"
+function t() {
+   if [ -z "$1" ]; then
+    # No name provided, try to attach to any existing session
+    if tmux attach 2>/dev/null; then
+      return 0
+    fi
+    # No sessions exist, create "main"
+    local session_name="main"
   else
-    tmux attach -t "$1"
+    local session_name="$1"
+  fi
+  
+  tmux new-session -d -s "$session_name" 2>/dev/null
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$session_name"
+  else
+    tmux attach -t "$session_name"
   fi
 }
 

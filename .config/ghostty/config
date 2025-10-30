@@ -4,7 +4,7 @@ font-thicken = true
 
 bold-color = bright
 adjust-cell-height = 49%
-adjust-cursor-height = 80%
+adjust-cursor-height = 8
 
 macos-titlebar-style = hidden
 background-opacity = 0.93

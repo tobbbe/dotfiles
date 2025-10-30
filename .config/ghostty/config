@@ -24,3 +24,5 @@ selection-clear-on-copy = true
 
 # for alt hjkl to work for panes. remove if fucks
 macos-option-as-alt = left
+
+keybind = shift+enter=text:\x1b\r

@@ -31,6 +31,7 @@ alias ncu="npx npm-check-updates"
 alias f="cd"
 alias ls="ls --color -1"
 alias oc=opencode
+alias cc=claude
 alias lg=lazygit
 
 # git

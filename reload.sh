@@ -15,7 +15,6 @@ rsync --exclude ".git/" \
 		--exclude "scripts/" \
 		--exclude "prompts/" \
 		--exclude "AGENTS.md" \
-		--exclude ".config/ghostty/config" \
 		--exclude ".config/sublime-text" \
 		--exclude "firefoxUserContent.css" \
 		-ah --itemize-changes --no-perms ~/dev/dotfiles/ ~/ 2>&1 | \
@@ -60,5 +59,8 @@ fi
 
 sketchybar --reload
 echo '↠ SketchyBar reloaded'
+
+# Reload Ghostty config via AppleScript
+osascript -e 'tell application "System Events" to tell process "Ghostty" to click menu item "Reload Configuration" of menu "Ghostty" of menu bar item "Ghostty" of menu bar 1' 2>&1 | grep -v "^menu item" >&2
 
 exec ${SHELL} -l

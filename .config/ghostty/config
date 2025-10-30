@@ -21,7 +21,3 @@ cursor-color = "#9DF1A1"
 
 copy-on-select = true
 selection-clear-on-copy = true
-
-keybind = super+t=new_tab
-keybind = super+left=text:\x01
-keybind = super+right=text:\x05

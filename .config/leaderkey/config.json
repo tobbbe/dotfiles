@@ -1,14 +1,13 @@
 {
   "type": "group",
   "actions": [
-    { "key": "f", "type": "application", "value": "/System/Volumes/Data/Applications/Slack.app" },
     { "key": "s", "type": "application", "value": "/System/Volumes/Data/Applications/Firefox.app" },
     { "key": "d", "type": "application", "value": "/System/Volumes/Data/Applications/Visual Studio Code.app" },
-    { "key": "g", "type": "application", "value": "/System/Applications/Messages.app" },
     { "key": "e", "type": "application", "value": "/System/Volumes/Data/Applications/ChapMacOS.app" },
+    { "key": "n", "type": "application", "value": "/System/Volumes/Data/Applications/Notion.app" },
     {
       "iconPath": "/Applications/Raycast.app",
-      "key": "a",
+      "key": "f",
       "label": "Raycast",
       "type": "url",
       "value": "raycast://"
@@ -20,14 +19,13 @@
       "type": "url",
       "value": "moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100"
     },
+    { "key": "w", "type": "command", "value": "/opt/homebrew/bin/sketchybar --bar color=0xff24ff53 && /opt/homebrew/bin/aerospace mode service" },
     {
-      "key": "o",
+      "key": "a",
       "type": "group",
       "actions": [
-        { "key": "s", "type": "application", "value": "/Applications/Safari.app" },
-        { "key": "e", "type": "application", "value": "/Applications/Mail.app" },
-        { "key": "i", "type": "application", "value": "/System/Applications/Music.app" },
-        { "key": "m", "type": "application", "value": "/Applications/Messages.app" }
+        { "key": "a", "type": "application", "value": "/System/Volumes/Data/Applications/Slack.app" },
+        { "key": "s", "type": "application", "value": "/System/Applications/Messages.app" }
       ]
     }
   ]

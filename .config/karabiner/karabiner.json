@@ -87,15 +87,7 @@
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2$"] }],
                 "from": { "key_code": "grave_accent_and_tilde" },
-                            "to": [
-                {
-                    "software_function": {
-                        "open_application": {
-                            "frontmost_application_history_index": 1
-                        }
-                    }
-                }
-            ]
+                "to": [{ "software_function": { "open_application": { "frontmost_application_history_index": 1}}}]
               }
             ]
           },
@@ -310,7 +302,7 @@
                 "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
                 "from": { "key_code": "left_command" },
-                "to": [{ "key_code": "right_command"}],
+                "to": [{ "key_code": "right_command" }],
                 "to_if_alone": [
                   { "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 420" }},
                   { "key_code": "o", "modifiers": ["right_command"] }
@@ -319,7 +311,7 @@
                   "to_if_invoked": [{ "set_variable": { "name": "leader_active", "expression": "0" }}],
                   "to_if_canceled": [{ "set_variable": { "name": "leader_active", "expression": "0" }}]
                 },
-                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421 }
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421}
               }
             ]
           },

@@ -16,7 +16,12 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 # ruby version mananger (needed for RN)
 # eval "$(rbenv init - zsh)"
 
+bindkey -e  # Emacs key bindings
+bindkey "^[[1;3C" forward-word      # Option+Right
+bindkey "^[[1;3D" backward-word     # Option+Left
 
+# require pressing ctrl+d 2 times to exit shell
+export IGNOREEOF=2
 
 HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST

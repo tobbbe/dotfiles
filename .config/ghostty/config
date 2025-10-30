@@ -1,17 +1,27 @@
 font-family = "SFMono Nerd Font"
 font-size = 16
 font-thicken = true
+
+bold-color = bright
+adjust-cell-height = 49%
+adjust-cursor-height = 80%
+
 macos-titlebar-style = hidden
 background-opacity = 0.93
-window-colorspace=display-p3
-background = "#10101A"
-foreground= "#c7c7c7"
-background-blur = 32
 window-padding-x = 6
 window-padding-y = 6
-adjust-cell-height = 49%
+
+window-colorspace = display-p3
+background = "#10101A"
+foreground = "#c7c7c7"
+background-blur = 32
+
 cursor-style = "block"
 cursor-color = "#9DF1A1"
-bold-color = bright
+
+copy-on-select = true
+selection-clear-on-copy = true
 
 keybind = super+t=new_tab
+keybind = super+left=text:\x01
+keybind = super+right=text:\x05

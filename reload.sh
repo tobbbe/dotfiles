@@ -15,6 +15,7 @@ rsync --exclude ".git/" \
 		--exclude "scripts/" \
 		--exclude "prompts/" \
 		--exclude "AGENTS.md" \
+		--exclude ".config/ghostty/config" \
 		--exclude ".config/sublime-text" \
 		--exclude "firefoxUserContent.css" \
 		-ah --itemize-changes --no-perms ~/dev/dotfiles/ ~/ 2>&1 | \

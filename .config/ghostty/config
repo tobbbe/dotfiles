@@ -1,7 +1,6 @@
 font-family = "SFMono Nerd Font"
 font-size = 16
 adjust-cell-height = 49%
-adjust-cursor-height = 8
 
 font-thicken = true
 bold-color = bright
@@ -20,7 +19,9 @@ foreground = "#c7c7c7"
 background-blur = 32
 
 cursor-style = "block"
+shell-integration-features = no-cursor
 cursor-color = "#9DF1A1"
+adjust-cursor-height = -4
 
 copy-on-select = true
 selection-clear-on-copy = true

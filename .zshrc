@@ -20,6 +20,9 @@ bindkey -e  # Emacs key bindings
 bindkey "^[[1;3C" forward-word      # Option+Right
 bindkey "^[[1;3D" backward-word     # Option+Left
 
+# Enable Vi key bindings
+# bindkey -v
+
 HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS

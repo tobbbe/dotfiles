@@ -1,17 +1,20 @@
 font-family = "SFMono Nerd Font"
 font-size = 16
-font-thicken = true
-
-bold-color = bright
 adjust-cell-height = 49%
 adjust-cursor-height = 8
+
+font-thicken = true
+bold-color = bright
+window-colorspace = display-p3
 
 macos-titlebar-style = hidden
 background-opacity = 0.93
 window-padding-x = 6
 window-padding-y = 6
 
-window-colorspace = display-p3
+confirm-close-surface = false
+initial-window = true
+
 background = "#10101A"
 foreground = "#c7c7c7"
 background-blur = 32
@@ -26,3 +29,8 @@ selection-clear-on-copy = true
 macos-option-as-alt = left
 
 keybind = shift+enter=text:\x1b\r
+keybind = ctrl+h=toggle_quick_terminal
+quick-terminal-screen = mouse
+quick-terminal-animation-duration = 0
+quick-terminal-position = center
+quick-terminal-size = 400px, 400px

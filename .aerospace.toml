@@ -208,7 +208,7 @@ automatically-unhide-macos-hidden-apps = false
     c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
     a = ['layout accordion'] # more than one window must be in group
     t = ['layout tiling'] # more than one window must be in group
-    v = ['layout v_tiles h_tiles']
+    shift-t = ['layout v_tiles h_tiles']
     # alt-comma = 'layout tiles accordion' 
     # backspace = ['close-all-windows-but-current']
 
@@ -260,18 +260,25 @@ automatically-unhide-macos-hidden-apps = false
 
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
 [[on-window-detected]]
-    if.app-name-regex-substring = 'finder|code|chapmacos|karabiner eventview|karabiner|moom|iTerm2|Firefox'
-    run = ['layout floating', 'move-node-to-workspace 1']
+    if.app-name-regex-substring = 'code|iTerm2|Firefox|ghostty'
+    run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'notion|obsidian|Simulator|figma'
     run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'slack|mail|discord|claude|Messages'
+    if.app-name-regex-substring = 'finder|karabiner eventview|karabiner|moom'
+    run = ['layout floating', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'slack|mail|discord|claude|Messages|ChapMacOS'
     run = ['layout floating', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'sublime merge'
     run = ['move-node-to-workspace 3']
 
+[[on-window-detected]]
+    if.app-name-regex-substring = 'spotify'
+    run = ['move-node-to-workspace 4']

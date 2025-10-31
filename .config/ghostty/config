@@ -29,8 +29,11 @@ selection-clear-on-copy = true
 macos-option-as-alt = left
 
 keybind = shift+enter=text:\x1b\r
-keybind = ctrl+h=toggle_quick_terminal
-quick-terminal-screen = mouse
+keybind = global:ctrl+shift+alt+t=toggle_quick_terminal
+quick-terminal-screen = main
 quick-terminal-animation-duration = 0
-quick-terminal-position = center
-quick-terminal-size = 400px, 400px
+quick-terminal-position = right
+quick-terminal-size = 800px, 100%
+gtk-quick-terminal-layer = overlay
+quick-terminal-autohide = false
+quick-terminal-space-behavior = remain

@@ -268,7 +268,7 @@ automatically-unhide-macos-hidden-apps = false
     run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'finder|karabiner eventview|karabiner|moom'
+    if.app-name-regex-substring = 'finder|moom'
     run = ['layout floating', 'move-node-to-workspace 1']
 
 [[on-window-detected]]

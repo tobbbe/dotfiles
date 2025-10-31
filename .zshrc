@@ -23,6 +23,13 @@ bindkey "^[[1;3D" backward-word     # Option+Left
 # Enable Vi key bindings
 # bindkey -v
 
+bindkey '\t\t' autosuggest-accept
+bindkey '^[[27;5;13~' autosuggest-execute # Ctrl+Enter, ghostty
+export ZSH_AUTOSUGGEST_STRATEGY=(
+    history
+    completion
+)
+
 HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
@@ -34,7 +41,13 @@ setopt PROMPT_SUBST
 # add \n for newline
 #zstyle ':vcs_info:git:*' formats '%b '
 #PROMPT=$'%F{242}${vcs_info_msg_0_}%f%F{222}%~%f %F{reset_color}'
-zstyle ':vcs_info:git:*' formats ' %b'
+
+# zstyle ':vcs_info:git:*' formats ' %b'
+zstyle ':vcs_info:git:*' formats ' %b%F{215}%u%c%f'
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' unstagedstr '*'
+zstyle ':vcs_info:git:*' stagedstr '+'
+
 PROMPT=$'%F{141}%~%f%F{222}${vcs_info_msg_0_}%f %F{reset_color}' # purple:141 green:82
 
 # tab completion

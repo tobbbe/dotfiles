@@ -62,6 +62,6 @@ echo '↠ SketchyBar reloaded'
 
 # Reload Ghostty config via AppleScript
 osascript -e 'tell application "System Events" to tell process "Ghostty" to click menu item "Reload Configuration" of menu "Ghostty" of menu bar item "Ghostty" of menu bar 1' 2>&1 | grep -v "^menu item" >&2
-echo '↠ Ghosttye reloaded'
+echo '↠ Ghostty reloaded'
 
 exec ${SHELL} -l

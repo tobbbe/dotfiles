@@ -20,7 +20,12 @@
       "type": "url",
       "value": "moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100"
     },
-    { "key": "w", "type": "command", "value": "/opt/homebrew/bin/sketchybar --bar color=0xff24ff53 && /opt/homebrew/bin/aerospace mode service" },
+    {
+      "key": "w",
+      "label": "Aerospace",
+      "type": "command",
+      "value": "/opt/homebrew/bin/sketchybar --bar color=0x806BAAE2 && /opt/homebrew/bin/aerospace mode service"
+    },
     {
       "key": "a",
       "type": "group",

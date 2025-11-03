@@ -34,7 +34,7 @@ keybind = global:ctrl+shift+alt+t=toggle_quick_terminal
 quick-terminal-screen = main
 quick-terminal-animation-duration = 0
 quick-terminal-position = right
-quick-terminal-size = 800px, 100%
+quick-terminal-size = 30%, 100%
 gtk-quick-terminal-layer = overlay
 quick-terminal-autohide = false
 quick-terminal-space-behavior = remain

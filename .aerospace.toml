@@ -188,8 +188,8 @@ automatically-unhide-macos-hidden-apps = false
    # alt-shift-z = 'move-node-to-workspace Z --focus-follows-window'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    alt-h = 'resize width -50'
-    alt-l = 'resize width +50'
+    #alt-h = 'resize width -50'
+    #alt-l = 'resize width +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -197,18 +197,18 @@ automatically-unhide-macos-hidden-apps = false
     # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    # cmd-space= ['mode service', 'exec-and-forget sketchybar --bar color=0xff24ff53']
+    alt-shift-m = ['mode service', 'exec-and-forget sketchybar --bar color=0xff24ff53']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
+    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
     r = ['flatten-workspace-tree'] # reset layout
-    f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
+    f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
     a = ['layout accordion'] # more than one window must be in group
-    t = ['layout tiling'] # more than one window must be in group
-    shift-t = ['layout v_tiles h_tiles']
+    shift-t = ['layout tiling'] # more than one window must be in group
+    t = ['layout v_tiles h_tiles']
     # alt-comma = 'layout tiles accordion' 
     # backspace = ['close-all-windows-but-current']
 
@@ -217,25 +217,35 @@ automatically-unhide-macos-hidden-apps = false
 
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
-    h = ['move left']
-    j = ['move down']
-    k = ['move up']
-    l = ['move right']
+    left = 'focus left'
+    right = 'focus right'
+    up = 'focus up'
+    down = 'focus down'
 
-    shift-h = ['join-with left', 'layout accordion']
-    shift-j = ['join-with down', 'layout accordion']
-    shift-k = ['join-with up', 'layout accordion']
-    shift-l = ['join-with right', 'layout accordion']
+    alt-left = 'swap left'
+    alt-down = 'swap down'
+    alt-up = 'swap up'
+    alt-right = 'swap right'
 
-    1 = ['workspace 1', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    2 = ['workspace 2', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    3 = ['workspace 3', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    4 = ['workspace 4', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    5 = ['workspace 5', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    6 = ['workspace 6', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    7 = ['workspace 7', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    8 = ['workspace 8', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
-    9 = ['workspace 9', 'exec-and-forget sketchybar --bar color=0x#ffffff00', 'mode main']
+    alt-shift-left = 'move left'
+    alt-shift-down = 'move down'
+    alt-shift-up = 'move up'
+    alt-shift-right = 'move right'
+
+    shift-left = ['join-with left', 'layout accordion']
+    shift-down = ['join-with down', 'layout accordion']
+    shift-up = ['join-with up', 'layout accordion']
+    shift-right = ['join-with right', 'layout accordion']
+
+    1 = ['workspace 1', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    2 = ['workspace 2', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    3 = ['workspace 3', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    4 = ['workspace 4', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    5 = ['workspace 5', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    6 = ['workspace 6', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    7 = ['workspace 7', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    8 = ['workspace 8', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    9 = ['workspace 9', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
 
     shift-1 = ['move-node-to-workspace 1']
     shift-2 = ['move-node-to-workspace 2']
@@ -247,9 +257,9 @@ automatically-unhide-macos-hidden-apps = false
     shift-8 = ['move-node-to-workspace 8']
     shift-9 = ['move-node-to-workspace 9']
 
-    down = 'volume down'
-    up = 'volume up'
-    shift-down = ['volume set 0']
+    #down = 'volume down'
+    #up = 'volume up'
+    #shift-down = ['volume set 0']
 
 # https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]

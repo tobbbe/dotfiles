@@ -39,7 +39,7 @@
             "manipulators": [
               {
                 "type": "basic",
-                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["right_command"] }},
+                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["command"] }},
                 "to": [{ "key_code": "t", "modifiers": ["left_shift", "left_control", "left_option"] }]
               }
             ]
@@ -74,7 +74,10 @@
                 ],
                 "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] }},
                 "to": [{ "key_code": "left_control" }],
-                "to_if_alone": [{ "key_code": "escape" }]
+                "to_if_alone": [
+                  { "key_code": "escape" },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
               },
               {
                 "type": "basic",
@@ -83,14 +86,18 @@
                 "to": [{ "key_code": "right_command" }],
                 "to_if_alone": [
                   { "key_code": "escape" },
-                  { "key_code": "b", "modifiers": ["right_command", "left_control", "left_option"] }
+                  { "key_code": "b", "modifiers": ["right_command", "left_control", "left_option"] },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] }},
                 "to": [{ "key_code": "right_command" }],
-                "to_if_alone": [{ "key_code": "escape" }]
+                "to_if_alone": [
+                  { "key_code": "escape" },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
               }
             ]
           },
@@ -117,21 +124,45 @@
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2$"] }],
-                "from": { "key_code": "1", "modifiers": { "mandatory": ["left_control"] }},
-                "to": [{ "key_code": "1", "modifiers": ["right_command"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2$"] }],
-                "from": { "key_code": "2", "modifiers": { "mandatory": ["left_control"] }},
-                "to": [{ "key_code": "2", "modifiers": ["right_command"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2$"] }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
                 "from": { "key_code": "right_arrow", "modifiers": { "mandatory": ["left_control"] }},
-                "to": [{ "key_code": "end", "halt": true}]
+                "to": [{ "key_code": "right_arrow", "modifiers": ["right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
+                "from": { "key_code": "left_arrow", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "key_code": "left_arrow", "modifiers": ["right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
+                "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
+                "from": { "key_code": "c", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "key_code": "c", "modifiers": ["right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
+                "from": { "key_code": "v", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "key_code": "v", "modifiers": ["right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "key_code": "w", "modifiers": ["right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "key_code": "s", "modifiers": ["right_command"] }]
               }
             ]
           },
@@ -331,6 +362,161 @@
             ]
           },
           {
+            "title": "leader key + s",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "org.mozilla.firefox" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "s" },
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "org.mozilla.firefox" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "leader key + d",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.microsoft.VSCode" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "d" },
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.microsoft.VSCode" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "leader key + e",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "tobb.be.ChapMacOS" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "e" },
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "tobb.be.ChapMacOS" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "leader key + right/left arrows",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }],
+                "from": {
+                  "simultaneous": [
+                    { "key_code": "right_arrow" },
+                    { "key_code": "left_arrow" }
+                  ],
+                  "modifiers": { "mandatory": ["left_command"] }
+                },
+                "to": [
+                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "leader key + n",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "n", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "notion.id" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "leader key + m",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "m", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.apple.mail" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "leader key - group a",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active_group_a > system.now.milliseconds" }],
+                "from": { "key_code": "a" },
+                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.tinyspeck.slackmacgap" }}}]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active_group_a > system.now.milliseconds" }],
+                "from": { "key_code": "s" },
+                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.apple.MobileSMS" }}}]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "a", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "set_variable": { "name": "leader_active_group_a", "expression": "system.now.milliseconds + 420" }}],
+                "to_delayed_action": {
+                  "to_if_invoked": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}],
+                  "to_if_canceled": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}]
+                },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421}
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "a" },
+                "to": [{ "set_variable": { "name": "leader_active_group_a", "expression": "system.now.milliseconds + 420" }}],
+                "to_delayed_action": {
+                  "to_if_invoked": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}],
+                  "to_if_canceled": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}]
+                },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421}
+              }
+            ]
+          },
+          {
             "title": "leader key + raycast",
             "manipulators": [
               {
@@ -344,13 +530,10 @@
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "conditions": [{ "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "left_command" },
-                "to": [{ "key_code": "right_command" }],
-                "to_if_alone": [
-                  { "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 420" }},
-                  { "key_code": "o", "modifiers": ["right_command"] }
-                ],
+                "to": [{ "key_code": "left_command" }],
+                "to_if_alone": [{ "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 420" }}],
                 "to_delayed_action": {
                   "to_if_invoked": [{ "set_variable": { "name": "leader_active", "expression": "0" }}],
                   "to_if_canceled": [{ "set_variable": { "name": "leader_active", "expression": "0" }}]

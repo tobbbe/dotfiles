@@ -139,18 +139,6 @@
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
                 "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["left_control"] }},
                 "to": [{ "key_code": "delete_or_backspace", "modifiers": ["right_command"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
-                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_control"] }},
-                "to": [{ "key_code": "s", "modifiers": ["right_command"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
-                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_control"] }},
-                "to": [{ "key_code": "w", "modifiers": ["right_command"] }]
               }
             ]
           },

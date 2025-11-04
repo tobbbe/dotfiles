@@ -26,10 +26,6 @@ adjust-cursor-height = -4
 copy-on-select = true
 selection-clear-on-copy = true
 
-# for alt hjkl to work for panes. remove if fucks
-macos-option-as-alt = left
-
-keybind = shift+enter=text:\x1b\r
 keybind = global:ctrl+shift+alt+t=toggle_quick_terminal
 quick-terminal-screen = main
 quick-terminal-animation-duration = 0

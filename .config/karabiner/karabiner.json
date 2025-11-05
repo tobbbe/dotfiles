@@ -399,15 +399,6 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
-                "from": { "key_code": "e", "modifiers": { "mandatory": ["left_command"] }},
-                "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "tobb.be.ChapMacOS" }}},
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
-                ]
-              },
-              {
-                "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "e" },
                 "to": [
@@ -418,18 +409,26 @@
             ]
           },
           {
-            "title": "leader key + right/left arrows",
+            "title": "leader key + n",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }],
-                "from": {
-                  "simultaneous": [
-                    { "key_code": "right_arrow" },
-                    { "key_code": "left_arrow" }
-                  ],
-                  "modifiers": { "mandatory": ["left_command"] }
-                },
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "n" },
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "notion.id" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "leader key + w",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "w" },
                 "to": [
                   { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -438,14 +437,14 @@
             ]
           },
           {
-            "title": "leader key + n",
+            "title": "leader key + c",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
-                "from": { "key_code": "n", "modifiers": { "mandatory": ["left_command"] }},
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "c" },
                 "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "notion.id" }}},
+                  { "shell_command": "open moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               }
@@ -456,8 +455,8 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
-                "from": { "key_code": "m", "modifiers": { "mandatory": ["left_command"] }},
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "m" },
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "com.apple.mail" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}

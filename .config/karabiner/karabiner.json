@@ -191,6 +191,14 @@
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^org.mozilla.firefox$"] }],
                 "from": { "key_code": "3", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "t", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [
+                  { "key_code": "k", "modifiers": ["right_command"] }
+                ]
               }
             ]
           },

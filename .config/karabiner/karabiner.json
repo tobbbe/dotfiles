@@ -509,8 +509,14 @@
               },
               {
                 "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active_group_a > system.now.milliseconds" }],
+                "from": { "key_code": "t" },
+                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.atlassian.trello" }}}]
+              },
+              {
+                "type": "basic",
                 "from": { "key_code": "a", "modifiers": { "mandatory": ["left_command"] }},
-                "to": [{ "set_variable": { "name": "leader_active_group_a", "expression": "system.now.milliseconds + 420" }}],
+                "to": [{ "set_variable": { "name": "leader_active_group_a", "expression": "system.now.milliseconds + 3420" }}],
                 "to_delayed_action": {
                   "to_if_invoked": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}],
                   "to_if_canceled": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}]
@@ -521,7 +527,7 @@
                 "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "a" },
-                "to": [{ "set_variable": { "name": "leader_active_group_a", "expression": "system.now.milliseconds + 420" }}],
+                "to": [{ "set_variable": { "name": "leader_active_group_a", "expression": "system.now.milliseconds + 3420" }}],
                 "to_delayed_action": {
                   "to_if_invoked": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}],
                   "to_if_canceled": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}]
@@ -547,7 +553,7 @@
                 "conditions": [{ "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "left_command" },
                 "to": [{ "key_code": "left_command" }],
-                "to_if_alone": [{ "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 420" }}],
+                "to_if_alone": [{ "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 3420" }}],
                 "to_delayed_action": {
                   "to_if_invoked": [{ "set_variable": { "name": "leader_active", "expression": "0" }}],
                   "to_if_canceled": [{ "set_variable": { "name": "leader_active", "expression": "0" }}]

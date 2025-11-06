@@ -275,7 +275,7 @@ automatically-unhide-macos-hidden-apps = false
     run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'notion|obsidian|Simulator|figma'
+    if.app-name-regex-substring = 'notion|obsidian|Simulator|figma|trello'
     run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]

@@ -505,6 +505,8 @@ function v() {
   else
     nvim $@
   fi
+  
+  echo -ne "\033[1A\r\033[2K"
 }
 
 function resizeAndConvertImagesInFolder() {

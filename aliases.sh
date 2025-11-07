@@ -24,7 +24,7 @@ alias listsizes="du -sh * | sort -h"
 alias cat=bat
 alias sm="smerge ."
 alias susp="prlctl suspend 'Windows 11'"
-alias shareport="ngrok http --domain=careful-driven-spaniel.ngrok-free.app --region eu "  # ex: `shareport 3000`
+alias shareport="ngrok http --domain=careful-driven-spaniel.ngrok-free.app --region eu " # ex: `shareport 3000`
 alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
@@ -33,6 +33,7 @@ alias ls="ls --color -1"
 alias oc=opencode
 alias cc=claude
 alias lg=lazygit
+alias vv='nvim +"lua require(\"persistence\").load()" && echo -ne "\033[1A\r\033[2K"'
 
 # git
 ## gg and gam is in functions
@@ -45,14 +46,14 @@ alias gl="git log --graph --date=relative --decorate --pretty=format:'%C(yellow)
 alias gl+="git log --oneline --decorate --graph --stat --date=relative --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
 
 # tmux
-alias ta='tmux attach -t'		            # attach named session
-alias tp='tmux a'           		        # attach previous session
-alias tt='tmux a && tmux choose-session'	# show tmux choose-session
+alias ta='tmux attach -t'                # attach named session
+alias tp='tmux a'                        # attach previous session
+alias tt='tmux a && tmux choose-session' # show tmux choose-session
 alias tl='tmux list-sessions'
 # alias tn='tmux new-session -s'	      is in functions.sh       # create new named session
 # alias tk='tmux kill-session -t'         is in functions.sh          # kill named session
-alias tx='tmuxinator'			            # example `tx tob` (start session, or attach if already running)
-alias td='tmux detach'		            # detach from current session
+alias tx='tmuxinator'  # example `tx tob` (start session, or attach if already running)
+alias td='tmux detach' # detach from current session
 
 # nmap requires sudo to find all devices
 # -i=case INsensitive -v=invert

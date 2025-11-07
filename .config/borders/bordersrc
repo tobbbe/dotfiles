@@ -14,8 +14,8 @@
 # 🚨 reload dotfiles when options change
 options=(
   style=round
-  width=10.0
-  hidpi=off
+  width=20.0
+  hidpi=on
   # white=0xffe2e2e3
   # purple=0xFFD2A5FC
   # blue=0xFF1FCDFF

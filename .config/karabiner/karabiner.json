@@ -155,9 +155,7 @@
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }],
                 "from": { "key_code": "tab", "modifiers": { "mandatory": ["control"] }},
                 "to": [
-                  { "key_code": "spacebar" },
-                  { "key_code": "b" },
-                  { "key_code": "b" }
+                  { "key_code": "n", "modifiers": ["left_control"] }
                 ]
               }
             ]

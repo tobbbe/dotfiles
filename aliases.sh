@@ -22,7 +22,7 @@ alias flushdns="sudo killall -HUP mDNSResponder; sleep 2; echo done!"
 alias curlEditPostData="/bin/bash -c 'read -p '$'\'\e[31mMust use quotes around property-names in json!\e[0m ENTER to continue'\''' && v ~/Downloads/body.json"
 alias listsizes="du -sh * | sort -h"
 alias cat=bat
-alias sm="smerge ."
+alias sm='smerge . && echo -ne "\033[1A\r\033[2K"'
 alias susp="prlctl suspend 'Windows 11'"
 alias shareport="ngrok http --domain=careful-driven-spaniel.ngrok-free.app --region eu " # ex: `shareport 3000`
 alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
@@ -30,9 +30,9 @@ alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
 alias f="cd"
 alias ls="ls --color -1"
-alias oc=opencode
-alias cc=claude
-alias lg=lazygit
+alias oc='opencode && echo -ne "\033[1A\r\033[2K"'
+alias cc='claude && echo -ne "\033[1A\r\033[2K"'
+alias lg='lazygit && echo -ne "\033[1A\r\033[2K"'
 alias vv='nvim +"lua require(\"persistence\").load()" && echo -ne "\033[1A\r\033[2K"'
 
 # git

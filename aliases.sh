@@ -39,6 +39,7 @@ alias vv='nvim +"lua require(\"persistence\").load()" && echo -ne "\033[1A\r\033
 ## gg and gam is in functions
 alias gs="git status -s"
 alias gp="git pull"
+alias gpp="git pull --rebase --autostash"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias sneak="git add . && git commit --amend --no-edit"

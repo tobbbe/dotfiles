@@ -210,6 +210,7 @@ automatically-unhide-macos-hidden-apps = false
     a = ['layout accordion'] # more than one window must be in group
     shift-t = ['layout tiling'] # more than one window must be in group
     t = ['layout v_tiles h_tiles']
+    b = ['exec-and-forget pkill borders || borders']
     # alt-comma = 'layout tiles accordion' 
     # backspace = ['close-all-windows-but-current']
 

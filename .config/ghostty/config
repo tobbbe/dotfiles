@@ -26,6 +26,8 @@ adjust-cursor-height = -4
 copy-on-select = true
 selection-clear-on-copy = true
 
+macos-option-as-alt = left
+
 keybind = global:ctrl+shift+alt+t=toggle_quick_terminal
 quick-terminal-screen = main
 quick-terminal-animation-duration = 0

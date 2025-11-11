@@ -28,6 +28,9 @@ selection-clear-on-copy = true
 
 macos-option-as-alt = left
 
+# shift enter for newline in claude etc
+keybind = shift+enter=text:\x1b\r
+
 keybind = global:ctrl+shift+alt+t=toggle_quick_terminal
 quick-terminal-screen = main
 quick-terminal-animation-duration = 0

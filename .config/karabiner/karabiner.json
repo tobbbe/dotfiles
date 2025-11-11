@@ -40,7 +40,7 @@
               {
                 "type": "basic",
                 "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["command"] }},
-                "to": [{ "key_code": "t", "modifiers": ["left_shift", "left_control", "left_option"] }]
+                "to": [{ "key_code": "t", "modifiers": ["left_shift", "left_control", "right_option"] }]
               }
             ]
           },
@@ -86,7 +86,7 @@
                 "to": [{ "key_code": "right_command" }],
                 "to_if_alone": [
                   { "key_code": "escape" },
-                  { "key_code": "b", "modifiers": ["right_command", "left_control", "left_option"] },
+                  { "key_code": "b", "modifiers": ["right_command", "left_control", "right_option"] },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               },
@@ -120,7 +120,7 @@
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
                 "from": { "key_code": "grave_accent_and_tilde" },
-                "to": [{ "key_code": "i", "modifiers": ["right_command", "left_shift", "left_control", "left_option"] }]
+                "to": [{ "key_code": "i", "modifiers": ["right_command", "left_shift", "left_control", "right_option"] }]
               },
               {
                 "type": "basic",
@@ -238,13 +238,13 @@
                 "type": "basic",
                 "from": { "key_code": "close_bracket" },
                 "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
-                "to_if_alone": [{ "key_code": "8", "modifiers": ["left_shift", "left_option"] }]
+                "to_if_alone": [{ "key_code": "8", "modifiers": ["left_shift", "right_option"] }]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["left_shift"] }},
                 "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
-                "to": [{ "key_code": "9", "modifiers": ["left_shift", "left_option"] }]
+                "to": [{ "key_code": "9", "modifiers": ["left_shift", "right_option"] }]
               },
               {
                 "type": "basic",
@@ -334,7 +334,7 @@
               {
                 "type": "basic",
                 "from": { "key_code": "f1" },
-                "to": [{ "key_code": "e", "modifiers": ["right_command", "left_shift", "left_control", "left_option"] }]
+                "to": [{ "key_code": "e", "modifiers": ["right_command", "left_shift", "left_control", "right_option"] }]
               }
             ]
           },
@@ -563,7 +563,7 @@
                 "from": { "key_code": "left_command" },
                 "to": [
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
-                  { "key_code": "spacebar", "modifiers": ["left_option"] }
+                  { "key_code": "spacebar", "modifiers": ["right_option"] }
                 ]
               },
               {
@@ -627,13 +627,13 @@
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
                 "from": { "key_code": "s", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
-                "to": [{ "key_code": "a", "modifiers": ["left_control", "left_shift", "right_command", "left_option"], "halt": true}]
+                "to": [{ "key_code": "a", "modifiers": ["left_control", "left_shift", "right_command", "right_option"], "halt": true}]
               },
               {
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
                 "from": { "key_code": "v", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
-                "to": [{ "key_code": "v", "modifiers": ["left_control", "left_shift", "right_command", "left_option"], "halt": true}]
+                "to": [{ "key_code": "v", "modifiers": ["left_control", "left_shift", "right_command", "right_option"], "halt": true}]
               },
               {
                 "type": "basic",
@@ -661,14 +661,14 @@
               {
                 "type": "basic",
                 "conditions": [{ "type": "device_unless", "identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }] }],
-                "from": { "key_code": "left_option", "modifiers": { "optional": ["any"] }},
+                "from": { "key_code": "right_option", "modifiers": { "optional": ["any"] }},
                 "to": [{ "key_code": "right_command" }]
               },
               {
                 "type": "basic",
                 "conditions": [{ "type": "device_unless", "identifiers": [{ "vendor_id": 1452, "description": "Apple keyboard" }] }],
                 "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] }},
-                "to": [{ "key_code": "left_option" }]
+                "to": [{ "key_code": "right_option" }]
               },
               {
                 "type": "basic",
@@ -705,13 +705,13 @@
               {
                 "type": "basic",
                 "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
-                "from": { "key_code": "comma", "modifiers": { "mandatory": ["left_option"] }},
+                "from": { "key_code": "comma", "modifiers": { "mandatory": ["right_option"] }},
                 "to": [{ "key_code": "non_us_backslash" }]
               },
               {
                 "type": "basic",
                 "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
-                "from": { "key_code": "period", "modifiers": { "mandatory": ["left_option"] }},
+                "from": { "key_code": "period", "modifiers": { "mandatory": ["right_option"] }},
                 "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
               }
             ]

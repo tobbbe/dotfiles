@@ -205,8 +205,8 @@ automatically-unhide-macos-hidden-apps = false
 [mode.service.binding]
     esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
     r = ['flatten-workspace-tree'] # reset layout
-    f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100'", 'exec-and-forget sketchybar --bar color=0x#80ffff00']
+    f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]
+    c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100'"]
     a = ['layout accordion'] # more than one window must be in group
     shift-t = ['layout tiling'] # more than one window must be in group
     t = ['layout v_tiles h_tiles']
@@ -239,15 +239,15 @@ automatically-unhide-macos-hidden-apps = false
     shift-up = ['join-with up', 'layout accordion']
     shift-right = ['join-with right', 'layout accordion']
 
-    1 = ['workspace 1', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    2 = ['workspace 2', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    3 = ['workspace 3', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    4 = ['workspace 4', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    5 = ['workspace 5', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    6 = ['workspace 6', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    7 = ['workspace 7', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    8 = ['workspace 8', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
-    9 = ['workspace 9', 'exec-and-forget sketchybar --bar color=0x#80ffff00']
+    1 = ['workspace 1']
+    2 = ['workspace 2']
+    3 = ['workspace 3']
+    4 = ['workspace 4']
+    5 = ['workspace 5']
+    6 = ['workspace 6']
+    7 = ['workspace 7']
+    8 = ['workspace 8']
+    9 = ['workspace 9']
 
     shift-1 = ['move-node-to-workspace 1']
     shift-2 = ['move-node-to-workspace 2']

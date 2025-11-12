@@ -28,6 +28,8 @@ selection-clear-on-copy = true
 
 macos-option-as-alt = left
 
+mouse-scroll-multiplier = 0.22
+
 # shift enter for newline in claude etc
 keybind = shift+enter=text:\x1b\r
 

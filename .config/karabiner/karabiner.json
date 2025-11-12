@@ -425,7 +425,7 @@
                 "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
                 "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "com.microsoft.VSCode" }}},
+                  { "software_function": { "open_application": { "bundle_identifier": "com.sublimemerge" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               },
@@ -434,7 +434,7 @@
                 "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "d" },
                 "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "com.microsoft.VSCode" }}},
+                  { "software_function": { "open_application": { "bundle_identifier": "com.sublimemerge" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               }

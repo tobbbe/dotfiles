@@ -91,7 +91,8 @@ setopt HIST_IGNORE_DUPS
 #   fi
 # fi
 
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh --no-cmd)"
+alias f='__zoxide_z'
 
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"

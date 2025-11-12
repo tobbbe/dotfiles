@@ -28,7 +28,6 @@ alias shareport="ngrok http --domain=careful-driven-spaniel.ngrok-free.app --reg
 alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
-alias f="cd"
 alias ls="ls --color -1"
 alias oc='opencode && echo -ne "\033[1A\r\033[2K"'
 alias cc='claude && echo -ne "\033[1A\r\033[2K"'

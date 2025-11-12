@@ -176,14 +176,14 @@
               },
               {
                 "type": "basic",
-                "from": { "key_code": "h", "modifiers": { "mandatory": ["control", "shift"] }},
-                "to": [{ "key_code": "b", "modifiers": ["left_control"] }, { "key_code": "v" }, { "key_code": "escape" }],
+                "from": { "key_code": "k", "modifiers": { "mandatory": ["control", "shift"] }},
+                "to": [{ "key_code": "b", "modifiers": ["left_control"] }, { "key_code": "n" }, { "key_code": "escape" }],
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }]
               },
               {
                 "type": "basic",
-                "from": { "key_code": "l", "modifiers": { "mandatory": ["control", "shift"] }},
-                "to": [{ "key_code": "b", "modifiers": ["left_control"] }, { "key_code": "y" }, { "key_code": "escape" }],
+                "from": { "key_code": "j", "modifiers": { "mandatory": ["control", "shift"] }},
+                "to": [{ "key_code": "b", "modifiers": ["left_control"] }, { "key_code": "p" }, { "key_code": "escape" }],
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }]
               }
             ]

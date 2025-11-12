@@ -280,11 +280,11 @@ automatically-unhide-macos-hidden-apps = false
     run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'finder|moom'
+    if.app-name-regex-substring = 'finder|moom|Karabiner-Elements|Karabiner-EventViewer'
     run = ['layout floating', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'slack|mail|discord|claude|Messages|ChapMacOS'
+    if.app-name-regex-substring = 'slack|mail|discord|Messages'
     run = ['layout floating', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
@@ -294,3 +294,7 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-name-regex-substring = 'spotify'
     run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'ChapMacOS|claude'
+    run = ['layout floating', 'move-node-to-workspace 5']

@@ -30,8 +30,16 @@ macos-option-as-alt = left
 
 mouse-scroll-multiplier = 1
 
+# ---- # KEYBINDINGS
+# use CSI formats for ctrl+shift+xxx
+
 # shift enter for newline in claude etc
 keybind = shift+enter=text:\x1b\r
+
+# ctrl shift p for nvim command menu
+# keybind = ctrl+shift+p=text:\x1b[80;6u
+
+# ---------
 
 keybind = global:ctrl+shift+alt+t=toggle_quick_terminal
 quick-terminal-screen = main

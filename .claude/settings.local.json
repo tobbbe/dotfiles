@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(sketchybar --query:*)",
+      "Bash(NAME=vercel /Users/tobbe/dev/dotfiles/.config/sketchybar/plugins/vercel.sh:*)",
+      "Bash(sketchybar --set:*)",
+      "Bash(NAME=vercel bash -x /Users/tobbe/.config/sketchybar/plugins/vercel.sh)",
+      "Bash(xxd:*)",
+      "Bash(sketchybar:*)",
+      "Bash(vercel ls:*)",
+      "Bash(vercel project ls:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

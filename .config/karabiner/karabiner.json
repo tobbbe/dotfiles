@@ -734,6 +734,35 @@
             ]
           },
           {
+            "title": "Swedish keyboard remaps for Ghostty and VSCode",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "com.microsoft.VSCode"] }],
+                "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "non_us_backslash" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "com.microsoft.VSCode"] }],
+                "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "com.microsoft.VSCode"] }],
+                "from": { "key_code": "semicolon" },
+                "to": [{ "key_code": "period", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "com.microsoft.VSCode"] }],
+                "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "comma", "modifiers": ["left_shift"] }]
+              }
+            ]
+          },
+          {
             "title": "fn_function_keys",
             "manipulators": [
               {

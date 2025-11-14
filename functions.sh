@@ -264,7 +264,7 @@ function startDocker () {
 	echo "";
 }
 
-function ff () {
+function fff () {
 	local dirr=$*
 	local hasnav=false
 	if [[ -n $dirr ]]; then
@@ -477,17 +477,21 @@ function t() {
     if tmux attach 2>/dev/null; then
       return 0
     fi
-    # No sessions exist, create "main"
-    local session_name="main"
+    # No sessions exist, create "dotfiles" in ~/dev/dotfiles/
+    tmux new-session -d -s "dotfiles" -c "$HOME/dev/dotfiles/" 2>/dev/null
+    if [ -n "$TMUX" ]; then
+      tmux switch-client -t "dotfiles"
+    else
+      tmux attach -t "dotfiles"
+    fi
   else
     local session_name="$1"
-  fi
-  
-  tmux new-session -d -s "$session_name" 2>/dev/null
-  if [ -n "$TMUX" ]; then
-    tmux switch-client -t "$session_name"
-  else
-    tmux attach -t "$session_name"
+    tmux new-session -d -s "$session_name" 2>/dev/null
+    if [ -n "$TMUX" ]; then
+      tmux switch-client -t "$session_name"
+    else
+      tmux attach -t "$session_name"
+    fi
   fi
 }
 

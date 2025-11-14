@@ -33,6 +33,7 @@ alias oc='opencode && echo -ne "\033[1A\r\033[2K"'
 alias cc='claude && echo -ne "\033[1A\r\033[2K"'
 alias lg='lazygit && echo -ne "\033[1A\r\033[2K"'
 alias v='nvim +"lua require(\"persistence\").load()" && echo -ne "\033[1A\r\033[2K"'
+alias ff='(cd ~/dev/notes && nvim todo.md)'
 
 # git
 ## gg and gam is in functions

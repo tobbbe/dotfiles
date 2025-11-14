@@ -120,3 +120,7 @@ YOU MUST follow this debugging framework for ANY technical issue:
 - ALWAYS test after each change
 - IF your first fix doesn't work, STOP and re-analyze rather than adding more fixes
 
+# Important paths
+- My dotfiles are located at `~/dev/dotfiles/`. To apply them I have a script that copies them to `~/`, so always edit at `~/dev/dotfiles/` and ask me to run the copy script.
+- I use Lazyvim, if I say "vim" or "nvim" I mean that I use it with Lazyvim.
+- My Lazyvim config is located at `~/.config/nvim`

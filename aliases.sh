@@ -32,7 +32,7 @@ alias ls="ls --color -1"
 alias oc='opencode && echo -ne "\033[1A\r\033[2K"'
 alias cc='claude && echo -ne "\033[1A\r\033[2K"'
 alias lg='lazygit && echo -ne "\033[1A\r\033[2K"'
-alias vv='nvim +"lua require(\"persistence\").load()" && echo -ne "\033[1A\r\033[2K"'
+alias v='nvim +"lua require(\"persistence\").load()" && echo -ne "\033[1A\r\033[2K"'
 
 # git
 ## gg and gam is in functions

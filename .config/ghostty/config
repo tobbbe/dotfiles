@@ -1,6 +1,6 @@
 font-family = "SFMono Nerd Font"
 font-size = 16
-adjust-cell-height = 49%
+adjust-cell-height = 16
 window-padding-balance = true
 
 font-thicken = true
@@ -11,7 +11,7 @@ macos-titlebar-style = hidden
 background-opacity = 0.93
 window-padding-x = 6
 # needs to be 1 or 0 to not cause empty line at bottom
-window-padding-y = 1
+window-padding-y = 4
 
 confirm-close-surface = false
 initial-window = true
@@ -23,7 +23,7 @@ background-blur = 32
 cursor-style = "block"
 shell-integration-features = no-cursor
 cursor-color = "#9DF1A1"
-adjust-cursor-height = -4
+adjust-cursor-height = -10
 
 copy-on-select = true
 selection-clear-on-copy = true

@@ -499,7 +499,7 @@ function tk() {
     fi
 }
 
-function v() {
+function n() {
   if [ $# -eq 0 ]; then
     nvim
   else

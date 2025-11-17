@@ -19,12 +19,18 @@
                 "type": "basic",
                 "from": { "key_code": "f3" },
                 "conditions": [{ "type": "variable_if", "name": "coding_mode", "value": 1 }],
-                "to": [{ "set_variable": { "name": "coding_mode", "value": 0 }}]
+                "to": [
+                  { "set_variable": { "name": "coding_mode", "value": 0 }},
+                  { "shell_command": "/opt/homebrew/bin/sketchybar --set coding_mode label=\"\"" }
+                ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "f3" },
-                "to": [{ "set_variable": { "name": "coding_mode", "value": 1 }}]
+                "to": [
+                  { "set_variable": { "name": "coding_mode", "value": 1 }},
+                  { "shell_command": "/opt/homebrew/bin/sketchybar --set coding_mode label=\"code\"" }
+                ]
               }
             ]
           },

@@ -21,3 +21,5 @@ node_modules
 
 # Local tobbe log
 .tob.log
+
+.claude/settings.local.json

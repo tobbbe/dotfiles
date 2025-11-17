@@ -45,8 +45,11 @@ keybind = f14=text:}
 # shift enter for newline in claude etc
 keybind = shift+enter=text:\x1b\r
 
-# ctrl shift p for nvim command menu
-# keybind = ctrl+shift+p=text:\x1b[80;6u
+# splits
+keybind = ctrl+g>s=new_split:right
+keybind = ctrl+g>g=goto_split:next
+keybind = ctrl+g>space=toggle_split_zoom
+keybind = ctrl+g>x=close_surface
 
 # ---------
 

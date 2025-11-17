@@ -16,8 +16,9 @@ window-padding-y = 4
 confirm-close-surface = false
 initial-window = true
 
-background = "#10101A"
-foreground = "#c7c7c7"
+#  background = "#10101A"
+# foreground = "#c7c7c7"
+theme = catppuccin-mocha.conf
 background-blur = 32
 
 cursor-style = "block"

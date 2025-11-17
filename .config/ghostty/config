@@ -45,6 +45,12 @@ keybind = f14=text:}
 # shift enter for newline in claude etc
 keybind = shift+enter=text:\x1b\r
 
+# shift+alt+HJKL for tmux pane creation
+keybind = shift+alt+h=text:\x1bH
+keybind = shift+alt+j=text:\x1bJ
+keybind = shift+alt+k=text:\x1bK
+keybind = shift+alt+l=text:\x1bL
+
 # splits
 keybind = ctrl+g>s=new_split:right
 keybind = ctrl+g>g=goto_split:next

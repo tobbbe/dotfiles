@@ -36,6 +36,12 @@ mouse-scroll-multiplier = 1
 # ---- # KEYBINDINGS
 # use CSI formats for ctrl+shift+xxx
 
+# Code mode remaps (controlled by Karabiner F3 toggle)
+keybind = bracket_left=text:[
+keybind = shift+bracket_left=text:{
+keybind = f13=text:]
+keybind = f14=text:}
+
 # shift enter for newline in claude etc
 keybind = shift+enter=text:\x1b\r
 

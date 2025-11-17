@@ -13,24 +13,18 @@
         },
         "rules": [
           {
-            "title": "Change keyboard layout to se",
+            "title": "Toggle coding mode with F3",
             "manipulators": [
               {
                 "type": "basic",
                 "from": { "key_code": "f3" },
-                "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "en" }] }],
-                "to": [{ "select_input_source": { "language": "sv" }}]
-              }
-            ]
-          },
-          {
-            "title": "Change keyboard layout to en",
-            "manipulators": [
+                "conditions": [{ "type": "variable_if", "name": "coding_mode", "value": 1 }],
+                "to": [{ "set_variable": { "name": "coding_mode", "value": 0 }}]
+              },
               {
                 "type": "basic",
                 "from": { "key_code": "f3" },
-                "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
-                "to": [{ "select_input_source": { "language": "en" }}]
+                "to": [{ "set_variable": { "name": "coding_mode", "value": 1 }}]
               }
             ]
           },
@@ -234,35 +228,6 @@
                 "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command"] }},
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["---disabled"] }],
                 "to": [{ "key_code": "k", "modifiers": ["right_command"] }]
-              }
-            ]
-          },
-          {
-            "title": "Change (knapp höger om å) till curly brackets",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": { "key_code": "close_bracket" },
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
-                "to_if_alone": [{ "key_code": "8", "modifiers": ["left_shift", "right_option"] }]
-              },
-              {
-                "type": "basic",
-                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["left_shift"] }},
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
-                "to": [{ "key_code": "9", "modifiers": ["left_shift", "right_option"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
-                "from": { "key_code": "close_bracket" },
-                "to": [{ "key_code": "8", "modifiers": ["left_shift", "right_option"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.parallels[[:graph:]]*$"] }],
-                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["left_shift"] }},
-                "to": [{ "key_code": "9", "modifiers": ["left_shift", "right_option"] }]
               }
             ]
           },
@@ -734,31 +699,174 @@
             ]
           },
           {
-            "title": "Swedish keyboard remaps for Ghostty and VSCode",
+            "title": "Code mode ghostty",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "com.microsoft.VSCode"] }],
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
                 "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "non_us_backslash" }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "com.microsoft.VSCode"] }],
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
                 "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "com.microsoft.VSCode"] }],
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
                 "from": { "key_code": "semicolon" },
                 "to": [{ "key_code": "period", "modifiers": ["left_shift"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "com.microsoft.VSCode"] }],
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
                 "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "comma", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
+                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "f14" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
+                "from": { "key_code": "close_bracket" },
+                "to": [{ "key_code": "f13" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
+                "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "2", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
+                "from": { "key_code": "quote" },
+                "to": [{ "key_code": "backslash" }]
+              }
+            ]
+          },
+          {
+            "title": "Code mode vscode",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "non_us_backslash" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "semicolon" },
+                "to": [{ "key_code": "period", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "comma", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "open_bracket", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "8", "modifiers": ["right_option", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "open_bracket" },
+                "to": [{ "key_code": "8", "modifiers": ["right_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "9", "modifiers": ["right_option", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "close_bracket" },
+                "to": [{ "key_code": "9", "modifiers": ["right_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "2", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "quote" },
+                "to": [{ "key_code": "backslash" }]
               }
             ]
           },

@@ -123,4 +123,7 @@ YOU MUST follow this debugging framework for ANY technical issue:
 # Important paths
 - My dotfiles are located at `~/dev/dotfiles/`. To apply them I have a script that copies them to `~/`, so always edit at `~/dev/dotfiles/` and ask me to run the copy script.
 - I use Lazyvim, if I say "vim" or "nvim" I mean that I use it with Lazyvim.
-- My Lazyvim config is located at `~/.config/nvim`
+- My Lazyvim config is located at `~/dev/dotfiles/.config/nvim/`
+- I use Ghostty terminal. Config is located at `~/dev/dotfiles/.config/ghostty`
+- I use tmux inside Ghostty. Config is located at `~/dev/dotfiles/tmux.conf`
+- I use Karabiner element and have alot of keyboard modifications. They are located at `~/dev/dotfiles/.config/karabiner/karabiner.json`

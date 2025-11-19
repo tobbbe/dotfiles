@@ -722,6 +722,15 @@
                   { "type": "variable_if", "name": "coding_mode", "value": 1 },
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
+                "from": { "key_code": "left_control", "modifiers": { "optional": ["any"] }},
+                "to": [{ "key_code": "left_option" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
+                ],
                 "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
               },

@@ -8,6 +8,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
 export PATH="$PATH:$HOME/.ai"
+export PATH="$HOME/.local/bin:$PATH"
 
 # android dev
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk

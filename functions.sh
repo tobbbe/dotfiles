@@ -503,9 +503,9 @@ function tk() {
     fi
 }
 
-function n() {
+function v () {
   if [ $# -eq 0 ]; then
-    nvim
+    nvim +"lua require(\"persistence\").load()"
   else
     nvim $@
   fi

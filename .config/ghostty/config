@@ -46,7 +46,9 @@ keybind = f14=text:}
 keybind = shift+enter=text:\x1b\r
 
 # fix ctrl+v paste
-keybind = super+v=text:\x16
+# keybind = super+v=text:\x16
+keybind = ctrl+v=paste_from_clipboard
+keybind = performable:ctrl+c=copy_to_clipboard
 
 # shift+alt+HJKL for tmux pane creation
 keybind = shift+alt+h=text:\x1bH

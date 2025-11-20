@@ -205,21 +205,21 @@ function finderpath() {
 	osascript -e 'tell application "Finder" to get the POSIX path of (target of front window as alias)'
 }
 
-function gfgo() {
-	if [[ $@ = *" "* ]]; then
-  		echo "Release name cant contain spaces"
-		return 1;
-  	fi
-
-	if [ $# -eq 0 ]; then
-		echo 'Please name release'
-		return 1;
-	else
-		git flow release start $@
-		GIT_MERGE_AUTOEDIT=no git flow release finish -m '$@' -n $@
-		echo 'Dont forget to push!'
-	fi;
-}
+# function gfgo() {
+# 	if [[ $@ = *" "* ]]; then
+#   		echo "Release name cant contain spaces"
+# 		return 1;
+#   	fi
+#
+# 	if [ $# -eq 0 ]; then
+# 		echo 'Please name release'
+# 		return 1;
+# 	else
+# 		git flow release start $@
+# 		GIT_MERGE_AUTOEDIT=no git flow release finish -m '$@' -n $@
+# 		echo 'Dont forget to push!'
+# 	fi;
+# }
 
 function countLetters() {
 	local str="${@:-}";

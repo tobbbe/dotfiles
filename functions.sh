@@ -547,4 +547,29 @@ function videoToGif() {
   ffmpeg -ss 00:00:26 -t 12 -i input.mp4 \
     -vf "fps=30,split[s0][s1];[s0]palettegen=max_colors=256[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" output.gif
 }
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+f() {
+  if [[ $# -eq 0 ]]; then
+    # No arguments - use find for current directory
+    local file
+    file="$(find . -type d \( -name .git -o -name node_modules -o -name Pods -o -name .next \) -prune -o \( -type f -o -type d \) -print 2>/dev/null | fzf --preview 'if [ -f {} ]; then bat --color=always {}; fi')"
 
+    if [[ -n $file ]]
+    then
+       if [[ -d $file ]]
+       then
+          cd -- $file
+       else
+          nvim "$file"
+       fi
+    fi
+  else
+    # Arguments provided - use zoxide to jump
+    __zoxide_z "$@"
+  fi
+}

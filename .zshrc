@@ -66,8 +66,11 @@ zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 export EDITOR='nvim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND="rg --files --hidden -uuu --glob '!**/node_modules/*' --glob '!**/Pods/*' --glob '!**/.git/*' --glob '!**/.next/*'" # 'rg --files --hidden'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# export FZF_DEFAULT_COMMAND="rg --files --hidden -uuu --glob '!**/node_modules/*' --glob '!**/Pods/*' --glob '!**/.git/*' --glob '!**/.next/*'" # 'rg --files --hidden'
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 for file in ~/dev/dotfiles/{aliases.sh,functions.sh}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
@@ -92,8 +95,10 @@ setopt HIST_IGNORE_DUPS
 #   fi
 # fi
 
+export BAT_THEME="catppuccin-mocha"
+
 eval "$(zoxide init zsh --no-cmd)"
-alias f='__zoxide_z'
+# alias f='__zoxide_z'
 
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"

@@ -189,6 +189,23 @@
             ]
           },
           {
+            "title": "Slack navigation",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
+                "from": { "key_code": "j", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "down_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
+                "from": { "key_code": "k", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "up_arrow" }]
+              }
+            ]
+          },
+          {
             "title": "Project managers",
             "manipulators": [
               {

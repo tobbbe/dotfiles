@@ -503,9 +503,20 @@ function tk() {
     fi
 }
 
+function vp() {
+  local dir
+  dir=$({ find ~/dev -maxdepth 1 -type d -not -path ~/dev; echo ~/.config/nvim; } 2>/dev/null | fzf +m)
+
+  if [[ -n $dir ]]; then
+    nvim +"lua vim.cmd('cd ' .. vim.fn.fnameescape('$dir')); require('persistence').load()"
+  fi
+
+  echo -ne "\033[1A\r\033[2K"
+}
+
 function v () {
   if [ $# -eq 0 ]; then
-    nvim +"lua require(\"persistence\").load()"
+    nvim +"lua require(\"persistence\").load({ last = true })"
   else
     nvim $@
   fi

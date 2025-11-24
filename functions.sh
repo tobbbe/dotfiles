@@ -574,7 +574,7 @@ function vv() {
       mv "${history_file}.tmp" "$history_file"
     fi
     echo "$dir" >> "$history_file"
-
+    cd $dir
     nvim +"lua vim.cmd('cd ' .. vim.fn.fnameescape('$dir')); require('persistence').load()"
   fi
 
@@ -583,7 +583,7 @@ function vv() {
 
 function v () {
   if [ $# -eq 0 ]; then
-    nvim +"lua require(\"persistence\").load({ last = true })"
+    nvim +"lua require(\"persistence\").load()"
   else
     nvim $@
   fi

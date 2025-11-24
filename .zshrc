@@ -31,13 +31,30 @@ export ZSH_AUTOSUGGEST_STRATEGY=(
     completion
 )
 
-HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|..)"
+# ctrl-g widget: context-aware project switcher
+function ctrl-g-widget() {
+  if [ -n "$TMUX" ]; then
+    # Inside tmux: do nothing, let tmux handle it
+    return
+  else
+    # Outside tmux: run vv
+    zle push-line
+    BUFFER="vv"
+    zle accept-line
+  fi
+}
+zle -N ctrl-g-widget
+bindkey '^G' ctrl-g-widget  # ctrl-g
+
+HISTORY_IGNORE="(ls|cd|pwd|vv|v|rr|t|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
 
 # PROMPT with git branch name
 autoload -Uz vcs_info
-precmd() {vcs_info}
+precmd() {
+  vcs_info
+}
 setopt PROMPT_SUBST
 # add \n for newline
 #zstyle ':vcs_info:git:*' formats '%b '
@@ -64,6 +81,16 @@ zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 # source ~/.zsh/z.sh
 
 export EDITOR='nvim'
+
+# Wrapper for nvim to handle f6 exit -> vv behavior
+function nvim() {
+  command nvim "$@"
+  # After nvim exits, check if f6 was pressed
+  if [[ -f /tmp/nvim_trigger_vv ]]; then
+    rm /tmp/nvim_trigger_vv
+    vv
+  fi
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Set up fzf key bindings and fuzzy completion

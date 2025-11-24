@@ -503,11 +503,78 @@ function tk() {
     fi
 }
 
-function vp() {
-  local dir
-  dir=$({ find ~/dev -maxdepth 1 -type d -not -path ~/dev; echo ~/.config/nvim; } 2>/dev/null | fzf +m)
+function vv() {
+  local history_file=~/.vv_history
+  local dir selected
+  local history_mapping=""
+  declare -A seen_paths
 
-  if [[ -n $dir ]]; then
+  # Clean history file (remove empty lines)
+  if [ -f "$history_file" ]; then
+    grep -v '^$' "$history_file" > "${history_file}.tmp" && mv "${history_file}.tmp" "$history_file"
+  fi
+
+  # Build history section (last 5 unique, excluding current)
+  local history_list=""
+  if [ -f "$history_file" ]; then
+    local count=1
+    local skip_first=true
+    while IFS= read -r hist_dir && [ $count -le 5 ]; do
+      if [[ -z "$hist_dir" ]]; then
+        continue
+      fi
+      if [[ "$skip_first" == true ]]; then
+        skip_first=false
+        continue
+      fi
+      if [[ -z "${seen_paths[$hist_dir]}" ]]; then
+        local hist_name=$(basename "$hist_dir")
+        local label="($count) $hist_name"
+        history_list+="$label"$'\n'
+        history_mapping+="$label|$hist_dir"$'\n'
+        seen_paths["$hist_dir"]=1
+        ((count++))
+      fi
+    done < <(tail -r "$history_file")
+  fi
+
+  # Build remaining directories (excluding those in history)
+  local other_list=""
+  while IFS= read -r d; do
+    if [[ -n "$d" ]] && [[ -z "${seen_paths[$d]}" ]]; then
+      local display_path="${d/#$HOME/~}"
+      other_list+="$display_path"$'\n'
+    fi
+  done < <(find ~/dev -maxdepth 1 -type d -not -path ~/dev 2>/dev/null; echo ~/.config/nvim)
+
+  # Show in fzf (preserves order: history first, then others)
+  selected=$(echo -n "${history_list}${other_list}" | fzf +m --no-sort)
+
+  if [[ -n $selected ]]; then
+    # Resolve to full path
+    if [[ "$selected" == "("*") "* ]]; then
+      # Look up in mapping string
+      dir=$(echo "$history_mapping" | grep -F "$selected|" | cut -d'|' -f2)
+      if [[ -z "$dir" ]]; then
+        echo "Error: Could not resolve directory from history"
+        return 1
+      fi
+    else
+      dir="${selected/#\~/$HOME}"
+    fi
+
+    if [[ -z "$dir" ]]; then
+      echo "Error: Could not resolve directory"
+      return 1
+    fi
+
+    # Save to history (remove previous occurrences first)
+    if [ -f "$history_file" ]; then
+      grep -Fxv "$dir" "$history_file" > "${history_file}.tmp" 2>/dev/null || true
+      mv "${history_file}.tmp" "$history_file"
+    fi
+    echo "$dir" >> "$history_file"
+
     nvim +"lua vim.cmd('cd ' .. vim.fn.fnameescape('$dir')); require('persistence').load()"
   fi
 

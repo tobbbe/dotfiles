@@ -64,7 +64,7 @@ keybind = shift+alt+l=text:\x1bL
 
 # ---------
 
-keybind = global:ctrl+shift+alt+t=toggle_quick_terminal
+keybind = f16=toggle_quick_terminal
 quick-terminal-screen = main
 quick-terminal-animation-duration = 0
 quick-terminal-position = right

@@ -1,8 +1,0 @@
-name: livity-web
-root: ~/dev/livityapp-web/
-
-windows:
-  - editor:
-      layout: even-vertical
-      panes:
-        - server:

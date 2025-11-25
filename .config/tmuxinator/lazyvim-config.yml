@@ -1,9 +1,0 @@
-name: lazyvim-config
-root: ~/.config/nvim
-
-windows:
-  - editor:
-      layout: even-vertical
-      panes:
-        - lazyvim_config:
-            - v

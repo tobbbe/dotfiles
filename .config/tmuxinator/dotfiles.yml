@@ -1,8 +1,0 @@
-name: dotfiles
-root: ~/dev/dotfiles/
-
-windows:
-  - editor:
-      layout: even-vertical
-      panes:
-        - server:

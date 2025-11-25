@@ -508,6 +508,7 @@ function vv() {
   local dir selected
   local history_mapping=""
   declare -A seen_paths
+  local original_dir="$PWD"
 
   # Clean history file (remove empty lines)
   if [ -f "$history_file" ]; then
@@ -576,6 +577,9 @@ function vv() {
     echo "$dir" >> "$history_file"
     cd $dir
     nvim +"lua vim.cmd('cd ' .. vim.fn.fnameescape('$dir')); require('persistence').load()"
+  else
+    # User cancelled (Ctrl-C), reopen nvim in current directory with persistence
+    nvim +"lua vim.cmd('cd ' .. vim.fn.fnameescape('$original_dir')); require('persistence').load()"
   fi
 
   echo -ne "\033[1A\r\033[2K"

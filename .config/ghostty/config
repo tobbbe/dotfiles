@@ -66,9 +66,8 @@ keybind = shift+alt+l=text:\x1bL
 
 keybind = f16=toggle_quick_terminal
 quick-terminal-screen = main
-quick-terminal-animation-duration = 0
+quick-terminal-animation-duration = 0.062
 quick-terminal-position = right
 quick-terminal-size = 49%, 100%
-gtk-quick-terminal-layer = overlay
 quick-terminal-autohide = false
 quick-terminal-space-behavior = remain

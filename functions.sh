@@ -264,7 +264,7 @@ function startDocker () {
 	echo "";
 }
 
-function fff () {
+function ff () {
 	local dirr=$*
 	local hasnav=false
 	if [[ -n $dirr ]]; then

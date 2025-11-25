@@ -34,7 +34,6 @@ alias cc='claude && echo -ne "\033[1A\r\033[2K"'
 alias ccc='claude --continue && echo -ne "\033[1A\r\033[2K"'
 alias ccr='claude --resume && echo -ne "\033[1A\r\033[2K"'
 alias lg='lazygit && echo -ne "\033[1A\r\033[2K"'
-alias ff='(cd ~/dev/notes && nvim todo.md)'
 
 # git
 ## gg and gam is in functions

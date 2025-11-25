@@ -18,9 +18,9 @@
               {
                 "type": "basic",
                 "from": { "key_code": "f3" },
-                "conditions": [{ "type": "variable_if", "name": "coding_mode", "value": 1 }],
+                "conditions": [{ "type": "variable_if", "name": "coding_mode", "value": 1}],
                 "to": [
-                  { "set_variable": { "name": "coding_mode", "value": 0 }},
+                  { "set_variable": { "name": "coding_mode", "value": 0}},
                   { "shell_command": "/opt/homebrew/bin/sketchybar --set coding_mode label=\"\"" }
                 ]
               },
@@ -28,7 +28,7 @@
                 "type": "basic",
                 "from": { "key_code": "f3" },
                 "to": [
-                  { "set_variable": { "name": "coding_mode", "value": 1 }},
+                  { "set_variable": { "name": "coding_mode", "value": 1}},
                   { "shell_command": "/opt/homebrew/bin/sketchybar --set coding_mode label=\"code\"" }
                 ]
               }
@@ -184,13 +184,21 @@
               {
                 "type": "basic",
                 "from": { "key_code": "k", "modifiers": { "mandatory": ["control", "shift"] }},
-                "to": [{ "key_code": "b", "modifiers": ["left_control"] }, { "key_code": "n" }, { "key_code": "escape" }],
+                "to": [
+                  { "key_code": "b", "modifiers": ["left_control"] },
+                  { "key_code": "n" },
+                  { "key_code": "escape" }
+                ],
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "j", "modifiers": { "mandatory": ["control", "shift"] }},
-                "to": [{ "key_code": "b", "modifiers": ["left_control"] }, { "key_code": "p" }, { "key_code": "escape" }],
+                "to": [
+                  { "key_code": "b", "modifiers": ["left_control"] },
+                  { "key_code": "p" },
+                  { "key_code": "escape" }
+                ],
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }]
               }
             ]
@@ -702,7 +710,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
@@ -711,7 +719,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "left_control", "modifiers": { "optional": ["any"] }},
@@ -720,7 +728,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
@@ -729,7 +737,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "semicolon" },
@@ -738,7 +746,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
@@ -747,7 +755,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
@@ -756,7 +764,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "close_bracket" },
@@ -765,7 +773,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] }},
@@ -774,7 +782,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty"] }
                 ],
                 "from": { "key_code": "quote" },
@@ -788,7 +796,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
@@ -797,7 +805,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
@@ -806,7 +814,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "semicolon" },
@@ -815,7 +823,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
@@ -824,7 +832,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "open_bracket", "modifiers": { "mandatory": ["shift"] }},
@@ -833,7 +841,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "open_bracket" },
@@ -842,7 +850,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
@@ -851,7 +859,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "close_bracket" },
@@ -860,7 +868,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] }},
@@ -869,7 +877,7 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1 },
+                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
                 ],
                 "from": { "key_code": "quote" },

@@ -9,6 +9,7 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
 export PATH="$PATH:$HOME/.ai"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
 
 # android dev
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk

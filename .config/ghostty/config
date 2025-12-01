@@ -1,6 +1,6 @@
 font-family = "SFMono Nerd Font"
 font-size = 16
-adjust-cell-height = 16
+adjust-cell-height = 10
 window-padding-balance = true
 
 font-thicken = true

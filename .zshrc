@@ -62,12 +62,12 @@ setopt PROMPT_SUBST
 #PROMPT=$'%F{242}${vcs_info_msg_0_}%f%F{222}%~%f %F{reset_color}'
 
 zstyle ':vcs_info:git:*' formats ' %b'
-zstyle ':vcs_info:git:*' formats ' %b%F{236}%u%c%f'
+zstyle ':vcs_info:git:*' formats ' %b%F{237}%u%c%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' stagedstr '+'
 
-PROMPT=$'%F{7}%~%f%F{237}${vcs_info_msg_0_}%f %F{reset_color}' # purple:141 green:82
+PROMPT=$'%F{238}${vcs_info_msg_0_}%f %F{82}%~%f %F{reset_color}' # purple:141 green:82
 
 # tab completion
 autoload -Uz compinit && compinit

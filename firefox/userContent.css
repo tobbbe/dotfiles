@@ -33,6 +33,11 @@
 
 /* 🚨 THIS FILE IS FOR PAGE CONTENT NOT FIREFOX STYLING, use userChrome.css for that */
 
+.mobile-download-promo,
+.personalize-button {
+  display: none !important;
+}
+
 @-moz-document domain("feber.se") {
   [href="https://premium.feber.se/join/"],
   [src="https://static.feber.se/article_images/55/10/95/551095_450.jpg"],
@@ -45,7 +50,7 @@
 }
 
 @-moz-document domain("svt.se") {
-  [class*="PlayFeed__root"] {
+  [class*='PlayFeed__root'] {
     display: none !important;
     color: transparent !important;
     font-size: 0 !important;
@@ -53,8 +58,8 @@
 }
 
 @-moz-document domain(github.com) {
-  .js-issue-row [data-hovercard-type="repository"] {
-      display: none !important;
+  .js-issue-row [data-hovercard-type='repository'] {
+    display: none !important;
   }
 }
 
@@ -73,7 +78,7 @@
   body {
     overflow: auto !important;
   }
-  body > [role="dialog"] {
+  body > [role='dialog'] {
     display: none !important;
   }
   #rcnt {
@@ -85,3 +90,4 @@
     justify-content: center !important;
   }
 }
+

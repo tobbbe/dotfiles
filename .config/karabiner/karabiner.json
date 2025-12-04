@@ -222,17 +222,17 @@
             ]
           },
           {
-            "title": "Slack navigation",
+            "title": "Vim navigation not terminal",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
                 "from": { "key_code": "j", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "down_arrow" }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
                 "from": { "key_code": "k", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "up_arrow" }]
               }
@@ -470,7 +470,7 @@
               {
                 "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "e" },
+                "from": { "key_code": "spacebar" },
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "tobb.be.ChapMacOS" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}

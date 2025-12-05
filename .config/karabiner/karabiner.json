@@ -218,7 +218,20 @@
                   { "key_code": "escape" }
                 ],
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "from": { "key_code": "h", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "left_arrow", "modifiers":["left_control", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "from": { "key_code": "l", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [{ "key_code": "right_arrow", "modifiers":["left_control", "left_shift"] }]
               }
+
             ]
           },
           {
@@ -235,6 +248,18 @@
                 "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
                 "from": { "key_code": "k", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "up_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty", "org.mozilla.firefox"] }],
+                "from": { "key_code": "l", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "right_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "from": { "key_code": "h", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "left_arrow" }]
               }
             ]
           },

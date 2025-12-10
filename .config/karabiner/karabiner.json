@@ -33,7 +33,24 @@
                 ]
               }
             ]
+          },{
+            "title": "navigate imessages",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.MobileSMS"] }],
+                "from": { "key_code": "k", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "tab", "modifiers": ["left_control", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.MobileSMS"] }],
+                "from": { "key_code": "j", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "tab", "modifiers": ["left_control"] }]
+              }
+            ]
           },
+
           {
             "title": "quick terminal",
             "manipulators": [
@@ -45,6 +62,33 @@
               }
             ]
           },
+                    {
+            "title": "leader key app",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
+                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command"] }},
+                "to": [
+                  { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "leader key app",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
+                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["left_control"] }},
+                "to": [
+                  { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
+                ]
+              }
+            ]
+          },
+
           {
             "title": "Parallels caps lock",
             "manipulators": [
@@ -246,13 +290,13 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty", "com.apple.MobileSMS"] }],
                 "from": { "key_code": "j", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "down_arrow" }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty", "com.apple.MobileSMS"] }],
                 "from": { "key_code": "k", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "up_arrow" }]
               },
@@ -615,7 +659,16 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "left_command" },
+                "to": {"key_code": "right_command", "modifiers": ["any"] },
+                "to_if_alone": [
+                  { "set_variable": { "name": "leader_active", "expression": "0" }},
+                  { "key_code": "spacebar", "modifiers": ["right_option"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"]}, { "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "left_command" },
                 "to": [
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
@@ -624,7 +677,7 @@
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"]},{ "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "left_command" },
                 "to": [{ "key_code": "left_command" }],
                 "to_if_alone": [{ "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 3420" }}],
@@ -647,24 +700,7 @@
               }
             ]
           },
-          {
-            "title": "navigate imessages",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.MobileSMS"] }],
-                "from": { "key_code": "up_arrow", "modifiers": { "mandatory": ["right_command"] }},
-                "to": [{ "key_code": "tab", "modifiers": ["left_control", "left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.MobileSMS"] }],
-                "from": { "key_code": "down_arrow", "modifiers": { "mandatory": ["right_command"] }},
-                "to": [{ "key_code": "tab", "modifiers": ["left_control"] }]
-              }
-            ]
-          },
-          {
+                    {
             "title": "misc parallels shortcut translations",
             "manipulators": [
               {

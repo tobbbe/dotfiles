@@ -1,14 +1,17 @@
 {
   "type": "group",
   "actions": [
+    { "key": "a", "type": "application", "value": "/System/Volumes/Data/Applications/Slack.app" },
     { "key": "s", "type": "application", "value": "/System/Volumes/Data/Applications/Firefox.app" },
-    { "key": "d", "type": "application", "value": "/System/Volumes/Data/Applications/Visual Studio Code.app" },
+    { "key": "d", "type": "application", "value": "/System/Volumes/Data/Applications/Sublime Merge.app" },
     { "key": "e", "type": "application", "value": "/System/Volumes/Data/Applications/ChapMacOS.app" },
     { "key": "n", "type": "application", "value": "/System/Volumes/Data/Applications/Notion.app" },
     { "key": "m", "type": "application", "value": "/System/Applications/Mail.app" },
+    { "key": "f", "type": "application", "value": "/System/Applications/Messages.app" },
+    { "key": "i", "type": "command", "value": "open -a Simulator" },
     {
       "iconPath": "/Applications/Raycast.app",
-      "key": "f",
+      "key": "p",
       "label": "Raycast",
       "type": "url",
       "value": "raycast://"
@@ -21,17 +24,21 @@
       "value": "moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100"
     },
     {
+      "key": "l",
+      "label": "New firefox tab",
+      "type": "command",
+      "value": "/Applications/Firefox.app/Contents/MacOS/firefox --new-tab about:blank"
+    },
+    {
       "key": "w",
       "label": "Aerospace",
       "type": "command",
-      "value": "/opt/homebrew/bin/sketchybar --bar color=0x806BAAE2 && /opt/homebrew/bin/aerospace mode service"
+      "value": "/opt/homebrew/bin/sketchybar --bar color=0xff24ff53 && /opt/homebrew/bin/aerospace mode service"
     },
     {
       "key": "a",
       "type": "group",
       "actions": [
-        { "key": "a", "type": "application", "value": "/System/Volumes/Data/Applications/Slack.app" },
-        { "key": "s", "type": "application", "value": "/System/Applications/Messages.app" }
       ]
     }
   ]

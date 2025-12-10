@@ -33,7 +33,8 @@
                 ]
               }
             ]
-          },{
+          },
+          {
             "title": "navigate imessages",
             "manipulators": [
               {
@@ -50,7 +51,6 @@
               }
             ]
           },
-
           {
             "title": "quick terminal",
             "manipulators": [
@@ -62,16 +62,14 @@
               }
             ]
           },
-                    {
+          {
             "title": "leader key app",
             "manipulators": [
               {
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
                 "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command"] }},
-                "to": [
-                  { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
-                ]
+                "to": [{ "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }]
               }
             ]
           },
@@ -82,13 +80,10 @@
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
                 "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["left_control"] }},
-                "to": [
-                  { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
-                ]
+                "to": [{ "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }]
               }
             ]
           },
-
           {
             "title": "Parallels caps lock",
             "manipulators": [
@@ -152,30 +147,54 @@
             "manipulators": [
               {
                 "type": "basic",
-                "from": { "key_code": "grave_accent_and_tilde", "modifiers": {"mandatory": ["left_command"]} },
+                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [{ "key_code": "t", "modifiers": ["right_command", "left_shift", "left_control", "right_option"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] } ],
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
                 "from": { "key_code": "grave_accent_and_tilde" },
                 "to": [{ "software_function": { "open_application": { "bundle_identifier": "net.kovidgoyal.kitty" }}}]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty"] }, {"type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
-                "from": { "key_code": "grave_accent_and_tilde", "modifiers": {"mandatory": ["left_command"]} },
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty"] },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }
+                ],
+                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [{ "shell_command": "sh ~/dev/dotfiles/scripts/open_ghostty_quick_terminal.sh" }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }, {"type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }
+                ],
                 "from": { "key_code": "grave_accent_and_tilde" },
                 "to": [{ "software_function": { "open_application": { "frontmost_application_history_index": 1}}}]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] } ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "grave_accent_and_tilde" },
                 "to": [{ "key_code": "tab", "modifiers": ["right_command"] }]
               },
@@ -187,25 +206,65 @@
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "right_arrow", "modifiers": { "mandatory": ["left_control"] }},
                 "to": [{ "key_code": "right_arrow", "modifiers": ["right_command"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "left_arrow", "modifiers": { "mandatory": ["left_control"] }},
                 "to": [{ "key_code": "left_arrow", "modifiers": ["right_command"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["left_control"] }},
                 "to": [{ "key_code": "delete_or_backspace", "modifiers": ["right_command"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "f", "modifiers": { "mandatory": ["control", "shift"] }},
                 "to": [
                   { "key_code": "spacebar" },
@@ -221,19 +280,49 @@
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "x", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
                 "to": [{ "key_code": "x", "modifiers": ["left_shift", "right_command"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "tab", "modifiers": { "mandatory": ["control"] }},
                 "to": [{ "key_code": "n", "modifiers": ["left_control"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [{ "key_code": "f16" }]
               },
@@ -259,17 +348,36 @@
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "h", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
-                "to": [{ "key_code": "left_arrow", "modifiers":["left_control", "left_shift"] }]
+                "to": [{ "key_code": "left_arrow", "modifiers": ["left_control", "left_shift"] }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "l", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
-                "to": [{ "key_code": "right_arrow", "modifiers":["left_control", "left_shift"] }]
+                "to": [{ "key_code": "right_arrow", "modifiers": ["left_control", "left_shift"] }]
               }
-
             ]
           },
           {
@@ -277,9 +385,7 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }
-                ],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
                 "from": { "key_code": "p", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
                 "to": [{ "key_code": "f7" }]
               }
@@ -290,25 +396,68 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty", "com.apple.MobileSMS"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.apple.MobileSMS"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "j", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "down_arrow" }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty", "com.apple.MobileSMS"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.apple.MobileSMS"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "k", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "up_arrow" }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty", "org.mozilla.firefox"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "org.mozilla.firefox"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "l", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "right_arrow" }]
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "h", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "left_arrow" }]
               }
@@ -319,7 +468,18 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com.googlecode.iterm2$", "com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com.googlecode.iterm2$",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
                 "from": { "key_code": "3", "modifiers": { "mandatory": ["left_control"] }},
                 "to": [{ "key_code": "g", "modifiers": ["left_control"] }]
               },
@@ -659,7 +819,7 @@
               {
                 "type": "basic",
                 "from": { "key_code": "left_command" },
-                "to": {"key_code": "left_command", "modifiers": ["any"] },
+                "to": { "key_code": "left_command", "modifiers": ["any"] },
                 "to_if_alone": [
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
                   { "key_code": "spacebar", "modifiers": ["right_option"] }
@@ -667,7 +827,15 @@
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"]}, { "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "simultaneous": [{ "key_code": "j" }, { "key_code": "k" }] },
+                "to": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] },
+                  { "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }
+                ],
                 "from": { "key_code": "left_command" },
                 "to": [
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
@@ -676,7 +844,10 @@
               },
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"]},{ "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }],
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] },
+                  { "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }
+                ],
                 "from": { "key_code": "left_command" },
                 "to": [{ "key_code": "left_command" }],
                 "to_if_alone": [{ "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 3420" }}],
@@ -699,7 +870,7 @@
               }
             ]
           },
-                    {
+          {
             "title": "misc parallels shortcut translations",
             "manipulators": [
               {
@@ -796,7 +967,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "non_us_backslash" }]
@@ -805,7 +984,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "left_control", "modifiers": { "optional": ["any"] }},
                 "to": [{ "key_code": "left_option" }]
@@ -814,7 +1001,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
@@ -823,7 +1018,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "semicolon" },
                 "to": [{ "key_code": "period", "modifiers": ["left_shift"] }]
@@ -832,7 +1035,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "comma", "modifiers": ["left_shift"] }]
@@ -841,7 +1052,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "f14" }]
@@ -850,7 +1069,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "close_bracket" },
                 "to": [{ "key_code": "f13" }]
@@ -859,7 +1086,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] }},
                 "to": [{ "key_code": "2", "modifiers": ["left_shift"] }]
@@ -868,7 +1103,15 @@
                 "type": "basic",
                 "conditions": [
                   { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.mitchellh.ghostty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "org.alacritty"] }
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
                 ],
                 "from": { "key_code": "quote" },
                 "to": [{ "key_code": "backslash" }]

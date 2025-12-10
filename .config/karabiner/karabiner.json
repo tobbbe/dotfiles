@@ -488,7 +488,6 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
                 "from": { "key_code": "l", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [{ "shell_command": "/Applications/Firefox.app/Contents/MacOS/firefox --new-tab about:blank" }]
               }
@@ -660,7 +659,7 @@
               {
                 "type": "basic",
                 "from": { "key_code": "left_command" },
-                "to": {"key_code": "right_command", "modifiers": ["any"] },
+                "to": {"key_code": "left_command", "modifiers": ["any"] },
                 "to_if_alone": [
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
                   { "key_code": "spacebar", "modifiers": ["right_option"] }

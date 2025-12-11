@@ -207,9 +207,10 @@ automatically-unhide-macos-hidden-apps = false
     r = ['flatten-workspace-tree'] # reset layout
     f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]
     c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200'"]
+    w = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.97&absoluteXOffset=420'"]
     a = ['layout accordion'] # more than one window must be in group
-    shift-t = ['layout tiling'] # more than one window must be in group
-    t = ['layout v_tiles h_tiles']
+    t = ['layout tiling'] # more than one window must be in group
+    shift-t = ['layout v_tiles h_tiles']
     b = ['exec-and-forget pkill borders || borders']
     # alt-comma = 'layout tiles accordion' 
     # backspace = ['close-all-windows-but-current']

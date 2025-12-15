@@ -210,6 +210,7 @@ automatically-unhide-macos-hidden-apps = false
     w = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.97&absoluteXOffset=420'"]
     a = ['layout accordion'] # more than one window must be in group
     t = ['layout tiling'] # more than one window must be in group
+    v = ['layout tiling'] # more than one window must be in group
     shift-t = ['layout v_tiles h_tiles']
     b = ['exec-and-forget pkill borders || borders']
     # alt-comma = 'layout tiles accordion' 

@@ -84,7 +84,7 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
+                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }, { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
                 "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }]
               }
@@ -95,7 +95,7 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] }, { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
                 "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["left_control"] }},
                 "to": [{ "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }]
               }
@@ -193,11 +193,11 @@
                       "com.github.wez.wezterm",
                       "org.alacritty"
                     ]
-                  },
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }
+                  }
                 ],
                 "from": { "key_code": "grave_accent_and_tilde" },
-                "to": [{ "software_function": { "open_application": { "frontmost_application_history_index": 1}}}]
+                "to": [{"shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries workspace --boundaries-action wrap-around-the-workspace --ignore-floating" }]
+
               },
               {
                 "type": "basic",
@@ -210,7 +210,8 @@
                       "com.github.wez.wezterm",
                       "org.alacritty"
                     ]
-                  }
+                  },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }
                 ],
                 "from": { "key_code": "grave_accent_and_tilde" },
                 "to": [{ "key_code": "tab", "modifiers": ["right_command"] }]
@@ -844,8 +845,13 @@
               },
               {
                 "type": "basic",
-                "from": { "simultaneous": [{ "key_code": "j" }, { "key_code": "k" }] },
+                "from": { "simultaneous": [{ "key_code": "j" }, { "key_code": "i" }] },
                 "to": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "right_shift" },
+                "to_if_alone": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
               },
               {
                 "type": "basic",

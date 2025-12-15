@@ -24,7 +24,7 @@
       "value": "moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100"
     },
     {
-      "key": "l",
+      "key": "j",
       "label": "New firefox tab",
       "type": "command",
       "value": "/Applications/Firefox.app/Contents/MacOS/firefox --new-tab about:blank"

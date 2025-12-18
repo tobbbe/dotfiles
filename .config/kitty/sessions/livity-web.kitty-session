@@ -1,3 +1,0 @@
-cd ~/dev/livityapp-web/
-
-launch --title "livity-web" /bin/zsh -i -c 'v'

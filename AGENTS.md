@@ -51,6 +51,7 @@ Only pause to ask for confirmation when:
 - YOU MUST MATCH the style and formatting of surrounding code, even if it differs from standard style guides. Consistency within a file trumps external standards.
 - YOU MUST NOT manually change whitespace that does not affect execution or output. Otherwise, use a formatting tool.
 - Fix broken things immediately when you find them. Don't ask permission to fix bugs.
+- Dont spread react component props in the function argument, use this style `function GiftCard(props: { property: string})`.
 
 ## Naming
 

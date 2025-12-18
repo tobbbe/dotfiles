@@ -1,0 +1,3 @@
+cd ~/.config/nvim
+
+launch --title "nvim" /bin/zsh -i -c 'v'

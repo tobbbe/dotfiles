@@ -1,0 +1,3 @@
+cd ~/dev/arcane/
+
+launch --title "arcane" /bin/zsh -i -c 'v'

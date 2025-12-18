@@ -1,0 +1,3 @@
+cd ~/dev/peach/
+
+launch --title "peach" /bin/zsh -i -c 'v'

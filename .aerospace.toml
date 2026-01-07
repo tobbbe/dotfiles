@@ -188,8 +188,8 @@ automatically-unhide-macos-hidden-apps = false
    # alt-shift-z = 'move-node-to-workspace Z --focus-follows-window'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    ctrl-0 = 'resize width +100'
-    ctrl-shift-0 = 'resize width -100'
+    # ctrl-0 = 'resize width +100'
+    # ctrl-shift-0 = 'resize width -100'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     # alt-tab = 'focus right --boundaries workspace --boundaries-action wrap-around-the-workspace --ignore-floating'
@@ -225,6 +225,8 @@ automatically-unhide-macos-hidden-apps = false
     l = 'focus right'
     k = 'focus up'
     j = 'focus down'
+    space = 'resize width +100'
+    shift-space = 'resize width -100'
 
     alt-h = 'swap left'
     alt-j = 'swap down'

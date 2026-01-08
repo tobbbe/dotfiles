@@ -850,8 +850,8 @@
               },
               {
                 "type": "basic",
-                "from": { "key_code": "left_control" },
-                "to": { "key_code": "left_control", "modifiers": ["any"] },
+                "from": { "key_code": "left_shift" },
+                "to": { "key_code": "left_shift", "modifiers": ["any"] },
                 "to_if_alone": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
               },
               {

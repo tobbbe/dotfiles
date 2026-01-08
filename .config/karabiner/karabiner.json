@@ -962,13 +962,13 @@
               {
                 "type": "basic",
                 "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
-                "from": { "key_code": "comma", "modifiers": { "mandatory": ["right_option"] }},
+                "from": { "key_code": "comma", "modifiers": { "mandatory": ["left_option"] }},
                 "to": [{ "key_code": "non_us_backslash" }]
               },
               {
                 "type": "basic",
                 "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
-                "from": { "key_code": "period", "modifiers": { "mandatory": ["right_option"] }},
+                "from": { "key_code": "period", "modifiers": { "mandatory": ["left_option"] }},
                 "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
               }
             ]

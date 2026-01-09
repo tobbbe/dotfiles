@@ -30,7 +30,7 @@
       "value": "/Applications/Firefox.app/Contents/MacOS/firefox --new-tab about:blank"
     },
     {
-      "key": "w",
+      "key": "space",
       "label": "Aerospace",
       "type": "command",
       "value": "/opt/homebrew/bin/sketchybar --bar color=0xff24ff53 && /opt/homebrew/bin/aerospace mode service"

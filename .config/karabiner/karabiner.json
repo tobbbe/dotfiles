@@ -326,7 +326,7 @@
                   }
                 ],
                 "from": { "key_code": "tab", "modifiers": { "mandatory": ["control"] }},
-                "to": [{ "key_code": "n", "modifiers": ["left_control"] }]
+                "to": [{ "key_code": "a", "modifiers": ["left_control"] }, {"key_code": "a" }]
               },
               {
                 "type": "basic",

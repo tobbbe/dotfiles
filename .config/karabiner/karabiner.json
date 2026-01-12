@@ -843,6 +843,31 @@
             ]
           },
           {
+            "title": "<leader><leader> + space",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "expression_if", "expression": "leader_active > system.now.milliseconds" },
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "spacebar" },
+                "to": [
+                  { "shell_command": "sh ~/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 80" },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
             "title": "<leader><leader> + m",
             "manipulators": [
               {

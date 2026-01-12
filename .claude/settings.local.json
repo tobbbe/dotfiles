@@ -9,7 +9,8 @@
       "Bash(xxd:*)",
       "Bash(sketchybar:*)",
       "Bash(vercel ls:*)",
-      "Bash(vercel project ls:*)"
+      "Bash(vercel project ls:*)",
+      "Bash(kitty @:*)"
     ],
     "deny": [],
     "ask": []

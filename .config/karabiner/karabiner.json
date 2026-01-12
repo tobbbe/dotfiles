@@ -787,14 +787,14 @@
             ]
           },
           {
-            "title": "<leader-shift-c>",
+            "title": "<leader-shift-w>",
             "manipulators": [
               {
                 "type": "basic",
                 "conditions": [
                   { "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }
                 ],
-                "from": { "key_code": "c", "modifiers": {"mandatory": ["left_command", "left_shift"]}},
+                "from": { "key_code": "w", "modifiers": {"mandatory": ["left_command", "left_shift"]}},
                 "to": [
                   { "shell_command": "open moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -805,7 +805,7 @@
                 "conditions": [
                   { "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] }
                 ],
-                "from": { "key_code": "c", "modifiers": {"mandatory": ["left_command", "left_shift"]}},
+                "from": { "key_code": "w", "modifiers": {"mandatory": ["left_command", "left_shift"]}},
                 "to": [
                   { "shell_command": "/Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}

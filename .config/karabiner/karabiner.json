@@ -829,22 +829,28 @@
             ]
           },
           {
-            "title": "<leader><leader> + c",
+            "title": "<leader><leader> + w",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "c" },
+                "conditions": [
+                  { "type": "expression_if", "expression": "leader_active > system.now.milliseconds" },
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "w" },
                 "to": [
                   { "shell_command": "open moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
-              }
-            ]
-          },
-          {
-            "title": "<leader><leader> + space",
-            "manipulators": [
+              },
               {
                 "type": "basic",
                 "conditions": [
@@ -859,9 +865,9 @@
                     ]
                   }
                 ],
-                "from": { "key_code": "spacebar" },
+                "from": { "key_code": "w" },
                 "to": [
-                  { "shell_command": "sh ~/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 80" },
+                  { "shell_command": "/Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               }

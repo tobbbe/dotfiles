@@ -857,6 +857,20 @@
             ]
           },
           {
+            "title": "<leader><leader> + g",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "g" },
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.sublimemerge" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
             "title": "<leader><leader> - group a",
             "manipulators": [
               {

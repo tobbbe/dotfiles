@@ -45,7 +45,8 @@ function ctrl-g-widget() {
   fi
 }
 zle -N ctrl-g-widget
-bindkey '^G' ctrl-g-widget  # ctrl-g
+# NOTE: DISABLED to allow for c-g kitty session switch working. enable by uncomment below
+# bindkey '^G' ctrl-g-widget  # ctrl-g
 
 HISTORY_IGNORE="(ls|cd|pwd|vv|v|rr|t|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST

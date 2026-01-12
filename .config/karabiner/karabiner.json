@@ -134,7 +134,9 @@
                 "to": [{ "key_code": "left_control" }],
                 "to_if_alone": [
                   { "key_code": "escape" },
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                  { "set_variable": { "name": "leader_active", "expression": "0" }},
+                  { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }},
+                  {"shell_command": "/opt/homebrew/bin/sketchybar --bar color=80ffff00" }
                 ]
               },
               {
@@ -145,7 +147,9 @@
                 "to_if_alone": [
                   { "key_code": "escape" },
                   { "key_code": "b", "modifiers": ["right_command", "left_control", "right_option"] },
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                  { "set_variable": { "name": "leader_active", "expression": "0" }},
+                  { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }},
+                  {"shell_command": "/opt/homebrew/bin/sketchybar --bar color=0x#80ffff00" }
                 ]
               },
               {
@@ -154,7 +158,9 @@
                 "to": [{ "key_code": "right_command" }],
                 "to_if_alone": [
                   { "key_code": "escape" },
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                  { "set_variable": { "name": "leader_active", "expression": "0" }},
+                  { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }},
+                  {"shell_command": "/opt/homebrew/bin/sketchybar --bar color=0x#80ffff00" }
                 ]
               }
             ]
@@ -326,7 +332,7 @@
                   }
                 ],
                 "from": { "key_code": "tab", "modifiers": { "mandatory": ["control"] }},
-                "to": [{ "key_code": "a", "modifiers": ["left_control"] }, {"key_code": "a" }]
+                "to": [{ "key_code": "a", "modifiers": ["left_command"] }, {"key_code": "4" }]
               },
               {
                 "type": "basic",
@@ -499,7 +505,7 @@
                   }
                 ],
                 "from": { "key_code": "3", "modifiers": { "mandatory": ["left_control"] }},
-                "to": [{ "key_code": "g", "modifiers": ["left_control"] }]
+                "to": [{ "key_code": "spacebar" }, { "key_code": "s" }, { "key_code": "3" }]
               },
               {
                 "type": "basic",
@@ -621,7 +627,7 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["org.mozilla.firefox"] }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }, { "type": "frontmost_application_if", "bundle_identifiers": ["org.mozilla.firefox"] }],
                 "from": { "key_code": "e", "modifiers": { "mandatory": ["command"] }},
                 "to": [{ "shell_command": "open -a Firefox 'https://ai.tobb.be'" }]
               }
@@ -662,7 +668,7 @@
             ]
           },
           {
-            "title": "leader + l",
+            "title": "<leader-l>",
             "manipulators": [
               {
                 "type": "basic",
@@ -672,7 +678,7 @@
             ]
           },
           {
-            "title": "leader key + s",
+            "title": "<leader-s>",
             "manipulators": [
               {
                 "type": "basic",
@@ -695,7 +701,7 @@
             ]
           },
           {
-            "title": "leader key + d",
+            "title": "<leader-d>",
             "manipulators": [
               {
                 "type": "basic",
@@ -718,7 +724,7 @@
             ]
           },
           {
-            "title": "leader key + f",
+            "title": "<leader-f>",
             "manipulators": [
               {
                 "type": "basic",
@@ -741,12 +747,21 @@
             ]
           },
           {
-            "title": "leader key + e",
+            "title": "<leader-e>",
             "manipulators": [
               {
                 "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "tobb.be.ChapMacOS" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              },
+              {
+                "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "spacebar" },
+                "from": { "key_code": "e" },
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "tobb.be.ChapMacOS" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -755,7 +770,52 @@
             ]
           },
           {
-            "title": "leader key + n",
+            "title": "<leader-shift-spacebar> (aerospace)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.apple.MobileSMS"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "to": [
+                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.apple.MobileSMS"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command", "left_shift"] }},
+                "to": [
+                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "<leader><leader> + n",
             "manipulators": [
               {
                 "type": "basic",
@@ -769,21 +829,7 @@
             ]
           },
           {
-            "title": "leader key + w",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "w" },
-                "to": [
-                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
-                ]
-              }
-            ]
-          },
-          {
-            "title": "leader key + c",
+            "title": "<leader><leader> + c",
             "manipulators": [
               {
                 "type": "basic",
@@ -797,7 +843,7 @@
             ]
           },
           {
-            "title": "leader key + m",
+            "title": "<leader><leader> + m",
             "manipulators": [
               {
                 "type": "basic",
@@ -811,28 +857,20 @@
             ]
           },
           {
-            "title": "leader key - group a",
+            "title": "<leader><leader> - group a",
             "manipulators": [
               {
                 "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active_group_a > system.now.milliseconds" }],
-                "from": { "key_code": "a" },
-                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.tinyspeck.slackmacgap" }}}]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active_group_a > system.now.milliseconds" }],
-                "from": { "key_code": "s" },
-                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.apple.MobileSMS" }}}]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active_group_a > system.now.milliseconds" }],
                 "from": { "key_code": "t" },
-                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.atlassian.trello" }}}]
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.atlassian.trello" }}},
+                  { "set_variable": { "name": "leader_active_group_a", "expression": "0" }}
+                ]
               },
               {
                 "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled. to be able to use leader-a in terminal"] }],
                 "from": { "key_code": "a", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [{ "set_variable": { "name": "leader_active_group_a", "expression": "system.now.milliseconds + 3420" }}],
                 "to_delayed_action": {
@@ -850,7 +888,7 @@
                   "to_if_invoked": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}],
                   "to_if_canceled": [{ "set_variable": { "name": "leader_active_group_a", "expression": "0" }}]
                 },
-                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421}
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 821}
               }
             ]
           },
@@ -859,23 +897,36 @@
             "manipulators": [
               {
                 "type": "basic",
+                "conditions": [
+                  { "type": "expression_if", "expression": "leader_active_trigger_waiter = 1" }
+                ],
+                "from": { "key_code": "left_command" },
+                "to": [{ "key_code": "left_command" }],
+                "to_if_alone": [
+                  { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }},
+                  { "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 3420" }},
+                  {"key_code": "escape"}
+                ],
+                "to_delayed_action": {
+                  "to_if_invoked": [{ "set_variable": { "name": "leader_active", "expression": "0" }}],
+                  "to_if_canceled": [{ "set_variable": { "name": "leader_active", "expression": "0" }} ]
+                },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421}
+              },
+              {
+                "type": "basic",
                 "from": { "key_code": "left_command" },
                 "to": { "key_code": "left_command", "modifiers": ["any"] },
                 "to_if_alone": [
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
+                  { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "1" }},
                   { "key_code": "spacebar", "modifiers": ["right_option"] }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": { "simultaneous": [{ "key_code": "j" }, { "key_code": "i" }] },
-                "to": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
-              },
-              {
-                "type": "basic",
-                "from": { "key_code": "left_shift" },
-                "to": { "key_code": "left_shift", "modifiers": ["any"] },
-                "to_if_alone": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
+                ],
+                "to_delayed_action": {
+                  "to_if_invoked": [{ "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }}],
+                  "to_if_canceled": [{ "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }}]
+                },
+                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421}
               },
               {
                 "type": "basic",
@@ -888,36 +939,27 @@
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
                   { "key_code": "spacebar", "modifiers": ["right_option"] }
                 ]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] },
-                  { "type": "expression_unless", "expression": "leader_active > system.now.milliseconds" }
-                ],
-                "from": { "key_code": "left_command" },
-                "to": [{ "key_code": "left_command" }],
-                "to_if_alone": [{ "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 3420" }}],
-                "to_delayed_action": {
-                  "to_if_invoked": [{ "set_variable": { "name": "leader_active", "expression": "0" }}],
-                  "to_if_canceled": [{ "set_variable": { "name": "leader_active", "expression": "0" }}]
-                },
-                "parameters": { "basic.to_delayed_action_delay_milliseconds": 421}
               }
             ]
           },
           {
-            "title": "capslock + 1 = switch windows of apps",
+            "title": "leader key app triggers",
             "manipulators": [
               {
                 "type": "basic",
-                "from": { "key_code": "1", "modifiers": { "mandatory": ["right_command"], "optional": ["left_shift"] }},
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["---disabled"] }],
-                "to": [{ "key_code": "non_us_backslash", "modifiers": ["right_command"] }]
+                "from": { "simultaneous": [{ "key_code": "j" }, { "key_code": "i" }] },
+                "to": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "left_shift" },
+                "to": { "key_code": "left_shift", "modifiers": ["any"] },
+                "to_if_alone": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
               }
+
             ]
           },
-                   {
+          {
             "title": "misc parallels shortcut translations",
             "manipulators": [
               {

@@ -718,6 +718,29 @@
             ]
           },
           {
+            "title": "leader key + f",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.apple.MobileSMS" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
+                "from": { "key_code": "f" },
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.apple.MobileSMS" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
             "title": "leader key + e",
             "manipulators": [
               {

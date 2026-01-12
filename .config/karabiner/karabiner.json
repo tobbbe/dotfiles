@@ -84,7 +84,10 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }, { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }
+                ],
                 "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }]
               }
@@ -95,7 +98,10 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] }, { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }
+                ],
                 "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["left_control"] }},
                 "to": [{ "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }]
               }
@@ -136,7 +142,7 @@
                   { "key_code": "escape" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
                   { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }},
-                  {"shell_command": "/opt/homebrew/bin/sketchybar --bar color=80ffff00" }
+                  { "shell_command": "/opt/homebrew/bin/sketchybar --bar color=80ffff00" }
                 ]
               },
               {
@@ -149,7 +155,7 @@
                   { "key_code": "b", "modifiers": ["right_command", "left_control", "right_option"] },
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
                   { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }},
-                  {"shell_command": "/opt/homebrew/bin/sketchybar --bar color=0x#80ffff00" }
+                  { "shell_command": "/opt/homebrew/bin/sketchybar --bar color=0x#80ffff00" }
                 ]
               },
               {
@@ -160,7 +166,7 @@
                   { "key_code": "escape" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }},
                   { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }},
-                  {"shell_command": "/opt/homebrew/bin/sketchybar --bar color=0x#80ffff00" }
+                  { "shell_command": "/opt/homebrew/bin/sketchybar --bar color=0x#80ffff00" }
                 ]
               }
             ]
@@ -202,8 +208,9 @@
                   }
                 ],
                 "from": { "key_code": "grave_accent_and_tilde" },
-                "to": [{"shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries workspace --boundaries-action wrap-around-the-workspace --ignore-floating" }]
-
+                "to": [
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries workspace --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                ]
               },
               {
                 "type": "basic",
@@ -332,7 +339,10 @@
                   }
                 ],
                 "from": { "key_code": "tab", "modifiers": { "mandatory": ["control"] }},
-                "to": [{ "key_code": "a", "modifiers": ["left_command"] }, {"key_code": "4" }]
+                "to": [
+                  { "key_code": "a", "modifiers": ["left_command"] },
+                  { "key_code": "a" }
+                ]
               },
               {
                 "type": "basic",
@@ -487,7 +497,7 @@
               }
             ]
           },
-                    {
+          {
             "title": "Project managers",
             "manipulators": [
               {
@@ -505,7 +515,11 @@
                   }
                 ],
                 "from": { "key_code": "3", "modifiers": { "mandatory": ["left_control"] }},
-                "to": [{ "key_code": "spacebar" }, { "key_code": "s" }, { "key_code": "3" }]
+                "to": [
+                  { "key_code": "spacebar" },
+                  { "key_code": "s" },
+                  { "key_code": "3" }
+                ]
               },
               {
                 "type": "basic",
@@ -627,7 +641,10 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }, { "type": "frontmost_application_if", "bundle_identifiers": ["org.mozilla.firefox"] }],
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] },
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["org.mozilla.firefox"] }
+                ],
                 "from": { "key_code": "e", "modifiers": { "mandatory": ["command"] }},
                 "to": [{ "shell_command": "open -a Firefox 'https://ai.tobb.be'" }]
               }
@@ -770,45 +787,27 @@
             ]
           },
           {
-            "title": "<leader-shift-spacebar> (aerospace)",
+            "title": "<leader-shift-c>",
             "manipulators": [
               {
                 "type": "basic",
                 "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty",
-                      "com.apple.MobileSMS"
-                    ]
-                  }
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }
                 ],
-                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
+                "from": { "key_code": "c", "modifiers": {"mandatory": ["left_command", "left_shift"]}},
                 "to": [
-                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
+                  { "shell_command": "open moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               },
               {
                 "type": "basic",
                 "conditions": [
-                  {
-                    "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty",
-                      "com.apple.MobileSMS"
-                    ]
-                  }
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] }
                 ],
-                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command", "left_shift"] }},
+                "from": { "key_code": "c", "modifiers": {"mandatory": ["left_command", "left_shift"]}},
                 "to": [
-                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
+                  { "shell_command": "/Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               }
@@ -833,41 +832,10 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [
-                  { "type": "expression_if", "expression": "leader_active > system.now.milliseconds" },
-                  {
-                    "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
+                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
                 "from": { "key_code": "w" },
                 "to": [
-                  { "shell_command": "open moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200" },
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
-                ]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "expression_if", "expression": "leader_active > system.now.milliseconds" },
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "w" },
-                "to": [
-                  { "shell_command": "/Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64" },
+                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               }
@@ -902,7 +870,7 @@
             ]
           },
           {
-            "title": "<leader><leader> - group a",
+            "title": "<leader><leader> a - group a",
             "manipulators": [
               {
                 "type": "basic",
@@ -942,19 +910,17 @@
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [
-                  { "type": "expression_if", "expression": "leader_active_trigger_waiter = 1" }
-                ],
+                "conditions": [{ "type": "expression_if", "expression": "leader_active_trigger_waiter = 1" }],
                 "from": { "key_code": "left_command" },
                 "to": [{ "key_code": "left_command" }],
                 "to_if_alone": [
                   { "set_variable": { "name": "leader_active_trigger_waiter", "expression": "0" }},
                   { "set_variable": { "name": "leader_active", "expression": "system.now.milliseconds + 3420" }},
-                  {"key_code": "escape"}
+                  { "key_code": "escape" }
                 ],
                 "to_delayed_action": {
                   "to_if_invoked": [{ "set_variable": { "name": "leader_active", "expression": "0" }}],
-                  "to_if_canceled": [{ "set_variable": { "name": "leader_active", "expression": "0" }} ]
+                  "to_if_canceled": [{ "set_variable": { "name": "leader_active", "expression": "0" }}]
                 },
                 "parameters": { "basic.to_delayed_action_delay_milliseconds": 421}
               },
@@ -988,20 +954,14 @@
             ]
           },
           {
-            "title": "leader key app triggers",
+            "title": "clipboard history",
             "manipulators": [
-              {
-                "type": "basic",
-                "from": { "simultaneous": [{ "key_code": "j" }, { "key_code": "i" }] },
-                "to": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
-              },
               {
                 "type": "basic",
                 "from": { "key_code": "left_shift" },
                 "to": { "key_code": "left_shift", "modifiers": ["any"] },
-                "to_if_alone": { "key_code": "l", "modifiers": ["left_option", "left_shift", "left_command"] }
+                "to_if_alone": [{ "key_code": "x", "modifiers": ["left_shift", "right_command"] }]
               }
-
             ]
           },
           {

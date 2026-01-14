@@ -595,16 +595,6 @@
             ]
           },
           {
-            "title": "moom",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": { "key_code": "f1" },
-                "to": [{ "key_code": "e", "modifiers": ["right_command", "left_shift", "left_control", "right_option"] }]
-              }
-            ]
-          },
-          {
             "description": "Open URL in Firefox new tab",
             "manipulators": [
               {
@@ -673,15 +663,6 @@
                   { "software_function": { "open_application": { "bundle_identifier": "com.tinyspeck.slackmacgap" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "s" },
-                "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "com.tinyspeck.slackmacgap" }}},
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
-                ]
               }
             ]
           },
@@ -692,15 +673,6 @@
                 "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
                 "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] }},
-                "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "org.mozilla.firefox" }}},
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
-                ]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "d" },
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "org.mozilla.firefox" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -719,15 +691,6 @@
                   { "software_function": { "open_application": { "bundle_identifier": "com.apple.MobileSMS" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "f" },
-                "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "com.apple.MobileSMS" }}},
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
-                ]
               }
             ]
           },
@@ -742,25 +705,30 @@
                   { "software_function": { "open_application": { "bundle_identifier": "tobb.be.ChapMacOS" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "title": "<leader-w>",
+            "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "e" },
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "tobb.be.ChapMacOS" }}},
+                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               }
             ]
           },
           {
-            "title": "<leader-shift-w>",
+            "title": "f1",
             "manipulators": [
               {
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
-                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_command", "left_shift"] }},
+                "from": { "key_code": "f1"},
                 "to": [
                   { "shell_command": "open moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -769,7 +737,7 @@
               {
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
-                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_command", "left_shift"] }},
+                "from": { "key_code": "f1"},
                 "to": [
                   { "shell_command": "/Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -786,20 +754,6 @@
                 "from": { "key_code": "n" },
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "notion.id" }}},
-                  { "set_variable": { "name": "leader_active", "expression": "0" }}
-                ]
-              }
-            ]
-          },
-          {
-            "title": "<leader><leader> + w",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "w" },
-                "to": [
-                  { "key_code": "m", "modifiers": ["right_option", "left_shift"] },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               }

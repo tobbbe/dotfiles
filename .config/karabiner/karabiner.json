@@ -1112,43 +1112,28 @@
                   }
                 ],
                 "from": { "key_code": "quote" },
-                "to": [{ "key_code": "backslash" ,
-                "halt": true}]
-              },
+                "to": [{ "key_code": "backslash", "halt": true}]
+              }
+            ]
+          },
+          {
+            "title": "Key right of ä (macbook) and above enter on external keyboard TO slash and backslash",
+            "manipulators": [
               {
                 "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
                 "from": { "key_code": "backslash" },
                 "to": [{ "key_code": "7", "modifiers": ["left_shift"] }]
               },
               {
                 "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "backslash" , "modifiers": { "mandatory": ["left_shift", "left_option"] }},
+                "from": { "key_code": "backslash", "modifiers": { "mandatory": ["left_shift", "left_option"] }},
                 "to": [{ "key_code": "7", "modifiers": ["left_shift", "right_option"] }]
-              },
+              }
+            ]
+          },
+          {
+            "title": "Kitty sets left option to alt so make tilde work like usual",
+            "manipulators": [
               {
                 "type": "basic",
                 "conditions": [
@@ -1164,7 +1149,10 @@
                   }
                 ],
                 "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["left_option"] }},
-                "to": [{ "key_code": "close_bracket", "modifiers": ["right_option"] }, { "key_code": "spacebar" }]
+                "to": [
+                  { "key_code": "close_bracket", "modifiers": ["right_option"] },
+                  { "key_code": "spacebar" }
+                ]
               }
             ]
           },

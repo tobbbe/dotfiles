@@ -277,8 +277,12 @@ automatically-unhide-macos-hidden-apps = false
 
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
 [[on-window-detected]]
-    if.app-name-regex-substring = 'code|iTerm2|Firefox|kitty'
+    if.app-name-regex-substring = 'code|iTerm2|Firefox'
     run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'kitty'
+    run = ['layout tiling', 'move-node-to-workspace 1', 'exec-and-forget /Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64' ]
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'notion|obsidian|Simulator|figma|trello'

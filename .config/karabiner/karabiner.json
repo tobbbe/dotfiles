@@ -875,17 +875,6 @@
             ]
           },
           {
-            "title": "clipboard history",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": { "key_code": "left_shift" },
-                "to": { "key_code": "left_shift", "modifiers": ["any"] },
-                "to_if_alone": [{ "key_code": "x", "modifiers": ["left_shift", "right_command"] }]
-              }
-            ]
-          },
-          {
             "title": "misc parallels shortcut translations",
             "manipulators": [
               {
@@ -1113,6 +1102,17 @@
                 ],
                 "from": { "key_code": "quote" },
                 "to": [{ "key_code": "backslash", "halt": true}]
+              }
+            ]
+          },
+          {
+            "title": "Kitty right shift leader",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "left_shift" },
+                "to": { "key_code": "left_shift", "modifiers": ["any"] },
+                "to_if_alone": [{ "key_code": "a", "modifiers": ["left_command"] }]
               }
             ]
           },

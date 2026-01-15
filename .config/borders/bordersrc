@@ -19,8 +19,9 @@ options=(
   hidpi=on
   # active_color=0xFF238636
   # active_color=0xFFBBBBBB
-  # active_color=0x666C6062
-  active_color=0xFFCCC8AE
+  active_color=0x666C6062 # dark shadowish
+  # active_color=0xFFCCC8AE # yellowish
+
   # white=0xffe2e2e3
   # purple=0xFFD2A5FC
   # blue=0xFF1FCDFF

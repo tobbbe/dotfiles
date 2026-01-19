@@ -1,3 +1,5 @@
+config-version = 2
+
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
@@ -5,6 +7,8 @@
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
 after-login-command = []
+
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
@@ -286,7 +290,7 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'notion|obsidian|Simulator|figma|trello'
-    run = ['move-node-to-workspace 9']
+    run = ['move-node-to-workspace 9', "layout accordion"]
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'finder|moom|Karabiner-Elements|Karabiner-EventViewer'
@@ -294,16 +298,16 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'slack|mail|discord|Messages'
-    run = ['layout floating', 'move-node-to-workspace 2']
+    run = ['layout floating', 'move-node-to-workspace 2', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'sublime merge'
-    run = ['move-node-to-workspace 3']
+    run = ['move-node-to-workspace 3', 'layout tiling']
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'spotify'
-    run = ['move-node-to-workspace 4']
+    run = ['move-node-to-workspace 4', 'layout tiling']
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'ChapMacOS|claude'
-    run = ['layout floating', 'move-node-to-workspace 5']
+    run = ['layout floating', 'move-node-to-workspace 5', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]

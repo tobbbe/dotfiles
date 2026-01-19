@@ -1,6 +1,39 @@
 {
   "alwaysThinkingEnabled": true,
-  "model": "sonnet",
+  "permissions": {
+    "allow": [
+      "Read(~/dev/**)",
+      "Read(~/.config/nvim/**)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(pwd:*)",
+      "Bash(which:*)",
+      "Bash(env:*)",
+      "Bash(ps:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git describe:*)",
+      "Bash(git reflog:*)",
+      "Bash(git blame:*)",
+      "Bash(npm:*)",
+      "Bash(yarn:*)",
+      "Bash(pnpm:*)",
+      "Bash(node:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(nvim:*)",
+      "Bash(vim:*)",
+      "Bash(jq:*)",
+      "Bash(docker:*)"
+    ]
+  },
   "hooks": {
     "Stop": [
       {

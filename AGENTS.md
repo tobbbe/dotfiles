@@ -123,8 +123,8 @@ YOU MUST follow this debugging framework for ANY technical issue:
 
 # Important paths
 - I use a Macbook pro
-- My dotfiles are located at `~/dev/dotfiles/`. To apply them I have a script that copies them to `~/`, so always edit at `~/dev/dotfiles/` and ask me to run the copy script.
+- I use dotfiles to config my computer, they are located at `/Users/tobbe/dev/dotfiles/`. To apply them I have a script that copies them to `/Users/tobbe/`, so always edit at `/Users/tobbe/dev/dotfiles/` and ask me to run the copy script.
 - I use Lazyvim, if I say "vim" or "nvim" I mean that I use it with Lazyvim.
-- My Lazyvim config is located at `~/dev/dotfiles/.config/nvim/`
-- I use Kitty terminal. Config is located at `~/dev/dotfiles/.config/kitty/kitty.conf`
-- I use Karabiner element and have a lot of keyboard modifications. They are located at `~/dev/dotfiles/.config/karabiner/karabiner.json`
+- My Lazyvim config is located at `/Users/tobbe/.config/nvim/`, it does not require me to run the copy script after changes.
+- I use Kitty terminal.
+- I use Karabiner element and have a lot of keyboard modifications. They are located at `/Users/tobbe/dev/dotfiles/.config/karabiner/karabiner.json`

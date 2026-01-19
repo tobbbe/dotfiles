@@ -1,11 +1,19 @@
 {
   "alwaysThinkingEnabled": true,
+  "respectGitignore": false,
   "permissions": {
     "allow": [
       "Read(~/dev/**)",
       "Read(~/.config/nvim/**)",
+      "Glob(~/dev/**)",
+      "Glob(~/.config/nvim/**)",
+      "Grep(~/dev/**)",
+      "Grep(~/.config/nvim/**)",
+      "WebFetch",
+      "WebSearch",
       "Bash(curl:*)",
       "Bash(ls:*)",
+      "Bash(grep:*)",
       "Bash(find:*)",
       "Bash(pwd:*)",
       "Bash(which:*)",

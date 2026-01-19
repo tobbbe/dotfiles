@@ -25,8 +25,10 @@ bindkey "^[[1;3D" backward-word     # Option+Left
 # Enable Vi key bindings
 # bindkey -v
 
-bindkey '\t\t' autosuggest-accept
-bindkey '^[[27;5;13~' autosuggest-execute # Ctrl+Enter, ghostty
+# NOTE: use c-f to auto-accept instead. tt slows down tab to show dirs
+#
+# bindkey '\t\t' autosuggest-accept
+# bindkey '^[[27;5;13~' autosuggest-execute # Ctrl+Enter, ghostty
 export ZSH_AUTOSUGGEST_STRATEGY=(
     history
     completion
@@ -133,5 +135,5 @@ export BAT_THEME="catppuccin-mocha"
 eval "$(zoxide init zsh --no-cmd)"
 # alias f='__zoxide_z'
 
-. "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh --disable-up-arrow)"
+# . "$HOME/.atuin/bin/env"
+# eval "$(atuin init zsh --disable-up-arrow)"

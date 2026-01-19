@@ -13,6 +13,7 @@
       "WebSearch",
       "Bash(curl:*)",
       "Bash(ls:*)",
+      "Bash(cd:*)",
       "Bash(grep:*)",
       "Bash(find:*)",
       "Bash(pwd:*)",

@@ -74,7 +74,7 @@ zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' stagedstr '+'
 
 # PROMPT=$'%F{238}${vcs_info_msg_0_}%f %F{82}%~%f %F{reset_color}' # purple:141 green:82
-PROMPT=$'%F{82}%~%f %F{reset_color}' # purple:141 green:82
+PROMPT=$'%F{#aeffae}%~%f %F{reset_color}' # purple:141 green:82
 
 # tab completion
 autoload -Uz compinit && compinit

@@ -13,28 +13,6 @@
         },
         "rules": [
           {
-            "title": "Toggle coding mode with F3",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": { "key_code": "f3" },
-                "conditions": [{ "type": "variable_if", "name": "coding_mode", "value": 1}],
-                "to": [
-                  { "set_variable": { "name": "coding_mode", "value": 0}},
-                  { "shell_command": "/opt/homebrew/bin/sketchybar --set coding_mode label=\"\"" }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": { "key_code": "f3" },
-                "to": [
-                  { "set_variable": { "name": "coding_mode", "value": 1}},
-                  { "shell_command": "/opt/homebrew/bin/sketchybar --set coding_mode label=\"code\"" }
-                ]
-              }
-            ]
-          },
-          {
             "title": "navigate imessages",
             "manipulators": [
               {
@@ -383,6 +361,187 @@
                 ],
                 "from": { "key_code": "l", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
                 "to": [{ "key_code": "right_arrow", "modifiers": ["left_control", "left_shift"] }]
+              }
+            ]
+          },
+          {
+            "title": "Common coding key mappings",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.microsoft.VSCode"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "non_us_backslash" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.microsoft.VSCode"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.microsoft.VSCode"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "semicolon" },
+                "to": [{ "key_code": "period", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.microsoft.VSCode"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "comma", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.microsoft.VSCode"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "2", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty",
+                      "com.microsoft.VSCode"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "quote" },
+                "to": [{ "key_code": "backslash" }]
+              }
+            ]
+          },
+          {
+            "title": "Terminal bracket mappings",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "f14" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "close_bracket" },
+                "to": [{ "key_code": "f13" }]
+              }
+            ]
+          },
+          {
+            "title": "VSCode bracket mappings",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "open_bracket", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "8", "modifiers": ["right_option", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "open_bracket" },
+                "to": [{ "key_code": "8", "modifiers": ["right_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
+                "to": [{ "key_code": "9", "modifiers": ["right_option", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
+                ],
+                "from": { "key_code": "close_bracket" },
+                "to": [{ "key_code": "9", "modifiers": ["right_option"] }]
               }
             ]
           },
@@ -967,147 +1126,6 @@
             ]
           },
           {
-            "title": "Code mode",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "non_us_backslash" }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "semicolon" },
-                "to": [{ "key_code": "period", "modifiers": ["left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "comma", "modifiers": ["left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "f14" }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "close_bracket" },
-                "to": [{ "key_code": "f13" }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "2", "modifiers": ["left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "quote" },
-                "to": [{ "key_code": "backslash", "halt": true}]
-              }
-            ]
-          },
-          {
             "title": "Kitty right shift leader",
             "manipulators": [
               {
@@ -1139,7 +1157,6 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
                   {
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
@@ -1155,101 +1172,6 @@
                   { "key_code": "close_bracket", "modifiers": ["right_option"] },
                   { "key_code": "spacebar" }
                 ]
-              }
-            ]
-          },
-          {
-            "title": "Code mode vscode",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "comma", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "non_us_backslash" }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "period", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "semicolon" },
-                "to": [{ "key_code": "period", "modifiers": ["left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "semicolon", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "comma", "modifiers": ["left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "open_bracket", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "8", "modifiers": ["right_option", "left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "open_bracket" },
-                "to": [{ "key_code": "8", "modifiers": ["right_option"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "9", "modifiers": ["right_option", "left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "close_bracket" },
-                "to": [{ "key_code": "9", "modifiers": ["right_option"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "2", "modifiers": ["left_shift"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  { "type": "variable_if", "name": "coding_mode", "value": 1},
-                  { "type": "frontmost_application_if", "bundle_identifiers": ["com.microsoft.VSCode"] }
-                ],
-                "from": { "key_code": "quote" },
-                "to": [{ "key_code": "backslash" }]
               }
             ]
           },

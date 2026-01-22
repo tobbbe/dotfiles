@@ -1,0 +1,3 @@
+cd ~/dev/ai.tobb.be/
+
+launch --title "ai-tobbbe" /bin/zsh -i -c 'v; exec zsh'

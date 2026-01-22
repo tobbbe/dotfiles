@@ -1,0 +1,3 @@
+cd ~/dev/notes-app/api/
+
+launch --title "notes-app-api" /bin/zsh -i -c 'v; exec zsh'

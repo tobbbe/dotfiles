@@ -1,0 +1,3 @@
+cd ~/dev/notes-app/web/
+
+launch --title "notes-app-web" /bin/zsh -i -c 'v; exec zsh'

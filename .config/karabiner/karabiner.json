@@ -712,7 +712,7 @@
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["notion.id"] }],
                 "from": { "key_code": "1", "modifiers": { "mandatory": ["right_command"] }},
-                "to": [{ "shell_command": "open \"notion://https://www.notion.so/tobbbe/Work-todo-26ae584b3d2680fb9243daac7d325800\"" }]
+                "to": [{ "shell_command": "open \"notion://https://www.notion.so/tobbbe/Scratch-2f1e584b3d2680d4879efaf91d56bf71\"" }]
               },
               {
                 "type": "basic",

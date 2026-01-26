@@ -653,3 +653,12 @@ f() {
     __zoxide_z "$@"
   fi
 }
+
+s() {
+ local server 
+ server=$(awk '/^Host / { host=$2 } /IdentityFile ~\/.ssh\/servers/ { print host }' ~/.ssh/config | fzf)
+ if [[ -n $server ]]; then
+  ssh $server
+ fi
+}
+

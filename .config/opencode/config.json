@@ -1,20 +1,79 @@
 {
- "$schema": "https://opencode.ai/config.json",
- "theme": "opencode",
- "autoupdate": false,
- "mcp": {
- "context7": {
- "enabled": true,
- "type": "remote",
- "url": "https://mcp.context7.com/mcp",
- "headers": { "CONTEXT7_API_KEY": "ctx7sk-0443ab0a-87fb-4061-ab8b-4afc582e81b6" }
- },
-  "figma": { "enabled": true, "type": "remote", "url": "http://127.0.0.1:3845/mcp" },
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "opencode",
+  "autoupdate": false,
+  "mcp": {
+    "context7": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-0443ab0a-87fb-4061-ab8b-4afc582e81b6"
+      }
+    },
+    "figma": {
+      "enabled": true,
+      "type": "remote",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
     "supabase": {
       "type": "remote",
       "url": "https://mcp.supabase.com/mcp?project_ref=jubxcgifxdnhjczinfgo&read_only=true",
       "enabled": true
-   }
+    }
+  },
+  "permission": {
+    "read": {
+      "~/dev/**": "allow",
+      "~/.config/nvim/**": "allow",
+      "~/.local/share/nvim/**": "allow",
+      "~/.local/state/nvim/**": "allow"
+    },
+    "glob": {
+      "~/dev/**": "allow",
+      "~/.config/nvim/**": "allow",
+      "~/.local/share/nvim/**": "allow",
+      "~/.local/state/nvim/**": "allow"
+    },
+    "grep": {
+      "~/dev/**": "allow",
+      "~/.config/nvim/**": "allow",
+      "~/.local/share/nvim/**": "allow",
+      "~/.local/state/nvim/**": "allow"
+    },
+    "webfetch": "allow",
+    "websearch": "allow",
+    "bash": {
+      "curl*": "allow",
+      "ls*": "allow",
+      "cd*": "allow",
+      "grep*": "allow",
+      "find*": "allow",
+      "pwd*": "allow",
+      "which*": "allow",
+      "env*": "allow",
+      "ps*": "allow",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "git branch*": "allow",
+      "git remote*": "allow",
+      "git ls-files*": "allow",
+      "git rev-parse*": "allow",
+      "git describe*": "allow",
+      "git reflog*": "allow",
+      "git blame*": "allow",
+      "npm*": "allow",
+      "yarn*": "allow",
+      "pnpm*": "allow",
+      "node*": "allow",
+      "python*": "allow",
+      "python3*": "allow",
+      "nvim*": "allow",
+      "vim*": "allow",
+      "jq*": "allow",
+      "docker*": "allow"
+    }
   }
 }
-

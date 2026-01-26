@@ -75,11 +75,6 @@
       "jq*": "allow",
       "docker*": "allow"
     },
-    "external_directory": {
-      "~/dev/**": "allow",
-      "~/.config/nvim/**": "allow",
-      "~/.local/share/nvim/**": "allow",
-      "~/.local/state/nvim/**": "allow"
-    }
+    "external_directory": "allow"
   }
 }

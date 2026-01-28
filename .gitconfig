@@ -25,15 +25,16 @@
   diffFilter = delta --color-only
 
 [delta]
+  ; side-by-side = true
   navigate = true  # use n and N to move between diff sections
   dark = true      # or light = true, or omit for auto-detection
   line-numbers = false
   syntax-theme = none
   zero-style = normal
-  minus-style = "#989593" "#1a0a0f"
-  minus-emph-style = "#989593" "#2d1520"
-  plus-style = normal "#0a1a0f"
-  plus-emph-style = normal "#152d20"
+  minus-style = "#989593" "#3D0100"
+  minus-emph-style = "#989593" "#900000"
+  plus-style = normal "#022801"
+  plus-emph-style = normal "#076900"
   whitespace-error-style = normal "#0a0a0d"
   file-style = normal "#444444"
   file-decoration-style = none

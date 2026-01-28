@@ -21,6 +21,11 @@ rsync --exclude ".git/" \
   awk '/^[<>cdf]/ {if ($2 != "./") print "\033[32m" $2 "\033[0m"} /[Ee]rror|[Ww]arning/ {print "\033[31m" $0 "\033[0m"}'
 # -ahv for verbose
 
+# lazygit config (macOS uses Application Support not .config)
+LAZYGIT_DIR=~/Library/Application\ Support/lazygit
+cp ~/dev/dotfiles/Library/Application\ Support/lazygit/config.yml "$LAZYGIT_DIR/config.yml"
+# echo '↠ Lazygit config reloaded'
+
 # vscode prompts
 VSCODE_DIR=~/Library/Application\ Support/Code/User
 rsync -ah ~/dev/dotfiles/prompts/ "$VSCODE_DIR/prompts/"
@@ -65,4 +70,3 @@ echo '↠ SketchyBar reloaded'
 # echo '↠ Ghostty reloaded'
 
 exec ${SHELL} -l
-

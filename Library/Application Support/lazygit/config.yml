@@ -1,6 +1,6 @@
 keybinding:
   universal:
-    quit: <esc>
+    quit: q
 git:
   pagers:
     - pager: delta --dark --paging=never

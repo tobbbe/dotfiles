@@ -1,43 +1,52 @@
 [user]
-	name = Tobias Ekman
-	useConfigOnly = true # force you to set email per repo with `git config user.email "you@example.com"`
+  name = Tobias Ekman
+  useConfigOnly = true # force you to set email per repo with `git config user.email "you@example.com"`
 
 [core]
-	sshCommand = "ssh -i  ~/.ssh/tobbbe"
-	excludesfile = ~/.gitignore
-	pager = delta
+  sshCommand = "ssh -i  ~/.ssh/tobbbe"
+  excludesfile = ~/.gitignore
+  pager = delta
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [pull]
-	rebase = true
-	autoStash = true
+  rebase = true
+  autoStash = true
 
 [push]
-	autoSetupRemote = true
+  autoSetupRemote = true
 
 [alias]
-	log-merge = "!f() { git log --pretty=oneline \"$1^..$1\"; }; f"
+  log-merge = "!f() { git log --pretty=oneline \"$1^..$1\"; }; f"
 
 
 [interactive]
-	diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [delta]
-	navigate = true  # use n and N to move between diff sections
-	dark = true      # or light = true, or omit for auto-detection
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection
+  line-numbers = false
+  syntax-theme = none
+  zero-style = normal
+  minus-style = normal "#1a0a0f"
+  minus-emph-style = normal "#2d1520"
+  plus-style = normal "#0a1a0f"
+  plus-emph-style = normal "#152d20"
+  whitespace-error-style = normal "#0a0a0d"
+  file-style = normal "#444444"
+  file-decoration-style = none
+  hunk-header-style = omit
 
-[merge]
-	conflictStyle = zdiff3
 
 # [includeIf "gitdir:~/dev-personal/"]
-# 	path = ~/.gitconfig-personal
+#   path = ~/.gitconfig-personal
 # [includeIf "gitdir:~/dev/dotfiles/"]
-# 	path = ~/.gitconfig-personal
+#   path = ~/.gitconfig-personal
 # [includeIf "gitdir:~/.alfred-tob-settings/"]
-# 	path = ~/.gitconfig-personal
+#   path = ~/.gitconfig-personal
 # [includeIf "gitdir:~/dev-gymfitness/"]
-# 	path = ~/.gitconfig-gymfitness
+#   path = ~/.gitconfig-gymfitness
 # [includeIf "gitdir:~/dev-daybright/"]
-# 	path = ~/.gitconfig-daybright
+#   path = ~/.gitconfig-daybright

@@ -469,7 +469,7 @@
                   }
                 ],
                 "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] }},
-                "to": [{ "key_code": "f14" }]
+                "to": [{ "key_code": "f19" }]
               },
               {
                 "type": "basic",

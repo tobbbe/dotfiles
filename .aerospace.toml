@@ -202,12 +202,12 @@ automatically-unhide-macos-hidden-apps = true
     # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    alt-shift-m = ['exec-and-forget sketchybar --bar color=0xff37D878', 'mode service']
+    alt-shift-m = ['exec-and-forget sketchybar --bar color=0xff022801 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="move=hjkl join=shift swap=alt focus=space"', 'mode service']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x80ffff00', 'mode main']
+    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
     r = ['flatten-workspace-tree'] # reset layout
 
     a = ['layout accordion']
@@ -234,7 +234,7 @@ automatically-unhide-macos-hidden-apps = true
     e = 'resize height +100'
     shift-e = 'resize height -100'
 
-    space = ['exec-and-forget sketchybar --bar color=0xffFF4444', 'mode focus']
+    space = ['exec-and-forget sketchybar --bar color=0xff3a0404 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="focus=hjkl"', 'mode focus']
 
     # might merge lonly window with container when moving (when on the edge)
     h = 'move left'
@@ -279,8 +279,8 @@ automatically-unhide-macos-hidden-apps = true
     #shift-down = ['volume set 0']
 
 [mode.focus.binding]
-    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x80ffff00', 'mode main']
-    space = ['exec-and-forget sketchybar --bar color=0xff37D878', 'mode service']
+    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
+    space = ['exec-and-forget sketchybar --bar color=0xff022801 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="move=hjkl join=shift swap=alt focus=space"', 'mode service']
     h = 'focus left'
     j = 'focus down'
     k = 'focus up'

@@ -69,4 +69,8 @@ echo '↠ SketchyBar reloaded'
 # osascript -e 'tell application "System Events" to tell process "Ghostty" to click menu item "Reload Configuration" of menu "Ghostty" of menu bar item "Ghostty" of menu bar 1' 2>&1 | grep -v "^menu item" >&2
 # echo '↠ Ghostty reloaded'
 
+# Reload Hammerspoon
+hs -c "hs.reload()" 2>/dev/null
+echo '↠ Hammerspoon reloaded'
+
 exec ${SHELL} -l

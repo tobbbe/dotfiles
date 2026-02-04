@@ -207,7 +207,7 @@ automatically-unhide-macos-hidden-apps = true
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
+    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x80ffff00', 'mode main']
     r = ['flatten-workspace-tree'] # reset layout
 
     a = ['layout accordion']
@@ -229,15 +229,18 @@ automatically-unhide-macos-hidden-apps = true
     #s = ['layout sticky tiling']
 
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move
-    ctrl-h = 'focus left'
-    ctrl-l = 'focus right'
-    ctrl-k = 'focus up'
-    ctrl-j = 'focus down'
     w = 'resize width +100'
     shift-w = 'resize width -100'
     e = 'resize height +100'
     shift-e = 'resize height -100'
+
+    space = ['exec-and-forget sketchybar --bar color=0xffFF4444', 'mode focus']
+
+    # might merge lonly window with container when moving (when on the edge)
+    h = 'move left'
+    j = 'move down'
+    k = 'move up'
+    l = 'move right'
 
     # never merges or breaks windows out of containers
     alt-h = 'swap left'
@@ -245,11 +248,6 @@ automatically-unhide-macos-hidden-apps = true
     alt-k = 'swap up'
     alt-l = 'swap right'
 
-    # might merge lonly window with container when moving (when on the edge)
-    h = 'move left'
-    j = 'move down'
-    k = 'move up'
-    l = 'move right'
 
     shift-h = ['join-with left']
     shift-j = ['join-with down']
@@ -279,6 +277,14 @@ automatically-unhide-macos-hidden-apps = true
     #down = 'volume down'
     #up = 'volume up'
     #shift-down = ['volume set 0']
+
+[mode.focus.binding]
+    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x80ffff00', 'mode main']
+    space = ['exec-and-forget sketchybar --bar color=0xff37D878', 'mode service']
+    h = 'focus left'
+    j = 'focus down'
+    k = 'focus up'
+    l = 'focus right'
 
 # https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]

@@ -209,14 +209,18 @@ automatically-unhide-macos-hidden-apps = true
 [mode.service.binding]
     esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x#80ffff00', 'mode main']
     r = ['flatten-workspace-tree'] # reset layout
+
+    a = ['layout accordion']
+    t = ['layout tiling']
+
     f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]
     c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200'"]
     # w = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.97&absoluteXOffset=420'"]
-    a = ['layout accordion'] # more than one window must be in group
-    shift-t = ['layout tiling'] # more than one window must be in group
-    v = ['layout h_tiles v_tiles']
-    w = ['layout h_tiles accordion']
-    t = ['layout h_tiles v_tiles']
+
+    v = ['layout h_tiles']
+    s = ['layout v_tiles']
+
+
     b = ['exec-and-forget pkill borders || borders']
     # alt-comma = 'layout tiles accordion' 
     # backspace = ['close-all-windows-but-current']
@@ -226,27 +230,31 @@ automatically-unhide-macos-hidden-apps = true
 
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
-    h = 'focus left'
-    l = 'focus right'
-    k = 'focus up'
-    j = 'focus down'
-    space = 'resize width +100'
-    shift-space = 'resize width -100'
+    ctrl-h = 'focus left'
+    ctrl-l = 'focus right'
+    ctrl-k = 'focus up'
+    ctrl-j = 'focus down'
+    w = 'resize width +100'
+    shift-w = 'resize width -100'
+    e = 'resize height +100'
+    shift-e = 'resize height -100'
 
+    # never merges or breaks windows out of containers
     alt-h = 'swap left'
     alt-j = 'swap down'
     alt-k = 'swap up'
     alt-l = 'swap right'
 
-    alt-shift-h = 'move left'
-    alt-shift-j = 'move down'
-    alt-shift-k = 'move up'
-    alt-shift-l = 'move right'
+    # might merge lonly window with container when moving (when on the edge)
+    h = 'move left'
+    j = 'move down'
+    k = 'move up'
+    l = 'move right'
 
-    shift-h = ['join-with left', 'layout accordion']
-    shift-j = ['join-with down', 'layout accordion']
-    shift-k = ['join-with up', 'layout accordion']
-    shift-l = ['join-with right', 'layout accordion']
+    shift-h = ['join-with left']
+    shift-j = ['join-with down']
+    shift-k = ['join-with up']
+    shift-l = ['join-with right']
 
     1 = ['workspace 1']
     2 = ['workspace 2']

@@ -1210,56 +1210,56 @@
                 "type": "basic",
                 "from": { "key_code": "h", "modifiers": { "mandatory": ["left_control", "left_command"] }},
                 "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus left --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus left --boundaries-action wrap-around-the-workspace" }
                 ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "j", "modifiers": { "mandatory": ["left_control", "left_command"] }},
                 "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus down --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus down --boundaries-action wrap-around-the-workspace" }
                 ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "k", "modifiers": { "mandatory": ["left_control", "left_command"] }},
                 "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus up --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus up --boundaries-action wrap-around-the-workspace" }
                 ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "l", "modifiers": { "mandatory": ["left_control", "left_command"] }},
                 "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries-action wrap-around-the-workspace" }
                 ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "h", "modifiers": { "mandatory": ["right_command", "left_command"] }},
                 "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus left --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus left --boundaries-action wrap-around-the-workspace" }
                 ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "j", "modifiers": { "mandatory": ["right_command", "left_command"] }},
                 "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus down --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus down --boundaries-action wrap-around-the-workspace" }
                 ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "k", "modifiers": { "mandatory": ["right_command", "left_command"] }},
                 "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus up --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus up --boundaries-action wrap-around-the-workspace" }
                 ]
               },
               {
                 "type": "basic",
                 "from": { "key_code": "l", "modifiers": { "mandatory": ["right_command", "left_command"] }},
                 "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries-action wrap-around-the-workspace --ignore-floating" }
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries-action wrap-around-the-workspace" }
                 ]
               }
             ]

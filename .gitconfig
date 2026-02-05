@@ -12,6 +12,8 @@
 
 [pull]
   rebase = true
+
+[rebase]
   autoStash = true
 
 [push]

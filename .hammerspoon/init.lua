@@ -71,11 +71,16 @@ watcher:subscribe(hs.window.filter.windowDestroyed, function(window)
 	end
 end)
 
--- Screen border for aerospace modes
+-- Screen border and label for aerospace modes
 local screenBorder = nil
+local screenLabel = nil
 
-function showScreenBorder(color)
+function showScreenBorder(opts)
 	hideScreenBorder()
+	opts = opts or {}
+	local color = opts.color or { red = 1, green = 0.3, blue = 0.3, alpha = 1 }
+	local label = opts.label
+
 	local screen = hs.screen.mainScreen()
 	local frame = screen:fullFrame()
 	local borderWidth = 4
@@ -84,18 +89,64 @@ function showScreenBorder(color)
 	screenBorder:appendElements({
 		type = "rectangle",
 		action = "stroke",
-		strokeColor = color or { red = 1, green = 0.3, blue = 0.3, alpha = 1 },
+		strokeColor = color,
 		strokeWidth = borderWidth,
 		frame = { x = borderWidth / 2, y = borderWidth / 2, w = frame.w - borderWidth, h = frame.h - borderWidth },
 	})
 	screenBorder:level(hs.canvas.windowLevels.overlay)
 	screenBorder:show()
+
+	if label then
+		label = label:gsub("|", "\n"):gsub("=", " = ")
+		local lineCount = select(2, label:gsub("\n", "\n")) + 1
+		local fontSize = 17
+		local lineSpacing = 10
+		local lineHeight = fontSize + lineSpacing
+		local paddingTop = 12
+		local paddingBottom = 30
+		local paddingLeft = 16
+		local labelHeight = (lineCount * lineHeight) - lineSpacing + paddingTop + paddingBottom
+		local labelWidth = 250
+		local labelFrame = {
+			x = (frame.w - labelWidth) / 2,
+			y = (frame.h - labelHeight) / 2,
+			w = labelWidth,
+			h = labelHeight,
+		}
+		screenLabel = hs.canvas.new(labelFrame)
+		local bgColor = { red = color.red * 0.3, green = color.green * 0.3, blue = color.blue * 0.3, alpha = 0.9 }
+		local styledText = hs.styledtext.new(label, {
+			font = { name = "Menlo", size = fontSize },
+			color = { white = 1, alpha = 1 },
+			paragraphStyle = { alignment = "left", lineSpacing = lineSpacing },
+		})
+		screenLabel:appendElements({
+			type = "rectangle",
+			action = "fill",
+			fillColor = bgColor,
+		}, {
+			type = "rectangle",
+			action = "stroke",
+			strokeColor = { white = 1, alpha = 1 },
+			strokeWidth = 2,
+		}, {
+			type = "text",
+			text = styledText,
+			frame = { x = paddingLeft, y = paddingTop, w = labelWidth - paddingLeft * 2, h = labelHeight },
+		})
+		screenLabel:level(hs.canvas.windowLevels.overlay)
+		screenLabel:show()
+	end
 end
 
 function hideScreenBorder()
 	if screenBorder then
 		screenBorder:delete()
 		screenBorder = nil
+	end
+	if screenLabel then
+		screenLabel:delete()
+		screenLabel = nil
 	end
 end
 

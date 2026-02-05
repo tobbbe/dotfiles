@@ -530,7 +530,7 @@
             ]
           },
           {
-            "title": "Vim navigation not terminal",
+            "title": "Vim hjkl navigation not terminal",
             "manipulators": [
               {
                 "type": "basic",
@@ -573,7 +573,8 @@
                       "com.mitchellh.ghostty",
                       "net.kovidgoyal.kitty",
                       "com.github.wez.wezterm",
-                      "org.alacritty"
+                      "org.alacritty",
+                      "org.mozilla.firefox"
                     ]
                   }
                 ],

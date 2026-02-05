@@ -207,7 +207,7 @@ automatically-unhide-macos-hidden-apps = true
     # exit aerospace = ['reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    alt-shift-m = ['exec-and-forget sketchybar --bar color=0x00000000 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="move=hjkl join=shift swap=alt focus=space wide=d reconfig=r (after all tiled, use hjkl to create tiles)"', 'mode service']
+    alt-shift-m = ['exec-and-forget hs -c "showScreenBorder()"', 'exec-and-forget sketchybar --bar color=0x00000000 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="move=hjkl join=shift swap=alt focus=space wide=d reconfig=r (after all tiled, use hjkl to create tiles)"', 'mode service']
 
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -222,17 +222,17 @@ automatically-unhide-macos-hidden-apps = true
 #     l = 'focus right'
 
 [mode.scripts.binding]
-    backspace = ['exec-and-forget sketchybar --bar color=0x00000000 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="move=hjkl join=shift swap=alt focus=space wide=d reconfig=r (after all tiled, use hjkl to create tiles)"', 'mode service']
-    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
-    h = ['exec-and-forget /Users/tobbe/dev/dotfiles/scripts/toggle-hazeover.sh', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
+    backspace = ['exec-and-forget hs -c "showScreenBorder()"', 'exec-and-forget sketchybar --bar color=0x00000000 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="move=hjkl join=shift swap=alt focus=space wide=d reconfig=r (after all tiled, use hjkl to create tiles)"', 'mode service']
+    esc = ['exec-and-forget hs -c "hideScreenBorder()"', 'reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
+    h = ['exec-and-forget hs -c "hideScreenBorder()"', 'exec-and-forget /Users/tobbe/dev/dotfiles/scripts/toggle-hazeover.sh', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
 
 [mode.service.binding]
-    esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
+    esc = ['exec-and-forget hs -c "hideScreenBorder()"', 'reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
     # space = ['exec-and-forget sketchybar --bar color=0xff3a0404 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="focus=hjkl"', 'mode select']
-    q = ['exec-and-forget sketchybar --bar color=0x00000000 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="h=hazeover"', 'mode scripts']
+    q = ['exec-and-forget hs -c "showScreenBorder({red=0.3,green=0.5,blue=1,alpha=1})"', 'exec-and-forget sketchybar --bar color=0x00000000 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="h=hazeover"', 'mode scripts']
 
     c = ['flatten-workspace-tree'] # "clear" layout
-    r = ['exec-and-forget zsh ~/dev/dotfiles/reload.sh', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
+    r = ['exec-and-forget hs -c "hideScreenBorder()"', 'exec-and-forget zsh ~/dev/dotfiles/reload.sh', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
 
     a = ['layout accordion']
     t = ['layout tiling']

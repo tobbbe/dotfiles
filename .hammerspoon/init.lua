@@ -71,4 +71,32 @@ watcher:subscribe(hs.window.filter.windowDestroyed, function(window)
 	end
 end)
 
+-- Screen border for aerospace modes
+local screenBorder = nil
+
+function showScreenBorder(color)
+	hideScreenBorder()
+	local screen = hs.screen.mainScreen()
+	local frame = screen:fullFrame()
+	local borderWidth = 4
+
+	screenBorder = hs.canvas.new(frame)
+	screenBorder:appendElements({
+		type = "rectangle",
+		action = "stroke",
+		strokeColor = color or { red = 1, green = 0.3, blue = 0.3, alpha = 1 },
+		strokeWidth = borderWidth,
+		frame = { x = borderWidth / 2, y = borderWidth / 2, w = frame.w - borderWidth, h = frame.h - borderWidth },
+	})
+	screenBorder:level(hs.canvas.windowLevels.overlay)
+	screenBorder:show()
+end
+
+function hideScreenBorder()
+	if screenBorder then
+		screenBorder:delete()
+		screenBorder = nil
+	end
+end
+
 -- hs.alert.show("Hammerspoon config loaded")

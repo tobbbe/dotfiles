@@ -24,7 +24,7 @@ rsync --exclude ".git/" \
 # lazygit config (macOS uses Application Support not .config)
 LAZYGIT_DIR=~/Library/Application\ Support/lazygit
 cp ~/dev/dotfiles/Library/Application\ Support/lazygit/config.yml "$LAZYGIT_DIR/config.yml"
-# echo '↠ Lazygit config reloaded'
+echo '↠ Lazygit config reloaded'
 
 # vscode prompts
 VSCODE_DIR=~/Library/Application\ Support/Code/User
@@ -64,6 +64,14 @@ fi
 
 sketchybar --reload
 echo '↠ SketchyBar reloaded'
+
+# Reload Kitty config
+KITTY_SOCKET=$(ls -t /tmp/kitty-socket-* 2>/dev/null | head -1)
+if [ -n "$KITTY_SOCKET" ] && /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:$KITTY_SOCKET" load-config 2>/tmp/kitty-reload-error.log; then
+  echo '↠ Kitty reloaded'
+else
+  echo '↠ Kitty reload failed (see /tmp/kitty-reload-error.log)'
+fi
 
 # Reload Ghostty config via AppleScript
 # osascript -e 'tell application "System Events" to tell process "Ghostty" to click menu item "Reload Configuration" of menu "Ghostty" of menu bar item "Ghostty" of menu bar 1' 2>&1 | grep -v "^menu item" >&2

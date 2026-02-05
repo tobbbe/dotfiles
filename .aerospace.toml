@@ -209,7 +209,7 @@ automatically-unhide-macos-hidden-apps = true
 [mode.service.binding]
     esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
     c = ['flatten-workspace-tree'] # "clear" layout
-    r = ['exec-and-forget sh ~/dev/dotfiles/reload.sh', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
+    r = ['exec-and-forget zsh ~/dev/dotfiles/reload.sh', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
 
     a = ['layout accordion']
     t = ['layout tiling']

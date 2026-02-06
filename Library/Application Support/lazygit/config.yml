@@ -1,6 +1,7 @@
 keybinding:
   universal:
     quit: q
+    quit-alt1: <c-g>
 git:
   paging:
     pager: delta --dark --paging=never

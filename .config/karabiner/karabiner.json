@@ -804,6 +804,20 @@
             ]
           },
           {
+            "title": "<leader-k>",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "k", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.anthropic.claudefordesktop" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
             "title": "<leader-f>",
             "manipulators": [
               {

@@ -118,4 +118,4 @@ sketchybar --add item coding_mode right \
 # done
 
 ##### Force all scripts to run the first time (never do this in a script) #####
-sketchybar --update
+sketchybar --update --bar topmost=window

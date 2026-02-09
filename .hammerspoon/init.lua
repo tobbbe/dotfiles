@@ -47,29 +47,34 @@ function updateBorder(window, canvas)
 end
 
 -- Watch for quick-access terminal window
-local watcher = hs.window.filter.new(true)
+local ok, err = pcall(function()
+	local watcher = hs.window.filter.new(true)
 
-watcher:subscribe(hs.window.filter.windowCreated, function(window)
-	local app = window:application()
-	if app and app:bundleID() == quickAccessBundleID then
-		borders[window:id()] = drawBorder(window)
-	end
-end)
+	watcher:subscribe(hs.window.filter.windowCreated, function(window)
+		local app = window:application()
+		if app and app:bundleID() == quickAccessBundleID then
+			borders[window:id()] = drawBorder(window)
+		end
+	end)
 
-watcher:subscribe(hs.window.filter.windowMoved, function(window)
-	local app = window:application()
-	if app and app:bundleID() == quickAccessBundleID then
-		borders[window:id()] = updateBorder(window, borders[window:id()])
-	end
-end)
+	watcher:subscribe(hs.window.filter.windowMoved, function(window)
+		local app = window:application()
+		if app and app:bundleID() == quickAccessBundleID then
+			borders[window:id()] = updateBorder(window, borders[window:id()])
+		end
+	end)
 
-watcher:subscribe(hs.window.filter.windowDestroyed, function(window)
-	local windowID = window:id()
-	if borders[windowID] then
-		borders[windowID]:delete()
-		borders[windowID] = nil
-	end
+	watcher:subscribe(hs.window.filter.windowDestroyed, function(window)
+		local windowID = window:id()
+		if borders[windowID] then
+			borders[windowID]:delete()
+			borders[windowID] = nil
+		end
+	end)
 end)
+if not ok then
+	print("Window filter failed to start: " .. tostring(err))
+end
 
 -- Screen border and label for aerospace modes
 local screenBorder = nil
@@ -147,6 +152,21 @@ function hideScreenBorder()
 	if screenLabel then
 		screenLabel:delete()
 		screenLabel = nil
+	end
+end
+
+function resizeToPercent(percent)
+	local win = hs.window.focusedWindow()
+	if not win then
+		return
+	end
+	local screen = win:screen():frame()
+	local targetWidth = math.floor(screen.w * percent / 100)
+	local diff = math.floor(targetWidth - win:frame().w)
+	if diff > 0 then
+		os.execute("/opt/homebrew/bin/aerospace resize width +" .. diff)
+	elseif diff < 0 then
+		os.execute("/opt/homebrew/bin/aerospace resize width " .. diff)
 	end
 end
 

@@ -237,7 +237,7 @@ automatically-unhide-macos-hidden-apps = true
     a = ['layout accordion']
     t = ['layout tiling']
 
-    d = ['exec-and-forget /Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64']
+    d = ['exec-and-forget hs -c "resizeToPercent(64)"']
 
     f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]
     # c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200'"]
@@ -321,7 +321,7 @@ automatically-unhide-macos-hidden-apps = true
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'kitty'
-    run = [ 'exec-and-forget /Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64']
+    run = [ 'exec-and-forget /Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64'] # this script is faster for startup, and so we dont have to sleep
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'notion|obsidian|Simulator|figma|trello'

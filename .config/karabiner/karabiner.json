@@ -246,32 +246,6 @@
                     ]
                   }
                 ],
-                "from": { "key_code": "f", "modifiers": { "mandatory": ["control", "shift"] }},
-                "to": [
-                  { "key_code": "spacebar" },
-                  { "key_code": "s" },
-                  { "key_code": "g" }
-                ]
-              },
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
-                "from": { "key_code": "v", "modifiers": { "mandatory": ["control"] }},
-                "to": [{ "key_code": "v", "modifiers": ["right_command"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
                 "from": { "key_code": "x", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
                 "to": [{ "key_code": "x", "modifiers": ["left_shift", "right_command"] }]
               },

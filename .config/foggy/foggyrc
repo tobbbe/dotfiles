@@ -1,0 +1,11 @@
+# Bundle IDs or process names to never dim
+excluded = sketchybar
+
+# Dimming opacity (0.0 - 1.0)
+opacity = 0.7
+
+# "app" = all windows of focused app visible, "window" = only focused window
+focus_mode = window
+
+# Fade duration in seconds when toggling (0 = instant)
+fade_duration = 0.4

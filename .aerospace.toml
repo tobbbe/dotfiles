@@ -201,66 +201,38 @@ automatically-unhide-macos-hidden-apps = true
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-    # 🚨 "variables" (copy to all if change)
-    # to service.mode = ['exec-and-forget sketchybar --bar color=0x00000000 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="move=hjkl join=shift swap=alt focus=space wide=d reconfig=r (after all tiled, use hjkl to create tiles)"', 'mode service']
-    # to service.select = ['exec-and-forget sketchybar --bar color=0xff3a0404 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="focus=hjkl"', 'mode select']
-    # exit aerospace = ['reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
-
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-m = ['exec-and-forget hs -c "showScreenBorder({color={red=0.3,green=0.5,blue=1,alpha=1},label=[[hjkl=move|shift=join|alt=swap|d=autosize]]})"', 'mode service']
 
-
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-
-# use caps+cmd instead (ctrl+cmd)
-# [mode.select.binding]
-#     enter = ['exec-and-forget sketchybar --bar color=0x00000000 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="move=hjkl join=shift swap=alt focus=space wide=d reconfig=r (after all tiled, use hjkl to create tiles)"', 'mode service']
-#     esc = ['reload-config', 'exec-and-forget sketchybar --bar color=0x00000000; sketchybar --remove aerospace_help 2>/dev/null', 'mode main']
-#     h = 'focus left'
-#     j = 'focus down'
-#     k = 'focus up'
-#     l = 'focus right'
 
 [mode.scripts.binding]
     backspace = ['exec-and-forget hs -c "showScreenBorder({color={red=0.3,green=0.5,blue=1,alpha=1},label=[[hjkl=move|shift=join|alt=swap|d=autosize]]})"', 'mode service']
-    esc = ['exec-and-forget hs -c "hideScreenBorder()"', 'reload-config', 'mode main']
+    esc = ['exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
     h = ['exec-and-forget hs -c "hideScreenBorder()"', 'exec-and-forget /Users/tobbe/dev/dotfiles/scripts/toggle-hazeover.sh', 'mode main']
+    b = ['exec-and-forget pkill borders || borders', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
 
 [mode.service.binding]
     esc = ['exec-and-forget hs -c "hideScreenBorder()"', 'reload-config', 'mode main']
-    # space = ['exec-and-forget sketchybar --bar color=0xff3a0404 && sketchybar --add item aerospace_help center 2>/dev/null; sketchybar --set aerospace_help label="focus=hjkl"', 'mode select']
-    q = ['exec-and-forget hs -c "showScreenBorder({color={red=1,green=0.3,blue=0.3,alpha=1},label=[[h=hazeover]]})"', 'mode scripts']
+    q = ['exec-and-forget hs -c "showScreenBorder({color={red=1,green=0.3,blue=0.3,alpha=1},label=[[h=hazeover|b=borders]]})"', 'mode scripts']
 
-    c = ['flatten-workspace-tree'] # "clear" layout
+    c = ['flatten-workspace-tree']
     r = ['exec-and-forget hs -c "hideScreenBorder()"', 'exec-and-forget zsh ~/dev/dotfiles/reload.sh', 'mode main']
 
     a = ['layout accordion']
     t = ['layout tiling']
 
-    d = ['exec-and-forget hs -c "resizeToPercent(64)"']
+    d = ['exec-and-forget hs -c "autoResize()"', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
 
-    f = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]
-    # c = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-200'"]
-    # w = ['layout floating', "exec-and-forget open 'moves://custom/center?relativeWidth=0.5&relativeHeight=0.97&absoluteXOffset=420'"]
+    f = ['layout floating', 'exec-and-forget hs -c "centerFloating(40, 60)"', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
 
     v = ['layout h_tiles']
     s = ['layout v_tiles']
-
-
-    b = ['exec-and-forget pkill borders || borders']
-    # alt-comma = 'layout tiles accordion' 
-    # backspace = ['close-all-windows-but-current']
-
-    # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-    #s = ['layout sticky tiling']
-
-
 
     w = 'resize width +100'
     shift-w = 'resize width -100'
     e = 'resize height +100'
     shift-e = 'resize height -100'
-
 
     # might merge lonly window with container when moving (when on the edge)
     h = 'move left'
@@ -333,7 +305,7 @@ automatically-unhide-macos-hidden-apps = true
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'slack|mail|discord|Messages'
-    run = ['layout floating', 'move-node-to-workspace 2', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]
+    run = ['layout floating', 'move-node-to-workspace 2', 'exec-and-forget hs -c "centerFloating(40, 60)"']
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'sublime merge'
@@ -345,4 +317,4 @@ automatically-unhide-macos-hidden-apps = true
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'ChapMacOS|claude'
-    run = ['layout floating', 'move-node-to-workspace 5', "exec-and-forget open 'moves://custom/center?relativeWidth=0.3&relativeHeight=0.3&absoluteYOffset=-100'"]
+    run = ['layout floating', 'move-node-to-workspace 5', 'exec-and-forget hs -c "centerFloating(40, 60)"']

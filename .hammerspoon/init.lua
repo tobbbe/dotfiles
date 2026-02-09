@@ -1,5 +1,6 @@
 -- Enable IPC for command-line control
 require("hs.ipc")
+hs.window.animationDuration = 0
 
 -- White border for kitty quick-access terminal
 local borders = {}
@@ -153,6 +154,31 @@ function hideScreenBorder()
 		screenLabel:delete()
 		screenLabel = nil
 	end
+end
+
+function autoResize()
+	local win = hs.window.focusedWindow()
+	if not win then return end
+	local app = win:application():name():lower()
+	if app:find("kitty") then
+		resizeToPercent(64)
+	else
+		centerFloating(40, 60)
+	end
+end
+
+function centerFloating(widthPercent, heightPercent)
+	local win = hs.window.focusedWindow()
+	if not win then return end
+	local screen = win:screen():frame()
+	local w = math.floor(screen.w * widthPercent / 100)
+	local h = math.floor(screen.h * heightPercent / 100)
+	win:setFrame({
+		x = screen.x + math.floor((screen.w - w) / 2),
+		y = screen.y + math.floor((screen.h - h) / 2),
+		w = w,
+		h = h,
+	})
 end
 
 function resizeToPercent(percent)

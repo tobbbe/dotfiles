@@ -21,6 +21,10 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 bindkey -e  # Emacs key bindings
 bindkey "^[[1;3C" forward-word      # Option+Right
 bindkey "^[[1;3D" backward-word     # Option+Left
+bindkey "^[[H" beginning-of-line    # Home
+bindkey "^[[F" end-of-line          # End
+bindkey "^[h" backward-word         # Alt+H
+bindkey "^[l" forward-word          # Alt+L
 
 # Enable Vi key bindings
 # bindkey -v

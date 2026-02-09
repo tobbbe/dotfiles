@@ -464,6 +464,33 @@
             ]
           },
           {
+            "title": "Kitty Home/End",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["net.kovidgoyal.kitty"]
+                  }
+                ],
+                "from": { "key_code": "h", "modifiers": { "mandatory": ["command"] } },
+                "to": [{ "key_code": "f14" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["net.kovidgoyal.kitty"]
+                  }
+                ],
+                "from": { "key_code": "l", "modifiers": { "mandatory": ["command"] } },
+                "to": [{ "key_code": "f15" }]
+              }
+            ]
+          },
+          {
             "title": "VSCode bracket mappings",
             "manipulators": [
               {

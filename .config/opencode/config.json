@@ -14,11 +14,16 @@
     "figma": {
       "enabled": true,
       "type": "remote",
-      "url": "http://127.0.0.1:3845/mcp"
+      "url": "https://mcp.figma.com/mcp"
     },
     "supabase": {
       "type": "remote",
       "url": "https://mcp.supabase.com/mcp?project_ref=jubxcgifxdnhjczinfgo&read_only=true",
+      "enabled": true
+    },
+    "expo": {
+      "type": "remote",
+      "url": "https://mcp.expo.dev/mcp",
       "enabled": true
     }
   },

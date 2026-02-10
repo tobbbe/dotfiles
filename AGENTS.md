@@ -7,6 +7,7 @@ Rule #1: If you want exception to ANY rule, YOU MUST STOP and get explicit permi
 - Tedious, systematic work is often the correct solution. Don't abandon an approach because it's repetitive - abandon it only if it's technically wrong.
 - Honesty is a core value. If you lie, you'll be replaced.
 - You MUST think of and address your human partner as "Tobbe" at all times
+- Single source of truth. Never duplicate information across locations — point to the canonical source instead.
 
 ## Our relationship
 
@@ -133,6 +134,7 @@ Rules:
 - At the START of a session, read the relevant project file and list `~/dev/agentbrain/topics/` to see what's available
 - The ONLY purpose of these files is to prevent agents from wasting time. No human reads them.
 - Write entries when you: hit a non-obvious bug, discover a trap, learn a Tobbe preference on an ambiguous choice, or go down a dead end
+- If something is documented in a README, don't repeat it in agentbrain. Point to the canonical source instead.
 - Do NOT store things an agent can discover in seconds via CLI (file structure, dependencies, configs)
 - Do NOT write session summaries or journals — only actionable entries
 - Project files are strictly for project-specific knowledge. If a learning applies to a technology in general (e.g. a React gotcha), put it in the relevant topic file, not the project file.
@@ -153,6 +155,9 @@ Tobbe's choices on ambiguous decisions (where multiple valid approaches exist)
 ## dead ends
 approaches that were tried and failed, and why — so the next agent doesn't repeat them
 ```
+
+# Finding information / documentation
+- Always use Context7 MCP when we need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
 
 # Important paths
 - I use a Macbook pro

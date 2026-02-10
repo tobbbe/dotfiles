@@ -15,6 +15,8 @@ rsync --exclude ".git/" \
   --exclude "scripts/" \
   --exclude "prompts/" \
   --exclude "AGENTS.md" \
+  --exclude "agent-skills/" \
+  --exclude "agent-commands/" \
   --exclude ".config/sublime-text" \
   --exclude "firefoxUserContent.css" \
   -ah --itemize-changes --no-perms ~/dev/dotfiles/ ~/ 2>&1 |
@@ -47,6 +49,26 @@ echo '↠ Opencode AGENTS.md reloaded'
 # claude
 cp ~/dev/dotfiles/AGENTS.md ~/.claude/CLAUDE.md
 echo '↠ Claude AGENTS.md reloaded'
+
+# agent skills → ~/.claude/skills/ (opencode also reads from there)
+for skill_dir in ~/dev/dotfiles/agent-skills/*/; do
+  [ -d "$skill_dir" ] || continue
+  name=$(basename "$skill_dir")
+  mkdir -p ~/.claude/skills/"$name"
+  cp "$skill_dir"SKILL.md ~/.claude/skills/"$name"/SKILL.md
+done
+echo '↠ Agent skills reloaded'
+
+# agent commands → ~/.claude/skills/ (slash commands) + ~/.config/opencode/commands/
+mkdir -p ~/.config/opencode/commands
+for cmd_dir in ~/dev/dotfiles/agent-commands/*/; do
+  [ -d "$cmd_dir" ] || continue
+  name=$(basename "$cmd_dir")
+  mkdir -p ~/.claude/skills/"$name"
+  cp "$cmd_dir"SKILL.md ~/.claude/skills/"$name"/SKILL.md
+  cp "$cmd_dir"SKILL.md ~/.config/opencode/commands/"$name".md
+done
+echo '↠ Agent commands reloaded'
 
 # merge npmrc secrets
 # '-' tells cat to read from stdin (which in this case is a newline)

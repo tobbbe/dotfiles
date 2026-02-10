@@ -7,7 +7,7 @@ sketchybar --add item spotify left
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 sketchybar --add event spotify_change $SPOTIFY_EVENT
 # sketchybar --set spotify icon=󰝚
-sketchybar --set spotify label.max_chars=40
+sketchybar --set spotify label.max_chars=70
 sketchybar --set spotify script="$PLUGIN_DIR/spotify.sh"
 sketchybar --subscribe spotify spotify_change
 

@@ -316,6 +316,38 @@
                 ],
                 "from": { "key_code": "l", "modifiers": { "mandatory": ["left_control", "left_shift"] }},
                 "to": [{ "key_code": "right_arrow", "modifiers": ["left_control", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "j", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "f17" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "k", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "f18" }]
               }
             ]
           },
@@ -810,7 +842,7 @@
               {
                 "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
-                "from": { "key_code": "k", "modifiers": { "mandatory": ["left_command"] }},
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "com.anthropic.claudefordesktop" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}

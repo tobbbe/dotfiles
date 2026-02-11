@@ -13,6 +13,20 @@
         },
         "rules": [
           {
+            "title": "disable dead key backtick on Swedish layout",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "input_source_if", "input_sources": [{ "language": "sv" }] }],
+                "from": { "key_code": "equal_sign", "modifiers": { "mandatory": ["shift"] }},
+                "to": [
+                  { "key_code": "equal_sign", "modifiers": ["shift"] },
+                  { "key_code": "spacebar" }
+                ]
+              }
+            ]
+          },
+          {
             "title": "navigate imessages",
             "manipulators": [
               {

@@ -62,8 +62,14 @@ and ~/.gitconfig-work with:
 - keyboard > Delay until repeat = short(est)
 
 # Key repeat
+lower means faster
 defaults write -g InitialKeyRepeat -int 12 # UI minimum is 15 🚨 DONT SET TO LOW!!
 defaults write -g KeyRepeat -int 1 # UI minimum is 2 🚨 DONT SET TO LOW!!
+
+## current settings
+- InitialKeyRepeat: 9
+- KeyRepeat: 1
+- ApplePressAndHoldEnabled: false (disables special characters macos menu when holding a key)
 
 # VSCode
 

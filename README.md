@@ -66,6 +66,10 @@ lower means faster
 defaults write -g InitialKeyRepeat -int 12 # UI minimum is 15 🚨 DONT SET TO LOW!!
 defaults write -g KeyRepeat -int 1 # UI minimum is 2 🚨 DONT SET TO LOW!!
 
+1. First keystroke — immediate
+2. Wait InitialKeyRepeat (x ms) — nothing happens
+3. Repeat every KeyRepeat (x ms) — fast continuous repeats
+
 ## current settings
 - InitialKeyRepeat: 9
 - KeyRepeat: 1

@@ -879,6 +879,20 @@
             ]
           },
           {
+            "title": "<leader-b>",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "b", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "key_code": "b", "modifiers": ["right_command", "left_shift"] },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
             "title": "<leader-e>",
             "manipulators": [
               {

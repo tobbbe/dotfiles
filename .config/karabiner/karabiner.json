@@ -172,9 +172,7 @@
                   }
                 ],
                 "from": { "key_code": "grave_accent_and_tilde" },
-                "to": [
-                  { "shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries workspace --boundaries-action wrap-around-the-workspace --ignore-floating" }
-                ]
+                "to": [{ "software_function": { "open_application": { "bundle_identifier": "org.mozilla.firefox" }}}]
               },
               {
                 "type": "basic",

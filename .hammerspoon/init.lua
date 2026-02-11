@@ -158,7 +158,9 @@ end
 
 function autoResize()
 	local win = hs.window.focusedWindow()
-	if not win then return end
+	if not win then
+		return
+	end
 	local app = win:application():name():lower()
 	if app:find("kitty") then
 		resizeToPercent(64)
@@ -169,7 +171,9 @@ end
 
 function centerFloating(widthPercent, heightPercent)
 	local win = hs.window.focusedWindow()
-	if not win then return end
+	if not win then
+		return
+	end
 	local screen = win:screen():frame()
 	local w = math.floor(screen.w * widthPercent / 100)
 	local h = math.floor(screen.h * heightPercent / 100)
@@ -194,6 +198,62 @@ function resizeToPercent(percent)
 	elseif diff < 0 then
 		os.execute("/opt/homebrew/bin/aerospace resize width " .. diff)
 	end
+end
+
+-- Top-center on-screen notification
+local notificationCanvas = nil
+local notificationTimer = nil
+
+function showNotification(text)
+	if notificationCanvas then
+		notificationCanvas:delete()
+		notificationCanvas = nil
+	end
+	if notificationTimer then
+		notificationTimer:stop()
+		notificationTimer = nil
+	end
+
+	local screen = hs.screen.mainScreen()
+	local frame = screen:fullFrame()
+	local fontSize = 22
+	local paddingX = 30
+	local paddingY = 14
+	local labelWidth = 400
+	local labelHeight = fontSize + paddingY * 2
+	local labelFrame = {
+		x = (frame.w - labelWidth) / 2,
+		y = 10 + labelHeight * 2,
+		w = labelWidth,
+		h = labelHeight,
+	}
+
+	notificationCanvas = hs.canvas.new(labelFrame)
+	local styledText = hs.styledtext.new(text, {
+		font = { name = "Menlo-Bold", size = fontSize },
+		color = { red = 0.05, green = 0.1, blue = 0.05, alpha = 1 },
+		paragraphStyle = { alignment = "center" },
+	})
+	notificationCanvas:appendElements({
+		type = "rectangle",
+		action = "fill",
+		fillColor = { red = 0.68, green = 1.0, blue = 0.68, alpha = 0.9 },
+		roundedRectRadii = { xRadius = 8, yRadius = 8 },
+	}, {
+		type = "text",
+		text = styledText,
+		frame = { x = paddingX, y = paddingY, w = labelWidth - paddingX * 2, h = labelHeight - paddingY * 2 },
+	})
+	notificationCanvas:level(hs.canvas.windowLevels.overlay)
+	notificationCanvas:show()
+
+	notificationTimer = hs.timer.doAfter(4, function()
+		if notificationCanvas then
+			notificationCanvas:delete()
+			notificationCanvas = nil
+		end
+		notificationTimer = nil
+	end)
 end
 
 -- hs.alert.show("Hammerspoon config loaded")

@@ -46,10 +46,22 @@
       "Bash(nvim:*)",
       "Bash(vim:*)",
       "Bash(jq:*)",
-      "Bash(docker:*)"
+      "Bash(docker:*)",
+      "mcp__*"
     ]
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/load-agentbrain.sh"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": "",

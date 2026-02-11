@@ -125,15 +125,15 @@ YOU MUST follow this debugging framework for ANY technical issue:
 # Shared memory (agentbrain)
 
 You have a shared memory store at `~/dev/agentbrain/`. This is shared across all AI agents (Claude Code, opencode, etc.) and persists across sessions. YOU MUST actively use it.
+At the START of a session i will send a message with the relevant project file's content from agentbrain and a list of all topic files. Do NOT preemptively load all topic references - use lazy loading based on actual need. Follow references recursively when needed.
 
 Structure:
 - `projects/<name>.md` — per-project knowledge (use the project's directory name, e.g. `nvim.md` for `~/.config/nvim`, `peach.md` for `~/dev/peach`)
 - `topics/<name>.md` — cross-project topic knowledge (e.g. `react.md`, `lua.md`)
 
 Rules:
-- At the START of a session, read the relevant project file and list `~/dev/agentbrain/topics/` to see what's available
-- The ONLY purpose of these files is to prevent agents from wasting time. No human reads them.
 - Write entries when you: hit a non-obvious bug, discover a trap, learn a Tobbe preference on an ambiguous choice, or go down a dead end
+- The ONLY purpose of these files is to prevent agents from wasting time. No human reads them.
 - If something is documented in a README, don't repeat it in agentbrain. Point to the canonical source instead.
 - Do NOT store things an agent can discover in seconds via CLI (file structure, dependencies, configs)
 - Do NOT write session summaries or journals — only actionable entries

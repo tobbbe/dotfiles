@@ -348,60 +348,6 @@
             ]
           },
           {
-            "title": "Quick terminal",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "return_or_enter" , "modifiers": { "mandatory": ["left_control"] }},
-                "to": [{ "key_code": "t", "halt": true, "modifiers": ["left_shift", "left_control", "right_option", "right_command"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "return_or_enter" , "modifiers": { "mandatory": ["right_command"] }},
-                "to": [{ "key_code": "t", "halt": true, "modifiers": ["left_shift", "left_control", "right_option", "right_command"] }]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ]
-                  }
-                ],
-                "from": { "key_code": "return_or_enter" , "modifiers": { "mandatory": ["right_command"] }},
-                "to": [{ "key_code": "t", "halt": true, "modifiers": ["left_shift", "left_control", "right_option", "right_command"] }]
-              }
-            ]
-          },
-
-          {
             "title": "Common coding key mappings",
             "manipulators": [
               {
@@ -869,6 +815,17 @@
                   { "software_function": { "open_application": { "bundle_identifier": "com.tinyspeck.slackmacgap" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
+              }
+            ]
+          },
+          {
+            "title": "<leader-enter>",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "return_or_enter", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "key_code": "t", "halt": true, "modifiers": ["left_shift", "left_control", "right_option", "right_command"] }]
               }
             ]
           },

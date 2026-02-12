@@ -57,6 +57,14 @@ zle -N ctrl-g-widget
 # bindkey '^G' ctrl-g-widget  # ctrl-g
 bindkey '^bw' ctrl-g-widget  # ctrl-b + w
 
+function ctrl-w-widget() {
+  zle push-line
+  BUFFER="v"
+  zle accept-line
+}
+zle -N ctrl-w-widget
+bindkey '^w' ctrl-w-widget  # ctrl-b + w
+
 HISTORY_IGNORE="(ls|cd|pwd|vv|v|rr|t|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS

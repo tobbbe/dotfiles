@@ -98,19 +98,37 @@ automatically-unhide-macos-hidden-apps = true
     # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    alt-shift-m = ['exec-and-forget hs -c "showScreenBorder({color={red=0.3,green=0.5,blue=1,alpha=1},label=[[hjkl=move|shift=join|alt=swap|d=autosize]]})"', 'mode service']
+    alt-shift-m = ['exec-and-forget hs -c "showScreenBorder({color={red=0.3,green=0.5,blue=1,alpha=1},label=[[hjkl=move|shift=join|alt=swap|d=autosize|space=scripts|w=width|u=height]]})"', 'mode service']
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 
 [mode.scripts.binding]
     backspace = ['exec-and-forget hs -c "showScreenBorder({color={red=0.3,green=0.5,blue=1,alpha=1},label=[[hjkl=move|shift=join|alt=swap|d=autosize]]})"', 'mode service']
     esc = ['exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
-    h = ['exec-and-forget hs -c "hideScreenBorder()"', 'exec-and-forget /Users/tobbe/dev/dotfiles/scripts/toggle-hazeover.sh', 'mode main']
+    s = ['exec-and-forget hs -c "hideScreenBorder()"', 'exec-and-forget /Users/tobbe/dev/dotfiles/scripts/toggle-hazeover.sh', 'mode main']
     b = ['exec-and-forget pkill borders || borders', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
+
+    # hydra mode (dont exit on trigger)
+    h = [ 'move left']
+    j = [ 'move down']
+    k = [ 'move up']
+    l = [ 'move right']
+
+    # never merges or breaks windows out of containers
+    alt-h = 'swap left'
+    alt-j = 'swap down'
+    alt-k = 'swap up'
+    alt-l = 'swap right'
+
+    shift-h = ['join-with left']
+    shift-j = ['join-with down']
+    shift-k = ['join-with up']
+    shift-l = ['join-with right']
+
 
 [mode.service.binding]
     esc = ['exec-and-forget hs -c "hideScreenBorder()"', 'reload-config', 'mode main']
-    q = ['exec-and-forget hs -c "showScreenBorder({color={red=1,green=0.3,blue=0.3,alpha=1},label=[[h=hazeover|b=borders]]})"', 'mode scripts']
+    space = ['exec-and-forget hs -c "showScreenBorder({color={red=1,green=0.3,blue=0.3,alpha=1},label=[[s=hazeover|b=borders|hjkl=move]]})"', 'mode scripts']
 
     c = ['flatten-workspace-tree']
     r = ['exec-and-forget hs -c "hideScreenBorder()"', 'exec-and-forget zsh ~/dev/dotfiles/reload.sh', 'mode main']
@@ -127,14 +145,14 @@ automatically-unhide-macos-hidden-apps = true
 
     w = 'resize width +100'
     shift-w = 'resize width -100'
-    e = 'resize height +100'
-    shift-e = 'resize height -100'
+    u = 'resize height +100'
+    shift-u = 'resize height -100'
 
     # might merge lonly window with container when moving (when on the edge)
-    h = 'move left'
-    j = 'move down'
-    k = 'move up'
-    l = 'move right'
+    h = [ 'move left','exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
+    j = [ 'move down', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
+    k = [ 'move up', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
+    l = [ 'move right','exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
 
     # never merges or breaks windows out of containers
     alt-h = 'swap left'

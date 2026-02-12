@@ -61,17 +61,6 @@
             ]
           },
           {
-            "title": "quick terminal",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["disabled"] }],
-                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["command"] }},
-                "to": [{ "key_code": "t", "modifiers": ["left_shift", "left_control", "right_option"] }]
-              }
-            ]
-          },
-          {
             "title": "Parallels caps lock",
             "manipulators": [
               {
@@ -138,11 +127,6 @@
           {
             "title": "Terminal",
             "manipulators": [
-              {
-                "type": "basic",
-                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["left_command"] }},
-                "to": [{ "key_code": "t", "modifiers": ["right_command", "left_shift", "left_control", "right_option"] }]
-              },
               {
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["net.kovidgoyal.kitty"] }],
@@ -363,6 +347,60 @@
               }
             ]
           },
+          {
+            "title": "Quick terminal",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "return_or_enter" , "modifiers": { "mandatory": ["left_control"] }},
+                "to": [{ "key_code": "t", "halt": true, "modifiers": ["left_shift", "left_control", "right_option", "right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "return_or_enter" , "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "t", "halt": true, "modifiers": ["left_shift", "left_control", "right_option", "right_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ]
+                  }
+                ],
+                "from": { "key_code": "return_or_enter" , "modifiers": { "mandatory": ["right_command"] }},
+                "to": [{ "key_code": "t", "halt": true, "modifiers": ["left_shift", "left_control", "right_option", "right_command"] }]
+              }
+            ]
+          },
+
           {
             "title": "Common coding key mappings",
             "manipulators": [

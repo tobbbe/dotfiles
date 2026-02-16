@@ -125,11 +125,13 @@ YOU MUST follow this debugging framework for ANY technical issue:
 # Shared memory (agentbrain)
 
 You have a shared memory store at `~/dev/agentbrain/`. This is shared across all AI agents (Claude Code, opencode, etc.) and persists across sessions. YOU MUST actively use it.
-At the START of a session i will send a message with the relevant project file's content from agentbrain and a list of all topic files. Do NOT preemptively load all topic references - use lazy loading based on actual need. Follow references recursively when needed.
 
 Structure:
-- `projects/<name>.md` — per-project knowledge (use the project's directory name, e.g. `nvim.md` for `~/.config/nvim`, `peach.md` for `~/dev/peach`)
-- `topics/<name>.md` — cross-project topic knowledge (e.g. `react.md`, `lua.md`)
+- `~/dev/agentbrain/projects/<name>.md` — per-project knowledge (use the project's directory name, e.g. `nvim.md` for `~/.config/nvim`, `peach.md` for `~/dev/peach`)
+- `~/dev/agentbrain/topics/<name>.md` — cross-project topic knowledge (e.g. `react.md`, `lua.md`)
+
+The current project (cwd) memory file is loaded automatically into the session context (symlinked claude.local.md from agentbrain project file) and will start with the header - "Agent brain project memory for current cwd". It's important that you tell me if the header is missing in the current context so we can add it!
+Do NOT preemptively load all topic references - use lazy loading based on actual need (read the file names with your read tool to get a list of topics). Follow references in topics recursively when needed.
 
 Rules:
 - Write entries when you: hit a non-obvious bug, discover a trap, learn a Tobbe preference on an ambiguous choice, or go down a dead end

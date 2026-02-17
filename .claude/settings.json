@@ -68,7 +68,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hs -c 'showNotification(\"Claude Code: Finished\")'"
+            "command": "hs -c 'showNotification(\"Claude Code: Finished\")' < /dev/null"
           }
         ]
       }
@@ -79,7 +79,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hs -c 'showNotification(\"Claude Code: Needs Help\")'"
+            "command": "hs -c 'showNotification(\"Claude Code: Needs Help\")' < /dev/null"
           }
         ]
       }

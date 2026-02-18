@@ -14,7 +14,8 @@
     "figma": {
       "enabled": true,
       "type": "remote",
-      "url": "https://mcp.figma.com/mcp"
+      "url": "http://127.0.0.1:3845/mcp",
+      "oauth": false
     },
     "supabase": {
       "type": "remote",

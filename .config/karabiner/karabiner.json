@@ -830,12 +830,12 @@
             ]
           },
           {
-            "title": "<leader-f>",
+            "title": "<leader-i>",
             "manipulators": [
               {
                 "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
-                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] }},
+                "from": { "key_code": "i", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "com.figma.Desktop" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -886,12 +886,12 @@
             ]
           },
           {
-            "title": "<leader><leader> + n",
+            "title": "<leader-n>",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "n" },
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "n", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "notion.id" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -900,12 +900,12 @@
             ]
           },
           {
-            "title": "<leader><leader> + m",
+            "title": "<leader-m>",
             "manipulators": [
               {
                 "type": "basic",
-                "conditions": [{ "type": "expression_if", "expression": "leader_active > system.now.milliseconds" }],
-                "from": { "key_code": "m" },
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "m", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "com.apple.mail" }}},
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
@@ -914,7 +914,35 @@
             ]
           },
           {
-            "title": "<leader><leader> + g",
+            "title": "<leader-g>",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "g", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "software_function": { "open_application": { "bundle_identifier": "com.sublimemerge" }}},
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "<leader-o>",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
+                "from": { "key_code": "o", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [
+                  { "key_code": "l", "modifiers": ["right_option", "left_shift", "left_command"] },
+                  { "set_variable": { "name": "leader_active", "expression": "0" }}
+                ]
+              }
+            ]
+          },
+          {
+            "title": "<leader><leader> + g (example)",
             "manipulators": [
               {
                 "type": "basic",

@@ -1,44 +1,94 @@
 {
   "type": "group",
   "actions": [
-    { "key": "a", "type": "application", "value": "/System/Volumes/Data/Applications/Slack.app" },
-    { "key": "s", "type": "application", "value": "/System/Volumes/Data/Applications/Firefox.app" },
-    { "key": "d", "type": "application", "value": "/System/Volumes/Data/Applications/Sublime Merge.app" },
-    { "key": "e", "type": "application", "value": "/System/Volumes/Data/Applications/ChapMacOS.app" },
-    { "key": "n", "type": "application", "value": "/System/Volumes/Data/Applications/Notion.app" },
-    { "key": "m", "type": "application", "value": "/System/Applications/Mail.app" },
-    { "key": "f", "type": "application", "value": "/System/Applications/Messages.app" },
-    { "key": "i", "type": "command", "value": "open -a Simulator" },
     {
-      "iconPath": "/Applications/Raycast.app",
-      "key": "p",
-      "label": "Raycast",
-      "type": "url",
-      "value": "raycast://"
-    },
-    {
-      "iconPath": "rectangle.center.inset.filled",
-      "key": "c",
-      "label": "Center",
-      "type": "url",
-      "value": "moves://custom/center?relativeWidth=0.5&relativeHeight=0.7&absoluteYOffset=-100"
-    },
-    {
-      "key": "j",
+      "key": "o",
       "label": "New firefox tab",
       "type": "command",
       "value": "/Applications/Firefox.app/Contents/MacOS/firefox --new-tab about:blank"
     },
     {
-      "key": "space",
-      "label": "Aerospace",
-      "type": "command",
-      "value": "/opt/homebrew/bin/sketchybar --bar color=0xff24ff53 && /opt/homebrew/bin/aerospace mode service"
-    },
-    {
-      "key": "a",
+      "key": "v",
       "type": "group",
       "actions": [
+        {
+          "key": "e",
+          "type": "url",
+          "label": "Vercel Deployments",
+          "value": "https://vercel.com/gymochfitness/~/deployments"
+        }
+      ]
+    },
+    {
+      "key": "p",
+      "type": "group",
+      "actions": [
+        {
+          "key": "e",
+          "type": "url",
+          "label": "Peach local",
+          "value": "http://peach.localhost:3032"
+        }
+      ]
+    },
+    {
+      "key": "P",
+      "type": "group",
+      "actions": [
+        {
+          "key": "e",
+          "type": "url",
+          "label": "Peach live",
+          "value": "https://peach.livityapp.com"
+        }
+      ]
+    },
+    {
+      "key": "l",
+      "type": "group",
+      "actions": [
+        {
+          "key": "w",
+          "type": "url",
+          "label": "Livity local",
+          "value": "http://livityapp.localhost:9000/sv"
+        }
+      ]
+    },
+    {
+      "key": "L",
+      "type": "group",
+      "actions": [
+        {
+          "key": "w",
+          "type": "url",
+          "label": "Livity live",
+          "value": "https://livityapp.com"
+        }
+      ]
+    },
+    {
+      "key": "e",
+      "type": "group",
+      "actions": [
+        {
+          "key": "x",
+          "type": "url",
+          "label": "Expo dashboard",
+          "value": "https://expo.dev/accounts/flexsolutions"
+        }
+      ]
+    },
+    {
+      "key": "s",
+      "type": "group",
+      "actions": [
+        {
+          "key": "u",
+          "type": "url",
+          "label": "Supabase dashboard",
+          "value": "https://supabase.com/dashboard/project/jubxcgifxdnhjczinfgo/editor/86486?filter=is_giant_set%3Aeq%3Atrue"
+        }
       ]
     }
   ]

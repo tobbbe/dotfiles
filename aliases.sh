@@ -47,7 +47,7 @@ alias gl="git log --graph --date=relative --decorate --pretty=format:'%C(yellow)
 alias gl+="git log --oneline --decorate --graph --stat --date=relative --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
 
 # tmux
-alias ta='tmux attach -t'                # attach named session
+# alias ta='tmux attach -t'                # attach named session
 alias tp='tmux a'                        # attach previous session
 alias tt='tmux a && tmux choose-session' # show tmux choose-session
 alias tl='tmux list-sessions'

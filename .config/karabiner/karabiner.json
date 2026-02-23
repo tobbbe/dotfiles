@@ -604,7 +604,7 @@
                 ],
                 "from": { "key_code": "3", "modifiers": { "mandatory": ["left_control"] }},
                 "to": [
-                  { "key_code": "b", "modifiers": ["left_control"] },
+                  { "key_code": "a", "modifiers": ["left_control"] },
                   { "key_code": "w" }
                 ]
               },
@@ -1162,7 +1162,7 @@
                 "type": "basic",
                 "from": { "key_code": "left_shift" },
                 "to": { "key_code": "left_shift", "modifiers": ["any"] },
-                "to_if_alone": [{ "key_code": "a", "modifiers": ["left_command"] }]
+                "to_if_alone": [{ "key_code": "b", "modifiers": ["left_command"] }]
               }
             ]
           },

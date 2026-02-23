@@ -491,6 +491,20 @@ function t() {
   fi
 }
 
+function ta() {
+  local cwd_name
+  cwd_name="$(basename "$PWD")"
+  local session_name="Agents - ${cwd_name}"
+
+  tmux new-session -d -s "$session_name" -c "$PWD" 2>/dev/null
+
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$session_name"
+  else
+    tmux attach -t "$session_name"
+  fi
+}
+
 function tk() {
   if [ -z "$1" ]; then
     tmux kill-session
@@ -655,10 +669,9 @@ f() {
 }
 
 s() {
- local server 
- server=$(awk '/^Host / { host=$2 } /IdentityFile ~\/.ssh\/servers/ { print host }' ~/.ssh/config | fzf)
- if [[ -n $server ]]; then
-  ssh $server
- fi
+  local server
+  server=$(awk '/^Host / { host=$2 } /IdentityFile ~\/.ssh\/servers/ { print host }' ~/.ssh/config | fzf)
+  if [[ -n $server ]]; then
+    ssh $server
+  fi
 }
-

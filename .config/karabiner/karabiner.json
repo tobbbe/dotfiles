@@ -856,14 +856,14 @@
             ]
           },
           {
-            "title": "<leader-i>",
+            "title": "<leader-1>",
             "manipulators": [
               {
                 "type": "basic",
                 "conditions": [{ "type": "expression_if", "expression": "leader_active = 0" }],
-                "from": { "key_code": "i", "modifiers": { "mandatory": ["left_command"] }},
+                "from": { "key_code": "1", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [
-                  { "software_function": { "open_application": { "bundle_identifier": "com.figma.Desktop" }}},
+                  { "shell_command": "/opt/homebrew/bin/aerospace focus-monitor next --wrap-around" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
               }

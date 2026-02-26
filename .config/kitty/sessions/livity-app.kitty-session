@@ -2,4 +2,4 @@ cd ~/dev/livity-app-v5/
 
 launch --title "livity-app" /bin/zsh -i -c 'v; exec zsh'
 
-launch --title "Agents - Livity App" /bin/zsh -i -c 'ta; exec zsh'
+launch --title "Tmux - Livity App" /bin/zsh -i -c 'ta; exec zsh'

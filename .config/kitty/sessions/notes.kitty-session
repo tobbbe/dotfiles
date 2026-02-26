@@ -1,3 +1,5 @@
 cd ~/dev/notes/
 
 launch --title "notes" /bin/zsh -i -c 'v; exec zsh'
+
+launch --title "Tmux - notes" /bin/zsh -i -c 'ta; exec zsh'

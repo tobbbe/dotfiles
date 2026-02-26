@@ -1,3 +1,5 @@
 cd ~/dev/livityapp-web/
 
 launch --title "livityapp-web" /bin/zsh -i -c 'v; exec zsh'
+
+launch --title "Tmux - livityapp-web" /bin/zsh -i -c 'ta; exec zsh'

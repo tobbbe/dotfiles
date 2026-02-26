@@ -494,7 +494,7 @@ function t() {
 function ta() {
   local cwd_name
   cwd_name="$(basename "$PWD")"
-  local session_name="Agents - ${cwd_name}"
+  local session_name="Tmux - ${cwd_name}"
 
   tmux new-session -d -s "$session_name" -c "$PWD" 2>/dev/null
 

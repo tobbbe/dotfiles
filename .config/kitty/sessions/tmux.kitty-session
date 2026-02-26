@@ -1,3 +1,5 @@
 cd ~/dev
 
 launch --title "tmux" /bin/zsh -i -c 'tmux new-session -A; exec zsh'
+
+launch --title "Tmux - tmux" /bin/zsh -i -c 'ta; exec zsh'

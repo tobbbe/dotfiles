@@ -9,7 +9,7 @@ from typing import Optional
 
 
 def main() -> None:
-    if len(sys.argv) != 2 or sys.argv[1] not in {"h", "l"}:
+    if len(sys.argv) != 2 or sys.argv[1] not in {"h", "l", "t"}:
         raise SystemExit(0)
 
     direction = sys.argv[1]
@@ -89,11 +89,21 @@ def main() -> None:
     tab_name = str(focused_tab.get("name") or "")
     tab_label = f"{tab_title} {tab_name}".lower()
     if "tmux" in tab_label and focused_window_id is not None:
-        sequence = "\\eh" if direction == "h" else "\\el"
+        if direction == "h":
+            sequence = "\\eh"
+        elif direction == "l":
+            sequence = "\\el"
+        else:
+            sequence = "\\et"
         kitty_call("send-text", "--match", f"id:{focused_window_id}", sequence)
         return
 
-    action = "previous_tab" if direction == "h" else "next_tab"
+    if direction == "h":
+        action = "previous_tab"
+    elif direction == "l":
+        action = "next_tab"
+    else:
+        action = "new_tab_with_cwd"
     kitty_call("action", action)
 
 

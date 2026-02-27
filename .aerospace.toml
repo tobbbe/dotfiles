@@ -138,7 +138,7 @@ automatically-unhide-macos-hidden-apps = true
 
     b = ['balance-sizes']
     d = ['exec-and-forget hs -c "autoResize()"', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
-    shift-d = ['exec-and-forget hs -c "resizeToPercent(48)"', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
+    e = ['exec-and-forget hs -c "resizeToPercent(48)"', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
 
     f = ['layout floating', 'exec-and-forget hs -c "centerFloating(40, 60)"', 'exec-and-forget hs -c "hideScreenBorder()"', 'mode main']
 

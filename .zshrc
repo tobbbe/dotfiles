@@ -11,6 +11,8 @@ export PATH="$PATH:$HOME/.ai"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
 
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
 # android dev
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
@@ -89,7 +91,9 @@ zstyle ':vcs_info:git:*' stagedstr '+'
 PROMPT=$'%F{#aeffae}%~%f %F{reset_color}' # purple:141 green:82
 
 # tab completion
-autoload -Uz compinit && compinit
+# autoload -Uz compinit && compinit
+# with cache 24h:
+autoload -Uz compinit && compinit -C
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -112,7 +116,7 @@ function nvim() {
   fi
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
@@ -149,3 +153,9 @@ eval "$(zoxide init zsh --no-cmd)"
 
 # . "$HOME/.atuin/bin/env"
 # eval "$(atuin init zsh --disable-up-arrow)"
+
+export PNPM_HOME="/Users/tobbe/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac

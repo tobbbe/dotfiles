@@ -206,8 +206,12 @@ automatically-unhide-macos-hidden-apps = true
 
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
 [[on-window-detected]]
-    if.app-name-regex-substring = 'code|iTerm2|Firefox'
+    if.app-name-regex-substring = 'iTerm2|Firefox'
     run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'code|QuickTime Player'
+    run = ['layout floating']
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'kitty'
@@ -215,7 +219,7 @@ automatically-unhide-macos-hidden-apps = true
     # run = [ 'exec-and-forget /Users/tobbe/dev/dotfiles/scripts/aerospace-resize-to-percent.sh 64'] # this script is faster for startup, and so we dont have to sleep
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'notion|obsidian|Simulator|figma|trello'
+    if.app-name-regex-substring = 'notion|obsidian|figma|trello'
     run = ['move-node-to-workspace 9', "layout accordion"]
 
 [[on-window-detected]]

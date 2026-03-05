@@ -812,9 +812,19 @@
                 "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] }},
                 "to": [
                   { "software_function": { "open_application": { "bundle_identifier": "com.apple.iphonesimulator" }}},
-                  { "shell_command": "sleep 0.1 && osascript -e 'tell application \"System Events\" to keystroke return'" },
                   { "set_variable": { "name": "leader_active", "expression": "0" }}
                 ]
+              }
+            ]
+          },
+          {
+            "title": "Simulator expo reload",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.iphonesimulator"] }],
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["left_command"] }},
+                "to": [{ "shell_command": "/Users/tobbe/dev/dotfiles/scripts/expo-send-r.sh" }]
               }
             ]
           },

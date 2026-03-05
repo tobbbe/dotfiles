@@ -64,6 +64,7 @@ alias scannetworkMore="sudo nmap 192.168.1.0/24"
 # react-native
 alias rnPodsReInstall="rm -rf ios/build ios/Pods ios/Podfile.lock; cd ios; pod install; cd -" # remove build+pods and reinstall them
 # rni in functions
+alias expr="~/dev/dotfiles/scripts/expo-send-r.sh"
 alias prodrni="npx react-native run-ios --simulator=\"iPhone 14\" --configuration Release"
 alias rna="npx react-native run-android"
 alias rnar="cd android && ./gradlew --no-daemon bundleRelease && open ./app/build/outputs/bundle/release/ && cd .."

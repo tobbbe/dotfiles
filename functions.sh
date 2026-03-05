@@ -513,6 +513,73 @@ function tk() {
   fi
 }
 
+# tw: create a git worktree + tmux session + open nvim
+# Run from anywhere inside a git repo in a fresh kitty tab
+function tw() {
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -z "$repo_root" ]; then
+    echo "Not in a git repository"
+    return 1
+  fi
+
+  local name
+  read "name?Worktree name: "
+  if [ -z "$name" ]; then
+    echo "No name provided"
+    return 1
+  fi
+
+  local repo_name worktree_path session_name
+  repo_name=$(basename "$repo_root")
+  worktree_path="$repo_root/.worktrees/$name"
+  session_name="${repo_name}-wt-${name}"
+
+  # Ensure .worktrees/ is gitignored
+  local gitignore="$repo_root/.gitignore"
+  if [ -f "$gitignore" ] && ! grep -q "^\.worktrees" "$gitignore"; then
+    echo ".worktrees" >> "$gitignore"
+    echo "Added .worktrees to .gitignore"
+  fi
+
+  # Create worktree with a new branch
+  if ! git -C "$repo_root" worktree add "$worktree_path" -b "$name"; then
+    echo "Failed to create worktree"
+    return 1
+  fi
+
+  # Create tmux session rooted in the worktree
+  tmux new-session -d -s "$session_name" -c "$worktree_path" 2>/dev/null
+
+  # Rename the current kitty tab
+  kitty @ set-tab-title "$name" 2>/dev/null
+
+  # cd into worktree and open nvim
+  cd "$worktree_path"
+  v
+}
+
+# wr: select a worktree via fzf and run `nr` (dev script) there
+# Run from anywhere inside a git repo
+function wr() {
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -z "$repo_root" ]; then
+    echo "Not in a git repository"
+    return 1
+  fi
+
+  local selected
+  selected=$(git -C "$repo_root" worktree list --porcelain | awk '/^worktree /{print $2}' | fzf --prompt="Worktree: ")
+
+  if [ -z "$selected" ]; then
+    return 0
+  fi
+
+  cd "$selected"
+  nr
+}
+
 # edit/clear history in v ~/.vv_history
 function vv() {
   local history_file=~/.vv_history

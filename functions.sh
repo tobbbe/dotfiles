@@ -513,6 +513,24 @@ function tk() {
   fi
 }
 
+# Shared setup for tw/tc: rename tab, start tmux session, open tmux window, cd + nvim
+function _wt_open() {
+  local name="$1" worktree_path="$2" session_name="$3"
+
+  # Create tmux session rooted in the worktree (no-op if already exists)
+  tmux new-session -d -s "$session_name" -c "$worktree_path" 2>/dev/null
+
+  # Rename the current kitty tab
+  kitty @ set-tab-title "$name" 2>/dev/null
+
+  # Open a second kitty window in this tab attached to the tmux session
+  kitty @ launch --no-response --type=window tmux attach -t "$session_name" 2>/dev/null
+
+  # cd into worktree and open nvim in the first window
+  cd "$worktree_path"
+  v
+}
+
 # tw: create a git worktree + tmux session + open nvim
 # Run from anywhere inside a git repo in a fresh kitty tab
 function tw() {
@@ -548,15 +566,35 @@ function tw() {
     return 1
   fi
 
-  # Create tmux session rooted in the worktree
-  tmux new-session -d -s "$session_name" -c "$worktree_path" 2>/dev/null
+  _wt_open "$name" "$worktree_path" "$session_name"
+}
 
-  # Rename the current kitty tab
-  kitty @ set-tab-title "$name" 2>/dev/null
+# tc: connect to an existing worktree (like tw but without creating)
+# Run from anywhere inside a git repo in a fresh kitty tab
+function tc() {
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -z "$repo_root" ]; then
+    echo "Not in a git repository"
+    return 1
+  fi
 
-  # cd into worktree and open nvim
-  cd "$worktree_path"
-  v
+  local selected
+  selected=$(git -C "$repo_root" worktree list --porcelain \
+    | awk '/^worktree /{print $2}' \
+    | grep -v "^${repo_root}$" \
+    | fzf --prompt="Worktree: ")
+
+  if [ -z "$selected" ]; then
+    return 0
+  fi
+
+  local name repo_name session_name
+  name=$(basename "$selected")
+  repo_name=$(basename "$repo_root")
+  session_name="${repo_name}-wt-${name}"
+
+  _wt_open "$name" "$selected" "$session_name"
 }
 
 # wr: select a worktree via fzf and run `nr` (dev script) there

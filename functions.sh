@@ -611,6 +611,13 @@ function td() {
   repo_name=$(basename "$repo_root")
   session_name="${repo_name}-wt-${name}"
 
+  local confirm
+  read "confirm?Remove worktree '$name'? [y/N] "
+  if [[ "$confirm" != [yY] ]]; then
+    echo "Aborted"
+    return 0
+  fi
+
   # Kill tmux session if it exists
   tmux kill-session -t "$session_name" 2>/dev/null
 

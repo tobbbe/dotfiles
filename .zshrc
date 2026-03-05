@@ -71,24 +71,27 @@ HISTORY_IGNORE="(ls|cd|pwd|vv|v|rr|t|exit|cd ..|..)"
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
 
-# PROMPT with git branch name
+# PROMPT with git branch + worktree name
 autoload -Uz vcs_info
 precmd() {
   vcs_info
+  # Detect worktree name: our worktrees always live under .worktrees/
+  if [[ "$PWD" == *"/.worktrees/"* ]]; then
+    local wt_part="${PWD#*/.worktrees/}"
+    _wt_name="${wt_part%%/*}"
+  else
+    _wt_name=""
+  fi
 }
 setopt PROMPT_SUBST
-# add \n for newline
-#zstyle ':vcs_info:git:*' formats '%b '
-#PROMPT=$'%F{242}${vcs_info_msg_0_}%f%F{222}%~%f %F{reset_color}'
 
-zstyle ':vcs_info:git:*' formats ' %b'
 zstyle ':vcs_info:git:*' formats ' %b%F{237}%u%c%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' stagedstr '+'
 
-# PROMPT=$'%F{238}${vcs_info_msg_0_}%f %F{82}%~%f %F{reset_color}' # purple:141 green:82
-PROMPT=$'%F{#aeffae}%~%f %F{reset_color}' # purple:141 green:82
+# path  branch  wt:name (worktree only)
+PROMPT=$'%F{#aeffae}%~%f%F{#888888}${vcs_info_msg_0_}%f${_wt_name:+%F{#ffcc00} wt:$_wt_name%f} '
 
 # tab completion
 # autoload -Uz compinit && compinit

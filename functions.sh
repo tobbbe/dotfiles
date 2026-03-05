@@ -548,6 +548,24 @@ function tw() {
     return 1
   fi
 
+  # Early checks before creating anything
+  if git -C "$repo_root" rev-parse --verify "$name" &>/dev/null; then
+    echo "Branch '$name' already exists"
+    return 1
+  fi
+  if [ -e "$repo_root/.worktrees/$name" ]; then
+    echo "Worktree '$name' already exists"
+    return 1
+  fi
+
+  local base_branch
+  read "base_branch?Base branch (default: main): "
+  base_branch="${base_branch:-main}"
+  if ! git -C "$repo_root" rev-parse --verify "$base_branch" &>/dev/null; then
+    echo "Branch '$base_branch' does not exist"
+    return 1
+  fi
+
   local repo_name worktree_path session_name
   repo_name=$(basename "$repo_root")
   worktree_path="$repo_root/.worktrees/$name"
@@ -560,13 +578,49 @@ function tw() {
     echo "Added .worktrees to .gitignore"
   fi
 
-  # Create worktree with a new branch
-  if ! git -C "$repo_root" worktree add "$worktree_path" -b "$name"; then
+  # Create worktree with a new branch off base_branch
+  if ! git -C "$repo_root" worktree add "$worktree_path" -b "$name" "$base_branch"; then
     echo "Failed to create worktree"
     return 1
   fi
 
   _wt_open "$name" "$worktree_path" "$session_name"
+}
+
+# td: teardown a worktree — kill its tmux session and remove the worktree
+function td() {
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -z "$repo_root" ]; then
+    echo "Not in a git repository"
+    return 1
+  fi
+
+  local selected
+  selected=$(git -C "$repo_root" worktree list --porcelain \
+    | awk '/^worktree /{print $2}' \
+    | grep -v "^${repo_root}$" \
+    | fzf --prompt="Remove worktree: ")
+
+  if [ -z "$selected" ]; then
+    return 0
+  fi
+
+  local name repo_name session_name
+  name=$(basename "$selected")
+  repo_name=$(basename "$repo_root")
+  session_name="${repo_name}-wt-${name}"
+
+  # Kill tmux session if it exists
+  tmux kill-session -t "$session_name" 2>/dev/null
+
+  # Remove the worktree
+  if ! git -C "$repo_root" worktree remove "$selected" --force; then
+    echo "Failed to remove worktree"
+    return 1
+  fi
+
+  echo "Removed worktree '$name'"
 }
 
 # tc: connect to an existing worktree (like tw but without creating)

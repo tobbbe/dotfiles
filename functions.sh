@@ -515,10 +515,13 @@ function tk() {
 
 # Shared setup for tw/tc: rename tab, start tmux session, open tmux window, cd + nvim
 function _wt_open() {
-  local name="$1" worktree_path="$2" session_name="$3"
+  local name="$1" worktree_path="$2" session_name="$3" tmux_init_cmd="$4"
 
   # Create tmux session rooted in the worktree (no-op if already exists)
   tmux new-session -d -s "$session_name" -c "$worktree_path" 2>/dev/null
+
+  # Run optional init command inside the tmux session
+  [[ -n "$tmux_init_cmd" ]] && tmux send-keys -t "$session_name" "$tmux_init_cmd" Enter
 
   # Rename the current kitty tab
   kitty @ set-tab-title "$name" 2>/dev/null
@@ -584,7 +587,7 @@ function tw() {
     return 1
   fi
 
-  _wt_open "$name" "$worktree_path" "$session_name"
+  _wt_open "$name" "$worktree_path" "$session_name" "ni"
 }
 
 # td: teardown a worktree — kill its tmux session and remove the worktree

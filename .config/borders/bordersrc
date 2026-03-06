@@ -20,11 +20,22 @@ options=(
   # active_color=0xFFBBBBBB
   # active_color=0xFFCCC8AE # yellowish
 
-  width=12.0
-  active_color=0x666C6062 # dark shadowish
+  # width=12.0
+  # active_color=0x666C6062 # dark shadowish
+  #
+  # width=8.0
+  # active_color=0xFFD2A5FC # purple
 
-  width=8.0
-  active_color=0xFFD2A5FC
+  # width=10.0
+  # active_color=0xFF8FB2C2 # omarchy
+
+  # width=20.0
+  # active_color=0xFFE8C07A # yellow
+
+  width=6.0
+  active_color=0xFFaeffae
+  active_color=0xFF00BFFF
+  order=above
 
   # active_color=0xFFaeffae # greenish
 

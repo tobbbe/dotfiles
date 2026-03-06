@@ -33,8 +33,8 @@ options=(
   # active_color=0xFFE8C07A # yellow
 
   width=6.0
-  active_color=0xFFaeffae
-  active_color=0xFF00BFFF
+  # active_color=0xFFaeffae
+  active_color=0xFF00BFFF # worth trying 39FF14
   order=above
 
   # active_color=0xFFaeffae # greenish

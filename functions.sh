@@ -534,9 +534,9 @@ function _wt_open() {
   v
 }
 
-# tw: create a git worktree + tmux session + open nvim
+# wn: create a git worktree + tmux session + open nvim
 # Run from anywhere inside a git repo in a fresh kitty tab
-function tw() {
+function wn() {
   local repo_root
   repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
   if [ -z "$repo_root" ]; then
@@ -577,7 +577,7 @@ function tw() {
   # Ensure .worktrees/ is gitignored
   local gitignore="$repo_root/.gitignore"
   if [ -f "$gitignore" ] && ! grep -q "^\.worktrees" "$gitignore"; then
-    echo ".worktrees" >> "$gitignore"
+    echo ".worktrees" >>"$gitignore"
     echo "Added .worktrees to .gitignore"
   fi
 
@@ -590,8 +590,8 @@ function tw() {
   _wt_open "$name" "$worktree_path" "$session_name" "ni"
 }
 
-# td: teardown a worktree — kill its tmux session and remove the worktree
-function td() {
+# wx: teardown a worktree — kill its tmux session and remove the worktree
+function wx() {
   local repo_root
   repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
   if [ -z "$repo_root" ]; then
@@ -600,10 +600,10 @@ function td() {
   fi
 
   local selected
-  selected=$(git -C "$repo_root" worktree list --porcelain \
-    | awk '/^worktree /{print $2}' \
-    | grep -v "^${repo_root}$" \
-    | fzf --prompt="Remove worktree: ")
+  selected=$(git -C "$repo_root" worktree list --porcelain |
+    awk '/^worktree /{print $2}' |
+    grep -v "^${repo_root}$" |
+    fzf --prompt="Remove worktree: ")
 
   if [ -z "$selected" ]; then
     return 0
@@ -633,9 +633,9 @@ function td() {
   echo "Removed worktree '$name'"
 }
 
-# tc: connect to an existing worktree (like tw but without creating)
+# wo: connect to an existing worktree (like wn but without creating)
 # Run from anywhere inside a git repo in a fresh kitty tab
-function tc() {
+function wo() {
   local repo_root
   repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
   if [ -z "$repo_root" ]; then
@@ -644,10 +644,10 @@ function tc() {
   fi
 
   local selected
-  selected=$(git -C "$repo_root" worktree list --porcelain \
-    | awk '/^worktree /{print $2}' \
-    | grep -v "^${repo_root}$" \
-    | fzf --prompt="Worktree: ")
+  selected=$(git -C "$repo_root" worktree list --porcelain |
+    awk '/^worktree /{print $2}' |
+    grep -v "^${repo_root}$" |
+    fzf --prompt="Worktree: ")
 
   if [ -z "$selected" ]; then
     return 0

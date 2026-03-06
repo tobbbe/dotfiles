@@ -513,6 +513,175 @@ function tk() {
   fi
 }
 
+# Shared setup for tw/tc: rename tab, start tmux session, open tmux window, cd + nvim
+function _wt_open() {
+  local name="$1" worktree_path="$2" session_name="$3" tmux_init_cmd="$4"
+
+  # Create tmux session rooted in the worktree (no-op if already exists)
+  tmux new-session -d -s "$session_name" -c "$worktree_path" 2>/dev/null
+
+  # Run optional init command inside the tmux session
+  [[ -n "$tmux_init_cmd" ]] && tmux send-keys -t "$session_name" "$tmux_init_cmd" Enter
+
+  # Rename the current kitty tab
+  kitty @ set-tab-title "$name" 2>/dev/null
+
+  # Open a second kitty window in this tab attached to the tmux session
+  kitty @ launch --no-response --type=window tmux attach -t "$session_name" 2>/dev/null
+
+  # cd into worktree and open nvim in the first window
+  cd "$worktree_path"
+  v
+}
+
+# tw: create a git worktree + tmux session + open nvim
+# Run from anywhere inside a git repo in a fresh kitty tab
+function tw() {
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -z "$repo_root" ]; then
+    echo "Not in a git repository"
+    return 1
+  fi
+
+  local name
+  read "name?Worktree name: "
+  if [ -z "$name" ]; then
+    echo "No name provided"
+    return 1
+  fi
+
+  # Early checks before creating anything
+  if git -C "$repo_root" rev-parse --verify "$name" &>/dev/null; then
+    echo "Branch '$name' already exists"
+    return 1
+  fi
+  if [ -e "$repo_root/.worktrees/$name" ]; then
+    echo "Worktree '$name' already exists"
+    return 1
+  fi
+
+  local base_branch
+  read "base_branch?Base branch (default: main): "
+  base_branch="${base_branch:-main}"
+  if ! git -C "$repo_root" rev-parse --verify "$base_branch" &>/dev/null; then
+    echo "Branch '$base_branch' does not exist"
+    return 1
+  fi
+
+  local repo_name worktree_path session_name
+  repo_name=$(basename "$repo_root")
+  worktree_path="$repo_root/.worktrees/$name"
+  session_name="${repo_name}-wt-${name}"
+
+  # Ensure .worktrees/ is gitignored
+  local gitignore="$repo_root/.gitignore"
+  if [ -f "$gitignore" ] && ! grep -q "^\.worktrees" "$gitignore"; then
+    echo ".worktrees" >> "$gitignore"
+    echo "Added .worktrees to .gitignore"
+  fi
+
+  # Create worktree with a new branch off base_branch
+  if ! git -C "$repo_root" worktree add "$worktree_path" -b "$name" "$base_branch"; then
+    echo "Failed to create worktree"
+    return 1
+  fi
+
+  _wt_open "$name" "$worktree_path" "$session_name" "ni"
+}
+
+# td: teardown a worktree — kill its tmux session and remove the worktree
+function td() {
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -z "$repo_root" ]; then
+    echo "Not in a git repository"
+    return 1
+  fi
+
+  local selected
+  selected=$(git -C "$repo_root" worktree list --porcelain \
+    | awk '/^worktree /{print $2}' \
+    | grep -v "^${repo_root}$" \
+    | fzf --prompt="Remove worktree: ")
+
+  if [ -z "$selected" ]; then
+    return 0
+  fi
+
+  local name repo_name session_name
+  name=$(basename "$selected")
+  repo_name=$(basename "$repo_root")
+  session_name="${repo_name}-wt-${name}"
+
+  local confirm
+  read "confirm?Remove worktree '$name'? [y/N] "
+  if [[ "$confirm" != [yY] ]]; then
+    echo "Aborted"
+    return 0
+  fi
+
+  # Kill tmux session if it exists
+  tmux kill-session -t "$session_name" 2>/dev/null
+
+  # Remove the worktree
+  if ! git -C "$repo_root" worktree remove "$selected" --force; then
+    echo "Failed to remove worktree"
+    return 1
+  fi
+
+  echo "Removed worktree '$name'"
+}
+
+# tc: connect to an existing worktree (like tw but without creating)
+# Run from anywhere inside a git repo in a fresh kitty tab
+function tc() {
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -z "$repo_root" ]; then
+    echo "Not in a git repository"
+    return 1
+  fi
+
+  local selected
+  selected=$(git -C "$repo_root" worktree list --porcelain \
+    | awk '/^worktree /{print $2}' \
+    | grep -v "^${repo_root}$" \
+    | fzf --prompt="Worktree: ")
+
+  if [ -z "$selected" ]; then
+    return 0
+  fi
+
+  local name repo_name session_name
+  name=$(basename "$selected")
+  repo_name=$(basename "$repo_root")
+  session_name="${repo_name}-wt-${name}"
+
+  _wt_open "$name" "$selected" "$session_name"
+}
+
+# wr: select a worktree via fzf and run `nr` (dev script) there
+# Run from anywhere inside a git repo
+function wr() {
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -z "$repo_root" ]; then
+    echo "Not in a git repository"
+    return 1
+  fi
+
+  local selected
+  selected=$(git -C "$repo_root" worktree list --porcelain | awk '/^worktree /{print $2}' | fzf --prompt="Worktree: ")
+
+  if [ -z "$selected" ]; then
+    return 0
+  fi
+
+  cd "$selected"
+  nr
+}
+
 # edit/clear history in v ~/.vv_history
 function vv() {
   local history_file=~/.vv_history

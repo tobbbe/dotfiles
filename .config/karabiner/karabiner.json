@@ -823,7 +823,7 @@
               {
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.apple.iphonesimulator"] }],
-                "from": { "key_code": "r", "modifiers": { "mandatory": ["left_command"] }},
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["right_command"] }},
                 "to": [{ "shell_command": "/Users/tobbe/dev/dotfiles/scripts/expo-send-r.sh" }]
               }
             ]

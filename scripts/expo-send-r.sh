@@ -72,13 +72,15 @@ fi
 
 tty_path="/dev/$target_tty"
 
+TMUX_BIN="${TMUX_BIN:-/opt/homebrew/bin/tmux}"
+
 pane_id=""
-if command -v tmux >/dev/null 2>&1; then
-  pane_id=$(tmux list-panes -a -F "#{pane_id} #{pane_tty}" | awk -v tty="$tty_path" '$2 == tty { print $1; exit }')
+if [ -x "$TMUX_BIN" ]; then
+  pane_id=$("$TMUX_BIN" list-panes -a -F "#{pane_id} #{pane_tty}" | awk -v tty="$tty_path" '$2 == tty { print $1; exit }')
 fi
 
 if [ -n "$pane_id" ]; then
-  tmux send-keys -t "$pane_id" r
+  "$TMUX_BIN" send-keys -t "$pane_id" r
   echo "Sent r to tmux pane $pane_id ($tty_path)"
   exit 0
 fi

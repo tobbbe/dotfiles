@@ -161,6 +161,9 @@ approaches that were tried and failed, and why — so the next agent doesn't rep
 # Finding information / documentation
 - Always use Context7 MCP when we need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
 
+# Skills
+- You have access to Playwright cli, use it if it helps
+
 # Important paths
 - I use a Macbook pro
 - I use dotfiles to config my computer, they are located at `/Users/tobbe/dev/dotfiles/`. To apply them I have a script that copies them to `/Users/tobbe/`, so always edit at `/Users/tobbe/dev/dotfiles/` and ask me to run the copy script.

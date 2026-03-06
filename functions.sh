@@ -513,6 +513,14 @@ function tk() {
   fi
 }
 
+function kas() {
+  ktransient --title "Agent sessions" /usr/bin/python3 /Users/tobbe/dev/dotfiles/.config/kitty/pick_agent_session.py "$@"
+}
+
+function ktransient() {
+  /usr/bin/python3 /Users/tobbe/dev/dotfiles/.config/kitty/open_transient_kitty_window.py "$@"
+}
+
 # Shared setup for tw/tc: rename tab, start tmux session, open tmux window, cd + nvim
 function _wt_open() {
   local name="$1" worktree_path="$2" session_name="$3" tmux_init_cmd="$4"
@@ -587,22 +595,34 @@ function wn() {
     return 1
   fi
 
-  _wt_open "$name" "$worktree_path" "$session_name" "ni"
+  # Copy .env files from repo root to new worktree
+  for f in "$repo_root"/.env*; do
+    [[ -f "$f" ]] && cp "$f" "$worktree_path/"
+  done
+
+  _wt_open "$name" "$worktree_path" "$session_name" "nci"
 }
 
 # wx: teardown a worktree — kill its tmux session and remove the worktree
 function wx() {
   local repo_root
   repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
-  if [ -z "$repo_root" ]; then
+
+  # If git fails (e.g. CWD is a deleted worktree), infer main repo from path
+  if [ -z "$repo_root" ] && [[ "$PWD" == */.worktrees/* ]]; then
+    repo_root="${PWD%/.worktrees/*}"
+  fi
+
+  if [ -z "$repo_root" ] || ! git -C "$repo_root" rev-parse --git-dir &>/dev/null; then
     echo "Not in a git repository"
     return 1
   fi
 
-  local selected
+  local main_root selected
+  main_root=$(git -C "$repo_root" worktree list --porcelain | awk '/^worktree /{print $2; exit}')
   selected=$(git -C "$repo_root" worktree list --porcelain |
     awk '/^worktree /{print $2}' |
-    grep -v "^${repo_root}$" |
+    grep -v "^${main_root}$" |
     fzf --prompt="Remove worktree: ")
 
   if [ -z "$selected" ]; then
@@ -611,7 +631,7 @@ function wx() {
 
   local name repo_name session_name
   name=$(basename "$selected")
-  repo_name=$(basename "$repo_root")
+  repo_name=$(basename "$main_root")
   session_name="${repo_name}-wt-${name}"
 
   local confirm
@@ -621,14 +641,28 @@ function wx() {
     return 0
   fi
 
-  # Kill tmux session if it exists
+  # Step 1: kill tmux session (no-op if already gone)
   tmux kill-session -t "$session_name" 2>/dev/null
 
-  # Remove the worktree
-  if ! git -C "$repo_root" worktree remove "$selected" --force; then
-    echo "Failed to remove worktree"
-    return 1
+  # Step 2: remove the directory
+  # git worktree remove --force handles modified tracked files but refuses
+  # untracked files; fall back to rm -rf after confirmation
+  if [[ -d "$selected" ]]; then
+    if ! git -C "$repo_root" worktree remove "$selected" --force 2>/dev/null; then
+      echo "Worktree has untracked/dirty files:"
+      git -C "$selected" status --short
+      local force_confirm
+      read "force_confirm?Delete anyway (this cannot be undone)? [y/N] "
+      if [[ "$force_confirm" != [yY] ]]; then
+        echo "Aborted"
+        return 0
+      fi
+      rm -rf "$selected"
+    fi
   fi
+
+  # Step 3: prune stale git references (no-op if already clean)
+  git -C "$repo_root" worktree prune
 
   echo "Removed worktree '$name'"
 }
@@ -643,10 +677,11 @@ function wo() {
     return 1
   fi
 
-  local selected
+  local main_root selected
+  main_root=$(git -C "$repo_root" worktree list --porcelain | awk '/^worktree /{print $2; exit}')
   selected=$(git -C "$repo_root" worktree list --porcelain |
     awk '/^worktree /{print $2}' |
-    grep -v "^${repo_root}$" |
+    grep -v "^${main_root}$" |
     fzf --prompt="Worktree: ")
 
   if [ -z "$selected" ]; then
@@ -655,7 +690,7 @@ function wo() {
 
   local name repo_name session_name
   name=$(basename "$selected")
-  repo_name=$(basename "$repo_root")
+  repo_name=$(basename "$main_root")
   session_name="${repo_name}-wt-${name}"
 
   _wt_open "$name" "$selected" "$session_name"

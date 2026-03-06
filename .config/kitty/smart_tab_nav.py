@@ -1,11 +1,22 @@
 #!/usr/bin/env python3
 
 import json
+import importlib.util
 import os
-import subprocess
 import sys
-from glob import glob
-from typing import Optional
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
+
+KITTY_REMOTE_SPEC = importlib.util.spec_from_file_location(
+    "kitty_remote", os.path.join(SCRIPT_DIR, "kitty_remote.py")
+)
+if KITTY_REMOTE_SPEC is None or KITTY_REMOTE_SPEC.loader is None:
+    raise SystemExit(1)
+kitty_remote = importlib.util.module_from_spec(KITTY_REMOTE_SPEC)
+KITTY_REMOTE_SPEC.loader.exec_module(kitty_remote)
+KittyRemote = kitty_remote.KittyRemote
 
 
 def main() -> None:
@@ -14,56 +25,10 @@ def main() -> None:
 
     direction = sys.argv[1]
 
-    candidates: list[Optional[str]] = []
-    env_socket = os.environ.get("KITTY_LISTEN_ON")
-    if env_socket:
-        candidates.append(env_socket)
-
-    default_socket = "/tmp/kitty-socket"
-    if os.path.exists(default_socket):
-        candidates.append(f"unix:{default_socket}")
-
-    sockets = sorted(glob("/tmp/kitty-socket-*"), key=os.path.getmtime, reverse=True)
-    if sockets:
-        candidates.append(f"unix:{sockets[0]}")
-    candidates.append(None)
-
-    deduped_candidates: list[Optional[str]] = []
-    for candidate in candidates:
-        if candidate not in deduped_candidates:
-            deduped_candidates.append(candidate)
-
-    to: Optional[str] = None
-
-    def kitty_args(*args: str) -> list[str]:
-        command = ["kitty", "@"]
-        if to:
-            command.extend(["--to", to])
-        command.extend(args)
-        return command
-
-    def kitty_json(*args: str) -> str:
-        nonlocal to
-        for candidate in deduped_candidates:
-            to = candidate
-            command = kitty_args(*args)
-            result = subprocess.run(
-                command, text=True, capture_output=True, check=False
-            )
-            if result.returncode == 0:
-                return result.stdout
-
+    remote = KittyRemote()
+    data = remote.json("ls")
+    if not data:
         raise SystemExit(0)
-
-    def kitty_call(*args: str) -> int:
-        command = kitty_args(*args)
-        result = subprocess.run(command, check=False)
-        if result.returncode != 0 and to:
-            fallback = subprocess.run(["kitty", "@", *args], check=False)
-            return fallback.returncode
-        return result.returncode
-
-    data = kitty_json("ls")
     tree = json.loads(data)
 
     focused_tab = None
@@ -95,7 +60,7 @@ def main() -> None:
             sequence = "\\el"
         else:
             sequence = "\\et"
-        kitty_call("send-text", "--match", f"id:{focused_window_id}", sequence)
+        remote.call("send-text", "--match", f"id:{focused_window_id}", sequence)
         return
 
     if direction == "h":
@@ -104,7 +69,7 @@ def main() -> None:
         action = "next_tab"
     else:
         action = "new_tab_with_cwd"
-    kitty_call("action", action)
+    remote.call("action", action)
 
 
 if __name__ == "__main__":

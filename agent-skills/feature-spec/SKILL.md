@@ -7,6 +7,8 @@ description: A skill for creating and updating feature spec documents.
 
 This skill helps you create and update feature specification documents that serve as validation criteria during implementation.
 
+Before beginning work on a feature, both in a new and running session, ask the user if they want to create a new spec document, keep working on an existing one, or not use any spec document at all.
+
 ## When to use this skill
 
 Use this skill when you or the user:

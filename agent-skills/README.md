@@ -2,6 +2,8 @@
 
 Auto-triggered skills for Claude Code and opencode. The agent picks these up based on context.
 
+Important: `name` field must be lowercase and match the directory name.
+
 Copied to `~/.claude/skills/` by `reload`. opencode reads from there too, so one copy serves both.
 
 For user-invoked slash commands (`/something`), use `agent-commands/` instead.

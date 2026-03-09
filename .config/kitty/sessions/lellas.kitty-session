@@ -2,4 +2,4 @@ cd ~/dev/lellas/
 
 launch --title "lellas" /bin/zsh -i -c 'v; exec zsh'
 
-launch --title "Tmux - lellas" /bin/zsh -i -c 'ta; exec zsh'
+launch --title "lellas" /bin/zsh -i -c 'ta; exec zsh'

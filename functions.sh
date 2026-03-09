@@ -494,7 +494,7 @@ function t() {
 function ta() {
   local cwd_name
   cwd_name="$(basename "$PWD")"
-  local session_name="Tmux - ${cwd_name}"
+  local session_name="${cwd_name}"
 
   tmux new-session -d -s "$session_name" -c "$PWD" 2>/dev/null
 
@@ -535,7 +535,7 @@ function _wt_open() {
   kitty @ set-window-title "$name" 2>/dev/null
 
   # Open a second kitty window in this tab attached to the tmux session
-  kitty @ launch --no-response --type=window --title "Tmux - $name" tmux attach -t "$session_name" 2>/dev/null
+  kitty @ launch --no-response --type=window --title "$name" tmux attach -t "$session_name" 2>/dev/null
 
   # cd into worktree and open nvim in the first window
   cd "$worktree_path"

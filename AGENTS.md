@@ -123,13 +123,13 @@ YOU MUST follow this debugging framework for ANY technical issue:
 - IF your first fix doesn't work, STOP and re-analyze rather than adding more fixes
 
 # Shared memory (agentbrain)
-- Use the `agentbrain` skill as the canonical source for shared memory rules and workflow.
+- Use the `agentbrain` skill.
 
 # Finding information / documentation
 - Always use Context7 MCP when we need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
 
 # Skills
-- You have access to Playwright cli, use it if it helps
+- You have access to Playwright cli, use it if it helps.
 
 # Important paths
 - I use a Macbook pro

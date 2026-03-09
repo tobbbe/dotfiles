@@ -56,8 +56,9 @@ export const NotificationPlugin = async ({ $, directory }) => {
         }
 
         const message = `opencode: ${details.join(" - ")} completed`
+        const command = `hs -c ${JSON.stringify(`showNotification(${JSON.stringify(message)})`)} >/dev/null 2>&1`
 
-        await $`hs -c ${`showNotification(${JSON.stringify(message)})`} >/dev/null 2>&1`
+        await $`sh -c ${command}`
       }
     },
   }

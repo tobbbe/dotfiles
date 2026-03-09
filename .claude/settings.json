@@ -68,7 +68,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hs -c 'showNotification(\"Claude Code: Finished\")' < /dev/null"
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/notify-session.sh"
           }
         ]
       }

@@ -521,7 +521,7 @@ function ktransient() {
   /usr/bin/python3 /Users/tobbe/dev/dotfiles/.config/kitty/open_transient_kitty_window.py "$@"
 }
 
-# Shared setup for tw/tc: rename tab, start tmux session, open tmux window, cd + nvim
+# Shared setup for tw/tc: name windows, start tmux session, open tmux window, cd + nvim
 function _wt_open() {
   local name="$1" worktree_path="$2" session_name="$3" tmux_init_cmd="$4"
 
@@ -531,11 +531,11 @@ function _wt_open() {
   # Run optional init command inside the tmux session
   [[ -n "$tmux_init_cmd" ]] && tmux send-keys -t "$session_name" "$tmux_init_cmd" Enter
 
-  # Rename the current kitty tab
-  kitty @ set-tab-title "$name" 2>/dev/null
+  # Name the current kitty window so the tab follows the active window title
+  kitty @ set-window-title "$name" 2>/dev/null
 
   # Open a second kitty window in this tab attached to the tmux session
-  kitty @ launch --no-response --type=window tmux attach -t "$session_name" 2>/dev/null
+  kitty @ launch --no-response --type=window --title "Tmux - $name" tmux attach -t "$session_name" 2>/dev/null
 
   # cd into worktree and open nvim in the first window
   cd "$worktree_path"

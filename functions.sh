@@ -892,3 +892,10 @@ s() {
     ssh $server
   fi
 }
+
+aa() {
+  caffeinate -di &
+  local caffeine_pid=$!
+  cmatrix
+  kill $caffeine_pid 2>/dev/null
+}

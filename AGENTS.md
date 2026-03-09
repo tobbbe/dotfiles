@@ -123,40 +123,7 @@ YOU MUST follow this debugging framework for ANY technical issue:
 - IF your first fix doesn't work, STOP and re-analyze rather than adding more fixes
 
 # Shared memory (agentbrain)
-
-You have a shared memory store at `~/dev/agentbrain/`. This is shared across all AI agents (Claude Code, opencode, etc.) and persists across sessions. YOU MUST actively use it.
-
-Structure:
-- `~/dev/agentbrain/projects/<name>.md` — per-project knowledge (use the project's directory name, e.g. `nvim.md` for `~/.config/nvim`, `peach.md` for `~/dev/peach`)
-- `~/dev/agentbrain/topics/<name>.md` — cross-project topic knowledge (e.g. `react.md`, `lua.md`)
-
-The current project (cwd) memory file is loaded automatically into the session context (symlinked claude.local.md from agentbrain project file) and will start with the header - "Agent brain project memory for current cwd". It's important that you tell me if the header is missing in the current context so we can add it!
-Do NOT preemptively load all topic references - use lazy loading based on actual need (read the file names with your read tool to get a list of topics). Follow references in topics recursively when needed.
-
-Rules:
-- Write entries when you: hit a non-obvious bug, discover a trap, learn a Tobbe preference on an ambiguous choice, or go down a dead end
-- The ONLY purpose of these files is to prevent agents from wasting time. No human reads them.
-- If something is documented in a README, don't repeat it in agentbrain. Point to the canonical source instead.
-- Do NOT store things an agent can discover in seconds via CLI (file structure, dependencies, configs)
-- Do NOT write session summaries or journals — only actionable entries
-- Project files are strictly for project-specific knowledge. If a learning applies to a technology in general (e.g. a React gotcha), put it in the relevant topic file, not the project file.
-- Create files as needed — don't ask permission
-- Remove outdated entries when you encounter them
-
-Format entries under these headings:
-```
-## context
-non-obvious project relationships and domain knowledge that would take real effort to discover from code alone
-
-## traps
-things that look like they should work but don't, and why
-
-## preferences
-Tobbe's choices on ambiguous decisions (where multiple valid approaches exist)
-
-## dead ends
-approaches that were tried and failed, and why — so the next agent doesn't repeat them
-```
+- Use the `agentbrain` skill as the canonical source for shared memory rules and workflow.
 
 # Finding information / documentation
 - Always use Context7 MCP when we need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.

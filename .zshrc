@@ -75,6 +75,11 @@ setopt HIST_SAVE_NO_DUPS
 autoload -Uz vcs_info
 precmd() {
   vcs_info
+  if [ -n "$TMUX" ]; then
+    TMUX_PROMPT='%F{33}[tmux]%f '
+  else
+    TMUX_PROMPT=''
+  fi
 }
 setopt PROMPT_SUBST
 # add \n for newline
@@ -88,7 +93,7 @@ zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' stagedstr '+'
 
 # PROMPT=$'%F{238}${vcs_info_msg_0_}%f %F{82}%~%f %F{reset_color}' # purple:141 green:82
-PROMPT=$'%F{#aeffae}%~%f %F{reset_color}' # purple:141 green:82
+PROMPT='${TMUX_PROMPT}%F{#aeffae}%~%f %F{reset_color}' # purple:141 green:82
 
 # tab completion
 # autoload -Uz compinit && compinit

@@ -1,6 +1,6 @@
 ---
 name: agentbrain
-description: Capture and retrieve project and topic knowledge and memory.
+description: Read and write persistent memory shared across all agents and sessions. Write when you discover non-obvious project details, hit a trap, learn a user preference, or reach a dead end. Read topic files when they are relevant to the current task.
 ---
 
 # Agentbrain

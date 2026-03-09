@@ -1,6 +1,6 @@
 ---
 name: feature-spec
-description: A skill for creating and updating feature spec documents.
+description: Create and update feature spec documents. Use before starting working on a new feature (user says something like "let's implement X", "add Y", "build Z", "I want to add feature X") or while working on a existing feature to define and validate requirements, constraints, assumptions, scope, related files and services and acceptance criteria.
 ---
 
 # Feature Spec

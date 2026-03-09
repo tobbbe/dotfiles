@@ -495,13 +495,26 @@ function ta() {
   local cwd_name
   cwd_name="$(basename "$PWD")"
   local session_name="${cwd_name}"
+  local legacy_session_name="Tmux - ${cwd_name}"
+  local target_session_name="$session_name"
 
-  tmux new-session -d -s "$session_name" -c "$PWD" 2>/dev/null
+  if tmux has-session -t "$session_name" 2>/dev/null; then
+    target_session_name="$session_name"
+  elif tmux has-session -t "$legacy_session_name" 2>/dev/null; then
+    if tmux rename-session -t "$legacy_session_name" "$session_name" 2>/dev/null; then
+      target_session_name="$session_name"
+    else
+      target_session_name="$legacy_session_name"
+    fi
+  else
+    tmux new-session -d -s "$session_name" -c "$PWD" 2>/dev/null
+    target_session_name="$session_name"
+  fi
 
   if [ -n "$TMUX" ]; then
-    tmux switch-client -t "$session_name"
+    tmux switch-client -t "$target_session_name"
   else
-    tmux attach -t "$session_name"
+    tmux attach -t "$target_session_name"
   fi
 }
 

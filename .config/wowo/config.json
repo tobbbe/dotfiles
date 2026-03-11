@@ -16,6 +16,21 @@
       "name": "Expo",
       "url": "https://expo.dev/accounts/flexsolutions",
       "keymap": "ex"
+    },
+    {
+      "name": "Stripe",
+      "url": "https://dashboard.stripe.com/",
+      "keymap": "st"
+    },
+    {
+      "name": "App Store Connect",
+      "url": "https://appstoreconnect.apple.com",
+      "keymap": "as"
+    },
+    {
+      "name": "Google play console",
+      "url": "https://accounts.google.com/ServiceLogin?service=androiddeveloper&passive=true&continue=https%3A%2F%2Fplay.google.com%2Fconsole%2Fdeveloper%2F",
+      "keymap": "gp"
     }
   ]
 }

@@ -227,6 +227,10 @@ automatically-unhide-macos-hidden-apps = true
     run = ['layout floating', 'exec-and-forget hs -c "centerFloating(40, 60)"']
 
 [[on-window-detected]]
+    if.app-name-regex-substring = 'Wowo'
+    run = ['layout floating', 'exec-and-forget hs -c "centerFloating(40, 60)"']
+
+[[on-window-detected]]
     if.app-name-regex-substring = 'finder|moom|Karabiner-Elements|Karabiner-EventViewer'
     run = ['layout floating', 'move-node-to-workspace 1']
 

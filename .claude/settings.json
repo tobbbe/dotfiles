@@ -68,7 +68,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/notify-session.sh"
+            "command": "\"$HOME\"/.claude/hooks/notify-session.sh"
           }
         ]
       }

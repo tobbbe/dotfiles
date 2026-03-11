@@ -1,0 +1,21 @@
+{
+  "app_leader": "shift",
+  "global_shortcut": "cmd+shift+option+e",
+  "apps": [
+    {
+      "name": "Supabase",
+      "url": "https://supabase.com/dashboard/project/jubxcgifxdnhjczinfgo/editor/",
+      "keymap": "su"
+    },
+    {
+      "name": "Vercel",
+      "url": "https://vercel.com/gymochfitness/~/deployments",
+      "keymap": "ve"
+    },
+    {
+      "name": "Expo",
+      "url": "https://expo.dev/accounts/flexsolutions",
+      "keymap": "ex"
+    }
+  ]
+}

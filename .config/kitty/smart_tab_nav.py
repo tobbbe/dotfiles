@@ -19,6 +19,17 @@ KITTY_REMOTE_SPEC.loader.exec_module(kitty_remote)
 KittyRemote = kitty_remote.KittyRemote
 
 
+def window_runs_tmux(window: dict) -> bool:
+    for process in window.get("foreground_processes", []):
+        cmdline = process.get("cmdline")
+        if not isinstance(cmdline, list) or not cmdline:
+            continue
+        executable = os.path.basename(str(cmdline[0]))
+        if executable == "tmux":
+            return True
+    return False
+
+
 def main() -> None:
     if len(sys.argv) != 2 or sys.argv[1] not in {"h", "l", "t"}:
         raise SystemExit(0)
@@ -33,6 +44,7 @@ def main() -> None:
 
     focused_tab = None
     focused_window_id = None
+    focused_window = None
 
     for os_window in tree:
         for tab in os_window.get("tabs", []):
@@ -42,6 +54,7 @@ def main() -> None:
             for window in tab.get("windows", []):
                 if window.get("is_focused"):
                     focused_window_id = window.get("id")
+                    focused_window = window
                     break
             break
         if focused_tab is not None:
@@ -53,7 +66,11 @@ def main() -> None:
     tab_title = str(focused_tab.get("title") or "")
     tab_name = str(focused_tab.get("name") or "")
     tab_label = f"{tab_title} {tab_name}".lower()
-    if "tmux" in tab_label and focused_window_id is not None:
+    if (
+        focused_window is not None
+        and focused_window_id is not None
+        and ("tmux" in tab_label or window_runs_tmux(focused_window))
+    ):
         if direction == "h":
             sequence = "\\eh"
         elif direction == "l":

@@ -28,6 +28,11 @@
       "keymap": "as"
     },
     {
+      "name": "Firebase",
+      "url": "https://console.firebase.google.com/",
+      "keymap": "fb"
+    },
+    {
       "name": "Google play console",
       "url": "https://accounts.google.com/ServiceLogin?service=androiddeveloper&passive=true&continue=https%3A%2F%2Fplay.google.com%2Fconsole%2Fdeveloper%2F",
       "keymap": "gp"

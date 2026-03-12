@@ -128,6 +128,9 @@ YOU MUST follow this debugging framework for ANY technical issue:
 # Finding information / documentation
 - Always use Context7 MCP when we need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
 
+# Linting, testing and building
+- Do not run builds or scripts if not asked to. Ex do not run `npm run build` or `npm run lint` unless I ask you to. If you want to check if the code is correct, ask me to run the tests or linting.
+
 # Skills
 - You have access to Playwright cli, use it if it helps.
 

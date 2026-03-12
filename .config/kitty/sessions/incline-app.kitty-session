@@ -1,0 +1,5 @@
+cd ~/dev/incline-app/
+
+launch --title "incline-app" /bin/zsh -i -c 'v; exec zsh'
+
+launch --title "incline-app" /bin/zsh -i -c 'ta; exec zsh'

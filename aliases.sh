@@ -29,8 +29,29 @@ alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
 alias ls="ls --color -1"
-alias oc='opencode && echo -ne "\033[1A\r\033[2K"'
-alias cc='claude && echo -ne "\033[1A\r\033[2K"'
+function _oc() {
+  if [ $# -eq 0 ]; then
+    opencode
+  else
+    opencode --model "openai/gpt-5.3-codex" --prompt "$*"
+  fi
+
+  echo -ne "\033[1A\r\033[2K"
+}
+
+alias oc='noglob _oc'
+
+function _cc() {
+  if [ $# -eq 0 ]; then
+    claude
+  else
+    claude "$*"
+  fi
+
+  echo -ne "\033[1A\r\033[2K"
+}
+
+alias cc='noglob _cc'
 alias ccc='claude --continue && echo -ne "\033[1A\r\033[2K"'
 alias ccr='claude --resume && echo -ne "\033[1A\r\033[2K"'
 alias lg='lazygit && echo -ne "\033[1A\r\033[2K"'

@@ -69,9 +69,16 @@ sketchybar --add item front_app center \
 # https://felixkratz.github.io/SketchyBar/config/events
 
 
+sketchybar --add item cpu right \
+           --set cpu icon.drawing=off update_freq=5 script="$PLUGIN_DIR/cpu.sh" \
+
+sketchybar --add item ram right \
+           --set ram icon.drawing=off update_freq=5 script="$PLUGIN_DIR/ram.sh" \
+
+
 sketchybar --add item clock right \
            --set clock icon.drawing=off update_freq=21600 script="$PLUGIN_DIR/clock.sh" \
-           
+            
 # sketchybar --add item volume right \
 #            --set volume label.drawing=off script="$PLUGIN_DIR/volume.sh" \
 #            --subscribe volume volume_change \

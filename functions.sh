@@ -518,6 +518,28 @@ function ta() {
   fi
 }
 
+function tb() {
+  local cwd_name repo_root worktree_name session_name
+  cwd_name="$(basename "$PWD")"
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+
+  session_name="Build - ${cwd_name}"
+  if [ -n "$repo_root" ] && [[ "$repo_root" == */.worktrees/* ]]; then
+    worktree_name="$(basename "$repo_root")"
+    session_name="Build - ${cwd_name} - ${worktree_name}"
+  fi
+
+  if ! tmux has-session -t "$session_name" 2>/dev/null; then
+    tmux new-session -d -s "$session_name" -c "$PWD" 2>/dev/null
+  fi
+
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$session_name"
+  else
+    tmux attach -t "$session_name"
+  fi
+}
+
 function tk() {
   if [ -z "$1" ]; then
     tmux kill-session

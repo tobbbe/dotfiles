@@ -2,6 +2,35 @@
 require("hs.ipc")
 hs.window.animationDuration = 0
 
+local function focusKittyMoveMouseToSimulator()
+	local kitty = hs.application.get("net.kovidgoyal.kitty")
+	if kitty then
+		kitty:activate()
+	end
+
+	local simulator = hs.application.get("com.apple.iphonesimulator")
+	if not simulator then
+		return
+	end
+
+	local window = simulator:mainWindow()
+	if not window then
+		window = simulator:focusedWindow()
+	end
+	if not window then
+		local windows = simulator:allWindows()
+		window = windows[1]
+	end
+	if not window then
+		return
+	end
+
+	local frame = window:frame()
+	hs.mouse.setAbsolutePosition({ x = frame.x + frame.w / 2, y = frame.y + frame.h / 2 })
+end
+
+hs.urlevent.bind("kitty-focus-simulator-mouse", focusKittyMoveMouseToSimulator)
+
 -- White border for kitty quick-access terminal
 local borders = {}
 local quickAccessBundleID = "net.kovidgoyal.kitty-quick-access"

@@ -38,7 +38,7 @@ animation_speed = 9999
 
 # Automatically center the focused window when switching focus with keyboard,
 # i.e. 'window_focus_west' or 'window_focus_east'.
-auto_center = true
+# auto_center = true
 
 # Height of off-screen window slivers as a ratio (0.0–1.0) of the display
 # height. Lower values hide the window's corner radius at screen edges.

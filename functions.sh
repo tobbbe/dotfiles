@@ -828,11 +828,11 @@ function vv() {
       mv "${history_file}.tmp" "$history_file"
     fi
     echo "$dir" >>"$history_file"
-    cd $dir
-    nvim +"lua vim.cmd('cd ' .. vim.fn.fnameescape('$dir')); require('persistence').load()"
+    cd "$dir"
+    NVIM_SESSION_DIR="$dir" nvim +"lua local p = require('persistence'); vim.cmd('cd ' .. vim.fn.fnameescape(vim.env.NVIM_SESSION_DIR)); pcall(p.load)"
   else
     # User cancelled (Ctrl-C), reopen nvim in current directory with persistence
-    nvim +"lua vim.cmd('cd ' .. vim.fn.fnameescape('$original_dir')); require('persistence').load()"
+    NVIM_SESSION_DIR="$original_dir" nvim +"lua local p = require('persistence'); vim.cmd('cd ' .. vim.fn.fnameescape(vim.env.NVIM_SESSION_DIR)); pcall(p.load)"
   fi
 
   echo -ne "\033[1A\r\033[2K"
@@ -840,9 +840,9 @@ function vv() {
 
 function v() {
   if [ $# -eq 0 ]; then
-    nvim +"lua require(\"persistence\").load()"
+    nvim +"lua local p = require('persistence'); pcall(p.load)"
   else
-    nvim $@
+    nvim "$@"
   fi
 
   echo -ne "\033[1A\r\033[2K"

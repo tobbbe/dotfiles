@@ -174,14 +174,14 @@
               {
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
-                "from": { "key_code": "h", "modifiers": { "mandatory": ["right_command", "left_shift"] }},
-                "to": [{ "key_code": "right_arrow", "modifiers": ["right_command"] }]
+                "from": { "key_code": "l", "modifiers": { "mandatory": ["right_command", "left_shift"] }},
+                "to": [{ "key_code": "quote", "modifiers": ["right_command"] }]
               },
               {
                 "type": "basic",
                 "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["com.tinyspeck.slackmacgap"] }],
-                "from": { "key_code": "l", "modifiers": { "mandatory": ["right_command", "left_shift"] }},
-                "to": [{ "key_code": "left_arrow", "modifiers": ["right_command"] }]
+                "from": { "key_code": "h", "modifiers": { "mandatory": ["right_command", "left_shift"] }},
+                "to": [{ "key_code": "open_bracket", "modifiers": ["right_command"] }]
               }
             ]
           },

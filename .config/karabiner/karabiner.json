@@ -122,7 +122,7 @@
               {
                 "type": "basic",
                 "from": { "key_code": "n", "modifiers": { "mandatory": ["right_control"] }},
-                "to": [{ "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window nextdisplay" }]
+                "to": [{ "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window nextdisplay && /Users/tobbe/.cargo/bin/paneru send-cmd mouse nextdisplay" }]
               },
               {
                 "type": "basic",

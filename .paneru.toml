@@ -7,7 +7,7 @@
 focus_follows_mouse = false
 
 # Enables mouse follows focus. Enabled by default, set to false to disable.
-# mouse_follows_focus = true
+mouse_follows_focus = false
 
 # Array of widths used by the `window_resize` action to cycle between.
 # Defaults to 25%, 33%, 50%, 66% and 75%.
@@ -39,7 +39,7 @@ animation_speed = 9999
 
 # Automatically center the focused window when switching focus with keyboard,
 # i.e. 'window_focus_west' or 'window_focus_east'.
-# auto_center = true
+auto_center = true
 
 # Height of off-screen window slivers as a ratio (0.0–1.0) of the display
 # height. Lower values hide the window's corner radius at screen edges.

@@ -70,7 +70,7 @@
                 "type": "basic"
               }
             ],
-            "title": "Left control acts as right control"
+            "title": "Left to right control"
           },
           {
             "manipulators": [
@@ -433,7 +433,7 @@
                 "type": "basic"
               }
             ],
-            "title": "Right control bindings for Paneru"
+            "title": "Paneru"
           },
           {
             "manipulators": [
@@ -557,40 +557,6 @@
               }
             ],
             "title": "Slack history navigation"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.parallels[[:graph:]]*$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_control"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "Parallels caps lock"
           },
           {
             "manipulators": [
@@ -731,7 +697,7 @@
                 "type": "basic"
               }
             ],
-            "title": "Mac caps lock to cmd / ctrl, escape when used alone"
+            "title": "Caps lock to cmd / ctrl, escape when used alone"
           },
           {
             "manipulators": [
@@ -1839,38 +1805,6 @@
                 "conditions": [
                   {
                     "bundle_identifiers": [
-                      "---disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "k",
-                    "modifiers": [
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "vscode leader"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
                       "com.microsoft.VSCode"
                     ],
                     "type": "frontmost_application_if"
@@ -2113,41 +2047,6 @@
             "title": "Notion"
           },
           {
-            "description": "Open URL in Firefox new tab",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  },
-                  {
-                    "bundle_identifiers": [
-                      "org.mozilla.firefox"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a Firefox 'https://ai.tobb.be'"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "manipulators": [
               {
                 "conditions": [
@@ -2269,157 +2168,6 @@
               }
             ],
             "title": "vscode toggle windows (OBS! also requires you to set workbench.action.show(Next+Previous)WindowTab) in vscode"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "expression": "leader_active = 0",
-                    "type": "expression_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.tinyspeck.slackmacgap"
-                      }
-                    }
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "<leader-s>"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "expression": "leader_active = 0",
-                    "type": "expression_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.spotify.client"
-                      }
-                    }
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "<leader-p>"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "expression": "leader_active = 0",
-                    "type": "expression_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.figma.Desktop"
-                      }
-                    }
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "<leader-f>"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "expression": "leader_active = 0",
-                    "type": "expression_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.wowo.app"
-                      }
-                    }
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "<leader-a>"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "expression": "leader_active = 0",
-                    "type": "expression_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -g 'hammerspoon://kitty-focus-simulator-mouse'"
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "<leader-d>"
           },
           {
             "manipulators": [
@@ -2617,6 +2365,157 @@
               }
             ],
             "title": "<leader-grave_accent_and_tilde>"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "expression": "leader_active = 0",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "com.tinyspeck.slackmacgap"
+                      }
+                    }
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "<leader-s>"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "expression": "leader_active = 0",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "com.spotify.client"
+                      }
+                    }
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "<leader-p>"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "expression": "leader_active = 0",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "com.figma.Desktop"
+                      }
+                    }
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "<leader-f>"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "expression": "leader_active = 0",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "com.wowo.app"
+                      }
+                    }
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "<leader-a>"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "expression": "leader_active = 0",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -g 'hammerspoon://kitty-focus-simulator-mouse'"
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "<leader-d>"
           },
           {
             "manipulators": [
@@ -3141,220 +3040,6 @@
           {
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.parallels[[:graph:]]*$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "x",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "x",
-                    "modifiers": [
-                      "left_shift",
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.parallels[[:graph:]]*$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "r",
-                    "modifiers": [
-                      "left_shift",
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.parallels[[:graph:]]*$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "halt": true,
-                    "key_code": "a",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "right_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.parallels[[:graph:]]*$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "halt": true,
-                    "key_code": "v",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "right_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.parallels[[:graph:]]*$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "d",
-                    "modifiers": [
-                      "left_shift",
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.parallels[[:graph:]]*$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "4",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "4",
-                    "modifiers": [
-                      "left_shift",
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.parallels[[:graph:]]*$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "5",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "5",
-                    "modifiers": [
-                      "left_shift",
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "misc parallels shortcut translations"
-          },
-          {
-            "manipulators": [
-              {
                 "from": {
                   "key_code": "m",
                   "modifiers": {
@@ -3447,40 +3132,7 @@
                 "type": "basic"
               }
             ],
-            "title": "arrow thing"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "DISABLE------^org.mozilla.firefox$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "halt": true,
-                    "key_code": "t",
-                    "modifiers": [
-                      "left_shift"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "firefox tabs list (use vimium keybinding instead: `map <m-e> Vomnibar.activateTabSelection`)"
+            "title": "arrow thing (less/greater than keys)"
           },
           {
             "manipulators": [
@@ -3903,107 +3555,6 @@
           {
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/aerospace focus left --boundaries-action wrap-around-the-workspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/aerospace focus down --boundaries-action wrap-around-the-workspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/aerospace focus up --boundaries-action wrap-around-the-workspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/aerospace focus right --boundaries-action wrap-around-the-workspace"
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "Aerospace window focus with cmd + hjkl"
-          },
-          {
-            "manipulators": [
-              {
                 "from": {
                   "key_code": "spacebar"
                 },
@@ -4045,6 +3596,254 @@
               }
             ],
             "title": "slower repeat for spacebar and backspace"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.parallels[[:graph:]]*$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_control"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "Parallels caps lock"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.parallels[[:graph:]]*$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "x",
+                    "modifiers": [
+                      "left_shift",
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.parallels[[:graph:]]*$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "r",
+                    "modifiers": [
+                      "left_shift",
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.parallels[[:graph:]]*$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "halt": true,
+                    "key_code": "a",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.parallels[[:graph:]]*$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "halt": true,
+                    "key_code": "v",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.parallels[[:graph:]]*$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "d",
+                    "modifiers": [
+                      "left_shift",
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.parallels[[:graph:]]*$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "modifiers": [
+                      "left_shift",
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.parallels[[:graph:]]*$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "modifiers": [
+                      "left_shift",
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "misc parallels shortcut translations"
           }
         ]
       },

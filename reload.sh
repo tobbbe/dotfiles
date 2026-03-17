@@ -1,6 +1,13 @@
 # 🚨 MAKE SURE dotfiles is at ~/dev/dotfiles
 # run with `sh reload.sh` OR use `reload` in terminal
 
+# Compile Karabiner DSL before rsync copies it
+python3 ~/dev/dotfiles/scripts/compile-karabiner-dsl.py \
+  ~/dev/dotfiles/.config/karabiner/karabiner.dsl.config \
+  ~/dev/dotfiles/.config/karabiner/karabiner.json \
+  --timeout-ms 800
+echo '↠ Karabiner DSL compiled'
+
 # This may overwrite existing files in your home directory
 # But will NOT remove files that doesnt exist in dotfiles-repo
 rsync --exclude ".git/" \

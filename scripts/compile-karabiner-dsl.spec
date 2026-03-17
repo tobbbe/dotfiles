@@ -2,6 +2,14 @@
 # Compiled by compile-karabiner-dsl.py
 # Output JSON uses sort_keys=True + indent=2.
 
+## Usage
+
+  python3 scripts/compile-karabiner-dsl.py <input.dsl.config> <output.json>
+  python3 scripts/compile-karabiner-dsl.py <input> <output> [--timeout-ms N]
+
+  On error: prints "Line N: <message>" to stderr and exits non-zero.
+  The output file is only written on success.
+
 ## File format
 Line-based. Significant indentation: 2 spaces per level.
 # starts a comment. Blank lines ignored.
@@ -92,11 +100,11 @@ Line-based. Significant indentation: 2 spaces per level.
   <mod>-<mod>-<key>  one or more modifiers + key (mandatory)
   <trigger>?         with optional: ["any"]
 
-  Modifiers (unqualified = left side):
-    ctrl  / ctrl_l  / ctrl_r    left/right_control
-    shift / shift_l / shift_r   left/right_shift
-    opt   / opt_l   / opt_r     left/right_option
-    cmd   / cmd_l   / cmd_r     left/right_command
+  Modifiers (unqualified = either side):
+    ctrl  / ctrl_l  / ctrl_r    either / left / right control
+    shift / shift_l / shift_r   either / left / right shift
+    opt   / opt_l   / opt_r     either / left / right option
+    cmd   / cmd_l   / cmd_r     either / left / right command
 
   Modifier order does not matter — output is always sorted alphabetically.
 

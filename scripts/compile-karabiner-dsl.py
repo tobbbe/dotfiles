@@ -33,16 +33,16 @@ from typing import Any, Dict, List, Optional, Tuple
 # ---------------------------------------------------------------------------
 
 MODIFIER_MAP = {
-    "ctrl":    "left_control",
+    "ctrl":    "control",
     "ctrl_l":  "left_control",
     "ctrl_r":  "right_control",
-    "cmd":     "left_command",
+    "cmd":     "command",
     "cmd_l":   "left_command",
     "cmd_r":   "right_command",
-    "shift":   "left_shift",
+    "shift":   "shift",
     "shift_l": "left_shift",
     "shift_r": "right_shift",
-    "opt":     "left_option",
+    "opt":     "option",
     "opt_l":   "left_option",
     "opt_r":   "right_option",
 }

@@ -2207,6 +2207,60 @@
                       "net.kovidgoyal.kitty"
                     ],
                     "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "t",
+                    "modifiers": [
+                      "left_control"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "New kitty tab"
+          },
+          {
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "escape"
+                },
+                "to": [
+                  {
+                    "key_code": "k",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "Kitty quick terminal"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "net.kovidgoyal.kitty"
+                    ],
+                    "type": "frontmost_application_if"
                   },
                   {
                     "expression": "leader_active = 0",
@@ -2306,34 +2360,39 @@
                 "type": "basic"
               }
             ],
-            "title": "kitty quick terminal (in kitty)"
+            "title": "Emoji picker (actual binding in raycast settings)"
           },
           {
             "manipulators": [
               {
                 "conditions": [
                   {
-                    "expression": "leader_active = 0",
-                    "type": "expression_if"
+                    "bundle_identifiers": [
+                      "org.mozilla.firefox"
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
-                  "key_code": "spacebar",
+                  "key_code": "d",
                   "modifiers": {
                     "mandatory": [
-                      "left_command"
+                      "right_command"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "/Applications/Firefox.app/Contents/MacOS/firefox --new-tab about:blank"
+                    "key_code": "w",
+                    "modifiers": [
+                      "left_command"
+                    ]
                   }
                 ],
                 "type": "basic"
               }
             ],
-            "title": "<leader-space>"
+            "title": "firefox"
           },
           {
             "manipulators": [
@@ -2736,6 +2795,33 @@
               }
             ],
             "title": "<leader-o>"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "expression": "leader_active = 0",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/Applications/Firefox.app/Contents/MacOS/firefox --new-tab about:blank"
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "<leader-enter>"
           },
           {
             "manipulators": [

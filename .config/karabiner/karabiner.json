@@ -79,7 +79,7 @@
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
-                      "left_command"
+                      "right_control"
                     ]
                   }
                 },
@@ -95,7 +95,7 @@
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": [
-                      "left_command"
+                      "right_control"
                     ]
                   }
                 },
@@ -111,7 +111,7 @@
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
-                      "left_command"
+                      "right_control"
                     ]
                   }
                 },
@@ -127,7 +127,7 @@
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
-                      "left_command"
+                      "right_control"
                     ]
                   }
                 },
@@ -3172,6 +3172,34 @@
                     "bundle_identifiers": [
                       "net.kovidgoyal.kitty"
                     ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": [
+                      "left_control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "net.kovidgoyal.kitty"
+                    ],
                     "type": "frontmost_application_unless"
                   }
                 ],
@@ -3209,6 +3237,123 @@
               }
             ],
             "title": "Kitty right shift leader"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "net.kovidgoyal.kitty"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "net.kovidgoyal.kitty"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "net.kovidgoyal.kitty"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "k",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "net.kovidgoyal.kitty"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "j",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "Kitty tab navigation"
           },
           {
             "manipulators": [

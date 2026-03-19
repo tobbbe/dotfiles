@@ -224,6 +224,23 @@
               },
               {
                 "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/bin/zsh -lc 'sh /Users/tobbe/dev/dotfiles/scripts/toggle-paneru-auto-center.sh'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
                   "key_code": "return_or_enter",
                   "modifiers": {
                     "mandatory": [

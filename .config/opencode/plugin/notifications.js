@@ -55,10 +55,9 @@ export const NotificationPlugin = async ({ $, directory }) => {
           details.push(sessionName)
         }
 
-        const message = `opencode: ${details.join(" - ")} completed`
-        const command = `hs -c ${JSON.stringify(`showNotification(${JSON.stringify(message)})`)} >/dev/null 2>&1`
-
-        await $`sh -c ${command}`
+        const message = `${details.join(" - ")} completed`
+        const notifyScript = path.join(process.env.HOME || "", "dev/dotfiles/scripts/agent-notifications.sh")
+        await $`sh ${notifyScript} ${"opencode"} ${message}`.catch(() => {})
       }
     },
   }

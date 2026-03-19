@@ -916,8 +916,38 @@ s() {
 }
 
 aa() {
+  pn on
   caffeinate -di &
   local caffeine_pid=$!
   cmatrix
   kill $caffeine_pid 2>/dev/null
+  pn off
+}
+
+pn() {
+  local action="${1:-toggle}"
+
+  if [ "$action" = "off" ]; then
+    rm -f "$HOME/.ntfy_enabled"
+    printYellow "Push notifications: off\n"
+    return 0
+  fi
+
+  if [ "$action" = "toggle" ] && [ -f "$HOME/.ntfy_enabled" ]; then
+    rm "$HOME/.ntfy_enabled"
+    printYellow "Push notifications: off\n"
+    return 0
+  fi
+
+  if [ ! -f "$HOME/.ntfy_topic" ]; then
+    printf "ntfy.sh topic: "
+    read topic
+    if [ -z "$topic" ]; then
+      printRed "No topic provided\n"
+      return 1
+    fi
+    echo "$topic" > "$HOME/.ntfy_topic"
+  fi
+  touch "$HOME/.ntfy_enabled"
+  printYellow "Push notifications: on (topic: $(cat $HOME/.ntfy_topic))\n"
 }

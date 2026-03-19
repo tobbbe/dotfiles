@@ -79,7 +79,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hs -c 'showNotification(\"Claude Code: Needs Help\")' < /dev/null"
+            "command": "~/dev/dotfiles/scripts/agent-notifications.sh \"Claude Code\" \"Needs your attention\""
           }
         ]
       }

@@ -1,5 +1,9 @@
 -- Enable IPC for command-line control
 require("hs.ipc")
+require("hs.screen")
+require("hs.canvas")
+require("hs.styledtext")
+require("hs.timer")
 hs.window.animationDuration = 0
 
 local function focusKittyMoveMouseToSimulator()
@@ -246,28 +250,30 @@ function showNotification(text)
 	local screen = hs.screen.mainScreen()
 	local frame = screen:fullFrame()
 	local fontSize = 22
-	local paddingX = 30
-	local paddingY = 14
-	local labelWidth = 400
-	local labelHeight = fontSize + paddingY * 2
+	local paddingX = 42
+	local paddingY = 30
+	-- SF Mono is monospaced; character width is reliably ~0.62 * fontSize
+	local labelWidth = math.ceil(#text * fontSize * 0.62) + paddingX * 2
+	local labelHeight = math.floor(fontSize + paddingY * 2)
 	local labelFrame = {
-		x = (frame.w - labelWidth) / 2,
-		y = 10 + labelHeight * 2,
+		x = math.floor((frame.w - labelWidth) / 2),
+		y = math.floor((frame.h - labelHeight) / 2),
 		w = labelWidth,
 		h = labelHeight,
 	}
 
 	notificationCanvas = hs.canvas.new(labelFrame)
 	local styledText = hs.styledtext.new(text, {
-		font = { name = "Menlo-Bold", size = fontSize },
-		color = { red = 0.05, green = 0.1, blue = 0.05, alpha = 1 },
+		font = { name = "SFMono-Regular", size = fontSize },
+		color = { white = 1, alpha = 1 },
 		paragraphStyle = { alignment = "center" },
 	})
 	notificationCanvas:appendElements({
 		type = "rectangle",
-		action = "fill",
-		fillColor = { red = 0.68, green = 1.0, blue = 0.68, alpha = 0.9 },
-		roundedRectRadii = { xRadius = 8, yRadius = 8 },
+		action = "strokeAndFill",
+		fillColor = { white = 0, alpha = 1 },
+		strokeColor = { red = 0x92 / 255, green = 0xD8 / 255, blue = 0xEE / 255, alpha = 1 },
+		strokeWidth = 2,
 	}, {
 		type = "text",
 		text = styledText,

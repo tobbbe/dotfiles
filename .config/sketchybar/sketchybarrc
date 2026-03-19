@@ -56,6 +56,9 @@ sketchybar --add item front_app center \
            --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
+sketchybar --add item notify center \
+           --set notify drawing=off icon.drawing=off
+
 
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.

@@ -24,6 +24,9 @@ if [ -f "$HOME/.ntfy_enabled" ]; then
   fi
 else
   # At computer — show local Hammerspoon notification
-  hs_payload=$(printf '%s' "$title: $message" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
-  hs -c "showNotification($hs_payload)" >/dev/null 2>&1 < /dev/null
+  # hs_payload=$(printf '%s' "$title: $message" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
+  # hs -c "showNotification($hs_payload)" >/dev/null 2>&1 < /dev/null
+
+  # At computer — show sketchybar notification
+  ~/.config/sketchybar/notify.sh --text "$title: $message" --duration 8 --bg 0xff000000 --fg 0xffaeffae
 fi

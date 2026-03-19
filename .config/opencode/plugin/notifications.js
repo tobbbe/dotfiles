@@ -37,7 +37,8 @@ async function readSessionName(directory) {
       return null
     }
 
-    return latestSession.slug || latestSession.title || latestSession.id || null
+    const title = latestSession.title
+    return title && !title.startsWith("New session -") ? title : null
   } catch {
     return null
   }
@@ -49,15 +50,8 @@ export const NotificationPlugin = async ({ $, directory }) => {
       if (event.type === "session.idle") {
         const cwd = path.basename(directory)
         const sessionName = await readSessionName(directory)
-        const details = [cwd]
-
-        if (sessionName) {
-          details.push(sessionName)
-        }
-
-        const message = `${details.join(" - ")} completed`
         const notifyScript = path.join(process.env.HOME || "", "dev/dotfiles/scripts/agent-notifications.sh")
-        await $`sh ${notifyScript} ${"opencode"} ${message}`.catch(() => {})
+        $`sh ${notifyScript} ${cwd} ${sessionName || "completed"}`.catch(() => {})
       }
     },
   }

@@ -618,9 +618,6 @@
                       "expression": "0",
                       "name": "leader_active_trigger_waiter"
                     }
-                  },
-                  {
-                    "shell_command": "/opt/homebrew/bin/sketchybar --bar color=80ffff00"
                   }
                 ],
                 "type": "basic"
@@ -670,9 +667,6 @@
                       "expression": "0",
                       "name": "leader_active_trigger_waiter"
                     }
-                  },
-                  {
-                    "shell_command": "/opt/homebrew/bin/sketchybar --bar color=0x#80ffff00"
                   }
                 ],
                 "type": "basic"
@@ -706,9 +700,6 @@
                       "expression": "0",
                       "name": "leader_active_trigger_waiter"
                     }
-                  },
-                  {
-                    "shell_command": "/opt/homebrew/bin/sketchybar --bar color=0x#80ffff00"
                   }
                 ],
                 "type": "basic"

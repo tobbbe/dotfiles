@@ -840,9 +840,9 @@ function vv() {
 
 function v() {
   if [ $# -eq 0 ]; then
-    nvim +"lua local p = require('persistence'); pcall(p.load)"
+    command nvim +"lua local p = require('persistence'); pcall(p.load)"
   else
-    nvim "$@"
+    command nvim "$@"
   fi
 
   echo -ne "\033[1A\r\033[2K"

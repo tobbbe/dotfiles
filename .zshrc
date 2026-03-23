@@ -111,6 +111,23 @@ zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 
 export EDITOR='nvim'
 
+function cleanup_orphaned_nvim_embed() {
+  local orphan_pids
+  orphan_pids=$(ps -axo pid=,ppid=,tty=,command= | awk '$2 == 1 && $3 == "??" && $0 ~ /nvim --embed/ { print $1 + 0 }')
+
+  if [[ -n "$orphan_pids" ]]; then
+    while IFS= read -r pid; do
+      if [[ -n "$pid" ]]; then
+        /bin/kill -TERM "$pid" 2>/dev/null
+        sleep 0.05
+        /bin/kill -0 "$pid" 2>/dev/null && /bin/kill -KILL "$pid" 2>/dev/null
+      fi
+    done <<<"$orphan_pids"
+  fi
+}
+
+cleanup_orphaned_nvim_embed
+
 # Wrapper for nvim to handle f6 exit -> vv behavior
 function nvim() {
   command nvim "$@"

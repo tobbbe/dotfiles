@@ -1,0 +1,20 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-keybindings.json",
+  "$docs": "https://code.claude.com/docs/en/keybindings",
+  "bindings": [
+    {
+      "context": "Chat",
+      "bindings": {
+        "shift+enter": "chat:newline",
+        "ctrl+s": null
+      }
+    },
+    {
+      "context": "Autocomplete",
+      "bindings": {
+        "ctrl+j": "autocomplete:next",
+        "ctrl+k": "autocomplete:previous"
+      }
+    }
+  ]
+}

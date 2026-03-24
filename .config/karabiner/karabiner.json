@@ -2207,38 +2207,6 @@
           {
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "net.kovidgoyal.kitty"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "return_or_enter",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "t",
-                    "modifiers": [
-                      "left_control"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "New kitty tab"
-          },
-          {
-            "manipulators": [
-              {
                 "from": {
                   "key_code": "escape"
                 },

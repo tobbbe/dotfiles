@@ -960,25 +960,9 @@ s() {
 }
 
 aa() {
-  if sudo systemsetup -setremotelogin on >/dev/null; then
-    printYellow "Remote Login: on\n"
-  else
-    printRed "Failed to enable Remote Login\n"
-    return 1
-  fi
-
   pn on
 
-  caffeinate -di &
-  local caffeine_pid=$!
-
-  cmatrix
-
-  kill $caffeine_pid 2>/dev/null
-
-  if sudo systemsetup -setremotelogin off >/dev/null; then
-    printYellow "Remote Login: off\n"
-  fi
+  caffeinate -dim cmatrix
 
   pn off
 }

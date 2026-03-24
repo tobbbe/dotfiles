@@ -70,7 +70,6 @@ alias gl+="git log --oneline --decorate --graph --stat --date=relative --pretty=
 # tmux
 # alias ta='tmux attach -t'                # attach named session
 alias tp='tmux a'                        # attach previous session
-alias tt='tmux a && tmux choose-session' # show tmux choose-session
 alias tl='tmux list-sessions'
 # alias tn='tmux new-session -s'	      is in functions.sh       # create new named session
 # alias tk='tmux kill-session -t'         is in functions.sh          # kill named session

@@ -2,19 +2,19 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title ff
+# @raycast.title fp
 # @raycast.mode silent
 
 # Optional parameters:
 # @raycast.icon 🔍
-# @raycast.packageName Find file
+# @raycast.packageName Find project
 
 osascript -e 'tell application "iTerm2"
     activate
     tell current window
         create tab with default profile
         tell the current session
-            write text "ff ~/dev; exit"
+            write text "fp; exit"
         end tell
     end tell
 end tell'

@@ -14,7 +14,7 @@ osascript -e 'tell application "iTerm2"
     tell current window
         create tab with default profile
         tell the current session
-            write text "fif ~/dev; exit"
+            write text "fif; exit"
         end tell
     end tell
 end tell'

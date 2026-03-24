@@ -1,3 +1,8 @@
+# f ?arg: find dir, cd into
+# ff ?arg: find file, open in nvim
+# fif ?arg: find in files, open in nvim
+# fp ?arg: find dir in ~/dev/ (with .git), cd into
+
 # Start an HTTP server from a directory, optionally specifying the port
 # why use -c and -p flags: https://stackoverflow.com/a/38295516/1320551
 function server() {
@@ -260,57 +265,111 @@ function startDocker() {
   echo ""
 }
 
-function ff() {
-  local dirr=$*
-  local hasnav=false
-  if [[ -n $dirr ]]; then
-    if [[ -d $dirr ]]; then
-      # if subdir exist, go there
-      hasnav=true
-      cd $dirr
-    elif [[ ! -z $(f -e $dirr) ]]; then
-      # if z find something, go there
-      f "$dirr"
-      hasnav=true
-    fi
-  fi
+f() {
+  local query="${*:-}"
+  local dir
 
-  local fpath=$(fzf --bind 'f2:execute-silent(code {})' --preview 'bat --style=numbers --color=always --line-range :500 {}')
-  [ -z $fpath ] || code $fpath
-  # [[ $hasnav ]] && cd - > /dev/null
+  dir="$(
+    fd --type d --hidden \
+      --exclude .git \
+      --exclude node_modules \
+      --exclude .next \
+      --exclude Pods \
+      --exclude dist \
+      --exclude build \
+      . . 2>/dev/null | fzf +m --query "$query"
+  )"
+
+  [[ -n $dir ]] && cd "$dir"
+}
+
+ff() {
+  local query="${*:-}"
+  local file
+
+  file="$(
+    fd --type f --hidden \
+      --exclude .git \
+      --exclude node_modules \
+      --exclude .next \
+      --exclude Pods \
+      --exclude dist \
+      --exclude build \
+      --exclude package-lock.json \
+      --exclude pnpm-lock.yaml \
+      --exclude yarn.lock \
+      --exclude bun.lockb \
+      . . 2>/dev/null | fzf --query "$query"
+  )"
+
+  [[ -n $file ]] && nvim "$file"
 }
 
 # find in files
 fif() {
-  local dirr=$*
-  local hasnav=false
-  if [[ -n $dirr ]]; then
-    if [[ -d $dirr ]]; then
-      # if subdir exist, go there
-      hasnav=true
-      cd $dirr
-    elif [[ ! -z $(f -e $dirr) ]]; then
-      # if z find something, go there
-      f "$dirr"
-      hasnav=true
-    fi
+  local query="${*:-}"
+  local rg_cmd
+  local selected
+  local file
+  local line
+
+  rg_cmd="rg -i --line-number --no-heading --color=always --hidden --glob '!**/.git/**' --glob '!**/node_modules/**' --glob '!**/.next/**' --glob '!**/Pods/**' --glob '!**/dist/**' --glob '!**/build/**' --glob '!**/package-lock.json' --glob '!**/pnpm-lock.yaml' --glob '!**/yarn.lock' --glob '!**/bun.lockb' -- {q} . || true"
+
+  if [[ -n $query ]]; then
+    selected="$(
+      rg -i --line-number --no-heading --color=always --hidden \
+        --glob '!**/.git/**' \
+        --glob '!**/node_modules/**' \
+        --glob '!**/.next/**' \
+        --glob '!**/Pods/**' \
+        --glob '!**/dist/**' \
+        --glob '!**/build/**' \
+        --glob '!**/package-lock.json' \
+        --glob '!**/pnpm-lock.yaml' \
+        --glob '!**/yarn.lock' \
+        --glob '!**/bun.lockb' \
+        -- "$query" . 2>/dev/null |
+        fzf \
+          --ansi \
+          --disabled \
+          --reverse \
+          --query "$query" \
+          --delimiter ":" \
+          --bind "change:reload:$rg_cmd" \
+          --preview 'bat --style=numbers --color=always --highlight-line {2} {1}'
+    )"
+  else
+    selected="$(
+      fzf \
+        --ansi \
+        --disabled \
+        --reverse \
+        --delimiter ":" \
+        --bind "change:reload:$rg_cmd" \
+        --preview 'bat --style=numbers --color=always --highlight-line {2} {1}'
+    )"
   fi
 
-  selected=$(
-    fzf \
-      -m \
-      -e \
-      --ansi \
-      --disabled \
-      --reverse \
-      --bind "ctrl-a:select-all" \
-      --bind "f2:execute-silent(code {})" \
-      --bind "change:reload:rg -i -l --hidden {q} || true" \
-      --preview "rg -i --pretty --context 2 {q} {}" | cut -d":" -f1,2
-  )
+  file="${selected%%:*}"
+  line="${selected#*:}"
+  line="${line%%:*}"
 
-  [[ -n $selected ]] && code $selected # open multiple files in editor
-  # [[ $hasnav ]] && cd - > /dev/null
+  if [[ -n $file && $line =~ ^[0-9]+$ ]]; then
+    nvim "+$line" "$file"
+  fi
+}
+
+fp() {
+  local query="${*:-}"
+  local dir
+
+  dir="$(
+    fd --hidden --no-ignore --type d '^\\.git$' "$HOME/dev" 2>/dev/null |
+      sed 's|/\\.git$||' |
+      fzf +m --query "$query"
+  )"
+
+  [[ -n $dir ]] && cd "$dir"
 }
 
 function da() {
@@ -459,27 +518,37 @@ function mitm_off() {
 }
 
 function code() {
-  # open current directory in vscode
+  local editor="${EDITOR:-nvim}"
+
   if [ $# -eq 0 ]; then
-    open -a "Visual Studio Code" .
+    "$editor" .
   else
-    open -a "Visual Studio Code" $@
+    "$editor" "$@"
   fi
 }
 
 function t() {
   if [ -z "$1" ]; then
-    # No name provided, try to attach to any existing session
-    if tmux attach 2>/dev/null; then
+    if [ -n "$TMUX" ]; then
+      tmux switch-client -T prefix \; send-keys -K w
       return 0
     fi
-    # No sessions exist, create "dotfiles" in ~/dev/dotfiles/
-    tmux new-session -d -s "dotfiles" -c "$HOME/dev/dotfiles/" 2>/dev/null
-    if [ -n "$TMUX" ]; then
-      tmux switch-client -t "dotfiles"
-    else
+
+    local sessions
+    local selected_session
+    sessions=$(tmux list-sessions -F '#S' 2>/dev/null)
+    if [ -z "$sessions" ]; then
+      # No sessions exist, create "dotfiles" in ~/dev/dotfiles/
+      tmux new-session -d -s "dotfiles" -c "$HOME/dev/dotfiles/" 2>/dev/null
       tmux attach -t "dotfiles"
+      return 0
     fi
+
+    selected_session=$(printf '%s\n' "$sessions" | fzf --prompt='tmux session: ')
+    if [ -n "$selected_session" ]; then
+      tmux attach -t "$selected_session"
+    fi
+    return 0
   else
     local session_name="$1"
     tmux new-session -d -s "$session_name" 2>/dev/null
@@ -882,31 +951,6 @@ function videoToGif() {
   ffmpeg -ss 00:00:26 -t 12 -i input.mp4 \
     -vf "fps=30,split[s0][s1];[s0]palettegen=max_colors=256[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" output.gif
 }
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-    -o -type d -print 2>/dev/null | fzf +m) &&
-    cd "$dir"
-}
-f() {
-  if [[ $# -eq 0 ]]; then
-    # No arguments - use find for current directory
-    local file
-    file="$(find . -type d \( -name .git -o -name node_modules -o -name Pods -o -name .next \) -prune -o \( -type f -o -type d \) -print 2>/dev/null | fzf --preview 'if [ -f {} ]; then bat --color=always {}; fi')"
-
-    if [[ -n $file ]]; then
-      if [[ -d $file ]]; then
-        cd -- $file
-      else
-        nvim "$file"
-      fi
-    fi
-  else
-    # Arguments provided - use zoxide to jump
-    __zoxide_z "$@"
-  fi
-}
-
 s() {
   local server
   server=$(awk '/^Host / { host=$2 } /IdentityFile ~\/.ssh\/servers/ { print host }' ~/.ssh/config | fzf)
@@ -916,11 +960,26 @@ s() {
 }
 
 aa() {
+  if sudo systemsetup -setremotelogin on >/dev/null; then
+    printYellow "Remote Login: on\n"
+  else
+    printRed "Failed to enable Remote Login\n"
+    return 1
+  fi
+
   pn on
+
   caffeinate -di &
   local caffeine_pid=$!
+
   cmatrix
+
   kill $caffeine_pid 2>/dev/null
+
+  if sudo systemsetup -setremotelogin off >/dev/null; then
+    printYellow "Remote Login: off\n"
+  fi
+
   pn off
 }
 
@@ -946,7 +1005,7 @@ pn() {
       printRed "No topic provided\n"
       return 1
     fi
-    echo "$topic" > "$HOME/.ntfy_topic"
+    echo "$topic" >"$HOME/.ntfy_topic"
   fi
   touch "$HOME/.ntfy_enabled"
   printYellow "Push notifications: on (topic: $(cat $HOME/.ntfy_topic))\n"

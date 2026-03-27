@@ -364,8 +364,8 @@ fp() {
   local dir
 
   dir="$(
-    fd --hidden --no-ignore --type d '^\\.git$' "$HOME/dev" 2>/dev/null |
-      sed 's|/\\.git$||' |
+    fd --type d --max-depth 1 --min-depth 1 . "$HOME/dev" 2>/dev/null |
+      sed -E 's|/$||' |
       fzf +m --query "$query"
   )"
 

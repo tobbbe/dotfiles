@@ -21,7 +21,7 @@ rsync --exclude ".git/" \
   --exclude "iterm-settings/" \
   --exclude "scripts/" \
   --exclude "prompts/" \
-  --exclude "AGENTS.md" \
+  --exclude "agents/" \
   --exclude "agent-skills/" \
   --exclude "agent-commands/" \
   --exclude ".config/sublime-text" \
@@ -41,7 +41,7 @@ rsync -ah ~/dev/dotfiles/prompts/ "$VSCODE_DIR/prompts/"
 echo '↠ VSCode Prompts reloaded'
 
 # vscode agents
-cp ~/dev/dotfiles/AGENTS.md "$VSCODE_DIR/prompts/AGENTS.md" && sed -i '' '1i\
+cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md "$VSCODE_DIR/prompts/AGENTS.md" && sed -i '' '1i\
 ---\
 applyTo: "**"\
 ---\
@@ -50,11 +50,11 @@ applyTo: "**"\
 echo '↠ VSCode AGENTS.md reloaded'
 
 # opencode
-cp ~/dev/dotfiles/AGENTS.md ~/.config/opencode/AGENTS.md
+cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.config/opencode/AGENTS.md
 echo '↠ Opencode AGENTS.md reloaded'
 
 # claude
-cp ~/dev/dotfiles/AGENTS.md ~/.claude/CLAUDE.md
+cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.claude/CLAUDE.md
 echo '↠ Claude AGENTS.md reloaded'
 
 # agent skills → ~/.claude/skills/ (opencode also reads from there)

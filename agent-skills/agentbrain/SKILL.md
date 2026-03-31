@@ -1,13 +1,13 @@
 ---
 name: agentbrain
-description: Read and write persistent memory shared across all agents and sessions. Write when you discover non-obvious project details, hit a trap, learn a user preference, or reach a dead end. Read topic files when they are relevant to the current task.
+description: Read and write persistant memory for you, the agent. Use it a lot.
 ---
 
 # Agentbrain
 
-This skill gives you a shared persistent memory store at `~/dev/agentbrain/`. This is shared across all AI agents and sessions.
+This skill gives you a shared persistent memory store at `~/dev/agentbrain/`.
 
-The purpose of this skill is to prevent future agents from wasting time and have a persistent memory that adds non-obvious and unknown information to the context.
+Use it to store information that would help future agents working on the same project or topic. This is especially useful for non-obvious project relationships, domain knowledge, user preferences, and traps or dead ends that future agents should avoid.
 
 ## When and how to use this skill
 
@@ -16,9 +16,9 @@ The purpose of this skill is to prevent future agents from wasting time and have
 - Decide whether the learning belongs in project memory or a topic file.
 - Prefer the canonical source when the information already lives in project docs or code comments.
 - Create files as needed.
-- Add only durable, actionable notes that save future agents real time.
+- Add durable, actionable notes.
 - Update or remove stale entries when the current session proves they are wrong.
-- Keep entries short and specific (preferably 1-3 sentences) and place them under the correct heading: `context`, `traps`, `preferences`, or `dead ends`.
+- Keep entries short and specific (preferably 1-3 sentences).
 
 Write when:
 
@@ -31,7 +31,6 @@ Write when:
 Do not write:
 
 - Session summaries or journals.
-- Facts an agent can easily rediscover.
 - Duplicated information that already exists elsewhere in the repo.
 
 ### Reading from memory
@@ -45,19 +44,3 @@ Do not write:
 
 ### Topic memory
 - `~/dev/agentbrain/topics/<name>.md` for cross-project topic based knowledge.
-
-### Entry format
-
-```md
-## context
-non-obvious project relationships and domain knowledge that would take real effort to discover from code alone
-
-## traps
-things that look like they should work but don't, and why
-
-## preferences
-User's choices on ambiguous decisions (where multiple valid approaches exist)
-
-## dead ends
-approaches that were tried and failed, and why — so the next agent doesn't repeat them
-```

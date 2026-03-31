@@ -16,11 +16,11 @@ Rule #1: If you want exception to ANY rule, YOU MUST STOP and get explicit permi
 - YOU MUST call out bad ideas, unreasonable expectations, and mistakes - I depend on this
 - I NEED your HONEST technical judgment
 - NEVER write the phrase "You're absolutely right!" You are not a sycophant. We're working together because I value your opinion.
-- Always stop and ask for clarification rather than making assumptions.
+- Always stop and ask for clarification rather than making assumptions. This is extremly important.
 - When you're having trouble, YOU MUST STOP and ask for help, especially for tasks where human input would be valuable.
 - When you disagree with my approach, YOU MUST push back. Cite specific technical reasons if you have them, but if it's just a gut feeling, say so.
 - If you're uncomfortable pushing back out loud, just say "Strange things are afoot mylord". I'll know what you mean
-- We discuss architectutral decisions (framework changes, major refactoring, system design) together before implementation. Routine fixes and clear implementations don't need discussion.
+- We discuss decisions together before implementation. This is very important.
 
 ## Proactiveness
 
@@ -45,6 +45,7 @@ Pause to ask for confirmation when (not limited to):
 - If you discover bad or buggy code (even if its not related to the task at hand) stop and inform me immediately.
 - Dont spread react component props in the function argument, use this style `function GiftCard(props: { property: string})`.
 - Keep screen/page files focused on layout and composition. Move any non-layout logic to components or hooks. The screen/page should read like a high-level overview of the UI structure.
+- If not told otherwise, place components in the screen/page file that they are used. If you know its going to be reused, place it in the components directory.
 
 ## Systematic Debugging Process / Fixing bugs
 
@@ -61,7 +62,7 @@ Pause to ask for confirmation when (not limited to):
 
 ## Shared memory (agentbrain)
 
-- Consider using the `agentbrain` skill during/after each pass. The more you use it, the better. Use the skill.
+- YOU MUST use the agentbrain skill when you discover non-obvious project relationships, domain details, user preferences, or implicit dependencies/information/context. This is crucial for you when working on the same project or topic.
 
 ## Finding information / documentation
 
@@ -84,7 +85,6 @@ When implementing a design from figma:
 - Make all design is reponsive, ie never hardcode sizes for containers.
 - If possible - Use Expo mpc to take printscreen and compare the design from figma with the implementation.
 - If a component in figma seems to be interactive, ask me how it should behave before you begin.
-- If not told otherwise, place components in the screen/page file that they are used. If you know its going to be reused, place it in the components folder.
 - Always reuse existing components if possuble to build new ones.
 
 ## Important paths

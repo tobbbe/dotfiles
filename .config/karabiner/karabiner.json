@@ -734,36 +734,6 @@
                 "conditions": [
                   {
                     "bundle_identifiers": [
-                      "com.mitchellh.ghostty"
-                    ],
-                    "type": "frontmost_application_unless"
-                  },
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "grave_accent_and_tilde",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "sh ~/dev/dotfiles/scripts/open_ghostty_quick_terminal.sh"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
                       "com.googlecode.iterm2",
                       "com.mitchellh.ghostty",
                       "net.kovidgoyal.kitty",
@@ -783,63 +753,6 @@
                         "bundle_identifier": "org.mozilla.firefox"
                       }
                     }
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_if"
-                  },
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "grave_accent_and_tilde"
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": [
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "grave_accent_and_tilde"
-                },
-                "to": [
-                  {
-                    "key_code": "i",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "right_option"
-                    ]
                   }
                 ],
                 "type": "basic"
@@ -966,74 +879,6 @@
                       "left_shift",
                       "right_command"
                     ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "b",
-                    "modifiers": [
-                      "left_control"
-                    ]
-                  },
-                  {
-                    "key_code": "n"
-                  },
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "b",
-                    "modifiers": [
-                      "left_control"
-                    ]
-                  },
-                  {
-                    "key_code": "p"
-                  },
-                  {
-                    "key_code": "escape"
                   }
                 ],
                 "type": "basic"
@@ -1573,36 +1418,6 @@
               }
             ],
             "title": "VSCode bracket mappings"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "f7"
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "Kitty session switching"
           },
           {
             "manipulators": [
@@ -2183,66 +1998,6 @@
               }
             ],
             "title": "Mail"
-          },
-          {
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled_com.microsoft.VSCode"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "1",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_backslash",
-                    "modifiers": [
-                      "left_shift",
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled_com.microsoft.VSCode"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_backslash",
-                    "modifiers": [
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "vscode toggle windows (OBS! also requires you to set workbench.action.show(Next+Previous)WindowTab) in vscode"
           },
           {
             "manipulators": [
@@ -2930,54 +2685,6 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": [
-                      "disabled. to be able to use leader-a in terminal"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 421
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "expression": "system.now.milliseconds + 3420",
-                      "name": "leader_active_group_a"
-                    }
-                  }
-                ],
-                "to_delayed_action": {
-                  "to_if_canceled": [
-                    {
-                      "set_variable": {
-                        "expression": "0",
-                        "name": "leader_active_group_a"
-                      }
-                    }
-                  ],
-                  "to_if_invoked": [
-                    {
-                      "set_variable": {
-                        "expression": "0",
-                        "name": "leader_active_group_a"
-                      }
-                    }
-                  ]
-                },
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
                     "expression": "leader_active > system.now.milliseconds",
                     "type": "expression_if"
                   }
@@ -3120,38 +2827,6 @@
                     "set_variable": {
                       "expression": "1",
                       "name": "leader_active_trigger_waiter"
-                    }
-                  },
-                  {
-                    "key_code": "spacebar",
-                    "modifiers": [
-                      "right_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "disabled"
-                    ],
-                    "type": "frontmost_application_if"
-                  },
-                  {
-                    "expression": "leader_active > system.now.milliseconds",
-                    "type": "expression_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "left_command"
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "expression": "0",
-                      "name": "leader_active"
                     }
                   },
                   {

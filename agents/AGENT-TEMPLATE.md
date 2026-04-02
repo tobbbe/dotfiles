@@ -95,3 +95,13 @@ When implementing a design from figma:
 - My Lazyvim config is located at `/Users/tobbe/.config/nvim/`, it does not require me to run the copy script after changes.
 - I use Kitty terminal.
 - I use Karabiner element and have a lot of keyboard modifications. They are located at `/Users/tobbe/dev/dotfiles/.config/karabiner/karabiner.json`
+
+## Aliases
+
+I might use these words/phrases, treat them as aliases for for these repos:
+- ~/dev/livityapp-web = livityapp-web, livity-web, "livity web"
+- ~/dev/incline-web = incline-web, "incline web"
+- ~/dev/livity-app-v5 = livity-app, "livity app", "new livity app"
+- ~/dev/livity-app = "old livity app"
+- ~/dev/peach = peach
+- ~/dev/arcane = arcane

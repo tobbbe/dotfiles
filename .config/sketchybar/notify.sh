@@ -1,5 +1,5 @@
 #!/bin/bash
-# Show a centered notification in sketchybar.
+# Show a notification in sketchybar.
 #
 # Usage: notify.sh --text TEXT [--duration SECS] [--bg 0xAARRGGBB] [--fg 0xAARRGGBB]
 #
@@ -9,8 +9,6 @@
 #   --bg        Bar background color in 0xAARRGGBB format (default: 0xff1a1a2e)
 #   --fg        Text color in 0xAARRGGBB format (default: 0xffffffff)
 #
-# Center items hidden while notification is visible: front_app
-
 TEXT=""
 DURATION=3
 BG="0xff1a1a2e"
@@ -19,11 +17,20 @@ FG="0xffffffff"
 # Original bar color (transparent)
 ORIGINAL_BAR_COLOR="0x00000000"
 
-# Center items to hide while notification is visible
-CENTER_ITEMS=(front_app)
-
 PIDFILE="/tmp/sketchybar_notify.pid"
 TEXTFILE="/tmp/sketchybar_notify_text"
+
+model_has_notch() {
+  local model
+  model="$(sysctl -n hw.model 2>/dev/null)"
+  [[ "$model" =~ ^MacBookPro(18|19|2[0-9]), ]]
+}
+
+if model_has_notch; then
+  NOTIFY_POSITION="left"
+else
+  NOTIFY_POSITION="center"
+fi
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -46,10 +53,8 @@ if [[ -f "$PIDFILE" ]]; then
   current=$(cat "$TEXTFILE" 2>/dev/null)
   TEXT="${current} | ${TEXT}"
 else
-  # Fresh notification — hide other center items and set bar color
-  for item in "${CENTER_ITEMS[@]}"; do
-    sketchybar --set "$item" drawing=off
-  done
+  # Fresh notification — set position and bar color
+  sketchybar --set notify position="$NOTIFY_POSITION"
   sketchybar --bar color="$BG"
 fi
 
@@ -59,12 +64,9 @@ sketchybar --set notify drawing=on \
                         label.color="$FG"
 
 # Restore after duration
-(
+( 
   sleep "$DURATION"
   sketchybar --set notify drawing=off
-  for item in "${CENTER_ITEMS[@]}"; do
-    sketchybar --set "$item" drawing=on
-  done
   sketchybar --bar color="$ORIGINAL_BAR_COLOR"
   rm -f "$PIDFILE" "$TEXTFILE"
 ) &

@@ -15,7 +15,7 @@ ITEM_DIR="$CONFIG_DIR/items"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top display=all height=30 blur_radius=30 color=0x#ffffff00
+sketchybar --bar position=top display=all height=30 blur_radius=0 color=0x#ffffff00
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -25,8 +25,8 @@ sketchybar --bar position=top display=all height=30 blur_radius=30 color=0x#ffff
 default=(
   padding_left=5
   padding_right=5
-  icon.font="Hack Nerd Font:Bold:15.0"
-  label.font="Hack Nerd Font:Bold:12.0"
+  icon.font="0xProto NL:Bold:15.0"
+  label.font="0xProto NL:Bold:12.0"
   icon.color=0xffffffff
   label.color=0xffffffff
   icon.padding_left=4
@@ -50,13 +50,16 @@ sketchybar --add item workspace left \
            --set workspace icon.drawing=off script="$PLUGIN_DIR/aerospace-workspace.sh" \
            --subscribe workspace aerospace_workspace_change
 
-source "$ITEM_DIR/spotify.sh"
-
-sketchybar --add item front_app center \
-           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+sketchybar --add item front_app left \
+           --set front_app icon.drawing=off \
+                          padding_right=0 \
+                          label.padding_right=1 \
+                          script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
-sketchybar --add item notify center \
+source "$ITEM_DIR/spotify.sh"
+
+sketchybar --add item notify left \
            --set notify drawing=off icon.drawing=off
 
 

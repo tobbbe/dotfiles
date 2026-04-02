@@ -5,7 +5,7 @@ INFO=$(osascript -e '
     if it is running and player state is playing then
       set trackName to name of current track
       set artistName to artist of current track
-      return trackName & " – " & artistName
+      return trackName & " - " & artistName
     else
       return ""
     end if
@@ -15,5 +15,5 @@ INFO=$(osascript -e '
 if [ -z "$INFO" ]; then
   sketchybar --set "$NAME" drawing=off
 else
-  sketchybar --set "$NAME" label="$INFO" drawing=on
+  sketchybar --set "$NAME" label="| $INFO" drawing=on
 fi

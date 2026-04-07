@@ -2435,7 +2435,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -g 'hammerspoon://kitty-focus-simulator-mouse'"
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "com.apple.iphonesimulator"
+                      }
+                    }
                   }
                 ],
                 "type": "basic"

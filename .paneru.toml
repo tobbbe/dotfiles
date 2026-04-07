@@ -19,7 +19,7 @@ preset_column_widths = [ 0.25, 0.33, 0.50, 0.66, 0.75 ]
 # Remove the line to disable the gesture feature.
 # Apple touchpads support gestures with more than five fingers (!),
 # but it is probably not that useful to use two hands :)
-swipe_gesture_fingers = 4
+# swipe_gesture_fingers = 4
 
 # Which direction should windows move with a swipe gesture.
 # "Natural" => Swipe fingers to the right, windows move to the right.
@@ -30,12 +30,12 @@ swipe_gesture_fingers = 4
 # Swiping keeps sliding windows until the first or last window.
 # Set to false to clamp so edge windows stay on-screen. Enabled by default.
 # continuous_swipe = true
-continuous_swipe = false
+# continuous_swipe = false
 
 # Animation speed in 1/10th of display resolution per second.
 # E.g. a value of 20 means: move at a speed of two display sizes per second.
 # To disable animations, leave this unset or set to a very large value.
-# animation_speed = 9999
+# animation_speed = 60
 
 # Automatically center the focused window when switching focus with keyboard,
 # i.e. 'window_focus_west' or 'window_focus_east'.
@@ -67,7 +67,7 @@ auto_center = true
 #
 
 # border_active_window = true
-border_color = "#00BFFF"
+# border_color = "#00BFFF"
 
 [bindings]
 # Moves the focus between windows. If there are no windows when moving up or

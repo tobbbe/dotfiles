@@ -85,7 +85,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window focus west"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus west"
                   }
                 ],
                 "type": "basic"
@@ -101,39 +101,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window focus east"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_control"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window focus north"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_control"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window focus south"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus east"
                   }
                 ],
                 "type": "basic"
@@ -150,7 +118,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window swap west"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window swap west"
                   }
                 ],
                 "type": "basic"
@@ -167,41 +135,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window swap east"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_shift",
-                      "right_control"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window swap north"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_shift",
-                      "right_control"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window swap south"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window swap east"
                   }
                 ],
                 "type": "basic"
@@ -217,7 +151,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window center"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
                   }
                 ],
                 "type": "basic"
@@ -235,6 +169,22 @@
                 "to": [
                   {
                     "shell_command": "/bin/zsh -lc 'sh /Users/tobbe/dev/dotfiles/scripts/toggle-paneru-auto-center.sh'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru stop && /opt/homebrew/bin/paneru start"
                   }
                 ],
                 "type": "basic"
@@ -266,7 +216,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window resize"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window resize"
                   }
                 ],
                 "type": "basic"
@@ -283,7 +233,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window shrink"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window shrink"
                   }
                 ],
                 "type": "basic"
@@ -299,7 +249,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window fullwidth"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window fullwidth"
                   }
                 ],
                 "type": "basic"
@@ -315,7 +265,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window manage"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window manage"
                   }
                 ],
                 "type": "basic"
@@ -331,7 +281,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window stack"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window stack"
                   }
                 ],
                 "type": "basic"
@@ -347,7 +297,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window unstack"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window unstack"
                   }
                 ],
                 "type": "basic"
@@ -363,7 +313,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window nextdisplay && /Users/tobbe/.cargo/bin/paneru send-cmd mouse nextdisplay"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window nextdisplay && /opt/homebrew/bin/paneru send-cmd mouse nextdisplay"
                   }
                 ],
                 "type": "basic"
@@ -380,7 +330,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd mouse nextdisplay"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd mouse nextdisplay"
                   }
                 ],
                 "type": "basic"
@@ -396,7 +346,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window equalize"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window equalize"
                   }
                 ],
                 "type": "basic"
@@ -412,7 +362,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd quit"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd quit"
                   }
                 ],
                 "type": "basic"
@@ -428,7 +378,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window focus first"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus first"
                   }
                 ],
                 "type": "basic"
@@ -444,7 +394,105 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/Users/tobbe/.cargo/bin/paneru send-cmd window focus last"
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus last"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window nextdisplay"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "up_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual north"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual south"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual north"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtualsend south"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtualsend north"
                   }
                 ],
                 "type": "basic"

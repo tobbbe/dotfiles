@@ -136,23 +136,11 @@ title = "Picture.*(in)?.*[Pp]icture"
 # Do not manage this window, e.g. it will be floating.
 floating = true
 
-[windows.neovide]
-# Matches an editor by title and always inserts its window at index 1,
-# a specific initial width (as a ratio of display width),
-# and let some bindings pass through.
-# Note: bundle_id is optional. Some apps (e.g. plain binaries) do not
-# report one, so matching by title alone is often more reliable.
-title = "Neovide.*"
-index = 1
-width = 0.5
-bindings_passthrough = ["ctrl-h", "ctrl-l"]
-
 [windows.popup]
 # Matches a popup and silently appends it at the end.
 title = "Unimportant popup window"
 dont_focus = true
 index = 100
-
 
 [windows.passwords]
 # Floating window placed on a grid. The format is "cols:rows:x:y:w:h".
@@ -165,18 +153,22 @@ grid = "6:6:1:1:4:4"
 [windows.simulator]
 title = ".*"
 bundle_id = "com.apple.iphonesimulator"
-auto_center = false
-index = 1
+floating = true
 
 [windows.kitty]
 title = ".*"
 bundle_id = "net.kovidgoyal.kitty"
-index = 2
+index = 1
 
 [windows.firefox]
 title = ".*"
 bundle_id = "org.mozilla.firefox"
-index = 3
+index = 2
+
+[windows.systemsettings]
+title = ".*"
+bundle_id = "com.apple.systempreferences"
+floating = true
 
 [windows.all]
 # Matches all windows and adds a few pixels of spacing to their borders.

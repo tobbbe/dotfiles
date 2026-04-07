@@ -460,7 +460,7 @@ function rni() {
   osascript -e 'tell application "System Events" to key code 34'
 }
 
-function pi() {
+function rnpi() {
   if [[ "$PWD" != */ios ]]; then
     cd ios
   fi

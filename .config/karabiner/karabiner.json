@@ -740,6 +740,35 @@
           {
             "manipulators": [
               {
+                "from": {
+                  "key_code": "right_command",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_command"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": [
+                      "right_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "raycast"
+          },
+          {
+            "manipulators": [
+              {
                 "conditions": [
                   {
                     "bundle_identifiers": [
@@ -2885,10 +2914,11 @@
                     }
                   },
                   {
-                    "key_code": "spacebar",
-                    "modifiers": [
-                      "right_option"
-                    ]
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "org.mozilla.firefox"
+                      }
+                    }
                   }
                 ],
                 "type": "basic"

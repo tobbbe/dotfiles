@@ -79,7 +79,7 @@
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
                 },
@@ -95,13 +95,29 @@
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus east"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
                   }
                 ],
                 "type": "basic"
@@ -136,22 +152,6 @@
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window swap east"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_control"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
                   }
                 ],
                 "type": "basic"
@@ -417,22 +417,6 @@
               },
               {
                 "from": {
-                  "key_code": "up_arrow",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_control"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual north"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
@@ -498,7 +482,7 @@
                 "type": "basic"
               }
             ],
-            "title": "Paneru"
+            "title": "Window management"
           },
           {
             "manipulators": [

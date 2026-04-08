@@ -2481,13 +2481,11 @@
                 },
                 "to": [
                   {
-                    "key_code": "e",
-                    "modifiers": [
-                      "left_command",
-                      "left_control",
-                      "left_shift",
-                      "right_option"
-                    ]
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "com.anthropic.claudefordesktop"
+                      }
+                    }
                   }
                 ],
                 "type": "basic"

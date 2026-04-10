@@ -124,6 +124,22 @@
               },
               {
                 "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
@@ -795,11 +811,7 @@
                 "conditions": [
                   {
                     "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
+                      "net.kovidgoyal.kitty"
                     ],
                     "type": "frontmost_application_if"
                   }
@@ -809,11 +821,11 @@
                 },
                 "to": [
                   {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "org.mozilla.firefox"
-                      }
-                    }
+                    "key_code": "j",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift"
+                    ]
                   }
                 ],
                 "type": "basic"

@@ -53,6 +53,11 @@ echo '↠ VSCode AGENTS.md reloaded'
 cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.config/opencode/AGENTS.md
 echo '↠ Opencode AGENTS.md reloaded'
 
+# pi
+mkdir -p ~/.pi/agent
+cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.pi/agent/AGENTS.md
+echo '↠ Pi AGENTS.md reloaded'
+
 # claude
 cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.claude/CLAUDE.md
 echo '↠ Claude AGENTS.md reloaded'

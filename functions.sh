@@ -560,6 +560,44 @@ function t() {
   fi
 }
 
+function tn() {
+  local session_name
+  session_name="$*"
+
+  if [ -z "$session_name" ]; then
+    read -r -p "New tmux session name: " session_name
+  fi
+
+  session_name="$(printf '%s' "$session_name" | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//')"
+
+  if [ -z "$session_name" ]; then
+    echo "Session name cannot be empty."
+    return 1
+  fi
+
+  if tmux has-session -t "=$session_name" 2>/dev/null; then
+    echo "Session '$session_name' already exists."
+    return 1
+  fi
+
+  if [[ "$session_name" == *:* ]]; then
+    echo "Session name cannot contain ':'."
+    return 1
+  fi
+
+  local create_err
+  if ! create_err=$(tmux new-session -d -s "$session_name" -c "$PWD" 2>&1); then
+    echo "Failed to create tmux session '$session_name': $create_err"
+    return 1
+  fi
+
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "=$session_name"
+  else
+    tmux attach -t "=$session_name"
+  fi
+}
+
 function ta() {
   local cwd_name
   cwd_name="$(basename "$PWD")"

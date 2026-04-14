@@ -29,7 +29,15 @@ alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
 alias ls="ls --color -1"
-alias p="pi"
+function _p() {
+  if [ $# -eq 0 ]; then
+    pi
+  else
+    pi "$*"
+  fi
+}
+
+alias p='noglob _p'
 alias pp="pi -r"
 
 function _oc() {

@@ -270,6 +270,97 @@ return {
         end)
       end
 
+      local function find_open_session_target(session_name)
+        for _, tab in ipairs(vim.api.nvim_list_tabpages()) do
+          for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tab)) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            if vim.b[buf].pi_session_name == session_name then
+              return tab, win, buf
+            end
+
+            if vim.bo[buf].buftype == "terminal" then
+              local buf_name = vim.api.nvim_buf_get_name(buf)
+              if buf_name:find("tmux attach %-t " .. vim.pesc(session_name), 1, false) then
+                return tab, win, buf
+              end
+            end
+          end
+        end
+
+        local hidden_buf = nil
+        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+          if vim.api.nvim_buf_is_valid(buf) then
+            if vim.b[buf].pi_session_name == session_name then
+              hidden_buf = buf
+              break
+            end
+
+            if vim.bo[buf].buftype == "terminal" then
+              local buf_name = vim.api.nvim_buf_get_name(buf)
+              if buf_name:find("tmux attach %-t " .. vim.pesc(session_name), 1, false) then
+                hidden_buf = buf
+                break
+              end
+            end
+          end
+        end
+
+        for _, tab in ipairs(vim.api.nvim_list_tabpages()) do
+          local ok, tab_session_name = pcall(vim.api.nvim_tabpage_get_var, tab, "pi_session_name")
+          if ok and tab_session_name == session_name then
+            return tab, vim.api.nvim_tabpage_get_win(tab), hidden_buf
+          end
+        end
+
+        return nil, nil, hidden_buf
+      end
+
+      local function open_or_focus_session(choice)
+        if vim.fn.executable("tmux") ~= 1 then
+          vim.notify("tmux is not executable", vim.log.levels.ERROR)
+          return
+        end
+
+        local existing_tab, existing_win, existing_buf = find_open_session_target(choice.session)
+        if existing_tab and existing_win then
+          local ok_tab = pcall(vim.api.nvim_set_current_tabpage, existing_tab)
+          if ok_tab then
+            pcall(vim.api.nvim_set_current_win, existing_win)
+            if existing_buf and vim.api.nvim_buf_is_valid(existing_buf) then
+              pcall(vim.api.nvim_win_set_buf, existing_win, existing_buf)
+            end
+            pcall(vim.cmd, "startinsert")
+          end
+          return
+        end
+
+        if existing_buf and vim.api.nvim_buf_is_valid(existing_buf) then
+          vim.cmd("tabnew")
+          local current_tab = vim.api.nvim_get_current_tabpage()
+          vim.api.nvim_tabpage_set_var(current_tab, "pi_session_name", choice.session)
+          vim.api.nvim_win_set_buf(0, existing_buf)
+          vim.cmd("startinsert")
+          return
+        end
+
+        vim.cmd("tabnew")
+        local current_tab = vim.api.nvim_get_current_tabpage()
+        vim.api.nvim_tabpage_set_var(current_tab, "pi_session_name", choice.session)
+        vim.fn.termopen({ "tmux", "attach", "-t", choice.session })
+        local term_buf = vim.api.nvim_get_current_buf()
+        vim.b[term_buf].pi_session_name = choice.session
+        vim.b[term_buf].pi_session_title = "tmux - pi-session"
+        vim.bo[term_buf].buflisted = true
+        vim.bo[term_buf].bufhidden = "hide"
+        vim.keymap.set("n", "qd", "<cmd>bdelete! | tabclose<cr>", {
+          buffer = term_buf,
+          silent = true,
+          nowait = true,
+          desc = "Kill pi-session terminal buffer and close tab",
+        })
+        vim.cmd("startinsert")
+      end
+
       function M.list()
         if vim.fn.executable(script_path) ~= 1 then
           vim.notify("pi-session script not executable: " .. script_path, vim.log.levels.ERROR)
@@ -288,6 +379,11 @@ return {
           return
         end
 
+        if #sessions == 1 then
+          open_or_focus_session(sessions[1])
+          return
+        end
+
         vim.ui.select(sessions, {
           prompt = "Pi sessions",
           format_item = function(item)
@@ -298,8 +394,7 @@ return {
             return
           end
 
-          vim.fn.setreg("+", choice.session)
-          vim.notify("Copied session name: " .. choice.session, vim.log.levels.INFO)
+          open_or_focus_session(choice)
         end)
       end
 

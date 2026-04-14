@@ -1,0 +1,338 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SESSION_PREFIX="pi-"
+ACTIVE_THRESHOLD_SECONDS="${PI_SESSION_ACTIVE_THRESHOLD_SECONDS:-8}"
+PI_CMD="${PI_SESSION_PI_CMD:-pi}"
+
+usage() {
+  cat <<'EOF'
+Usage:
+  pi-session start --prompt <text> --file <path> --line-start <n> [--line-end <n>] [--git-root <path>]
+  pi-session list [--tsv] [--active-threshold <seconds>]
+  pi-session attach <session>
+  pi-session kill <session>
+
+Environment:
+  PI_SESSION_PI_CMD                  Command used to launch pi (default: pi)
+  PI_SESSION_ACTIVE_THRESHOLD_SECONDS Seconds to consider session active (default: 8)
+EOF
+}
+
+err() {
+  printf 'pi-session: %s\n' "$*" >&2
+  exit 1
+}
+
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || err "missing required command: $1"
+}
+
+sanitize_name() {
+  printf '%s' "$1" | tr '/[:space:]' '-' | tr -cd '[:alnum:]._-'
+}
+
+git_root_for_path() {
+  local path="$1"
+  local base
+  if [[ -d "$path" ]]; then
+    base="$path"
+  else
+    base="$(dirname "$path")"
+  fi
+
+  if git -C "$base" rev-parse --show-toplevel >/dev/null 2>&1; then
+    git -C "$base" rev-parse --show-toplevel
+    return
+  fi
+
+  pwd
+}
+
+session_exists() {
+  local name="$1"
+  tmux has-session -t "$name" 2>/dev/null
+}
+
+tmux_get_opt() {
+  local target="$1"
+  local key="$2"
+  tmux show-options -v -t "$target" "$key" 2>/dev/null || true
+}
+
+tmux_set_opt() {
+  local target="$1"
+  local key="$2"
+  local value="$3"
+  tmux set-option -t "$target" -q "$key" "$value"
+}
+
+start_session() {
+  local prompt=""
+  local file_path=""
+  local line_start=""
+  local line_end=""
+  local git_root=""
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --prompt)
+        prompt="$2"
+        shift 2
+        ;;
+      --file)
+        file_path="$2"
+        shift 2
+        ;;
+      --line-start)
+        line_start="$2"
+        shift 2
+        ;;
+      --line-end)
+        line_end="$2"
+        shift 2
+        ;;
+      --git-root)
+        git_root="$2"
+        shift 2
+        ;;
+      *)
+        err "unknown start option: $1"
+        ;;
+    esac
+  done
+
+  [[ -n "$prompt" ]] || err "--prompt is required"
+  [[ -n "$file_path" ]] || err "--file is required"
+  [[ -n "$line_start" ]] || err "--line-start is required"
+
+  if [[ -z "$line_end" ]]; then
+    line_end="$line_start"
+  fi
+
+  if [[ -z "$git_root" ]]; then
+    git_root="$(git_root_for_path "$file_path")"
+  fi
+
+  if [[ ! -d "$git_root" ]]; then
+    err "git root is not a directory: $git_root"
+  fi
+
+  local repo_name
+  repo_name="$(basename "$git_root")"
+  repo_name="$(sanitize_name "$repo_name")"
+  [[ -n "$repo_name" ]] || repo_name="repo"
+
+  local root_hash
+  root_hash="$(printf '%s' "$git_root" | shasum -a 256 | awk '{print $1}' | cut -c1-8)"
+
+  local suffix_rand
+  suffix_rand="$(od -An -N2 -tx1 /dev/urandom | tr -d ' \n')"
+
+  local suffix
+  suffix="$(date +%y%m%d%H%M%S)-${suffix_rand}"
+
+  local session_name
+  session_name="${SESSION_PREFIX}${repo_name}-${root_hash}-${suffix}"
+
+  local prompt_q
+  printf -v prompt_q '%q' "$prompt"
+
+  local launch_cmd
+  launch_cmd="${PI_CMD} ${prompt_q}"
+
+  tmux new-session -d -s "$session_name" -c "$git_root" "$launch_cmd"
+
+  local now
+  now="$(date +%s)"
+
+  tmux_set_opt "$session_name" "@pi_git_root" "$git_root"
+  tmux_set_opt "$session_name" "@pi_repo_name" "$repo_name"
+  tmux_set_opt "$session_name" "@pi_file" "$file_path"
+  tmux_set_opt "$session_name" "@pi_line_start" "$line_start"
+  tmux_set_opt "$session_name" "@pi_line_end" "$line_end"
+  tmux_set_opt "$session_name" "@pi_created_at_epoch" "$now"
+  tmux_set_opt "$session_name" "@pi_last_change_epoch" "$now"
+
+  local preview
+  preview="${prompt//$'\n'/ }"
+  preview="${preview:0:160}"
+  tmux_set_opt "$session_name" "@pi_prompt_preview" "$preview"
+
+  printf 'started\t%s\n' "$session_name"
+}
+
+status_for_session() {
+  local session_name="$1"
+  local threshold_seconds="$2"
+
+  if ! session_exists "$session_name"; then
+    printf 'exited'
+    return
+  fi
+
+  local pane_dead
+  pane_dead="$(tmux list-panes -t "$session_name" -F '#{pane_dead}' 2>/dev/null | head -n 1 || true)"
+
+  if [[ -z "$pane_dead" || "$pane_dead" == "1" ]]; then
+    printf 'exited'
+    return
+  fi
+
+  local capture
+  capture="$(tmux capture-pane -p -t "$session_name" -S -120 2>/dev/null || true)"
+
+  local hash
+  hash="$(printf '%s' "$capture" | shasum -a 256 | awk '{print $1}')"
+
+  local previous_hash
+  previous_hash="$(tmux_get_opt "$session_name" "@pi_last_hash")"
+
+  local now
+  now="$(date +%s)"
+
+  local last_change
+  last_change="$(tmux_get_opt "$session_name" "@pi_last_change_epoch")"
+  if [[ -z "$last_change" ]]; then
+    last_change="$now"
+    tmux_set_opt "$session_name" "@pi_last_change_epoch" "$now"
+  fi
+
+  if [[ "$hash" != "$previous_hash" ]]; then
+    tmux_set_opt "$session_name" "@pi_last_hash" "$hash"
+    tmux_set_opt "$session_name" "@pi_last_change_epoch" "$now"
+    printf 'active'
+    return
+  fi
+
+  if (( now - last_change <= threshold_seconds )); then
+    printf 'active'
+  else
+    printf 'idle'
+  fi
+}
+
+list_sessions() {
+  local output_mode="pretty"
+  local threshold_seconds="$ACTIVE_THRESHOLD_SECONDS"
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --tsv)
+        output_mode="tsv"
+        shift
+        ;;
+      --active-threshold)
+        threshold_seconds="$2"
+        shift 2
+        ;;
+      *)
+        err "unknown list option: $1"
+        ;;
+    esac
+  done
+
+  local sessions
+  sessions="$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep -E "^${SESSION_PREFIX}" || true)"
+
+  if [[ -z "$sessions" ]]; then
+    if [[ "$output_mode" == "tsv" ]]; then
+      return
+    fi
+    printf 'No pi tmux sessions found.\n'
+    return
+  fi
+
+  if [[ "$output_mode" == "pretty" ]]; then
+    printf '%-44s  %-7s  %-18s  %-8s  %s\n' "SESSION" "STATUS" "REPO" "LINES" "FILE"
+  fi
+
+  local session_name
+  while IFS= read -r session_name; do
+    [[ -n "$session_name" ]] || continue
+
+    local status
+    status="$(status_for_session "$session_name" "$threshold_seconds")"
+
+    local git_root repo_name file_path line_start line_end created_at last_change
+    git_root="$(tmux_get_opt "$session_name" "@pi_git_root")"
+    repo_name="$(tmux_get_opt "$session_name" "@pi_repo_name")"
+    file_path="$(tmux_get_opt "$session_name" "@pi_file")"
+    line_start="$(tmux_get_opt "$session_name" "@pi_line_start")"
+    line_end="$(tmux_get_opt "$session_name" "@pi_line_end")"
+    created_at="$(tmux_get_opt "$session_name" "@pi_created_at_epoch")"
+    last_change="$(tmux_get_opt "$session_name" "@pi_last_change_epoch")"
+
+    [[ -n "$repo_name" ]] || repo_name="-"
+    [[ -n "$git_root" ]] || git_root="-"
+    [[ -n "$file_path" ]] || file_path="-"
+    [[ -n "$line_start" ]] || line_start="-"
+    [[ -n "$line_end" ]] || line_end="$line_start"
+    [[ -n "$created_at" ]] || created_at="0"
+    [[ -n "$last_change" ]] || last_change="0"
+
+    local lines
+    if [[ "$line_start" == "$line_end" ]]; then
+      lines="$line_start"
+    else
+      lines="${line_start}-${line_end}"
+    fi
+
+    if [[ "$output_mode" == "tsv" ]]; then
+      printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
+        "$session_name" "$status" "$repo_name" "$git_root" "$file_path" "$line_start" "$line_end" "$created_at" "$last_change"
+    else
+      printf '%-44s  %-7s  %-18s  %-8s  %s\n' "$session_name" "$status" "$repo_name" "$lines" "$file_path"
+    fi
+  done <<< "$sessions"
+}
+
+attach_session() {
+  local session_name="${1:-}"
+  [[ -n "$session_name" ]] || err "attach requires session name"
+  session_exists "$session_name" || err "session does not exist: $session_name"
+  tmux attach -t "$session_name"
+}
+
+kill_session() {
+  local session_name="${1:-}"
+  [[ -n "$session_name" ]] || err "kill requires session name"
+  session_exists "$session_name" || err "session does not exist: $session_name"
+  tmux kill-session -t "$session_name"
+  printf 'killed\t%s\n' "$session_name"
+}
+
+main() {
+  require_cmd tmux
+  require_cmd shasum
+
+  local cmd="${1:-}"
+  if [[ -z "$cmd" ]]; then
+    usage
+    exit 1
+  fi
+  shift || true
+
+  case "$cmd" in
+    start)
+      start_session "$@"
+      ;;
+    list)
+      list_sessions "$@"
+      ;;
+    attach)
+      attach_session "$@"
+      ;;
+    kill)
+      kill_session "$@"
+      ;;
+    -h|--help|help)
+      usage
+      ;;
+    *)
+      err "unknown command: $cmd"
+      ;;
+  esac
+}
+
+main "$@"

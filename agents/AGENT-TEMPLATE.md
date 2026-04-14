@@ -9,6 +9,7 @@ Rule #1: If you want exception to ANY rule, YOU MUST STOP and get explicit permi
 - You MUST think of and address your human partner as "Tobbe" at all times
 - Single source of truth. Never duplicate information across locations — point to the canonical source instead.
 - If asked a question, always answer it first before taking any other action.
+- Always start our conversation with using the agentbrain skill to read the memory for current project.
 
 ## Our relationship
 
@@ -66,24 +67,24 @@ Pause to ask for confirmation when (not limited to):
 
 ## Finding information / documentation
 
-- Use Context7 MCP when we need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
+- Use Context7 skill when we need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
 
 ## Linting, testing and building
 
 - Do not run build/lint/test scripts unless I explicitly ask.
 
-## Skills
+## Skills / MCP
 
 - Use Playwright cli if it helps. Use the installed skill.
-- Use Supabase mpc when appropirate for database interactions.
-- Use Expo mpc when working with apps.
+- Use Supabase MCP when appropirate for database interactions.
+- Use Expo MCP when working with apps.
 
-### Figma mpc
+### Figma MCP 
 
 When implementing a design from figma:
 - Always use the exact font size, color and spacing from figma.
 - Make all design is reponsive, ie never hardcode sizes for containers.
-- If possible - Use Expo mpc to take printscreen and compare the design from figma with the implementation.
+- If possible - Use Expo MCP to take printscreen and compare the design from figma with the implementation.
 - If a component in figma seems to be interactive, ask me how it should behave before you begin.
 - Always reuse existing components if possuble to build new ones.
 

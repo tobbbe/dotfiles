@@ -56,14 +56,15 @@ echo '↠ Opencode AGENTS.md reloaded'
 # pi
 mkdir -p ~/.pi/agent
 cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.pi/agent/AGENTS.md
-echo '↠ Pi AGENTS.md reloaded'
+cp ~/dev/dotfiles/.pi/agent/settings.json ~/.pi/agent/settings.json
+echo '↠ Pi AGENTS.md and settings reloaded'
 
 # claude
 cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.claude/CLAUDE.md
 echo '↠ Claude AGENTS.md reloaded'
 
 # agent skills → ~/.claude/skills/ (opencode also reads from there)
-for skill_dir in ~/dev/dotfiles/agent-skills/*/; do
+for skill_dir in ~/dev/dotfiles/agent-skills/skills/*/; do
   [ -d "$skill_dir" ] || continue
   name=$(basename "$skill_dir")
   mkdir -p ~/.claude/skills/"$name"

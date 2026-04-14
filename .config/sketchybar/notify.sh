@@ -1,18 +1,20 @@
 #!/bin/bash
 # Show a notification in sketchybar.
 #
-# Usage: notify.sh --text TEXT [--duration SECS] [--bg 0xAARRGGBB] [--fg 0xAARRGGBB]
+# Usage: notify.sh --text TEXT [--duration SECS] [--bg 0xAARRGGBB] [--fg 0xAARRGGBB] [--position left|center]
 #
 # Options:
 #   --text      Message to display (required)
 #   --duration  Seconds before hiding (default: 3)
 #   --bg        Bar background color in 0xAARRGGBB format (default: 0xff1a1a2e)
 #   --fg        Text color in 0xAARRGGBB format (default: 0xffffffff)
+#   --position  Force notify item position (left or center). Default: auto based on notch
 #
 TEXT=""
 DURATION=3
 BG="0xff1a1a2e"
 FG="0xffffffff"
+POSITION=""
 
 # Original bar color (transparent)
 ORIGINAL_BAR_COLOR="0x00000000"
@@ -38,12 +40,13 @@ while [[ $# -gt 0 ]]; do
     --duration) DURATION="$2"; shift 2 ;;
     --bg)       BG="$2";       shift 2 ;;
     --fg)       FG="$2";       shift 2 ;;
+    --position) POSITION="$2"; shift 2 ;;
     *) shift ;;
   esac
 done
 
 if [[ -z "$TEXT" ]]; then
-  echo "Usage: notify.sh --text TEXT [--duration SECS] [--bg 0xAARRGGBB] [--fg 0xAARRGGBB]" >&2
+  echo "Usage: notify.sh --text TEXT [--duration SECS] [--bg 0xAARRGGBB] [--fg 0xAARRGGBB] [--position left|center]" >&2
   exit 1
 fi
 
@@ -54,7 +57,11 @@ if [[ -f "$PIDFILE" ]]; then
   TEXT="${current} | ${TEXT}"
 else
   # Fresh notification — set position and bar color
-  sketchybar --set notify position="$NOTIFY_POSITION"
+  if [[ -n "$POSITION" ]]; then
+    sketchybar --set notify position="$POSITION"
+  else
+    sketchybar --set notify position="$NOTIFY_POSITION"
+  fi
   sketchybar --bar color="$BG"
 fi
 

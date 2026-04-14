@@ -27,6 +27,19 @@ else
   # hs_payload=$(printf '%s' "$title: $message" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
   # hs -c "showNotification($hs_payload)" >/dev/null 2>&1 < /dev/null
 
-  # At computer — show sketchybar notification
+  # At computer — show centered text first, then regular left sketchybar notification
+  PIDFILE="/tmp/sketchybar_notify.pid"
+  TEXTFILE="/tmp/sketchybar_notify_text"
+
+  # Stop any in-flight queued notify timer so this is deterministic
+  if [ -f "$PIDFILE" ]; then
+    kill "$(cat "$PIDFILE")" 2>/dev/null
+    rm -f "$PIDFILE" "$TEXTFILE"
+  fi
+
+  sketchybar --set notify position=center drawing=on label="$title: $message" label.color=0xffaeffae
+  sleep 2
+  sketchybar --set notify drawing=off
+
   ~/.config/sketchybar/notify.sh --text "$title: $message" --duration 8 --bg 0xff000000 --fg 0xffaeffae
 fi

@@ -29,6 +29,8 @@ alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
 alias ls="ls --color -1"
+alias pp="paneru stop && paneru start"
+
 function _oc() {
   if [ $# -eq 0 ]; then
     opencode
@@ -69,7 +71,7 @@ alias gl+="git log --oneline --decorate --graph --stat --date=relative --pretty=
 
 # tmux
 # alias ta='tmux attach -t'                # attach named session
-alias tp='tmux a'                        # attach previous session
+alias tp='tmux a' # attach previous session
 alias tl='tmux list-sessions'
 # alias tn='tmux new-session -s'	      is in functions.sh       # create new named session
 # alias tk='tmux kill-session -t'         is in functions.sh          # kill named session

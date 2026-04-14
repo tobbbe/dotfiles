@@ -58,9 +58,6 @@ mkdir -p ~/.pi/agent
 cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.pi/agent/AGENTS.md
 echo '↠ Pi AGENTS.md reloaded'
 
-cp ~/dev/dotfiles/.pi/agent/keybindings.json ~/.pi/agent/keybindings.json
-echo '↠ Pi keybindings reloaded'
-
 # claude
 cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.claude/CLAUDE.md
 echo '↠ Claude AGENTS.md reloaded'

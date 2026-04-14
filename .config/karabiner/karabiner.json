@@ -124,375 +124,1139 @@
               },
               {
                 "from": {
-                  "key_code": "c",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
                 },
                 "to": [
                   {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "c"
+                },
+                "to": [
+                  {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_control"
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window swap west"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_control"
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window swap east"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
                   "key_code": "c",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_control"
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
                     "shell_command": "/bin/zsh -lc 'sh /Users/tobbe/dev/dotfiles/scripts/toggle-paneru-auto-center.sh'"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "p",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "p"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru stop && /opt/homebrew/bin/paneru start"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "return_or_enter",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "return_or_enter"
                 },
                 "to": [
                   {
                     "shell_command": "/bin/zsh -lc 'sh /Users/tobbe/dev/dotfiles/reload.sh'"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "r",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
                 },
                 "to": [
                   {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "r"
+                },
+                "to": [
+                  {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window resize"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
                   "key_code": "r",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_control"
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window shrink"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "f",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "f"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window fullwidth"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "t",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "t"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window manage"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "open_bracket",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "open_bracket"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window stack"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "close_bracket",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "close_bracket"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window unstack"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "n",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
                 },
                 "to": [
                   {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "n"
+                },
+                "to": [
+                  {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window nextdisplay && /opt/homebrew/bin/paneru send-cmd mouse nextdisplay"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
                   "key_code": "n",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_control"
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd mouse nextdisplay"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "e",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "e"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window equalize"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "q",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "q"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd quit"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "u",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "u"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus first"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "o",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "o"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus last"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "n",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "n"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window nextdisplay"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "j",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "j"
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual south"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "k",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "left_command"
                     ]
                   }
                 },
                 "to": [
                   {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "k"
+                },
+                "to": [
+                  {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual north"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_control"
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtualsend south"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"
               },
               {
                 "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_control"
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtualsend north"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
                   }
                 ],
                 "type": "basic"

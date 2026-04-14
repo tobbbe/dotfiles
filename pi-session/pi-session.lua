@@ -181,6 +181,8 @@ return {
         vim.cmd("startinsert")
       end
 
+      local open_or_focus_session
+
       local function parse_sessions_tsv(stdout)
         local sessions = {}
 
@@ -260,6 +262,12 @@ return {
           clear_draft(git_root)
 
           local out = (result.stdout or ""):gsub("%s+$", "")
+          local started_session = out:match("^started\t([^\r\n]+)$")
+          if started_session and open_or_focus_session then
+            open_or_focus_session({ session = started_session })
+            return
+          end
+
           if out == "" then
             vim.notify("Pi session started", vim.log.levels.INFO)
           else
@@ -315,7 +323,7 @@ return {
         return nil, nil, hidden_buf
       end
 
-      local function open_or_focus_session(choice)
+      open_or_focus_session = function(choice)
         if vim.fn.executable("tmux") ~= 1 then
           vim.notify("tmux is not executable", vim.log.levels.ERROR)
           return
@@ -357,6 +365,44 @@ return {
           silent = true,
           nowait = true,
           desc = "Kill pi-session terminal buffer and close tab",
+        })
+        vim.api.nvim_create_autocmd("TermClose", {
+          buffer = term_buf,
+          once = true,
+          callback = function(ev)
+            vim.schedule(function()
+              if not vim.api.nvim_buf_is_valid(ev.buf) then
+                return
+              end
+
+              local tabpages = vim.api.nvim_list_tabpages()
+              local target_tab = nil
+              for _, tab in ipairs(tabpages) do
+                for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tab)) do
+                  if vim.api.nvim_win_get_buf(win) == ev.buf then
+                    target_tab = tab
+                    break
+                  end
+                end
+                if target_tab then
+                  break
+                end
+              end
+
+              if not target_tab then
+                pcall(vim.api.nvim_buf_delete, ev.buf, { force = true })
+                return
+              end
+
+              if #tabpages <= 1 then
+                pcall(vim.api.nvim_buf_delete, ev.buf, { force = true })
+                return
+              end
+
+              local tabnr = vim.api.nvim_tabpage_get_number(target_tab)
+              pcall(vim.cmd, tostring(tabnr) .. "tabclose")
+            end)
+          end,
         })
         vim.cmd("startinsert")
       end

@@ -29,7 +29,8 @@ alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
 alias ls="ls --color -1"
-alias pp="paneru stop && paneru start"
+alias p="pi"
+alias pp="pi -r"
 
 function _oc() {
   if [ $# -eq 0 ]; then

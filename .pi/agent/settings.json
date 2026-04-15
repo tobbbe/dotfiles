@@ -1,5 +1,5 @@
 {
   "packages": ["npm:pi-web-access", "npm:pi-mcp-adapter"],
-  "skills": ["/Users/tobbe/dev/dotfiles/agent-skills/skills"],
+  "skills": ["/Users/tobbe/dev/dotfiles/agents/skills/skills"],
   "quietStartup": false
 }

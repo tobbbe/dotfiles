@@ -20,10 +20,7 @@ rsync --exclude ".git/" \
   --exclude "Library/LaunchAgents/readme.md" \
   --exclude "iterm-settings/" \
   --exclude "scripts/" \
-  --exclude "prompts/" \
   --exclude "agents/" \
-  --exclude "agent-skills/" \
-  --exclude "agent-commands/" \
   --exclude ".config/sublime-text" \
   --exclude "firefoxUserContent.css" \
   -ah --itemize-changes --no-perms ~/dev/dotfiles/ ~/ 2>&1 |
@@ -37,7 +34,7 @@ echo '↠ Lazygit config reloaded'
 
 # vscode prompts
 VSCODE_DIR=~/Library/Application\ Support/Code/User
-rsync -ah ~/dev/dotfiles/prompts/ "$VSCODE_DIR/prompts/"
+rsync -ah ~/dev/dotfiles/agents/prompts/ "$VSCODE_DIR/prompts/"
 echo '↠ VSCode Prompts reloaded'
 
 # vscode agents
@@ -57,14 +54,18 @@ echo '↠ Opencode AGENTS.md reloaded'
 mkdir -p ~/.pi/agent
 cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.pi/agent/AGENTS.md
 cp ~/dev/dotfiles/.pi/agent/settings.json ~/.pi/agent/settings.json
+rm -f ~/.pi/agent/extensions/agentbrain-warning.ts
+rm -f ~/.pi/agent/extensions/agentbrain-warning.js
 echo '↠ Pi AGENTS.md and settings reloaded'
 
 # claude
+mkdir -p ~/.claude/hooks
 cp ~/dev/dotfiles/agents/AGENT-TEMPLATE.md ~/.claude/CLAUDE.md
+chmod +x ~/.claude/hooks/*.sh 2>/dev/null || true
 echo '↠ Claude AGENTS.md reloaded'
 
 # agent skills → ~/.claude/skills/ (opencode also reads from there)
-for skill_dir in ~/dev/dotfiles/agent-skills/skills/*/; do
+for skill_dir in ~/dev/dotfiles/agents/skills/skills/*/; do
   [ -d "$skill_dir" ] || continue
   name=$(basename "$skill_dir")
   mkdir -p ~/.claude/skills/"$name"
@@ -74,7 +75,7 @@ echo '↠ Agent skills reloaded'
 
 # agent commands → ~/.claude/skills/ (slash commands) + ~/.config/opencode/commands/
 mkdir -p ~/.config/opencode/commands
-for cmd_dir in ~/dev/dotfiles/agent-commands/*/; do
+for cmd_dir in ~/dev/dotfiles/agents/commands/*/; do
   [ -d "$cmd_dir" ] || continue
   name=$(basename "$cmd_dir")
   mkdir -p ~/.claude/skills/"$name"

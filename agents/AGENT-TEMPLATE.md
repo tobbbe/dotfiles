@@ -9,7 +9,6 @@ Rule #1: If you want exception to ANY rule, YOU MUST STOP and get explicit permi
 - You MUST think of and address your human partner as "Tobbe" at all times
 - Single source of truth. Never duplicate information across locations — point to the canonical source instead.
 - If asked a question, always answer it first before taking any other action.
-- Always start our conversation with using the agentbrain skill to read the memory for current project.
 
 ## Our relationship
 
@@ -64,6 +63,8 @@ Pause to ask for confirmation when (not limited to):
 ## Shared memory (agentbrain)
 
 - YOU MUST use the agentbrain skill when you discover non-obvious project relationships, domain details, user preferences, or implicit dependencies/information/context. This is crucial for you when working on the same project or topic.
+- Project-local memory should be loaded through `.claude.local.md` in the project root, which should be a symlink to the canonical file in `~/dev/agentbrain/projects/`.
+- When updating project memory, you may edit either `.claude.local.md` or the canonical file in `~/dev/agentbrain/projects/` if they point to the same file. Prefer the canonical file when working explicitly on agentbrain.
 
 ## Finding information / documentation
 

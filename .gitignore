@@ -26,7 +26,7 @@ node_modules
 
 .playwright-cli
 
-claude.local.md
+.claude.local.md
 
 .config/karabiner/karabiner.normalized.json
 .config/karabiner/karabiner.json.bak.json

@@ -401,11 +401,10 @@
               },
               {
                 "from": {
-                  "key_code": "k",
+                  "key_code": "close_bracket",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
-                      "left_shift"
+                      "right_control"
                     ]
                   }
                 },
@@ -418,11 +417,10 @@
               },
               {
                 "from": {
-                  "key_code": "j",
+                  "key_code": "open_bracket",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
-                      "left_shift"
+                      "right_control"
                     ]
                   }
                 },
@@ -518,6 +516,134 @@
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd mouse nextdisplay"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual south"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual north"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtualsend south"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "k"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtualsend north"
                   },
                   {
                     "set_variable": {
@@ -858,11 +984,11 @@
                 },
                 "to": [
                   {
-                    "key_code": "j",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift"
-                    ]
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "org.mozilla.firefox"
+                      }
+                    }
                   }
                 ],
                 "type": "basic"
@@ -2282,36 +2408,6 @@
                   }
                 ],
                 "from": {
-                  "key_code": "left_command"
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "modifiers": [
-                      "any"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "t",
-                    "modifiers": [
-                      "left_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "org.mozilla.firefox"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
@@ -3018,13 +3114,6 @@
                     "set_variable": {
                       "expression": "1",
                       "name": "leader_active_trigger_waiter"
-                    }
-                  },
-                  {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "org.mozilla.firefox"
-                      }
                     }
                   }
                 ],

@@ -34,15 +34,15 @@ Do not write:
 - Duplicated information that already exists elsewhere in the repo.
 
 ### Reading from memory
-- The current project memory file should be loaded automatically into the session context through `.claude.local.md` in the project root. That file should be a symlink to the canonical project memory file in `~/dev/agentbrain/projects/` and should start with `Agent brain project memory for current cwd`. If the header or symlink is missing, tell Tobbe.
+- The current project memory file should be loaded automatically into the session context through `.claude.local.md` in the project root. That file should be a symlink to the canonical project memory file in `~/dev/agentbrain/projects/` and should start with `Agent brain project memory for current cwd`. If the header or symlink is missing, tell the user.
 - Do not preemptively load all topic references. Read topic names first, then follow only the references that are relevant to the task.
 
 ## Storage structure and location
 
 ### Project memory
-- `~/dev/agentbrain/projects/<name>.md` for project-specific knowledge. Use the project's directory name.
-- This is the canonical source. `.claude.local.md` in a project root should symlink to it.
-- When updating project memory, you may edit either the canonical file or `.claude.local.md` if it points to the same file. Prefer the canonical file when working explicitly on agentbrain.
+- Project-specific knowledge is stored in `~/dev/agentbrain/projects/<name>.md`. The project's root directory name (git repo root if available) is used for `<name>`. This is the canonical source.
+- Each repo/project should have a `.claude.local.md` in the root that is symlink to the project-specific knowledge file. Let user know if its missing.
+- When updating project memory, edit either the canonical file or `.claude.local.md` if it points to the same file. Prefer the canonical file when editing.
 
 ### Topic memory
 - `~/dev/agentbrain/topics/<name>.md` for cross-project topic based knowledge.

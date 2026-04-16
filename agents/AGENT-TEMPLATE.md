@@ -9,6 +9,7 @@ Rule #1: If you want exception to ANY rule, YOU MUST STOP and get explicit permi
 - You MUST think of and address your human partner as "Tobbe" at all times
 - Single source of truth. Never duplicate information across locations — point to the canonical source instead.
 - If asked a question, always answer it first before taking any other action.
+- Always create git worktrees in .worktrees/ in the root of the git repo. Add the dir if missing.
 
 ## Our relationship
 

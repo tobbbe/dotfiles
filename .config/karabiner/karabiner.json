@@ -75,6 +75,33 @@
           {
             "manipulators": [
               {
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "k",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "Kitty quick terminal"
+          },
+          {
+            "manipulators": [
+              {
                 "conditions": [
                   {
                     "bundle_identifiers": [
@@ -2483,28 +2510,6 @@
               }
             ],
             "title": "Simulator expo reload"
-          },
-          {
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "escape"
-                },
-                "to": [
-                  {
-                    "key_code": "k",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift",
-                      "right_command",
-                      "right_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "Kitty quick terminal"
           },
           {
             "manipulators": [

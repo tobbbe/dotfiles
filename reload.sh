@@ -103,6 +103,16 @@ echo '↠ SketchyBar reloaded'
 
 # Reload Kitty config
 KITTY_SOCKET=$(ls -t /tmp/kitty-socket-* 2>/dev/null | head -1)
+
+# Keep tmux's global env in sync so kitty @ works inside tmux sessions
+if command -v tmux >/dev/null 2>&1 && tmux list-sessions >/dev/null 2>&1; then
+  if [ -n "$KITTY_SOCKET" ]; then
+    tmux set-environment -g KITTY_LISTEN_ON "unix:$KITTY_SOCKET"
+  else
+    tmux set-environment -gu KITTY_LISTEN_ON
+  fi
+fi
+
 if [ -n "$KITTY_SOCKET" ] && /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:$KITTY_SOCKET" load-config 2>/tmp/kitty-reload-error.log; then
   echo '↠ Kitty reloaded'
 else

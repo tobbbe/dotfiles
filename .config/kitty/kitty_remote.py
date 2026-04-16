@@ -2,6 +2,7 @@
 
 import os
 import subprocess
+import sys
 from glob import glob
 from typing import Optional
 
@@ -70,3 +71,16 @@ class KittyRemote:
             if exit_code == 0:
                 return 0
         return exit_code
+
+
+def main() -> int:
+    if len(sys.argv) < 2:
+        print("Usage: kitty_remote.py <kitty @ args...>", file=sys.stderr)
+        return 2
+
+    remote = KittyRemote()
+    return remote.call(*sys.argv[1:])
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

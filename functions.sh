@@ -269,16 +269,74 @@ f() {
   local query="${*:-}"
   local dir
 
-  dir="$(
-    fd --type d --hidden \
-      --exclude .git \
-      --exclude node_modules \
-      --exclude .next \
-      --exclude Pods \
-      --exclude dist \
-      --exclude build \
-      . . 2>/dev/null | fzf +m --query "$query"
-  )"
+  if [[ -n $query ]] && (( $+functions[zshz] )); then
+    dir="$(zshz -e -- "$@" 2>/dev/null)"
+    if [[ -n $dir && -d $dir ]]; then
+      cd "$dir"
+      return
+    fi
+
+    dir="$(
+      {
+        fd --type d \
+          --exclude .git \
+          --exclude node_modules \
+          --exclude .next \
+          --exclude Pods \
+          --exclude dist \
+          --exclude build \
+          --exclude .turbo \
+          --exclude Library \
+          --exclude Support \
+          --exclude tmp \
+          --exclude Downloads \
+          --exclude Documents \
+          --exclude .Trash \
+          --exclude .cache \
+          --exclude .npm \
+          --exclude .pnpm-store \
+          --exclude .local \
+          --exclude .cargo \
+          --exclude .rustup \
+          --exclude .bun \
+          --exclude .asdf \
+          --exclude .vscode \
+          --exclude .cursor \
+          --exclude .expo \
+          --exclude Applications \
+          --exclude '*.app' \
+          --exclude '*.pvm' \
+          --exclude Music \
+          --exclude Movies \
+          --exclude Pictures \
+          --exclude Parallels \
+          --exclude Mail \
+          --exclude 'Calibre Library' \
+          --exclude '$RECYCLE.BIN' \
+          . "$HOME" 2>/dev/null
+        fd --type d --hidden \
+          --exclude .git \
+          --exclude node_modules \
+          --exclude .next \
+          --exclude Pods \
+          --exclude dist \
+          --exclude build \
+          --exclude .turbo \
+          . "$HOME/.config" 2>/dev/null
+      } | fzf +m --query "$query"
+    )"
+  else
+    dir="$(
+      fd --type d --hidden \
+        --exclude .git \
+        --exclude node_modules \
+        --exclude .next \
+        --exclude Pods \
+        --exclude dist \
+        --exclude build \
+        . . 2>/dev/null | fzf +m --query "$query"
+    )"
+  fi
 
   [[ -n $dir ]] && cd "$dir"
 }
@@ -666,6 +724,7 @@ function ktransient() {
 # Shared setup for tw/tc: name windows, start tmux session, open tmux window, cd + nvim
 function _wt_open() {
   local name="$1" worktree_path="$2" session_name="$3" tmux_init_cmd="$4"
+  local kitty_remote="/Users/tobbe/.config/kitty/kitty_remote.py"
 
   # Create tmux session rooted in the worktree (no-op if already exists)
   tmux new-session -d -s "$session_name" -c "$worktree_path" 2>/dev/null
@@ -674,10 +733,10 @@ function _wt_open() {
   [[ -n "$tmux_init_cmd" ]] && tmux send-keys -t "$session_name" "$tmux_init_cmd" Enter
 
   # Name the current kitty window so the tab follows the active window title
-  kitty @ set-window-title "$name" 2>/dev/null
+  /usr/bin/python3 "$kitty_remote" set-window-title "$name" 2>/dev/null
 
   # Open a second kitty window in this tab attached to the tmux session
-  kitty @ launch --no-response --type=window --title "$name" tmux attach -t "$session_name" 2>/dev/null
+  /usr/bin/python3 "$kitty_remote" launch --no-response --type=window --title "$name" tmux attach -t "$session_name" 2>/dev/null
 
   # cd into worktree and open nvim in the first window
   cd "$worktree_path"

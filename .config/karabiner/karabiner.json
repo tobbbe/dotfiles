@@ -102,18 +102,6 @@
           {
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
                 "from": {
                   "key_code": "h",
                   "modifiers": {
@@ -131,18 +119,6 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
                 "from": {
                   "key_code": "h",
                   "modifiers": {
@@ -160,18 +136,6 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
                 "from": {
                   "key_code": "l",
                   "modifiers": {
@@ -189,18 +153,6 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
                 "from": {
                   "key_code": "l",
                   "modifiers": {
@@ -644,18 +596,6 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
                 "from": {
                   "key_code": "j",
                   "modifiers": {
@@ -673,18 +613,6 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
                 "from": {
                   "key_code": "j",
                   "modifiers": {
@@ -702,18 +630,6 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
                 "from": {
                   "key_code": "k",
                   "modifiers": {
@@ -731,18 +647,6 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "com.googlecode.iterm2",
-                      "com.mitchellh.ghostty",
-                      "net.kovidgoyal.kitty",
-                      "com.github.wez.wezterm",
-                      "org.alacritty"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
                 "from": {
                   "key_code": "k",
                   "modifiers": {

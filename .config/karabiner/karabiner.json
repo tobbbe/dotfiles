@@ -75,11 +75,24 @@
           {
             "manipulators": [
               {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.googlecode.iterm2",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
                 "from": {
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
-                      "left_command"
+                      "left_command",
+                      "right_command"
                     ]
                   }
                 },
@@ -91,11 +104,82 @@
                 "type": "basic"
               },
               {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.googlecode.iterm2",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus west"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.googlecode.iterm2",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
                 "from": {
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": [
-                      "left_command"
+                      "left_command",
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus east"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.googlecode.iterm2",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "left_control"
                     ]
                   }
                 },
@@ -533,12 +617,24 @@
                 "type": "basic"
               },
               {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.googlecode.iterm2",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
                 "from": {
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
-                      "left_shift"
+                      "right_command"
                     ]
                   }
                 },
@@ -550,12 +646,82 @@
                 "type": "basic"
               },
               {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.googlecode.iterm2",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual south"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.googlecode.iterm2",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
                 "from": {
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
-                      "left_shift"
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window virtual north"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.googlecode.iterm2",
+                      "com.mitchellh.ghostty",
+                      "net.kovidgoyal.kitty",
+                      "com.github.wez.wezterm",
+                      "org.alacritty"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "left_control"
                     ]
                   }
                 },
@@ -680,7 +846,7 @@
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_command"
                     ]
                   }
                 },
@@ -708,7 +874,7 @@
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_command"
                     ]
                   }
                 },
@@ -740,8 +906,7 @@
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_command"
+                      "left_command"
                     ]
                   }
                 },
@@ -768,8 +933,7 @@
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "right_command"
+                      "left_command"
                     ]
                   }
                 },
@@ -778,6 +942,60 @@
                     "key_code": "open_bracket",
                     "modifiers": [
                       "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.tinyspeck.slackmacgap"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "right_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.tinyspeck.slackmacgap"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": [
+                      "right_option"
                     ]
                   }
                 ],
@@ -2434,6 +2652,42 @@
                 "conditions": [
                   {
                     "bundle_identifiers": [
+                      "com.tinyspeck.slackmacgap"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "left_command"
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "modifiers": [
+                      "any"
+                    ]
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_shift",
+                      "right_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ],
+            "title": "App-specific left command alone"
+          },
+          {
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
                       "org.mozilla.firefox"
                     ],
                     "type": "frontmost_application_if"
@@ -3375,10 +3629,11 @@
                 },
                 "to": [
                   {
-                    "key_code": "left_arrow",
+                    "key_code": "h",
                     "modifiers": [
+                      "left_command",
                       "left_control",
-                      "left_shift"
+                      "left_option"
                     ]
                   }
                 ],
@@ -3403,10 +3658,11 @@
                 },
                 "to": [
                   {
-                    "key_code": "right_arrow",
+                    "key_code": "l",
                     "modifiers": [
+                      "left_command",
                       "left_control",
-                      "left_shift"
+                      "left_option"
                     ]
                   }
                 ],
@@ -3433,8 +3689,9 @@
                   {
                     "key_code": "k",
                     "modifiers": [
+                      "left_command",
                       "left_control",
-                      "left_shift"
+                      "left_option"
                     ]
                   }
                 ],
@@ -3461,8 +3718,9 @@
                   {
                     "key_code": "j",
                     "modifiers": [
+                      "left_command",
                       "left_control",
-                      "left_shift"
+                      "left_option"
                     ]
                   }
                 ],

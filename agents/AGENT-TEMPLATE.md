@@ -73,7 +73,7 @@ Pause to ask for confirmation when (not limited to):
 
 ## Linting, testing and building
 
-- Do not run build/lint/test scripts unless I explicitly ask.
+- Do not run build/lint/test scripts unless I explicitly ask. Dont tell me you didnt run them.
 
 ## Skills / MCP
 

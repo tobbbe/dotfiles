@@ -23,6 +23,11 @@
       "type": "remote",
       "url": "https://mcp.expo.dev/mcp",
       "enabled": true
+    },
+    "cloudflare_autorag": {
+      "type": "remote",
+      "url": "https://autorag.mcp.cloudflare.com/mcp",
+      "enabled": true
     }
   },
   "permission": {

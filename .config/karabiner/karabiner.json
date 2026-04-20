@@ -2549,9 +2549,9 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "tab",
+                    "key_code": "b",
                     "modifiers": [
-                      "left_control"
+                      "left_command"
                     ]
                   }
                 ],

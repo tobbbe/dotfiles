@@ -7,6 +7,9 @@ from glob import glob
 from typing import Optional
 
 
+KITTY_BIN = "/Applications/kitty.app/Contents/MacOS/kitty"
+
+
 def resolve_kitty_targets() -> list[Optional[str]]:
     candidates: list[Optional[str]] = []
 
@@ -37,7 +40,7 @@ class KittyRemote:
         self.target: Optional[str] = None
 
     def _kitty_command(self, target: Optional[str], *args: str) -> list[str]:
-        command = ["kitty", "@"]
+        command = [KITTY_BIN, "@"]
         if target:
             command.extend(["--to", target])
         command.extend(args)

@@ -3425,17 +3425,14 @@
                   }
                 ],
                 "from": {
-                  "key_code": "left_shift"
-                },
-                "to": [
-                  {
-                    "key_code": "left_shift",
-                    "modifiers": [
-                      "any"
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control"
                     ]
                   }
-                ],
-                "to_if_alone": [
+                },
+                "to": [
                   {
                     "key_code": "b",
                     "modifiers": [

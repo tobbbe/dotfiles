@@ -1,5 +1,5 @@
 cd ~/dev/notes-app/api/
 
-launch --title "notes-app-api" /bin/zsh -i -c 'v; exec zsh'
+launch --title "nvim" /bin/zsh -i -c 'v; exec zsh'
 
 launch --title "notes-app-api" /bin/zsh -i -c 'ta; exec zsh'

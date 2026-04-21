@@ -1,5 +1,5 @@
 cd ~/dev/arcane/
 
-launch --title "arcane" /bin/zsh -i -c 'v; exec zsh'
+launch --title "nvim" /bin/zsh -i -c 'v; exec zsh'
 
 launch --title "arcane" /bin/zsh -i -c 'ta; exec zsh'

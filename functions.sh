@@ -676,6 +676,12 @@ function ta() {
     target_session_name="$session_name"
   fi
 
+  if [ -n "$KITTY_SESSION_NAME" ]; then
+    tmux set-environment -t "$target_session_name" KITTY_SESSION_NAME "$KITTY_SESSION_NAME" 2>/dev/null
+  else
+    tmux set-environment -t "$target_session_name" -u KITTY_SESSION_NAME 2>/dev/null
+  fi
+
   if [ -n "$TMUX" ]; then
     tmux switch-client -t "$target_session_name"
   else
@@ -696,6 +702,12 @@ function tb() {
 
   if ! tmux has-session -t "$session_name" 2>/dev/null; then
     tmux new-session -d -s "$session_name" -c "$PWD" 2>/dev/null
+  fi
+
+  if [ -n "$KITTY_SESSION_NAME" ]; then
+    tmux set-environment -t "$session_name" KITTY_SESSION_NAME "$KITTY_SESSION_NAME" 2>/dev/null
+  else
+    tmux set-environment -t "$session_name" -u KITTY_SESSION_NAME 2>/dev/null
   fi
 
   if [ -n "$TMUX" ]; then

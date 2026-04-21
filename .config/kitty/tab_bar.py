@@ -6,7 +6,7 @@ LEFT_ROUND = ""
 RIGHT_ROUND = ""
 ELLIPSIS = "…"
 
-SESSION_BG = as_rgb(0x15280F)
+SESSION_BG = as_rgb(0x0D1809)
 SESSION_FG = as_rgb(0x9BEA78)
 
 
@@ -53,7 +53,7 @@ def _draw_session_segment(draw_data, screen, tab):
 
     screen.cursor.bg = SESSION_BG
     screen.cursor.fg = SESSION_FG
-    screen.cursor.bold = True
+    screen.cursor.bold = False
     screen.cursor.italic = False
     screen.draw(f" {session_name} ")
 

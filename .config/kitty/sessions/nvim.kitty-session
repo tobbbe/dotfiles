@@ -1,5 +1,5 @@
 cd ~/.config/nvim
 
-launch --title "nvim" /bin/zsh -i -c 'v; exec zsh'
+launch --env KITTY_SESSION_NAME=nvim --title "nvim" /bin/zsh -i -c 'v; exec zsh'
 
-launch --title "tmux" /bin/zsh -i -c 'ta; exec zsh'
+launch --env KITTY_SESSION_NAME=nvim --title "tmux" /bin/zsh -i -c 'ta; exec zsh'

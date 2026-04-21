@@ -7,7 +7,7 @@ RIGHT_ROUND = ""
 ELLIPSIS = "…"
 
 SESSION_BG = as_rgb(0x15280F)
-SESSION_FG = as_rgb(0x7BD65A)
+SESSION_FG = as_rgb(0x9BEA78)
 
 
 def _default_bg(draw_data):
@@ -40,7 +40,7 @@ def _draw_clipped_title(draw_data, screen, tab, index, available_width):
 
 
 def _draw_session_segment(draw_data, screen, tab):
-    session_name = tab.session_name or tab.active_session_name
+    session_name = tab.session_name
     if not session_name:
         return 0
 
@@ -62,6 +62,12 @@ def _draw_session_segment(draw_data, screen, tab):
     return wcswidth(session_name) + 3
 
 
+def _is_first_tab_in_session(tab, extra_data):
+    return bool(tab.session_name) and (
+        extra_data.prev_tab is None or extra_data.prev_tab.session_name != tab.session_name
+    )
+
+
 def _draw_left_boundary(draw_data, screen, tab, prev_bg, overlay):
     tab_bg = _tab_bg(draw_data, tab)
     if overlay:
@@ -76,11 +82,14 @@ def _draw_left_boundary(draw_data, screen, tab, prev_bg, overlay):
 
 def draw_tab(draw_data, screen, tab, before, max_tab_length, index, is_last, extra_data):
     session_width = 0
-    if index == 1:
+    if _is_first_tab_in_session(tab, extra_data):
         session_width = _draw_session_segment(draw_data, screen, tab)
 
-    if index == 1:
+    if session_width:
         prev_bg = SESSION_BG if session_width else _default_bg(draw_data)
+        overlay = True
+    elif extra_data.prev_tab is None:
+        prev_bg = _default_bg(draw_data)
         overlay = True
     elif tab.is_active:
         prev_bg = _tab_bg(draw_data, extra_data.prev_tab)

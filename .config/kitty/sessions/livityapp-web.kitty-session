@@ -2,4 +2,4 @@ cd ~/dev/livityapp-web/
 
 launch --title "nvim" /bin/zsh -i -c 'v; exec zsh'
 
-launch --title "livityapp-web" /bin/zsh -i -c 'ta; exec zsh'
+launch --title "tmux" /bin/zsh -i -c 'ta; exec zsh'

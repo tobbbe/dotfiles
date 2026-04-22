@@ -694,10 +694,10 @@ function tb() {
   cwd_name="$(basename "$PWD")"
   repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
 
-  session_name="Build - ${cwd_name}"
+  session_name="build-${cwd_name}"
   if [ -n "$repo_root" ] && [[ "$repo_root" == */.worktrees/* ]]; then
     worktree_name="$(basename "$repo_root")"
-    session_name="Build - ${cwd_name} - ${worktree_name}"
+    session_name="build-${cwd_name}-${worktree_name}"
   fi
 
   if ! tmux has-session -t "$session_name" 2>/dev/null; then

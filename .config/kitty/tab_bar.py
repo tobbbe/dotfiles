@@ -7,7 +7,7 @@ RIGHT_ROUND = ""
 ELLIPSIS = "…"
 
 SESSION_BG = as_rgb(0x0D1809)
-SESSION_FG = as_rgb(0x9BEA78)
+SESSION_FG = as_rgb(0xE6ECF2)
 
 
 def _default_bg(draw_data):

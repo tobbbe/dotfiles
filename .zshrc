@@ -76,9 +76,11 @@ autoload -Uz vcs_info
 precmd() {
   vcs_info
   if [ -n "$TMUX" ]; then
-    TMUX_PROMPT='%F{33}[tmux]%f '
+    TMUX_PROMPT=''
+    TMUX_PATH_COLOR='%F{#4AA3F0}'
   else
     TMUX_PROMPT=''
+    TMUX_PATH_COLOR='%F{#aeffae}'
   fi
 }
 setopt PROMPT_SUBST
@@ -93,7 +95,7 @@ zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' stagedstr '+'
 
 # PROMPT=$'%F{238}${vcs_info_msg_0_}%f %F{82}%~%f %F{reset_color}' # purple:141 green:82
-PROMPT='${TMUX_PROMPT}%F{#aeffae}%~%f %F{reset_color}' # purple:141 green:82
+PROMPT='${TMUX_PROMPT}${TMUX_PATH_COLOR}%~%f %F{reset_color}' # purple:141 green:82
 
 # tab completion
 # autoload -Uz compinit && compinit

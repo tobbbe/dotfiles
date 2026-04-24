@@ -1,3 +1,6 @@
 cd ~/dev/
 
+layout vertical
+
+launch --env KITTY_SESSION_NAME=build-scripts --title "()"
 launch --env KITTY_SESSION_NAME=build-scripts --title "()"

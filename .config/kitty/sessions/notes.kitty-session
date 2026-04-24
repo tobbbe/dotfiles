@@ -1,5 +1,3 @@
 cd ~/dev/notes/
 
 launch --env KITTY_SESSION_NAME=notes --title "nvim" /bin/zsh -i -c 'v; exec zsh'
-
-launch --env KITTY_SESSION_NAME=notes --title "tmux" /bin/zsh -i -c 'ta; exec zsh'

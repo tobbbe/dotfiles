@@ -99,8 +99,11 @@ def draw_tab(draw_data, screen, tab, before, max_tab_length, index, is_last, ext
             VISIBLE_TABS[tab.os_window_id] = []
         VISIBLE_TABS[tab.os_window_id].append(tab)
 
-    visible_tabs = VISIBLE_TABS.get(tab.os_window_id, [tab])
-    left_pad, right_gap, indicator = _bar_layout(screen, visible_tabs)
+    if extra_data.for_layout:
+        left_pad, right_gap, indicator = 0, 0, ""
+    else:
+        visible_tabs = VISIBLE_TABS.get(tab.os_window_id, [tab])
+        left_pad, right_gap, indicator = _bar_layout(screen, visible_tabs)
 
     display_tab = _display_tab(tab, extra_data)
 

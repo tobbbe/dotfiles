@@ -269,7 +269,7 @@ f() {
   local query="${*:-}"
   local dir
 
-  if [[ -n $query ]] && (( $+functions[zshz] )); then
+  if [[ -n $query ]] && (($ + functions[zshz])); then
     dir="$(zshz -e -- "$@" 2>/dev/null)"
     if [[ -n $dir && -d $dir ]]; then
       cd "$dir"
@@ -562,17 +562,100 @@ function getwithenvvar() {
   http $3 $4 $5 $6 -A bearer -a "$secret_value" "$url"
 }
 
-function mitm_on() {
-  networksetup -setsecurewebproxystate wi-fi on
-  networksetup -setwebproxystate wi-fi on
+# Only proxy normal Wi-Fi/Ethernet-like services, not virtual services like Tailscale.
+function _mitm_vpn_network_services() {
+  local service=""
 
-  networksetup -setwebproxy wi-fi localhost 8080
-  networksetup -setsecurewebproxy wi-fi localhost 8080
+  networksetup -listnetworkserviceorder | while IFS= read -r line; do
+    if [[ "$line" =~ '^\([0-9]+\) (.+)$' ]]; then
+      service="${match[1]}"
+      continue
+    fi
+
+    if [[ -n "$service" && "$line" =~ '^\(Hardware Port: ([^,]+),' ]]; then
+      local hardware_port="${match[1]}"
+
+      if [[ "$hardware_port" == "Wi-Fi" || "$hardware_port" == *"Ethernet"* || "$hardware_port" == *"LAN"* || "$hardware_port" == AX* ]]; then
+        printf '%s\n' "$service"
+      fi
+
+      service=""
+    fi
+  done
 }
 
-function mitm_off() {
-  networksetup -setsecurewebproxystate wi-fi off
-  networksetup -setwebproxystate wi-fi off
+function mitm_vpn_on() {
+  local host="${1:-localhost}"
+  local port="${2:-8080}"
+
+  _mitm_vpn_network_services | while IFS= read -r service; do
+    networksetup -setwebproxy "$service" "$host" "$port"
+    networksetup -setsecurewebproxy "$service" "$host" "$port"
+    networksetup -setwebproxystate "$service" on
+    networksetup -setsecurewebproxystate "$service" on
+  done
+}
+
+function mitm_vpn_off() {
+  _mitm_vpn_network_services | while IFS= read -r service; do
+    networksetup -setwebproxystate "$service" off
+    networksetup -setsecurewebproxystate "$service" off
+  done
+}
+
+function _mitm_vpn_proxy_is_on_for_service() {
+  local proxy_type="$1"
+  local service="$2"
+  local expected_host="$3"
+  local expected_port="$4"
+  local proxy_state
+
+  proxy_state=$(networksetup "-get${proxy_type}proxy" "$service")
+
+  [[ "$proxy_state" == *"Enabled: Yes"* && "$proxy_state" == *"Server: ${expected_host}"* && "$proxy_state" == *"Port: ${expected_port}"* ]]
+}
+
+function _mitm_vpn_is_on() {
+  local host="${1:-localhost}"
+  local port="${2:-8080}"
+  local service
+  local found_service="false"
+
+  while IFS= read -r service; do
+    found_service="true"
+
+    if ! _mitm_vpn_proxy_is_on_for_service web "$service" "$host" "$port" || ! _mitm_vpn_proxy_is_on_for_service secureweb "$service" "$host" "$port"; then
+      return 1
+    fi
+  done < <(_mitm_vpn_network_services)
+
+  [[ "$found_service" == "true" ]]
+}
+
+function _mitm_run_with_vpn_reminder() {
+  local command_name="$1"
+  shift
+  local command_status
+
+  if ! _mitm_vpn_is_on; then
+    printYellow "🚨🚨🚨 Run mitm_vpn_on before starting ${command_name}. Wont work now!!\n"
+    return 1
+  fi
+
+  command "$command_name" "$@"
+  command_status=$?
+
+  printYellow "\n🚨🚨🚨 Reminder: run mitm_vpn_off now that ${command_name} has exited.\n"
+
+  return $command_status
+}
+
+function mitmproxy() {
+  _mitm_run_with_vpn_reminder mitmproxy "$@"
+}
+
+function mitmweb() {
+  _mitm_run_with_vpn_reminder mitmweb "$@"
 }
 
 function code() {
@@ -734,7 +817,6 @@ function ktransient() {
 }
 
 [ -r /Users/tobbe/dev/dotfiles/worktrees.sh ] && source /Users/tobbe/dev/dotfiles/worktrees.sh
-
 
 # edit/clear history in v ~/.vv_history
 function vv() {

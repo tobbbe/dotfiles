@@ -654,6 +654,32 @@ function mitmproxy() {
   _mitm_run_with_vpn_reminder mitmproxy "$@"
 }
 
+function mitmproxy_filter() {
+  local view_filter="$1"
+
+  if [[ -z "$view_filter" ]]; then
+    printYellow "Usage: mitmproxy_filter <view-filter> [mitmproxy args...]\n"
+    return 1
+  fi
+
+  shift
+
+  _mitm_run_with_vpn_reminder mitmproxy --set "view_filter=${view_filter}" "$@"
+}
+
+function mitmproxy_ua() {
+  local user_agent_pattern="$1"
+
+  if [[ -z "$user_agent_pattern" ]]; then
+    printYellow "Usage: mitmproxy_ua <user-agent-pattern> [mitmproxy args...]\n"
+    return 1
+  fi
+
+  shift
+
+  mitmproxy_filter "~hq \"${user_agent_pattern}\"" "$@"
+}
+
 function mitmweb() {
   _mitm_run_with_vpn_reminder mitmweb "$@"
 }

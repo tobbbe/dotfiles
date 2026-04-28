@@ -171,48 +171,18 @@
               },
               {
                 "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "expression": "system.now.milliseconds + 800",
-                      "name": "dsl_state_1"
+                  "simultaneous": [
+                    {
+                      "key_code": "s"
+                    },
+                    {
+                      "key_code": "d"
                     }
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "expression": "dsl_state_1 > system.now.milliseconds",
-                    "type": "expression_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "w"
+                  ]
                 },
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
-                  },
-                  {
-                    "set_variable": {
-                      "expression": "0",
-                      "name": "dsl_state_2"
-                    }
-                  },
-                  {
-                    "set_variable": {
-                      "expression": "0",
-                      "name": "dsl_state_1"
-                    }
                   }
                 ],
                 "type": "basic"
@@ -340,12 +310,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_shift"
-                    ]
-                  }
+                  "key_code": "w"
                 },
                 "to": [
                   {

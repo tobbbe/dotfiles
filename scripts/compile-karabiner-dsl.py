@@ -4,6 +4,7 @@
 #
 # Triggers:
 #   key combo: [modifier-]...<key>[?]  e.g. cmd-s, c-s-a, caps_lock?
+#   simultaneous: <key>+<key>[+<key>...][?] e.g. s+d, a+s+d?
 #   sequence:  <combo>><combo>...      e.g. cmd-s>g  (trie-based, timeout via --timeout-ms)
 #
 # Modifiers: c (left_control), s (left_shift), a (left_option), cmd (left_command)
@@ -102,6 +103,24 @@ def parse_from(token: str, ln: int) -> Dict[str, Any]:
     optional_any = token.endswith("?")
     if optional_any:
         token = token[:-1]
+
+    if "+" in token:
+        keys = token.split("+")
+        if len(keys) < 2 or any(not key for key in keys):
+            raise DslError(f"Line {ln}: invalid simultaneous trigger '{token}'")
+
+        obj: Dict[str, Any] = {"simultaneous": []}
+        for key in keys:
+            if "-" in key:
+                raise DslError(
+                    f"Line {ln}: simultaneous trigger parts must be plain key codes in '{token}'"
+                )
+            obj["simultaneous"].append({"key_code": key})
+
+        if optional_any:
+            obj["modifiers"] = {"optional": ["any"]}
+        return obj
+
     key, mods = parse_key_combo(token, ln)
     obj: Dict[str, Any] = {"key_code": key}
     modifiers: Dict[str, Any] = {}

@@ -97,6 +97,7 @@ Line-based. Significant indentation: 2 spaces per level.
 
 ## Trigger syntax
   <key>              plain key_code
+  <key>+<key>        simultaneous plain key_codes
   <mod>-<mod>-<key>  one or more modifiers + key (mandatory)
   <trigger>?         with optional: ["any"]
 
@@ -111,6 +112,9 @@ Line-based. Significant indentation: 2 spaces per level.
 ## Sequences (trie / leader key)
   Trigger tokens joined with >:
     map cmd-s>g to open: com.sublimemerge
+
+  Sequence tokens may be simultaneous triggers:
+    map s+d>g to open: com.sublimemerge
 
   Intermediate nodes set a trie state variable; leaf nodes clear it.
   Timeout controlled by --timeout-ms flag (default: 800ms).

@@ -75,11 +75,22 @@ Pause to ask for confirmation when (not limited to):
 
 - Do not run build/lint/test scripts unless I explicitly ask. Dont tell me you didnt run them.
 
-## Skills / MCP
+## Browser automation / fetching data from websites
 
-- Use Playwright cli if it helps. Use the installed skill.
-- Use Supabase MCP when appropirate for database interactions.
-- Use Expo MCP when working with apps.
+When using browser automation for testing or data collection you have multiple tools at your disposal:
+- Playwright skill (uses playwright cli)
+- Chrome DevTools skill (uses chrome-devtools-cli). Can be used headless and non-headless.
+- scrape-protected-sites skill
+
+Try playwright and chrome devtools skills first. If they dont work - try scrape-protected-sites skill.
+
+## Supabase MCP
+
+Use Supabase MCP when appropirate for database interactions.
+
+## Expo MCP
+
+Use Expo MCP when working with apps.
 
 ### Figma MCP 
 

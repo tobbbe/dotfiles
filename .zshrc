@@ -28,6 +28,21 @@ bindkey "^[[F" end-of-line          # End
 bindkey "^[h" backward-word         # Alt+H
 bindkey "^[l" forward-word          # Alt+L
 
+# Directory stack navigation for Alt+J/K. Changes directory inside the shell, so no echoed command/flicker.
+function dir-stack-up-widget() {
+  builtin pushd .. >/dev/null 2>&1 || return
+  zle reset-prompt
+}
+zle -N dir-stack-up-widget
+bindkey "^[j" dir-stack-up-widget
+
+function dir-stack-down-widget() {
+  builtin popd >/dev/null 2>&1 || return
+  zle reset-prompt
+}
+zle -N dir-stack-down-widget
+bindkey "^[k" dir-stack-down-widget
+
 # Enable Vi key bindings
 # bindkey -v
 

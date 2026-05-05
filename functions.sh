@@ -269,7 +269,7 @@ f() {
   local query="${*:-}"
   local dir
 
-  if [[ -n $query ]] && (($ + functions[zshz])); then
+  if [[ -n $query ]] && (( ${+functions[zshz]} )); then
     dir="$(zshz -e -- "$@" 2>/dev/null)"
     if [[ -n $dir && -d $dir ]]; then
       cd "$dir"

@@ -159,6 +159,11 @@ title = ".*"
 bundle_id = "com.apple.iphonesimulator"
 floating = true
 
+[windows.digitalcolormeter]
+title = ".*"
+bundle_id = "com.apple.DigitalColorMeter"
+floating = true
+
 [windows.kitty]
 title = ".*"
 bundle_id = "net.kovidgoyal.kitty"

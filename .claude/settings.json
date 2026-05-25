@@ -14,7 +14,7 @@
       "Bash",
       "mcp__*"
     ],
-    "defaultMode": "auto"
+    "defaultMode": "acceptEdits"
   },
   "tui": "fullscreen",
   "theme": "custom:poppy",

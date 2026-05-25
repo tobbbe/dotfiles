@@ -13,8 +13,9 @@
     "diffAddedWord": "#22c55e",
     "diffRemovedWord": "#ef4444",
 
-"autoAccept": "ansi256(220)",
+    "autoAccept": "ansi256(220)",
     "inactive": "ansi256(242)",
+    "subtle": "ansi256(245)",
 
     "userMessageBackground": "ansi256(237)",
     "userMessageBackgroundHover": "ansi256(239)"

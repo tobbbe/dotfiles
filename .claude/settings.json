@@ -3,17 +3,21 @@
   "respectGitignore": false,
   "permissions": {
     "allow": [
-      "Read(*)",
-      "Glob(*)",
-      "Grep(*)",
+      "Read",
+      "Edit",
+      "Write",
+      "MultiEdit",
+      "Glob",
+      "Grep",
       "WebFetch",
       "WebSearch",
-      "Bash(*)",
+      "Bash",
       "mcp__*"
     ],
     "defaultMode": "auto"
   },
   "tui": "fullscreen",
+  "theme": "custom:poppy",
   "hooks": {
     "SessionStart": [
       {

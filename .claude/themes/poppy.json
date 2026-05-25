@@ -2,6 +2,10 @@
   "name": "Poppy",
   "base": "dark-ansi",
   "overrides": {
+    "claude": "#FF6200",
+    "claudeShimmer": "#FFAA00",
+    "briefLabelClaude": "#FF6200",
+
     "diffAdded": "#14532d",
     "diffRemoved": "#7f1d1d",
     "diffAddedDimmed": "#0d3320",

@@ -81,6 +81,7 @@ When using browser automation for testing or data collection you have multiple t
 - Playwright skill (uses playwright cli)
 - Chrome DevTools skill (uses chrome-devtools-cli). Can be used headless and non-headless.
 - scrape-protected-sites skill
+- Claude for Chrome: operates in the user's real Chrome browser with their login state. Ideal for authenticated sites and visual testing. Requires the Claude in Chrome extension to be installed. To use it, YOU MUST ask the user to run `/chrome` in the current session to enable it.
 
 Try playwright and chrome devtools skills first. If they dont work - try scrape-protected-sites skill.
 

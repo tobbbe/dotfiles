@@ -25,28 +25,6 @@
           }
         ]
       }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$HOME\"/.claude/hooks/notify-session.sh"
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/dev/dotfiles/scripts/agent-notifications.sh \"Claude Code\" \"Needs your attention\""
-          }
-        ]
-      }
     ]
   }
 }

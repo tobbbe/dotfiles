@@ -990,6 +990,34 @@ aa() {
   pn off
 }
 
+# Find every .claude/settings.local.json in ~, ~/dev, and each ~/dev/<project>/
+claudeLocalSettings() {
+  local -a candidates
+  candidates=(
+    "$HOME/.claude/settings.local.json"
+    "$HOME/dev/.claude/settings.local.json"
+  )
+
+  local project
+  for project in "$HOME"/dev/*/; do
+    candidates+=("${project}.claude/settings.local.json")
+  done
+
+  local found=0
+  local path
+  for path in "${candidates[@]}"; do
+    if [ -f "$path" ]; then
+      echo "$path"
+      ((found++))
+    fi
+  done
+
+  if [ "$found" -eq 0 ]; then
+    printYellow "No .claude/settings.local.json files found.\n"
+    return 1
+  fi
+}
+
 pn() {
   local action="${1:-toggle}"
 

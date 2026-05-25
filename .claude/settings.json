@@ -1,5 +1,7 @@
 {
+  "model": "opus",
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
   "respectGitignore": false,
   "permissions": {
     "allow": [

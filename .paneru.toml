@@ -70,7 +70,7 @@ horizontal_mouse_warp = -1
 #
 
 [decorations.active.border]
-enabled = true
+enabled = false
 color = "#00BFFF"
 
 [bindings]
@@ -157,6 +157,11 @@ grid = "6:6:1:1:4:4"
 [windows.simulator]
 title = ".*"
 bundle_id = "com.apple.iphonesimulator"
+floating = true
+
+[windows.finder]
+title = ".*"
+bundle_id = "com.apple.finder"
 floating = true
 
 [windows.digitalcolormeter]

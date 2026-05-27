@@ -67,6 +67,11 @@
                     "key_code": "right_control"
                   }
                 ],
+                "to_if_alone": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
+                  }
+                ],
                 "type": "basic"
               }
             ],
@@ -165,24 +170,6 @@
                 "to": [
                   {
                     "shell_command": "/opt/homebrew/bin/paneru send-cmd window focus east"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "s"
-                    },
-                    {
-                      "key_code": "d"
-                    }
-                  ]
-                },
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
                   }
                 ],
                 "type": "basic"

@@ -55,32 +55,6 @@
             "manipulators": [
               {
                 "from": {
-                  "key_code": "left_control",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_control"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
-                  }
-                ],
-                "type": "basic"
-              }
-            ],
-            "title": "Left to right control"
-          },
-          {
-            "manipulators": [
-              {
-                "from": {
                   "key_code": "1",
                   "modifiers": {
                     "mandatory": [
@@ -297,11 +271,59 @@
                   }
                 ],
                 "from": {
-                  "key_code": "w"
+                  "key_code": "c"
                 },
                 "to": [
                   {
                     "shell_command": "/bin/zsh -lc 'sh /Users/tobbe/dev/dotfiles/scripts/toggle-paneru-auto-center.sh'"
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_2"
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "expression": "0",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "expression": "system.now.milliseconds + 800",
+                      "name": "dsl_state_1"
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "expression": "dsl_state_1 > system.now.milliseconds",
+                    "type": "expression_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "w"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/paneru send-cmd window center"
                   },
                   {
                     "set_variable": {

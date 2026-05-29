@@ -1045,3 +1045,7 @@ pn() {
   touch "$HOME/.ntfy_enabled"
   printYellow "Push notifications: on (topic: $(cat $HOME/.ntfy_topic))\n"
 }
+
+img() {
+  kitten icat "$@"
+}

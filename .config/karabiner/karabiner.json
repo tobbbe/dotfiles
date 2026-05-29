@@ -3690,6 +3690,9 @@
                     "modifiers": [
                       "left_command"
                     ]
+                  },
+                  {
+                    "key_code": "s"
                   }
                 ],
                 "type": "basic"

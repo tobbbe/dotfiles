@@ -1,3 +1,0 @@
-cd ~/dev/
-
-launch --env KITTY_SESSION_NAME=scratch

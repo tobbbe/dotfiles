@@ -40,7 +40,7 @@ animation_speed = 3000
 
 # Automatically center the focused window when switching focus with keyboard,
 # i.e. 'window_focus_west' or 'window_focus_east'.
-auto_center = false
+auto_center = true
 
 horizontal_mouse_warp = -1
 

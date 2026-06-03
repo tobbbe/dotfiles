@@ -1,13 +1,20 @@
 from kitty.fast_data_types import get_boss, wcswidth
 from kitty.tab_bar import as_rgb, draw_title
 
+# Minimal flat tab bar to mirror the tmux status line:
+#   - session name on the far left, in green
+#   - inactive windows as plain text, separated by a single space
+#   - active window drawn as a "reverse" box (colors come from active_tab_* in kitty.conf)
+#   - the N/M split indicator kept, right-aligned
+#
+# The old rounded/centered renderer is preserved in tab_bar.rounded.py.bak.
 
-LEFT_ROUND = ""
-RIGHT_ROUND = ""
 ELLIPSIS = "…"
 INDICATOR_FG = as_rgb(0x7F7F7F)
+SESSION_FG = as_rgb(0xA6E3A1)  # green session label; tweak to taste
 
 VISIBLE_TABS = {}
+
 
 def _default_bg(draw_data):
     return as_rgb(int(draw_data.default_bg))
@@ -52,97 +59,64 @@ def _is_first_tab_in_session(tab, extra_data):
     )
 
 
-def _display_tab(tab, extra_data):
-    title = tab.session_name if _is_first_tab_in_session(tab, extra_data) else tab.title
-    return tab._replace(title=title)
-
-
-def _tab_width(tab, prev_tab, is_last):
-    title = tab.session_name if (tab.session_name and (prev_tab is None or prev_tab.session_name != tab.session_name)) else tab.title
-    return 1 + 1 + wcswidth(title) + 1 + (1 if is_last else 0)
-
-
-def _bar_layout(screen, tabs):
-    total_tabs_width = 0
-    prev_tab = None
-    for idx, current_tab in enumerate(tabs):
-        total_tabs_width += _tab_width(current_tab, prev_tab, idx == len(tabs) - 1)
-        prev_tab = current_tab
-
-    indicator = ""
-    for current_tab in tabs:
-        indicator = _active_window_indicator(current_tab)
-        if indicator:
-            break
-
-    indicator_width = wcswidth(indicator)
-    left_pad = max(0, (screen.columns - total_tabs_width) // 2)
-    right_gap = max(0, screen.columns - left_pad - total_tabs_width - indicator_width)
-    return left_pad, right_gap, indicator
-
-
-def _draw_left_boundary(draw_data, screen, tab, prev_bg, overlay):
-    tab_bg = _tab_bg(draw_data, tab)
-    if overlay:
-        screen.cursor.bg = prev_bg
-        screen.cursor.fg = tab_bg
-        screen.draw(LEFT_ROUND)
-    else:
-        screen.cursor.bg = tab_bg
-        screen.cursor.fg = prev_bg
-        screen.draw(RIGHT_ROUND)
-
-
 def draw_tab(draw_data, screen, tab, before, max_tab_length, index, is_last, extra_data):
     if extra_data.for_layout:
         if index == 1:
             VISIBLE_TABS[tab.os_window_id] = []
         VISIBLE_TABS[tab.os_window_id].append(tab)
 
-    if extra_data.for_layout:
-        left_pad, right_gap, indicator = 0, 0, ""
-    else:
-        visible_tabs = VISIBLE_TABS.get(tab.os_window_id, [tab])
-        left_pad, right_gap, indicator = _bar_layout(screen, visible_tabs)
+    default_bg = _default_bg(draw_data)
 
-    display_tab = _display_tab(tab, extra_data)
+    # With a single tab, show only the session name and hide the lone window tab.
+    # (tab_bar_min_tabs would hide the whole bar, session name included — we don't
+    # want that.) index == 1 and is_last means there is exactly one tab on the bar.
+    show_session = _is_first_tab_in_session(tab, extra_data)
+    hide_tab = (index == 1 and is_last) and show_session
 
-    if index == 1 and left_pad > 0:
-        screen.cursor.bg = _default_bg(draw_data)
-        screen.draw(" " * left_pad)
+    # single-space separator before every tab except the very first on the bar
+    if extra_data.prev_tab is not None:
+        screen.cursor.bg = default_bg
+        screen.cursor.fg = _tab_fg(draw_data, tab)
+        screen.draw(" ")
 
-    if extra_data.prev_tab is None:
-        prev_bg = _default_bg(draw_data)
-        overlay = True
-    elif tab.is_active:
-        prev_bg = _tab_bg(draw_data, extra_data.prev_tab)
-        overlay = True
-    else:
-        prev_bg = _tab_bg(draw_data, extra_data.prev_tab)
-        overlay = False
+    # green session label at the start of each session group (like tmux status-left)
+    if show_session:
+        screen.cursor.bg = default_bg
+        screen.cursor.fg = SESSION_FG
+        screen.draw(tab.session_name)
+        if not hide_tab:
+            screen.draw(" ")
 
-    _draw_left_boundary(draw_data, screen, tab, prev_bg, overlay)
+    if not hide_tab:
+        if tab.is_active:
+            # reverse box: " title " padded; colors come from active_tab_* in kitty.conf
+            tab_bg = _tab_bg(draw_data, tab)
+            tab_fg = _tab_fg(draw_data, tab)
+            screen.cursor.bg = tab_bg
+            screen.cursor.fg = tab_fg
+            screen.draw(" ")
+            _draw_clipped_title(draw_data, screen, tab, index, max(1, max_tab_length - 2))
+            screen.draw(" ")
+        else:
+            # plain inactive window name
+            screen.cursor.bg = default_bg
+            screen.cursor.fg = _tab_fg(draw_data, tab)
+            _draw_clipped_title(draw_data, screen, tab, index, max_tab_length)
 
-    tab_bg = _tab_bg(draw_data, tab)
-    tab_fg = _tab_fg(draw_data, tab)
-    screen.cursor.bg = tab_bg
-    screen.cursor.fg = tab_fg
-    screen.draw(" ")
-
-    fixed_width = 1 + 2 + (1 if is_last else 0)
-    title_width = max_tab_length - fixed_width
-    _draw_clipped_title(draw_data, screen, display_tab, index, title_width)
-
-    screen.draw(" ")
+    # right-aligned N/M split indicator after the last tab
     if is_last:
-        screen.cursor.fg = tab_bg
-        screen.cursor.bg = _default_bg(draw_data)
-        screen.draw(RIGHT_ROUND)
-        if right_gap > 0:
-            screen.cursor.bg = _default_bg(draw_data)
-            screen.draw(" " * right_gap)
+        visible_tabs = VISIBLE_TABS.get(tab.os_window_id, [tab])
+        indicator = ""
+        for current_tab in visible_tabs:
+            indicator = _active_window_indicator(current_tab)
+            if indicator:
+                break
         if indicator:
-            screen.cursor.bg = _default_bg(draw_data)
+            pad = screen.columns - screen.cursor.x - wcswidth(indicator)
+            screen.cursor.bg = default_bg
+            if pad > 0:
+                screen.cursor.fg = _tab_fg(draw_data, tab)
+                screen.draw(" " * pad)
             screen.cursor.fg = INDICATOR_FG
             screen.draw(indicator)
 

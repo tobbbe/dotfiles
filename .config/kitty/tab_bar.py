@@ -71,7 +71,9 @@ def draw_tab(draw_data, screen, tab, before, max_tab_length, index, is_last, ext
     # (tab_bar_min_tabs would hide the whole bar, session name included — we don't
     # want that.) index == 1 and is_last means there is exactly one tab on the bar.
     show_session = _is_first_tab_in_session(tab, extra_data)
-    hide_tab = (index == 1 and is_last) and show_session
+    # session label hidden for now, so always show the window tab (don't hide the lone one)
+    hide_tab = False
+    # hide_tab = (index == 1 and is_last) and show_session
 
     # single-space separator before every tab except the very first on the bar
     if extra_data.prev_tab is not None:
@@ -80,28 +82,21 @@ def draw_tab(draw_data, screen, tab, before, max_tab_length, index, is_last, ext
         screen.draw(" ")
 
     # green session label at the start of each session group (like tmux status-left)
-    if show_session:
-        screen.cursor.bg = default_bg
-        screen.cursor.fg = SESSION_FG
-        screen.draw(tab.session_name)
-        if not hide_tab:
-            screen.draw(" ")
+    # Hidden for now — uncomment this block (and restore hide_tab above) to bring it back.
+    # if show_session:
+    #     screen.cursor.bg = default_bg
+    #     screen.cursor.fg = SESSION_FG
+    #     screen.draw(tab.session_name)
+    #     if not hide_tab:
+    #         screen.draw(" ")
 
     if not hide_tab:
-        if tab.is_active:
-            # reverse box: " title " padded; colors come from active_tab_* in kitty.conf
-            tab_bg = _tab_bg(draw_data, tab)
-            tab_fg = _tab_fg(draw_data, tab)
-            screen.cursor.bg = tab_bg
-            screen.cursor.fg = tab_fg
-            screen.draw(" ")
-            _draw_clipped_title(draw_data, screen, tab, index, max(1, max_tab_length - 2))
-            screen.draw(" ")
-        else:
-            # plain inactive window name
-            screen.cursor.bg = default_bg
-            screen.cursor.fg = _tab_fg(draw_data, tab)
-            _draw_clipped_title(draw_data, screen, tab, index, max_tab_length)
+        # window name as plain colored text; active vs inactive color comes from
+        # active_tab_foreground / inactive_tab_foreground in kitty.conf. No box or
+        # padding on the active tab so the label doesn't shift when switching tabs.
+        screen.cursor.bg = default_bg
+        screen.cursor.fg = _tab_fg(draw_data, tab)
+        _draw_clipped_title(draw_data, screen, tab, index, max_tab_length)
 
     # right-aligned N/M split indicator after the last tab
     if is_last:

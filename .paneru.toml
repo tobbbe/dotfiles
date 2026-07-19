@@ -11,7 +11,7 @@ mouse_follows_focus = false
 
 # Array of widths used by the `window_resize` action to cycle between.
 # Defaults to 25%, 33%, 50%, 66% and 75%.
-preset_column_widths = [ 0.25, 0.30, 0.40, 0.50, 0.66, 0.75 ]
+preset_column_widths = [ 0.25, 0.30, 0.40, 0.50, 0.66, 0.75, 1.0 ]
 
 # How many fingers to use for moving windows left and right.
 # Make sure that it doesn't clash with OS setting for workspace switching.

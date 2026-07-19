@@ -29,6 +29,8 @@ alias caliases="cat ~/dev/dotfiles/aliases.sh --paging=never"
 alias cfns="cat ~/dev/dotfiles/functions.sh --paging=never"
 alias ncu="npx npm-check-updates"
 alias ls="ls --color -1"
+alias ca="claude agents"
+
 function _p() {
   if [ $# -eq 0 ]; then
     pi
